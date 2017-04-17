@@ -1,0 +1,18 @@
+{
+  "name": "wpdtrt_plugin_boilerplate",
+  "authors": [
+    "Dan Smith <dev@dotherightthing.co.nz>"
+  ],
+  "description": "A plugin boilerplate",
+  "main": "",
+  "license": "All Rights Reserved",
+  "homepage": "http://dotherightthing.co.nz",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "devDependencies": {
+    "WordPress-Admin-Style": "https://github.com/bueltge/WordPress-Admin-Style.git#^1.4.1"
+  }
+}
