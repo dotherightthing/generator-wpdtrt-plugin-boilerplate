@@ -22,17 +22,18 @@ License: GPL2
 
 /**
  * Assign global variables
+ * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  */
 
-  $plugin_url = WP_PLUGIN_URL . '/wpdtrt-plugin-boilerplate';
+  $wpdtrt_plugin_boilerplate_url = WP_PLUGIN_URL . '/wpdtrt-plugin-boilerplate';
 
 /**
  * Store all of our plugin options in an array
  * So that we only use have to consume one row in the WP Options table
  * WordPress automatically serializes this (into a string)
- * because mySql does not support arrays as a data type
+ * because MySQL does not support arrays as a data type
  */
-  $options = array();
+  $wpdtrt_plugin_boilerplate_options = array();
 
 /**
  * Include plugin logic

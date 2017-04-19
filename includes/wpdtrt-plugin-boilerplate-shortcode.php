@@ -49,8 +49,8 @@ if ( !function_exists( 'wpdtrt_badges_shortcode' ) ) {
 
     $display_tooltips = $tooltip;
 
-    $options = get_option('wpdtrt_plugin_boilerplate');
-    $wpdtrt_data = $options['wpdtrt_data'];
+    $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
+    $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
 
     /**
      * ob_start — Turn on output buffering

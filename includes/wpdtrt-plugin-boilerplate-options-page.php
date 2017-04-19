@@ -48,8 +48,8 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
     /**
      * Make this global available within the required statement
      */
-    global $plugin_url;
-    global $options;
+    global $wpdtrt_plugin_boilerplate_url;
+    global $wpdtrt_plugin_boilerplate_options;
 
     if ( isset( $_POST['wpdtrt_form_submitted'] ) ) {
       $hidden_field = esc_html( $_POST['wpdtrt_form_submitted'] );
@@ -58,9 +58,9 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
         $wpdtrt_username = esc_html( $_POST['wpdtrt_username'] );
         $wpdtrt_data = wpdtrt_plugin_boilerplate_data_get( $wpdtrt_username );
 
-        $options['wpdtrt_username'] = $wpdtrt_username;
-        $options['last_updated'] = time(); // UNIX timestamp for the current time
-        $options['wpdtrt_data'] = $wpdtrt_data;
+        $wpdtrt_plugin_boilerplate_options['wpdtrt_username'] = $wpdtrt_username;
+        $wpdtrt_plugin_boilerplate_options['last_updated'] = time(); // UNIX timestamp for the current time
+        $wpdtrt_plugin_boilerplate_options['wpdtrt_data'] = $wpdtrt_data;
 
         /**
          * Update the plugin data stored in the WP Options table
@@ -72,7 +72,7 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
          * @example update_option( string $option, mixed $value, string|bool $autoload = null )
          * @link https://codex.wordpress.org/Function_Reference/update_option
          */
-        update_option( 'wpdtrt_plugin_boilerplate', $options, null );
+        update_option( 'wpdtrt_plugin_boilerplate', $wpdtrt_plugin_boilerplate_options, null );
       }
     }
 
@@ -81,11 +81,11 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
      * Retrieves an option value based on an option name.
      * @example get_option( string $option, mixed $default = false )
      */
-    $options = get_option( 'wpdtrt_plugin_boilerplate' );
+    $wpdtrt_plugin_boilerplate_options = get_option( 'wpdtrt_plugin_boilerplate' );
 
-    if ( $options !== '' ) {
-      $wpdtrt_username = $options['wpdtrt_username'];
-      $wpdtrt_data = $options['wpdtrt_data'];
+    if ( $wpdtrt_plugin_boilerplate_options !== '' ) {
+      $wpdtrt_username = $wpdtrt_plugin_boilerplate_options['wpdtrt_username'];
+      $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
     }
 
     /**

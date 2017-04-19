@@ -65,8 +65,8 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_data_refresh' ) ) {
 
   function wpdtrt_plugin_boilerplate_data_refresh() {
 
-    $options = get_option('wpdtrt_plugin_boilerplate');
-    $last_updated = $options['last_updated'];
+    $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
+    $last_updated = $wpdtrt_plugin_boilerplate_options['last_updated'];
 
     $current_time = time();
     $update_difference = $current_time - $last_updated;
@@ -74,15 +74,15 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_data_refresh' ) ) {
 
     if ( $update_difference > $one_day ) {
 
-      $wpdtrt_username = $options['wpdtrt_username'];
+      $wpdtrt_username = $wpdtrt_plugin_boilerplate_options['wpdtrt_username'];
 
-      $options['wpdtrt_data'] = wpdtrt_plugin_boilerplate_data_get( $wpdtrt_username );
+      $wpdtrt_plugin_boilerplate_options['wpdtrt_data'] = wpdtrt_plugin_boilerplate_data_get( $wpdtrt_username );
 
       // inspecting the database will allow us to check
       // whether the profile is being updated
-      $options['last_updated'] = time();
+      $wpdtrt_plugin_boilerplate_options['last_updated'] = time();
 
-      update_option('wpdtrt_plugin_boilerplate', $options);
+      update_option('wpdtrt_plugin_boilerplate', $wpdtrt_plugin_boilerplate_options);
     }
 
     /**

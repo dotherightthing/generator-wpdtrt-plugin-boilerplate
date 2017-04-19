@@ -54,8 +54,8 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
       $num_badges = $instance['num_badges'];
       $display_tooltips = $instance['display_tooltips'];
 
-      $options = get_option('wpdtrt_plugin_boilerplate');
-      $wpdtrt_data = $options['wpdtrt_data'];
+      $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
+      $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
 
     /**
      * Load the HTML template
@@ -105,8 +105,8 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
       $num_badges = esc_attr( $instance['num_badges'] );
       $display_tooltips = esc_attr( $instance['display_tooltips'] );
 
-      $options = get_option('wpdtrt_plugin_boilerplate');
-      $wpdtrt_data = $options['wpdtrt_data'];
+      $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
+      $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
 
     /**
      * Load the HTML template
