@@ -1,15 +1,4 @@
 <?php
-/**
- * Plugin logic
- *
- * This file contains the plugin functionality
- *
- * @link       http://www.dotherightthing.co.nz/
- * @version    1.0.0
- *
- * @package    DTRT_Plugin_Boilerplate
- */
-
 /*
 Plugin Name: DTRT Plugin Boilerplate
 Plugin URI: http://www.dotherightthing.co.nz/
