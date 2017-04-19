@@ -1,8 +1,14 @@
-
-/*
- *  Backend Styles
+/**
+ * Styles for the WP Admin plugin options page
  *
-*/
+ * This file contains CSS.
+ *
+ * @link       http://www.dotherightthing.co.nz/
+ * @since      1.0.0
+ *
+ * @package    DTRT_Plugin_Boilerplate
+ * @subpackage DTRT_Plugin_Boilerplate/admin/css
+ */
 
 .postbox img.gravatar {
   max-width: 100%;

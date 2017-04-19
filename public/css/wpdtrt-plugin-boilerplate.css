@@ -1,7 +1,14 @@
-/*
- *	Frontend Styles
+/**
+ * Styles for the public front-end
  *
-*/
+ * This file contains CSS.
+ *
+ * @link       http://www.dotherightthing.co.nz/
+ * @since      1.0.0
+ *
+ * @package    DTRT_Plugin_Boilerplate
+ * @subpackage DTRT_Plugin_Boilerplate/public/css
+ */
 
 .wpdtrt-badges.frontend a,
 .widget-area .widget .wpdtrt-badges.frontend a {
