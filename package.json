@@ -1,0 +1,19 @@
+{
+  "name": "wpdtrt-plugin-boilerplate",
+  "version": "1.0.0",
+  "description": "A best-practice boilerplate for plugin development",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp-phplint": "^0.3.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dotherightthing@bitbucket.org/dotherightthing/wpdtrt-plugin-boilerplate.git"
+  },
+  "author": "Dan Smith",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/dotherightthing/wpdtrt-plugin-boilerplate#readme"
+}
