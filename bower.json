@@ -1,9 +1,9 @@
 {
-  "name": "wpdtrt_plugin_boilerplate",
+  "name": "DTRT_Plugin_Boilerplate",
   "authors": [
     "Dan Smith <dev@dotherightthing.co.nz>"
   ],
-  "description": "A plugin boilerplate",
+  "description": "A best-practice boilerplate for plugin development",
   "main": "",
   "license": "All Rights Reserved",
   "homepage": "http://dotherightthing.co.nz",
