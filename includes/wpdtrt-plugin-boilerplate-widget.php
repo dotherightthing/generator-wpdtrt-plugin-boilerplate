@@ -61,7 +61,7 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require_once('public/partials/wpdtrt-plugin-boilerplate-front-end.php');
+      require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'public/partials/wpdtrt-plugin-boilerplate-front-end.php');
     }
 
     /**
@@ -112,7 +112,7 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require_once('admin/partials/wpdtrt-plugin-boilerplate-widget.php');
+      require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'admin/partials/wpdtrt-plugin-boilerplate-widget.php');
     }
   }
 

@@ -48,7 +48,6 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
     /**
      * Make this global available within the required statement
      */
-    global $wpdtrt_plugin_boilerplate_url;
     global $wpdtrt_plugin_boilerplate_options;
 
     if ( isset( $_POST['wpdtrt_form_submitted'] ) ) {
@@ -100,7 +99,7 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-    require_once( 'admin/partials/wpdtrt-plugin-boilerplate-options-page.php' );
+    require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'admin/partials/wpdtrt-plugin-boilerplate-options-page.php');
   }
 
 }

@@ -21,11 +21,45 @@ License: GPL2
 */
 
 /**
- * Assign global variables
- * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
+ * Constants
+ * WordPress makes use of the following constants when determining the path to the content and plugin directories.
+ * These should not be used directly by plugins or themes, but are listed here for completeness.
+ * WP_CONTENT_DIR  // no trailing slash, full paths only
+ * WP_CONTENT_URL  // full url
+ * WP_PLUGIN_DIR  // full path, no trailing slash
+ * WP_PLUGIN_URL  // full url, no trailing slash
+ *
+ * WordPress provides several functions for easily determining where a given file or directory lives.
+ * Always use these functions in your plugins instead of hard-coding references to the wp-content directory
+ * or using the WordPress internal constants.
+ * plugins_url()
+ * plugin_dir_url()
+ * plugin_dir_path()
+ * plugin_basename()
+ *
+ * @link https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Constants
+ * @link https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Plugins
  */
 
-  $wpdtrt_plugin_boilerplate_url = WP_PLUGIN_URL . '/wpdtrt-plugin-boilerplate';
+/**
+ * plugin_dir_path( string $file )
+ * Get the filesystem directory path (with trailing slash) for the plugin __FILE__ passed in.
+ * @link https://developer.wordpress.org/reference/functions/plugin_dir_path/
+ * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
+ */
+if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_PATH' ) ) {
+  define( 'WPDTRT_PLUGIN_BOILERPLATE_PATH', plugin_dir_path( __FILE__ ) );
+}
+
+/**
+ * plugin_dir_url( string $file )
+ * Gets the URL (with trailing slash) for the plugin __FILE__ passed in
+ * @link https://codex.wordpress.org/Function_Reference/plugin_dir_url
+ * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
+ */
+if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_URL' ) ) {
+  define( 'WPDTRT_PLUGIN_BOILERPLATE_URL', plugin_dir_url( __FILE__ ) );
+}
 
 /**
  * Store all of our plugin options in an array

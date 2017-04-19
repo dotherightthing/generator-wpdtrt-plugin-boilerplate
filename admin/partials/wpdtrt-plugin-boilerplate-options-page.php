@@ -93,7 +93,7 @@
               <ul class="wpdtrt-badges">
 
                 <?php
-                  $total_badges = count( $wptreehouse_data->{'badges'} );
+                  $total_badges = count( $wpdtrt_data->{'badges'} );
 
                   for( $i = $total_badges - 1; $i >= $total_badges - 20; $i-- ):
                 ?>
@@ -101,7 +101,7 @@
                 <li>
                   <ul>
                     <li>
-                      <img width="120px" src="<?php echo $wpdtrt_plugin_boilerplate_url . '/images/wp-badge.png'; ?>">
+                      <img width="120px" src="<?php echo WPDTRT_PLUGIN_BOILERPLATE_URL . 'images/wp-badge.png'; ?>">
                     </li>
                     <li class="wpdtrt-badge-name">
                       <a href="#">Badge Name</a>
@@ -186,7 +186,7 @@
             <h2 class="hndle"><span><?php esc_attr_e( $wpdtrt_username . '\'s Profile', 'wp_admin_style'); ?></span></h2>
 
             <div class="inside">
-              <p><img width="100%" class="wpdtrt-gravatar" src="<?php echo $wpdtrt_plugin_boilerplate_url . '/images/mike-the-frog.png'; ?>" alt="Mike the Frog Gravatar"></p>
+              <p><img width="100%" class="wpdtrt-gravatar" src="<?php echo WPDTRT_PLUGIN_BOILERPLATE_URL . 'images/mike-the-frog.png'; ?>" alt="Mike the Frog Gravatar"></p>
 
               <ul class="wpdtrt-badges-and-points">
                 <li>Badges: <strong>200</strong></li>
