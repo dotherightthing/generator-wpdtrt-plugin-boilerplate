@@ -249,7 +249,7 @@ module.exports = class extends Generator {
                 pluginLicense:          this.props.pluginLicense,
                 pluginUrl:              this.props.pluginUrl,
                 description:            this.props.pluginDescription,
-                constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
             }
         );
 
@@ -266,7 +266,7 @@ module.exports = class extends Generator {
                 name:                   this.props.pluginName,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 nameSafe:               this.props.pluginNameSafe,
-                constantStub:           this.props.pluginNameFriendly.toUpperCase(),
+                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase(),
                 pluginUrl:              this.props.pluginUrl
             }
         );
@@ -287,7 +287,7 @@ module.exports = class extends Generator {
                 nameSafe:               this.props.pluginNameSafe,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 pluginUrl:              this.props.pluginUrl,
-                constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
             }
         );
 
@@ -301,7 +301,7 @@ module.exports = class extends Generator {
                 nameAdminMenu:          this.props.pluginNameAdminMenu,
                 pluginUrl:              this.props.pluginUrl,
                 pluginUrlAdminMenu:     this.props.pluginUrlAdminMenu,
-                constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
             }
         );
 
@@ -312,7 +312,7 @@ module.exports = class extends Generator {
                 nameSafe:               this.props.pluginNameSafe,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 pluginUrl:              this.props.pluginUrl,
-                constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
             }
         );
 
@@ -324,7 +324,7 @@ module.exports = class extends Generator {
                 nameFriendly:           this.props.pluginNameFriendly,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 pluginUrl:              this.props.pluginUrl,
-                constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
             }
         );
 
@@ -426,7 +426,7 @@ module.exports = class extends Generator {
                 nameSafe:               this.props.pluginNameSafe,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 pluginUrl:              this.props.pluginUrl,
-                constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
             }
         );
 
