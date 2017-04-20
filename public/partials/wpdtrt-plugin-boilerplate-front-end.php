@@ -54,7 +54,7 @@
         <?php endif; ?>
 
         <a href="http://teamtreehouse.com" alt="Team Treehouse | A Better Way to Learn Technology" class="wpdtrt-logo">
-          <img src="<?php echo plugins_url( 'wpdtrt-plugin-boilerplate/images/treehouse-logo.png' ); ?>" alt="Treehouse" />
+          <img src="<?php echo WPDTRT_PLUGIN_BOILERPLATE_URL . 'public/images/treehouse-logo.png'; ?>" alt="Treehouse" />
         </a>
 
         <span class="wpdtrt-tooltip bottom"></span>
