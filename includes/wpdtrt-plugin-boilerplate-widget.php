@@ -40,6 +40,7 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
        * extract
        * 1. predeclare the variables
        * 2. only overwrite the predeclared variables
+       * Removing this causes the widget title to lose its HTML formatting
        * @link http://kb.network.dan/php/wordpress/extract/
        */
       $before_widget = $before_title = $title = $after_title = $after_widget = null;

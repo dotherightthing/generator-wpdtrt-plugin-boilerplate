@@ -13,7 +13,7 @@
 ?>
 
 <?php
-
+  // output widget customisations (not output with shortcode)
   echo $before_widget;
   echo $before_title . $title . $after_title;
 ?>
@@ -71,5 +71,6 @@
 
 
 <?php
+  // output widget customisations (not output with shortcode)
   echo $after_widget;
 ?>
