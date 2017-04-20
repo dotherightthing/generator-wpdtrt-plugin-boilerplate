@@ -65,17 +65,17 @@ if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_URL' ) ) {
  */
 
   // API data
-  require_once('includes/wpdtrt-plugin-boilerplate-data.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-data.php');
 
   // Views
-  require_once('includes/wpdtrt-plugin-boilerplate-options-page.php');
-  require_once('includes/wpdtrt-plugin-boilerplate-widget.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-options-page.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-widget.php');
 
   // Theming
-  require_once('includes/wpdtrt-plugin-boilerplate-css.php');
-  require_once('includes/wpdtrt-plugin-boilerplate-js.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-css.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-js.php');
 
   // Shortcode
-  require_once('includes/wpdtrt-plugin-boilerplate-shortcode.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-shortcode.php');
 
 ?>
