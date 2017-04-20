@@ -10,12 +10,27 @@ A best-practice boilerplate for plugin development.
 
 ## Installation
 
-### WordPress-style markup
+### Install [Yeoman](http://yeoman.io/)
 
 ```
-bower install
+sudo npm install -g yo
+```
 
+### Install project dependencies
+
+```
+npm install
+
+bower install
 mv bower_components/WordPress-Admin-Style ../WordPress-Admin-Style
+```
+
+### Run the generator
+
+```
+sudo npm link
+
+yo wp-plugin-generator
 ```
 
 ### Testing
