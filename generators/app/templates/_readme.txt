@@ -23,9 +23,47 @@ License URI: <%= pluginLicenseUrl %>
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= How do I use the widget? =
 
-An answer to that question.
+One or more widgets can be displayed within one or more sidebars:
+
+1. Locate the widget: Appearance > Widgets > *<%= nameFriendly %> Widget*
+2. Drag and drop the widget into one of your sidebars
+3. Add a *Title*
+4. Specify *How many of your most recent badges would you you like to display*
+5. Toggle *Display tooltips*
+
+= How do I use the shortcode? =
+
+One or more shortcodes can be used within the content editor:
+
+* *Title* - n/a
+* *How many of your most recent badges would you you like to display* - `num_badges`
+* *Display tooltips* - `tooltip`
+
+```
+[<%= nameSafe %>_badges num_badges="2" tooltip="on"]
+
+[<%= nameSafe %>_badges num_badges="4" tooltip="off"]
+```
+
+= How do I use the template tag? =
+
+One or more template tags can be used within your `.php` templates:
+
+* *Title* - n/a
+* *How many of your most recent badges would you you like to display* - `num_badges`
+* *Display tooltips* - `tooltip`
+
+```
+<?php
+    do_shortcode( '[<%= nameSafe %>_badges num_badges="2" tooltip="on"]' );
+?>
+
+<?php
+    do_shortcode( '[<%= nameSafe %>_badges num_badges="4" tooltip="off"]' );
+?>
+```
 
 == Screenshots ==
 

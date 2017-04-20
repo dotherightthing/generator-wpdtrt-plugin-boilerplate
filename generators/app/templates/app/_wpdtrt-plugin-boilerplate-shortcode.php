@@ -8,8 +8,8 @@
  * @link       https://generatewp.com/shortcodes/
  * @since      0.1.0
  *
- * @example    [dtrt_plugin_boilerplate arg1="value"]
- * @example    do_shortcode( '[ddtrt_plugin_boilerplate arg1="value"]' );
+ * @example    [<%= nameSafe %>_badges num_badges="4" tooltip="on"]
+ * @example    do_shortcode( '[<%= nameSafe %>_badges num_badges="4" tooltip="on"]' );
  *
  * @package    <%= nameFriendlySafe %>
  * @subpackage <%= nameFriendlySafe %>/includes
