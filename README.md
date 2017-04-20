@@ -4,27 +4,30 @@ A best-practice boilerplate for plugin development.
 
 ## Installation
 
-### A. Install [Yeoman](http://yeoman.io/)
+### A Create a folder for your plugin
 
-```
-sudo npm install -g yo
-```
+1. Clone this repository to the folder.
+1. Then launch Terminal from this folder.
 
-### B. Install [Composer](https://getcomposer.org/)
+### B. Install requirements
 
-<https://getcomposer.org/download/>
+1. Node & NPM: <https://nodejs.org/>
+1. Git: <https://git-scm.com/>
+1. [Bower](http://bower.io/): `$ npm install -g bower`
+1. Composer: <https://getcomposer.org/download/>
+1. [Yeoman](http://yeoman.io/): `$ sudo npm install -g yo`
 
-### C. Create a folder for the plugin
-
-Then launch Terminal from this folder.
-
-### D. Scaffold project and install dependencies
+### C. Scaffold project
 
 ```
 sudo npm link
 
 yo wp-plugin-boilerplate
 ```
+
+### D. Rename the folder as necessary
+
+And move into your WordPress plugins directory.
 
 --
 
