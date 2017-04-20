@@ -58,6 +58,12 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
       $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
       $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
 
+      /**
+       * Get the unique ID
+       * @link https://kylebenk.com/how-to-wordpress-widget-id/
+       */
+      // $instance_id = $this->id;
+
     /**
      * Load the HTML template
      * This function's variables will be available to this template.
