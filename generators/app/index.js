@@ -183,11 +183,6 @@ module.exports = class extends Generator {
             this.destinationPath('composer.lock')
         );
 
-        this.fs.copy(
-            this.templatePath('_composer.phar'),
-            this.destinationPath('composer.phar')
-        );
-
         // Gulp
 
         this.fs.copy(
