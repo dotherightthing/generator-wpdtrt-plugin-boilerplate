@@ -27,7 +27,7 @@ if ( !function_exists( 'wpdtrt_badges_shortcode' ) ) {
 
   function wpdtrt_badges_shortcode( $atts, $content = null ) {
 
-    // post object to get info about the post in qwhich the shortcode appears
+    // post object to get info about the post in which the shortcode appears
     global $post;
 
     extract( shortcode_atts(

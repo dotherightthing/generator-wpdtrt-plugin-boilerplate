@@ -22,7 +22,7 @@ add_action( 'wp_enqueue_scripts', 'wpdtrt_plugin_boilerplate_frontend_js' );
   function wpdtrt_plugin_boilerplate_frontend_js() {
 
     wp_enqueue_script( 'wpdtrt_plugin_boilerplate_frontend_js',
-      plugins_url( 'wpdtrt-plugin-boilerplate/public/js/wpdtrt-plugin-boilerplate.js' ),
+      WPDTRT_PLUGIN_BOILERPLATE_URL . 'public/js/wpdtrt-plugin-boilerplate.js',
       array( 'jquery' ),
       '', // string|bool|null, but TH tut says string only
       true
@@ -40,9 +40,9 @@ add_action( 'wp_enqueue_scripts', 'wpdtrt_plugin_boilerplate_frontend_js' );
      * @link https://codex.wordpress.org/Function_Reference/wp_localize_script
      */
     wp_localize_script( 'wpdtrt_plugin_boilerplate_frontend_js',
-      'ajax_object',
+      'wpdtrt_plugin_boilerplate_config',
       array(
-        'ajax_url' => admin_url( 'admin-ajax.php' ) // ajax_object.ajax_url
+        'ajax_url' => admin_url( 'admin-ajax.php' ) // wpdtrt_plugin_boilerplate_config.ajax_url
       )
     );
 
