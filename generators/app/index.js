@@ -9,7 +9,7 @@ module.exports = class extends Generator {
     prompting() {
 
         this.log(yosay(
-          'Welcome to the best ' + chalk.red('generator-yeoman-tmp') + ' generator!'
+          'Welcome to the ' + chalk.red('WordPress Plugin boilerplate') + ' generator!'
         ));
 
         const prompts = [
@@ -17,116 +17,115 @@ module.exports = class extends Generator {
                 type: 'input',
                 name: 'pluginName',
                 message: 'Plugin name (file safe)',
-                //Defaults to the project's folder name if the input is skipped
-                default: 'wpdtrt-plugin-boilerplate' // this.appname
+                default: this.config.get('pluginName')
             },
             {
                 type: 'input',
                 name: 'pluginNameSafe',
                 message: 'Plugin name (function safe)',
-                default: 'wpdtrt_plugin_boilerplate'
+                default: this.config.get('pluginNameSafe')
             },
             {
                 type: 'input',
                 name: 'pluginNameFriendly',
                 message: 'Plugin name (friendly)',
-                default: 'WP DTRT Plugin Boilerplate'
+                default: this.config.get('pluginNameFriendly')
             },
             {
                 type: 'input',
                 name: 'pluginNameFriendlySafe',
                 message: 'Plugin name (friendly & function safe)',
-                default: 'WpDTRT_Plugin_Boilerplate'
+                default: this.config.get('pluginNameFriendlySafe')
             },
             {
                 type: 'input',
                 name: 'pluginNameAdminMenu',
                 message: 'Plugin name (admin menu)',
-                default: 'Plugin Boilerplate'
+                default: this.config.get('pluginNameAdminMenu')
             },
             {
                 type: 'input',
                 name: 'pluginUrlAdminMenu',
                 message: 'Plugin URL (admin menu)',
-                default: 'boilerplate'
+                default: this.config.get('pluginUrlAdminMenu')
             },
             {
                 type: 'input',
                 name: 'pluginDescription',
                 message: 'Plugin description',
-                default: 'A best-practice boilerplate for plugin development'
+                default: this.config.get('pluginDescription')
             },
             {
                 type: 'input',
                 name: 'pluginTags',
                 message: 'Plugin tags',
-                default: 'boilerplate, best-practice'
+                default: this.config.get('pluginTags')
             },
             {
                 type: 'input',
                 name: 'pluginUrl',
                 message: 'Plugin URL',
-                default: 'http://dotherightthing.co.nz'
+                default: this.config.get('pluginUrl')
             },
             {
                 type: 'input',
                 name: 'pluginLicense',
                 message: 'Plugin License',
-                default: 'GPLv2 or later'
+                default: this.config.get('pluginLicense')
             },
             {
                 type: 'input',
                 name: 'pluginLicenseUrl',
                 message: 'Plugin License URL',
-                default: 'http://www.gnu.org/licenses/gpl-2.0.html'
+                default: this.config.get('pluginLicenseUrl')
             },
             {
                 type: 'input',
                 name: 'pluginDonateUrl',
                 message: 'Plugin Donate URL',
-                default: 'http://dotherightthing.co.nz'
+                default: this.config.get('pluginDonateUrl')
             },
             {
                 type: 'input',
                 name: 'wpVersion',
                 message: 'WordPress version',
-                default: '4.7.3'
+                default: this.config.get('wpVersion')
             },
             {
                 type: 'input',
                 name: 'authorName',
                 message: 'Your first and last names',
-                default: 'Dan Smith'
+                default: this.config.get('authorName')
             },
             {
                 type: 'input',
                 name: 'authorWordPressName',
                 message: 'Your WordPress.org username',
-                default: 'dotherightthingnz'
+                default: this.config.get('authorWordPressName')
             },
             {
                 type: 'input',
                 name: 'authorEmail',
                 message: 'Your email address',
-                default: 'dev@dotherightthing.co.nz'
+                default: this.config.get('authorEmail')
             },
             {
                 type: 'input',
                 name: 'authorUrl',
                 message: 'Author URL',
-                default: 'http://dotherightthing.co.nz'
+                default: this.config.get('authorUrl')
             },
             {
                 type: 'input',
                 name: 'pluginRepositoryType',
                 message: 'Version control system (git/svn)',
-                default: 'git'
+                default: this.config.get('pluginRepositoryType')
             },
             {
                 type: 'input',
                 name: 'pluginRepositoryUrl',
                 message: 'Repository Url',
-                default: 'git@bitbucket.org:dotherightthing/wpdtrt-plugin-boilerplate.git'
+                default: this.config.get('pluginRepositoryUrl')
             }
         ];
 

@@ -1,0 +1,23 @@
+{
+  "generator-wp-plugin-boilerplate": {
+    "pluginName":             "wpdtrt-plugin-boilerplate",
+    "pluginNameSafe":         "wpdtrt_plugin_boilerplate",
+    "pluginNameFriendly":     "WP DTRT Plugin Boilerplate",
+    "pluginNameFriendlySafe": "WpDTRT_Plugin_Boilerplate",
+    "pluginNameAdminMenu":    "Plugin Boilerplate",
+    "pluginUrlAdminMenu":     "boilerplate",
+    "pluginDescription":      "A best-practice boilerplate for plugin development",
+    "pluginTags":             "boilerplate, best-practice",
+    "pluginUrl":              "http://dotherightthing.co.nz",
+    "pluginLicense":          "GPLv2 or later",
+    "pluginLicenseUrl":       "http://www.gnu.org/licenses/gpl-2.0.html",
+    "pluginDonateUrl":        "http://dotherightthing.co.nz",
+    "wpVersion":              "4.7.3",
+    "authorName":             "Dan Smith",
+    "authorWordPressName":    "dotherightthingnz",
+    "authorEmail":            "dev@dotherightthing.co.nz",
+    "authorUrl":              "http://dotherightthing.co.nz",
+    "pluginRepositoryType":   "git",
+    "pluginRepositoryUrl":    "git@bitbucket.org:dotherightthing/wpdtrt-plugin-boilerplate.git"
+  }
+}
