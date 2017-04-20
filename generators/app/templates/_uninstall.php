@@ -1,6 +1,8 @@
 <?php
 /**
- * uninstall.php
+ * Plugin uninstaller
+ *
+ * This file contains PHP.
  * This magic file provides an alternative to register_uninstall_hook
  * and is automatically run when the users deletes the plugin.
  *
@@ -18,6 +20,9 @@
  *
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#file-organization
  * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
+ * @since      0.1.0
+ *
+ * @package    <%= nameFriendlySafe %>
  */
 
 // if uninstall.php is not called by WordPress, die
@@ -25,7 +30,7 @@ if ( ! defined('WP_UNINSTALL_PLUGIN') ) {
   die;
 }
 
-$option_name = 'wpdtrt_plugin_boilerplate';
+$option_name = "<%= name %>";
 
 delete_option($option_name);
 

@@ -3,11 +3,11 @@
  *
  * This file contains CSS.
  *
- * @link       http://www.dotherightthing.co.nz/
- * @since      1.0.0
+ * @link       <%= pluginUrl %>
+ * @since      0.1.0
  *
- * @package    DTRT_Plugin_Boilerplate
- * @subpackage DTRT_Plugin_Boilerplate/admin/css
+ * @package    <%= nameFriendlySafe %>
+ * @subpackage <%= nameFriendlySafe %>/admin/css
  */
 
 .postbox img.gravatar {
@@ -18,7 +18,7 @@
   display: table
 }
 
-.postbox .wpdtrt-badges > li {
+.postbox .<%= name %>-badges > li {
   float: left;
   margin: 5px;
   text-align: center;
@@ -27,24 +27,24 @@
   overflow: hidden;
 }
 
-.postbox .wpdtrt-badges li li {
+.postbox .<%= name %>-badges li li {
   margin: 2px 0;
   padding: 0;
 }
 
-.postbox .wpdtrt-badges img {
+.postbox .<%= name %>-badges img {
   float: left;
   width: 100%;
   margin-bottom: 5px;
 }
 
-.postbox .wpdtrt-project-name a {
+.postbox .<%= name %>-project-name a {
   font-size: .8em;
   text-decoration: none;
   line-height: .5em
 }
 
-.postbox .wpdtrt-badges-and-points li {
+.postbox .<%= name %>-badges-and-points li {
   padding: 5px 10px;
   background: #474747;
   color: #ddd;
@@ -53,10 +53,10 @@
   float: left;
 }
 
-.postbox .wpdtrt-badges-and-points li:first-child {
+.postbox .<%= name %>-badges-and-points li:first-child {
   margin-right: 5px
 }
 
-.postbox .wpdtrt-badges-and-points strong {
+.postbox .<%= name %>-badges-and-points strong {
   color: #92ae57;
 }

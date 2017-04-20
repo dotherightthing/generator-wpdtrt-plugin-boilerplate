@@ -4,11 +4,11 @@
  *
  * This file contains PHP.
  *
- * @link       http://www.dotherightthing.co.nz/
- * @since      1.0.0
+ * @link       <%= pluginUrl %>
+ * @since      0.1.0
  *
- * @package    DTRT_Plugin_Boilerplate
- * @subpackage DTRT_Plugin_Boilerplate/includes
+ * @package    <%= nameFriendlySafe %>
+ * @subpackage <%= nameFriendlySafe %>/includes
  */
 
 /**
@@ -18,13 +18,13 @@
  * @link https://developer.wordpress.org/reference/classes/wp_widget/
  * @link https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
  */
-if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
+if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
 
-  class WpDTRT_Plugin_Boilerplate_Widget extends WP_Widget {
+  class <%= nameFriendlySafe %>_Widget extends WP_Widget {
 
     function __construct() {
       // Instantiate the parent object
-      parent::__construct( false, 'DTRT Plugin Boilerplate Widget' );
+      parent::__construct( false, '<%= nameFriendly %> Widget' );
     }
 
     /**
@@ -55,8 +55,8 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
       $num_badges = $instance['num_badges'];
       $display_tooltips = $instance['display_tooltips'];
 
-      $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
-      $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
+      $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
+      $<%= nameSafe %>_data = $<%= nameSafe %>_options['<%= nameSafe %>_data'];
 
       /**
        * Get the unique ID
@@ -68,7 +68,7 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'views/public/partials/wpdtrt-plugin-boilerplate-front-end.php');
+      require(<%= constantStub %>_PATH . 'views/public/partials/<%= name %>-front-end.php');
     }
 
     /**
@@ -112,29 +112,29 @@ if ( !class_exists( 'WpDTRT_Plugin_Boilerplate_Widget' ) ) {
       $num_badges = esc_attr( $instance['num_badges'] );
       $display_tooltips = esc_attr( $instance['display_tooltips'] );
 
-      $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
-      $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
+      $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
+      $<%= nameSafe %>_data = $<%= nameSafe %>_options['<%= nameSafe %>_data'];
 
     /**
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'views/admin/partials/wpdtrt-plugin-boilerplate-widget.php');
+      require(<%= constantStub %>_PATH . 'views/admin/partials/<%= name %>-widget.php');
     }
   }
 
 }
 
-if ( !function_exists( 'wpdtrt_plugin_boilerplate_register_widgets' ) ) {
+if ( !function_exists( '<%= nameSafe %>_register_widgets' ) ) {
 
   /**
    * register the widget
    * @link https://codex.wordpress.org/Function_Reference/register_widget#Example
    */
-  add_action( 'widgets_init', 'wpdtrt_plugin_boilerplate_register_widgets' );
+  add_action( 'widgets_init', '<%= nameSafe %>_register_widgets' );
 
-  function wpdtrt_plugin_boilerplate_register_widgets() {
-    register_widget( 'WpDTRT_Plugin_Boilerplate_Widget' );
+  function <%= nameSafe %>_register_widgets() {
+    register_widget( 'Wp<%= nameFriendlySafe %>_Widget' );
   }
 
 }

@@ -4,22 +4,22 @@
  *
  * This file contains PHP.
  *
- * @link       http://www.dotherightthing.co.nz/
- * @since      1.0.0
+ * @link       <%= pluginUrl %>
+ * @since      0.1.0
  *
- * @package    DTRT_Plugin_Boilerplate
- * @subpackage DTRT_Plugin_Boilerplate/includes
+ * @package    <%= nameFriendlySafe %>
+ * @subpackage <%= nameFriendlySafe %>/includes
  */
 
 /**
- * wpdtrt_plugin_boilerplate_data_get
- * @param string $wpdtrt_username Required. The account username.
- * @return object $wpdtrt_data. The body of the JSON.
+ * <%= nameSafe %>_data_get
+ * @param string $<%= nameSafe %>_username Required. The account username.
+ * @return object $<%= nameSafe %>_data. The body of the JSON.
  */
-if ( !function_exists( 'wpdtrt_plugin_boilerplate_data_get' ) ) {
+if ( !function_exists( '<%= nameSafe %>_data_get' ) ) {
 
-  function wpdtrt_plugin_boilerplate_data_get( $wpdtrt_username ) {
-    $json_feed_url = 'http://teamtreehouse.com/' . $wpdtrt_username . '.json';
+  function <%= nameSafe %>_data_get( $<%= nameSafe %>_username ) {
+    $json_feed_url = 'http://teamtreehouse.com/' . $<%= nameSafe %>_username . '.json';
     $args = array(
       'timeout' => 120 // wait 120 seconds for the request to complete
     );
@@ -38,19 +38,19 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_data_get' ) ) {
      * Return the body, not the header
      * Note: There is an optional boolean argument, which returns an associative array if TRUE
      */
-    $wpdtrt_data = json_decode( $json_feed['body'] );
+    $<%= nameSafe %>_data = json_decode( $json_feed['body'] );
 
-    return $wpdtrt_data;
+    return $<%= nameSafe %>_data;
   }
 
 }
 
 /**
- * wpdtrt_plugin_boilerplate_data_refresh
+ * <%= nameSafe %>_data_refresh
  * a custom hook that can be used by JavaScript AJAX calls
  * wp_ajax_ is a common prefix
  */
-if ( !function_exists( 'wpdtrt_plugin_boilerplate_data_refresh' ) ) {
+if ( !function_exists( '<%= nameSafe %>_data_refresh' ) ) {
 
   /**
    * Refresh data
@@ -61,12 +61,12 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_data_refresh' ) ) {
    * If an action is not specified, admin-ajax.php will exit, and return 0 in the process.
    * @link https://codex.wordpress.org/AJAX_in_Plugins
    */
-  add_action('wp_ajax_wpdtrt_plugin_boilerplate_data_refresh', 'wpdtrt_plugin_boilerplate_data_refresh');
+  add_action('wp_ajax_<%= nameSafe %>_data_refresh', '<%= nameSafe %>_data_refresh');
 
-  function wpdtrt_plugin_boilerplate_data_refresh() {
+  function <%= nameSafe %>_data_refresh() {
 
-    $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
-    $last_updated = $wpdtrt_plugin_boilerplate_options['last_updated'];
+    $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
+    $last_updated = $<%= nameSafe %>_options['last_updated'];
 
     $current_time = time();
     $update_difference = $current_time - $last_updated;
@@ -74,15 +74,15 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_data_refresh' ) ) {
 
     if ( $update_difference > $one_day ) {
 
-      $wpdtrt_username = $wpdtrt_plugin_boilerplate_options['wpdtrt_username'];
+      $<%= nameSafe %>_username = $<%= nameSafe %>_options['<%= nameSafe %>_username'];
 
-      $wpdtrt_plugin_boilerplate_options['wpdtrt_data'] = wpdtrt_plugin_boilerplate_data_get( $wpdtrt_username );
+      $<%= nameSafe %>_options['<%= nameSafe %>_data'] = <%= nameSafe %>_data_get( $<%= nameSafe %>_username );
 
       // inspecting the database will allow us to check
       // whether the profile is being updated
-      $wpdtrt_plugin_boilerplate_options['last_updated'] = time();
+      $<%= nameSafe %>_options['last_updated'] = time();
 
-      update_option('wpdtrt_plugin_boilerplate', $wpdtrt_plugin_boilerplate_options);
+      update_option('<%= nameSafe %>', $<%= nameSafe %>_options);
     }
 
     /**

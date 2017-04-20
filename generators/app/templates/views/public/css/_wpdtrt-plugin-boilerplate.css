@@ -3,33 +3,33 @@
  *
  * This file contains CSS.
  *
- * @link       http://www.dotherightthing.co.nz/
- * @since      1.0.0
+ * @link       <%= pluginUrl %>
+ * @since      0.1.0
  *
- * @package    DTRT_Plugin_Boilerplate
- * @subpackage DTRT_Plugin_Boilerplate/public/css
+ * @package    <%= nameFriendlySafe %>
+ * @subpackage <%= nameFriendlySafe %>/public/css
  */
 
-.wpdtrt-badges.frontend a,
-.widget-area .widget .wpdtrt-badges.frontend a {
+.<%= name %>-badges.frontend a,
+.widget-area .widget .<%= name %>-badges.frontend a {
 	color: #999;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	letter-spacing: .25px;
 	text-decoration: none;
 }
 
-.wpdtrt-badges.frontend a:hover,
-.widget-area .widget .wpdtrt-badges.frontend a:hover {
+.<%= name %>-badges.frontend a:hover,
+.widget-area .widget .<%= name %>-badges.frontend a:hover {
 	color: #ddd;
 }
 
-.wpdtrt-badges,
-.widget-area .widget .wpdtrt-badges {
+.<%= name %>-badges,
+.widget-area .widget .<%= name %>-badges {
 	display: table;
 }
 
-.wpdtrt-badges li,
-.widget-area .wpdtrt-badges li {
+.<%= name %>-badges li,
+.widget-area .<%= name %>-badges li {
 	float: left;
 	width: 100px;
 	margin: 0 5px 5px;
@@ -38,13 +38,13 @@
 	list-style: none;
 }
 
-.wpdtrt-badges .wpdtrt-badge img {
+.<%= name %>-badges .<%= name %>-badge img {
 	width: 100%;
 	border: none;
 	box-shadow: 0 0 0 0;
 }
 
-.wpdtrt-badges .wpdtrt-badge-info {
+.<%= name %>-badges .<%= name %>-badge-info {
 	display: none;
 	background: #3d444b;
 	border-radius: 4px;
@@ -59,13 +59,13 @@
 	-webkit-transition: bottom ease-out .5s;
 }
 
-.wpdtrt-badges li:hover .wpdtrt-badge-info {
+.<%= name %>-badges li:hover .<%= name %>-badge-info {
 	bottom: 129px;
 	transition: bottom ease-out .5s;
 	-webkit-transition: bottom ease-out .5s;
 }
 
-.wpdtrt-badges .wpdtrt-badge-info .wpdtrt-tooltip.bottom {
+.<%= name %>-badges .<%= name %>-badge-info .<%= name %>-tooltip.bottom {
 	background: url(../images/tooltip-arrow.png) no-repeat;
 	display: block;
 	position: absolute;
@@ -76,34 +76,34 @@
 	z-index: 99;
 }
 
-.wpdtrt-badge-info p.wpdtrt-badge-name,
-.widget-area .widget .wpdtrt-badge-info p.wpdtrt-badge-name {
+.<%= name %>-badge-info p.<%= name %>-badge-name,
+.widget-area .widget .<%= name %>-badge-info p.<%= name %>-badge-name {
 	font-size: 14px;
 	line-height: 16px;
 	margin:  0 0 8px;
 }
 
-.wpdtrt-badge-info .wpdtrt-badge-name a,
-.widget-area .widget .wpdtrt-badge-info .wpdtrt-badge-name a {
+.<%= name %>-badge-info .<%= name %>-badge-name a,
+.widget-area .widget .<%= name %>-badge-info .<%= name %>-badge-name a {
 	color: #fff;
 	text-shadow: 0 0 1px #000;
 }
 
-.wpdtrt-badge-info .wpdtrt-badge-name a:hover,
-.widget-area .widget .wpdtrt-badge-info .wpdtrt-badge-name a:hover {
+.<%= name %>-badge-info .<%= name %>-badge-name a:hover,
+.widget-area .widget .<%= name %>-badge-info .<%= name %>-badge-name a:hover {
 	color: #fff
 }
 
-.wpdtrt-badge-info p.wpdtrt-badge-project,
-.widget-area .widget .wpdtrt-badge-info p.wpdtrt-badge-project {
+.<%= name %>-badge-info p.<%= name %>-badge-project,
+.widget-area .widget .<%= name %>-badge-info p.<%= name %>-badge-project {
 	color: #edeff0;
 	font-size: 11px;
 	line-height: 14px;
 	margin: 0;
 }
 
-.wpdtrt-badge-info .wpdtrt-logo,
-.widget-area .widget .wpdtrt-badge-info .wpdtrt-logo {
+.<%= name %>-badge-info .<%= name %>-logo,
+.widget-area .widget .<%= name %>-badge-info .<%= name %>-logo {
 	display: block;
 	width: 80px;
 	padding: 20px 0 0;

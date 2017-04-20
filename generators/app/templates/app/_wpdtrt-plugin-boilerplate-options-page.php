@@ -1,15 +1,15 @@
 <?php
 /**
  * Functionality for the WP Admin Plugin Options page
- * WP Admin > Settings > DTRT Plugin Boilerplate
+ * WP Admin > Settings > <%= nameFriendly %>
  *
  * This file contains PHP.
  *
- * @link       http://www.dotherightthing.co.nz/
- * @since      1.0.0
+ * @link       <%= pluginUrl %>
+ * @since      0.1.0
  *
- * @package    DTRT_Plugin_Boilerplate
- * @subpackage DTRT_Plugin_Boilerplate/includes
+ * @package    <%= nameFriendlySafe %>
+ * @subpackage <%= nameFriendlySafe %>/includes
  */
 
 /**
@@ -17,18 +17,18 @@
  * add_options_page( $page_title, $menu_title, $capability, $menu_slug, $function )
  * @link https://developer.wordpress.org/reference/functions/add_options_page/
  */
-if ( !function_exists( 'wpdtrt_plugin_boilerplate_menu' ) ) {
+if ( !function_exists( '<%= nameSafe %>_menu' ) ) {
 
-  add_action('admin_menu', 'wpdtrt_plugin_boilerplate_menu');
+  add_action('admin_menu', '<%= nameSafe %>_menu');
 
-  function wpdtrt_plugin_boilerplate_menu() {
+  function <%= nameSafe %>_menu() {
 
     add_options_page(
-      'DTRT Plugin Boilerplate',
-      'Boilerplate',
+      '<%= nameFriendly %>',
+      '<%= nameAdminMenu %>',
       'manage_options',
-      'boilerplate',
-      'wpdtrt_plugin_boilerplate_options_page'
+      '<%= pluginUrlAdminMenu %>',
+      '<%= nameSafe %>_options_page'
     );
   }
 
@@ -37,9 +37,9 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_menu' ) ) {
 /**
  * Create the plugin options page
  */
-if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
+if ( !function_exists( '<%= nameSafe %>_options_page' ) ) {
 
-  function wpdtrt_plugin_boilerplate_options_page() {
+  function <%= nameSafe %>_options_page() {
 
     if ( ! current_user_can( 'manage_options' ) ) {
       wp_die( 'You do not have sufficient permissions to access this page.' );
@@ -48,18 +48,18 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
     /**
      * Make this global available within the required statement
      */
-    global $wpdtrt_plugin_boilerplate_options;
+    global $<%= nameSafe %>_options;
 
-    if ( isset( $_POST['wpdtrt_form_submitted'] ) ) {
-      $hidden_field = esc_html( $_POST['wpdtrt_form_submitted'] );
+    if ( isset( $_POST['<%= nameSafe %>_form_submitted'] ) ) {
+      $hidden_field = esc_html( $_POST['<%= nameSafe %>_form_submitted'] );
 
       if ( $hidden_field === 'Y' ) {
-        $wpdtrt_username = esc_html( $_POST['wpdtrt_username'] );
-        $wpdtrt_data = wpdtrt_plugin_boilerplate_data_get( $wpdtrt_username );
+        $<%= nameSafe %>_username = esc_html( $_POST['<%= nameSafe %>_username'] );
+        $<%= nameSafe %>_data = <%= nameSafe %>_data_get( $<%= nameSafe %>_username );
 
-        $wpdtrt_plugin_boilerplate_options['wpdtrt_username'] = $wpdtrt_username;
-        $wpdtrt_plugin_boilerplate_options['last_updated'] = time(); // UNIX timestamp for the current time
-        $wpdtrt_plugin_boilerplate_options['wpdtrt_data'] = $wpdtrt_data;
+        $<%= nameSafe %>_options['<%= nameSafe %>_username'] = $<%= nameSafe %>_username;
+        $<%= nameSafe %>_options['last_updated'] = time(); // UNIX timestamp for the current time
+        $<%= nameSafe %>_options['<%= nameSafe %>_data'] = $<%= nameSafe %>_data;
 
         /**
          * Update the plugin data stored in the WP Options table
@@ -71,7 +71,7 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
          * @example update_option( string $option, mixed $value, string|bool $autoload = null )
          * @link https://codex.wordpress.org/Function_Reference/update_option
          */
-        update_option( 'wpdtrt_plugin_boilerplate', $wpdtrt_plugin_boilerplate_options, null );
+        update_option( '<%= nameSafe %>', $<%= nameSafe %>_options, null );
       }
     }
 
@@ -80,11 +80,11 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
      * Retrieves an option value based on an option name.
      * @example get_option( string $option, mixed $default = false )
      */
-    $wpdtrt_plugin_boilerplate_options = get_option( 'wpdtrt_plugin_boilerplate' );
+    $<%= nameSafe %>_options = get_option( '<%= nameSafe %>' );
 
-    if ( $wpdtrt_plugin_boilerplate_options !== '' ) {
-      $wpdtrt_username = $wpdtrt_plugin_boilerplate_options['wpdtrt_username'];
-      $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
+    if ( $<%= nameSafe %>_options !== '' ) {
+      $<%= nameSafe %>_username = $<%= nameSafe %>_options['<%= nameSafe %>_username'];
+      $<%= nameSafe %>_data = $<%= nameSafe %>_options['<%= nameSafe %>_data'];
     }
 
     /**
@@ -93,13 +93,13 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
      * so we can check whether the data is in the expected format
      * @link http://kb.network.dan/php/print_r-vs-var_dump/
      */
-    //var_dump($wpdtrt_data);
+    //var_dump($<%= nameSafe %>_data);
 
     /**
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-    require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'views/admin/partials/wpdtrt-plugin-boilerplate-options-page.php');
+    require_once(<%= constantStub %>_PATH . 'views/admin/partials/<%= name %>-options-page.php');
   }
 
 }

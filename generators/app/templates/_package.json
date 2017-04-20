@@ -1,0 +1,25 @@
+{
+  "name": "<%= name %>",
+  "version": "0.1.0",
+  "description": "<%= description %>",
+  "main": "readme.txt",
+  "person": {
+    "name" : "<%= authorName %>",
+    "email" : "<%= authorEmail %>",
+    "url" : "<%= authorUrl %>"
+  },
+  "devDependencies": {
+    "gulp-phplint": "^0.3.4",
+    "gulp-phpunit": "^0.22.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "<%= repositoryType %>",
+    "url": "<%= repositoryUrl %>"
+  },
+  "license": "ISC",
+  "homepage": "<%= homepage %>",
+  "srcDir": "<%= srcDir %>"
+}

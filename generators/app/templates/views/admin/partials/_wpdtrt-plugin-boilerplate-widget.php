@@ -1,16 +1,16 @@
 <?php
 /**
  * Template partial for Admin Widget
- * WP Admin > Appearance > Widgets > DTRT Plugin Boilerplate
+ * WP Admin > Appearance > Widgets > <%= nameFriendly %>
  *
  * This file contains PHP, and HTML fields.
  *
- * @link       http://www.dotherightthing.co.nz/
+ * @link       <%= pluginUrl %>
  * @link       /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
- * @since      1.0.0
+ * @since      0.1.0
  *
- * @package    DTRT_Plugin_Boilerplate
- * @subpackage DTRT_Plugin_Boilerplate/admin/partials
+ * @package    <%= nameFriendlySafe %>
+ * @subpackage <%= nameFriendlySafe %>/admin/partials
  */
 ?>
 
@@ -21,7 +21,7 @@
 
 <p>
   Total Badges
-  <?php echo count($wpdtrt_data->{'badges'}); ?>
+  <?php echo count($<%= nameSafe %>_data->{'badges'}); ?>
 </p>
 <p>
   <label>How many of your most recent badges would you you like to display?</label>

@@ -4,15 +4,15 @@
  *
  * This file contains PHP.
  *
- * @link       http://www.dotherightthing.co.nz/
+ * @link       <%= pluginUrl %>
  * @link       https://generatewp.com/shortcodes/
- * @since      1.0.0
+ * @since      0.1.0
  *
  * @example    [dtrt_plugin_boilerplate arg1="value"]
  * @example    do_shortcode( '[ddtrt_plugin_boilerplate arg1="value"]' );
  *
- * @package    DTRT_Plugin_Boilerplate
- * @subpackage DTRT_Plugin_Boilerplate/includes
+ * @package    <%= nameFriendlySafe %>
+ * @subpackage <%= nameFriendlySafe %>/includes
  */
 
 /**
@@ -21,11 +21,11 @@
  * @param callable $func Required. Hook to run when shortcode is found.
  * @link https://codex.wordpress.org/Function_Reference/add_shortcode
  */
-if ( !function_exists( 'wpdtrt_badges_shortcode' ) ) {
+if ( !function_exists( '<%= nameSafe %>_badges_shortcode' ) ) {
 
-  add_shortcode( 'wpdtrt_badges', 'wpdtrt_badges_shortcode' );
+  add_shortcode( '<%= nameSafe %>_badges', '<%= nameSafe %>_badges_shortcode' );
 
-  function wpdtrt_badges_shortcode( $atts, $content = null ) {
+  function <%= nameSafe %>_badges_shortcode( $atts, $content = null ) {
 
     // post object to get info about the post in which the shortcode appears
     global $post;
@@ -49,8 +49,8 @@ if ( !function_exists( 'wpdtrt_badges_shortcode' ) ) {
 
     $display_tooltips = $tooltip;
 
-    $wpdtrt_plugin_boilerplate_options = get_option('wpdtrt_plugin_boilerplate');
-    $wpdtrt_data = $wpdtrt_plugin_boilerplate_options['wpdtrt_data'];
+    $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
+    $<%= nameSafe %>_data = $<%= nameSafe %>_options['<%= nameSafe %>_data'];
 
     /**
      * ob_start — Turn on output buffering
@@ -61,7 +61,7 @@ if ( !function_exists( 'wpdtrt_badges_shortcode' ) ) {
      */
     ob_start();
 
-    require(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'views/public/partials/wpdtrt-plugin-boilerplate-front-end.php');
+    require(<%= constantStub %>_PATH . 'views/public/partials/<%= name %>-front-end.php');
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer

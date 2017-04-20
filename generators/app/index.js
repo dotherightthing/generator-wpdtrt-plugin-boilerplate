@@ -8,104 +8,181 @@ The extend method will extend the base class and allow you to provide a new prot
 We assign the extended generator to module.exports to make it available to the ecosystem. This is how we export modules in Node.js.
 */
 
+'use strict';
+
+//Require dependencies
 var yeoman = require('yeoman-generator');
+//var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
 
     // based on https://github.com/yeoman/generator-generator/blob/master/app/index.js
 
-    prompting: {
+    prompting: function () {
 
-        askForProjectDetails1: function () {
-            var done = this.async(); // this seems to wait for the response
+    /**
+     * We are using the async() method to make sure that the function does not exit
+     * before the actual work gets completed.
+     */
+        var done = this.async();
 
-            this.placeholder = {
-                pluginName: 'wpdtrt-plugin-boilerplate',
-                pluginNameFriendly: 'DTRT Plugin Boilerplate',
-                pluginDescription: 'A best-practice boilerplate for plugin development',
-                pluginUrl: 'http://dotherightthing.co.nz',
-                authorName: 'Dan Smith',
-                authorEmail: 'dev@dotherightthing.co.nz',
-                authorUrl: 'http://dotherightthing.co.nz'
-            };
+    /**
+     * The prompt method is used to get the user’s input which is of type input as there are other types.
+     * The name property of the prompt is used to access the field’s value from the project
+     * The message is the instruction
+     * We also want it to default to the folder name if we do not provide a name while scaffolding.
+     */
+        var prompts = [
+            {
+                type: 'input',
+                name: 'pluginName',
+                message: 'Plugin name (file safe)',
+                //Defaults to the project's folder name if the input is skipped
+                default: 'wpdtrt-plugin-boilerplate' // this.appname
+            },
+            {
+                type: 'input',
+                name: 'pluginNameSafe',
+                message: 'Plugin name (function safe)',
+                default: 'wpdtrt_plugin_boilerplate'
+            },
+            {
+                type: 'input',
+                name: 'pluginNameFriendly',
+                message: 'Plugin name (friendly)',
+                default: 'WP DTRT Plugin Boilerplate'
+            },
+            {
+                type: 'input',
+                name: 'pluginNameFriendlySafe',
+                message: 'Plugin name (friendly & function safe)',
+                default: 'WpDTRT_Plugin_Boilerplate'
+            },
+            {
+                type: 'input',
+                name: 'pluginNameAdminMenu',
+                message: 'Plugin name (admin menu)',
+                default: 'Plugin Boilerplate'
+            },
+            {
+                type: 'input',
+                name: 'pluginUrlAdminMenu',
+                message: 'Plugin URL (admin menu)',
+                default: 'boilerplate'
+            },
+            {
+                type: 'input',
+                name: 'pluginDescription',
+                message: 'Plugin description',
+                default: 'A best-practice boilerplate for plugin development'
+            },
+            {
+                type: 'input',
+                name: 'pluginTags',
+                message: 'Plugin tags',
+                default: 'boilerplate, best-practice'
+            },
+            {
+                type: 'input',
+                name: 'pluginUrl',
+                message: 'Plugin URL',
+                default: 'http://dotherightthing.co.nz'
+            },
+            {
+                type: 'input',
+                name: 'pluginLicense',
+                message: 'Plugin License',
+                default: 'GPLv2 or later'
+            },
+            {
+                type: 'input',
+                name: 'pluginLicenseUrl',
+                message: 'Plugin License URL',
+                default: 'http://www.gnu.org/licenses/gpl-2.0.html'
+            },
+            {
+                type: 'input',
+                name: 'pluginDonateUrl',
+                message: 'Plugin Donate URL',
+                default: 'http://dotherightthing.co.nz'
+            },
+            {
+                type: 'input',
+                name: 'wpVersion',
+                message: 'WordPress version',
+                default: '4.7.3'
+            },
+            {
+                type: 'input',
+                name: 'authorName',
+                message: 'Your first and last names',
+                default: 'Dan Smith'
+            },
+            {
+                type: 'input',
+                name: 'authorWordPressName',
+                message: 'Your WordPress.org username',
+                default: 'dotherightthingnz'
+            },
+            {
+                type: 'input',
+                name: 'authorEmail',
+                message: 'Your email address',
+                default: 'dev@dotherightthing.co.nz'
+            },
+            {
+                type: 'input',
+                name: 'authorUrl',
+                message: 'Author URL',
+                default: 'http://dotherightthing.co.nz'
+            },
+            {
+                type: 'input',
+                name: 'pluginRepositoryType',
+                message: 'Version control system (git/svn)',
+                default: 'git'
+            },
+            {
+                type: 'input',
+                name: 'pluginRepositoryUrl',
+                message: 'Repository Url',
+                default: 'git@bitbucket.org:dotherightthing/wpdtrt-plugin-boilerplate.git'
+            }
+        ];
 
-            var prompts = [
-                {
-                    name: 'pluginName',
-                    message: 'Plugin name',
-                    default: this.placeholder.pluginName
-                },
-                {
-                    name: 'pluginNameFriendly',
-                    message: 'Plugin name (friendly)',
-                    default: this.placeholder.pluginNameFriendly
-                },
-                {
-                    name: 'pluginDescription',
-                    message: 'Plugin description',
-                    default: this.placeholder.pluginDescription
-                },
-                {
-                    name: 'pluginUrl',
-                    message: 'Plugin URL',
-                    default: this.placeholder.pluginUrl
-                },
-                {
-                    name: 'authorName',
-                    message: 'Your first and last names',
-                    default: this.placeholder.authorName
-                },
-                {
-                    name: 'authorEmail',
-                    message: 'Your email address',
-                    default: this.placeholder.authorEmail
-                },
-                {
-                    name: 'authorUrl',
-                    message: 'Author URL',
-                    default: this.placeholder.authorUrl
-                }
-            ];
+    /**
+     * The second argument of prompt is a callback which holds the values from the prompt(s).
+     * This allows the answers to be accessed from the “writing” logic.
+     */
+        this.prompt( prompts,
+            function(props) {
 
-            this.prompt(prompts, function(props) {
                 this.pluginName = props.pluginName;
+                this.pluginNameSafe = props.pluginNameSafe;
                 this.pluginNameFriendly = props.pluginNameFriendly;
+                this.pluginNameFriendlySafe = props.pluginNameFriendlySafe;
+                this.pluginNameAdminMenu = props.pluginNameAdminMenu;
                 this.pluginDescription = props.pluginDescription;
+                this.pluginTags = props.pluginTags;
                 this.pluginUrl = props.pluginUrl;
+                this.pluginUrlAdminMenu = props.pluginUrlAdminMenu;
+                this.pluginLicense = props.pluginLicense;
+                this.pluginLicenseUrl = props.pluginLicenseUrl;
+                this.pluginDonateUrl = props.pluginDonateUrl;
+                this.pluginRepositoryType = props.pluginRepositoryType;
+                this.pluginRepositoryUrl = props.pluginRepositoryUrl;
+
+                this.wpVersion = props.wpVersion;
+
                 this.authorName = props.authorName;
+                this.authorWordPressName = props.authorWordPressName;
                 this.authorEmail = props.authorEmail;
                 this.authorUrl = props.authorUrl;
+
                 done();
-            }.bind(this));
-        },
-
-        // has to run second so that this.pluginName is available
-        askForProjectDetails2: function () {
-            var done = this.async(); // this seems to wait for the response
-
-            this.placeholder.projectRepositoryType = 'git';
-            this.placeholder.projectRepositoryUrl = 'git@bitbucket.org:dotherightthing/' + this.pluginName + '.git';
-
-            var prompts = [
-                {
-                    name: 'projectRepositoryType',
-                    message: 'Version control system (git/svn)',
-                    default: this.placeholder.projectRepositoryType
-                },
-                {
-                    name: 'projectRepositoryUrl',
-                    message: 'Repository Url',
-                    default: this.placeholder.projectRepositoryUrl
-                }
-            ];
-
-            this.prompt(prompts, function(props) {
-                this.projectRepositoryType = props.projectRepositoryType;
-                this.projectRepositoryUrl = props.projectRepositoryUrl;
-                done();
-            }.bind(this));
-        }
-
+            }
+            .bind(this)
+        );
     },
 
     writing: {
@@ -118,158 +195,315 @@ module.exports = yeoman.generators.Base.extend({
             this.config.save(); // creates a .yo-rc.json file in this directory
         },
 
-        package_json: function() {
+        config: function() {
 
-            var pkg = {
-              "name": this.pluginName, // this.pluginNameFriendly.dashify(),
-              "version": "0.1.0",
-              "description": this.pluginDescription,
-              "main": "readme.txt",
-              "author": this.authorName + ' <' + this.authorEmail + '>',
-              "homepage": this.pluginUrl,
-              "license": "ISC",
-              "repository": {
-                "type": this.projectRepositoryType,
-                "url": this.projectRepositoryUrl
-              },
-              "dependencies": {},
-              "devDependencies": {
-                "gulp-phplint": "^0.3.4",
-                "gulp-phpunit": "^0.22.2"
-              },
-              "scripts": {
-                "test": "echo \"Error: no test specified\" && exit 1"
-              },
-              "srcDir": process.cwd(),
-            };
+            // Copy the configuration files
 
-            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
-            this.write('package.json',JSON.stringify(pkg, null, '\t')); // pretty printed with tabs rather than minified
-            //this.write('package.json', pkg); // [object][object]
+            // Security
 
-        },
+            this.fs.copy(
+                this.templatePath('_index.php'),
+                this.destinationPath('index.php')
+            );
 
-        scaffold_root: function() {
+            // Bower
 
-            // Bower scaffolding
-            this.src.copy('.bowerrc', '.bowerrc');
+            this.fs.copy(
+                this.templatePath('_.bowerrc'),
+                this.destinationPath('.bowerrc')
+            );
 
-            // Git config
-            this.src.copy('.gitignore', '.gitignore');
+            this.fs.copyTpl(
+                this.templatePath('_bower.json'),
+                this.destinationPath('bower.json'), {
+                    name:           this.props.pluginName,
+                    description:    this.props.pluginDescription,
+                    authorName:     this.props.authorName,
+                    authorEmail:    this.props.authorEmail,
+                    authorUrl:      this.props.authorUrl,
+                    homepage:       this.props.pluginUrl
+                }
+            );
+
+            // Git
+            this.fs.copy(
+                this.templatePath('_.gitignore'),
+                this.destinationPath('.gitignore')
+            );
 
             // Composer
-            this.src.copy('composer.json', 'composer.json');
-            this.src.copy('composer.lock', 'composer.lock');
-            this.src.copy('composer.phar', 'composer.phar');
 
-            // Gulp scripts
-            this.src.copy('gulpfile.js', 'gulpfile.js');
+            this.fs.copy(
+                this.templatePath('_composer.json'),
+                this.destinationPath('composer.json')
+            );
+
+            this.fs.copy(
+                this.templatePath('_composer.lock'),
+                this.destinationPath('composer.lock')
+            );
+
+            this.fs.copy(
+                this.templatePath('_composer.phar'),
+                this.destinationPath('composer.phar')
+            );
+
+            // Gulp
+
+            this.fs.copy(
+                this.templatePath('_gulpfile.js'),
+                this.destinationPath('gulpfile.js')
+            );
 
             // NPM
-            // See package_json, above
+            this.fs.copyTpl(
+                this.templatePath('_package.json'),
+                this.destinationPath('package.json'), {
+                    name:           this.props.pluginName,
+                    description:    this.props.pluginDescription,
+                    repositoryType: this.props.pluginRepositoryType,
+                    repositoryUrl:  this.props.pluginRepositoryUrl,
+                    authorName:     this.props.authorName,
+                    authorEmail:    this.props.authorEmail,
+                    authorUrl:      this.props.authorUrl,
+                    homepage:       this.props.pluginUrl,
+                    srcDir:         process.cwd()
+                }
+            );
 
-            // WordPress Plugin readme
-            this.src.copy('readme.txt', 'readme.txt');
+            done();
 
-            // WordPress Plugin magic uninstaller
-            this.src.copy('uninstall.php', 'uninstall.php');
-
-            // WordPress Plugin/importer
-            this.src.copy('wpdtrt-plugin-boilerplate.php', this.pluginName + '.php');
         },
 
-        scaffold_app: function() {
+        app: function() {
 
             // http://yeoman.io/authoring/file-system.html - Location contexts:
             // [dest] is defined as either the current working directory
             // or the closest parent folder containing a .yo-rc.json
 
+            // root
+
+            this.fs.copyTpl(
+                this.templatePath('_readme.txt'),
+                this.destinationPath('readme.txt'), {
+                    authorWordPressName:    this.props.authorWordPressName,
+                    pluginTags:             this.props.pluginTags,
+                    description:            this.props.pluginDescription,
+                    name:                   this.props.pluginName,
+                    nameFriendly:           this.props.pluginNameFriendly,
+                    wpVersion:              this.props.wpVersion,
+                    pluginLicense:          this.props.pluginLicense,
+                    pluginLicenseUrl:       this.props.pluginLicenseUrl
+                }
+            );
+
+            this.fs.copyTpl(
+                this.templatePath('_uninstall.php'),
+                this.destinationPath('uninstall.php'), {
+                    name: this.props.pluginName,
+                    nameFriendlySafe: this.props.pluginNameFriendlySafe
+                }
+            );
+
+            this.fs.copyTpl(
+                this.templatePath('_wpdtrt-plugin-boilerplate.php'),
+                this.destinationPath(this.pluginName + '.php'), {
+                    name:                   this.props.pluginName,
+                    nameFriendly:           this.props.pluginNameFriendly,
+                    nameSafe:               this.props.pluginNameSafe,
+                    authorName:             this.props.authorName,
+                    authorUrl:              this.props.authorUrl,
+                    pluginLicense:          this.props.pluginLicense,
+                    pluginUrl:              this.props.pluginUrl,
+                    description:            this.props.pluginDescription,
+                    constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                }
+            );
+
             // app
 
-            //this.dest.mkdir('app');
+            this.fs.copyTpl(
+                this.templatePath('app/_index.php'),
+                this.destinationPath('app/index.php')
+            );
 
-            this.src.copy(
-                'app/index.php',
-                'app/index.php'
+            this.fs.copyTpl(
+                this.templatePath('app/_wpdtrt-plugin-boilerplate-css.php'),
+                this.destinationPath('app/' + this.pluginName + '-css.php'), {
+                    name:                   this.props.pluginName,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    nameSafe:               this.props.pluginNameSafe,
+                    constantStub:           this.props.pluginNameFriendly.toUpperCase(),
+                    pluginUrl:              this.props.pluginUrl
+                }
+            );
 
+            this.fs.copyTpl(
+                this.templatePath('app/_wpdtrt-plugin-boilerplate-data.php'),
+                this.destinationPath('app/' + this.pluginName + '-data.php'), {
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    nameSafe:               this.props.pluginNameSafe,
+                    pluginUrl:              this.props.pluginUrl
+                }
             );
-            this.src.copy(
-                'app/wpdtrt-plugin-boilerplate-css.php',
-                'app/' + this.pluginName + '-css.php'
+
+            this.fs.copyTpl(
+                this.templatePath('app/_wpdtrt-plugin-boilerplate-js.php'),
+                this.destinationPath('app/' + this.pluginName + '-js.php'), {
+                    name:                   this.props.pluginName,
+                    nameSafe:               this.props.pluginNameSafe,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    pluginUrl:              this.props.pluginUrl,
+                    constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                }
             );
-            this.src.copy(
-                'app/wpdtrt-plugin-boilerplate-data.php',
-                'app/' + this.pluginName + '-data.php'
+
+            this.fs.copyTpl(
+                this.templatePath('app/_wpdtrt-plugin-boilerplate-options-page.php'),
+                this.destinationPath('app/' + this.pluginName + '-options-page.php'), {
+                    name:                   this.props.pluginName,
+                    nameSafe:               this.props.pluginNameSafe,
+                    nameFriendly:           this.props.pluginNameFriendly,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    nameAdminMenu:          this.props.pluginNameAdminMenu,
+                    pluginUrl:              this.props.pluginUrl,
+                    pluginUrlAdminMenu:     this.props.pluginUrlAdminMenu,
+                    constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                }
             );
-            this.src.copy(
-                'app/wpdtrt-plugin-boilerplate-js.php',
-                'app/' + this.pluginName + '-js.php'
+
+            this.fs.copyTpl(
+                this.templatePath('app/_wpdtrt-plugin-boilerplate-shortcode.php'),
+                this.destinationPath('app/' + this.pluginName + '-shortcode.php'), {
+                    nameSafe:               this.props.pluginNameSafe,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    pluginUrl:              this.props.pluginUrl,
+                    constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                }
             );
-            this.src.copy(
-                'app/wpdtrt-plugin-boilerplate-options-page.php',
-                'app/' + this.pluginName + '-options-page.php'
-            );
-            this.src.copy(
-                'app/wpdtrt-plugin-boilerplate-shortcode.php',
-                'app/' + this.pluginName + '-shortcode.php'
-            );
-            this.src.copy(
-                'app/wpdtrt-plugin-boilerplate-widget.php',
-                'app/' + this.pluginName + '-widget.php'
+
+            this.fs.copyTpl(
+                this.templatePath('app/_wpdtrt-plugin-boilerplate-widget.php'),
+                this.destinationPath('app/' + this.pluginName + '-widget.php'), {
+                    name:                   this.props.pluginName,
+                    nameSafe:               this.props.pluginNameSafe,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    pluginUrl:              this.props.pluginUrl,
+                    constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                }
             );
 
             // languages
 
-            this.src.copy('languages/wpdtrt-plugin-boilerplate.pot',            ('languages/' + this.pluginName + '.pot'));
+            this.fs.copy(
+                this.templatePath('languages/_wpdtrt-plugin-boilerplate.pot'),
+                this.destinationPath('languages/' + this.pluginName + '.pot')
+            );
 
             // views
 
-            this.src.copy(
-                'views/admin/css/wpdtrt-plugin-boilerplate.css',
-                'views/admin/css/' + this.pluginName + '.css'
+            this.fs.copy(
+                this.templatePath('views/_index.php'),
+                this.destinationPath('views/index.php')
             );
 
-            this.dest.mkdir(this.folderName + '/views/admin/images');
-            this.dest.mkdir(this.folderName + '/views/admin/js');
+            // admin
 
-            this.src.copy(
-                'views/admin/partials/wpdtrt-plugin-boilerplate-options-page.php',
-                'views/admin/partials/' + this.pluginName + '.php'
-            );
-            this.src.copy(
-                'views/admin/partials/wpdtrt-plugin-boilerplate-widget.php',
-                'views/admin/partials/' + this.pluginName + '.php'
+            this.fs.copy(
+                this.templatePath('views/admin/_index.php'),
+                this.destinationPath('views/admin/index.php')
             );
 
-            this.src.copy(
-                'views/public/css/wpdtrt-plugin-boilerplate.css',
-                'views/public/css/' + this.pluginName + '.css'
+            this.fs.copyTpl(
+                this.templatePath('views/admin/css/_wpdtrt-plugin-boilerplate.css'),
+                this.destinationPath('views/admin/css/' + this.pluginName + '.css'), {
+                    name:                   this.props.pluginName,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    pluginUrl:              this.props.pluginUrl
+                }
             );
 
-            this.src.copy(
-                'views/public/images/tooltip-arrow.png',
-                'views/public/images/tooltip-arrow.png'
-            );
-            this.src.copy(
-                'views/public/images/treehouse-logo.png',
-                'views/public/images/treehouse-logo.png'
+            //this.dest.mkdir(this.folderName + '/views/admin/images');
+            //this.dest.mkdir(this.folderName + '/views/admin/js');
+
+            this.fs.copyTpl(
+                this.templatePath('views/admin/partials/_wpdtrt-plugin-boilerplate-options-page.php'),
+                this.destinationPath('views/admin/partials/' + this.pluginName + '-options-page.php'), {
+                    name:                   this.props.pluginName,
+                    nameFriendly:           this.props.pluginNameFriendly,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    nameSafe:               this.props.pluginNameSafe,
+                    pluginUrl:              this.props.pluginUrl
+                }
             );
 
-            this.src.copy(
-                'views/public/js/wpdtrt-plugin-boilerplate.js',
-                'views/public/js/' + this.pluginName + '.js'
+            this.fs.copyTpl(
+                this.templatePath('views/admin/partials/_wpdtrt-plugin-boilerplate-widget.php'),
+                this.destinationPath('views/admin/partials/' + this.pluginName + '-widget.php'), {
+                    nameFriendly:           this.props.pluginNameFriendly,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    nameSafe:               this.props.pluginNameSafe,
+                    pluginUrl:              this.props.pluginUrl
+                }
             );
 
-            this.src.copy(
-                'views/public/partials/wpdtrt-plugin-boilerplate-front-end.php',
-                'views/public/partials/' + this.pluginName + '-front-end.php'
+            // public
+
+            this.fs.copy(
+                this.templatePath('views/public/_index.php'),
+                this.destinationPath('views/public/index.php')
             );
 
-            // Copy templates from app/templates to the scaffolded folder structure
-            // http://yeoman.github.io/generator/actions.html
-            // Note: this.src.copy(FILE, DEST_folderName); // this is only good for single files
+            this.fs.copyTpl(
+                this.templatePath('views/public/css/_wpdtrt-plugin-boilerplate.css'),
+                this.destinationPath('views/public/css/' + this.pluginName + '.css'), {
+                    name:                   this.props.pluginName,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    pluginUrl:              this.props.pluginUrl
+                }
+            );
+
+            this.fs.copy(
+                this.templatePath('views/public/images/_tooltip-arrow.png'),
+                this.destinationPath('views/public/images/tooltip-arrow.png')
+            );
+
+            this.fs.copy(
+                this.templatePath('views/public/images/_treehouse-logo.png'),
+                this.destinationPath('views/public/images/treehouse-logo.png')
+            );
+
+
+            this.fs.copyTpl(
+                this.templatePath('views/public/js/_wpdtrt-plugin-boilerplate.js'),
+                this.destinationPath('views/public/js/' + this.pluginName + '.js'), {
+                    name:                   this.props.pluginName,
+                    nameSafe:               this.props.pluginNameSafe,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    pluginUrl:              this.props.pluginUrl
+                }
+            );
+
+            this.fs.copyTpl(
+                this.templatePath('views/public/partials/_wpdtrt-plugin-boilerplate-front-end.php'),
+                this.destinationPath('views/public/partials/' + this.pluginName + '-front-end.php'), {
+                    name:                   this.props.pluginName,
+                    nameSafe:               this.props.pluginNameSafe,
+                    nameFriendlySafe:       this.props.pluginNameFriendlySafe,
+                    pluginUrl:              this.props.pluginUrl,
+                    constantStub:           this.props.pluginNameFriendly.toUpperCase()
+                }
+            );
+
+            done();
+        },
+
+        install: function() {
+
+            this.installDependencies();
+
+            done();
         }
-
     }
 });
 

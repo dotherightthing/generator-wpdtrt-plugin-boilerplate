@@ -1,12 +1,12 @@
 <?php
 /*
-Plugin Name: DTRT Plugin Boilerplate
-Plugin URI: http://www.dotherightthing.co.nz/
-Description: A best-practice boilerplate for plugin development.
-Author: Do The Right Thing
-Version: 1.0.0
-Author URI: http://www.dotherightthing.co.nz/
-License: GPL2
+Plugin Name: <%= nameFriendly %>
+Plugin URI: <%= pluginUrl %>
+Description: <%= description %>
+Author: <%= authorName %>
+Version: 0.1.0
+Author URI: <%= authorUrl %>
+License: <%= pluginLicense %>
 */
 
 /**
@@ -37,8 +37,8 @@ License: GPL2
  * @example $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
  * @link https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically
  */
-if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_VERSION' ) ) {
-  define( 'WPDTRT_PLUGIN_BOILERPLATE_VERSION', '0.1' );
+if( ! defined( '<%= constantStub %>_VERSION' ) ) {
+  define( '<%= constantStub %>_VERSION', '0.1' );
 }
 
 /**
@@ -48,8 +48,8 @@ if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_VERSION' ) ) {
  * @link https://developer.wordpress.org/reference/functions/plugin_dir_path/
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  */
-if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_PATH' ) ) {
-  define( 'WPDTRT_PLUGIN_BOILERPLATE_PATH', plugin_dir_path( __FILE__ ) );
+if( ! defined( '<%= constantStub %>_PATH' ) ) {
+  define( '<%= constantStub %>_PATH', plugin_dir_path( __FILE__ ) );
 }
 
 /**
@@ -59,8 +59,8 @@ if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_PATH' ) ) {
  * @link https://codex.wordpress.org/Function_Reference/plugin_dir_url
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  */
-if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_URL' ) ) {
-  define( 'WPDTRT_PLUGIN_BOILERPLATE_URL', plugin_dir_url( __FILE__ ) );
+if( ! defined( '<%= constantStub %>_URL' ) ) {
+  define( '<%= constantStub %>_URL', plugin_dir_url( __FILE__ ) );
 }
 
 
@@ -70,24 +70,24 @@ if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_URL' ) ) {
  * WordPress automatically serializes this (into a string)
  * because MySQL does not support arrays as a data type
  */
-  $wpdtrt_plugin_boilerplate_options = array();
+  $<%= nameSafe %>_options = array();
 
 /**
  * Include plugin logic
  */
 
   // API data
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-data.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-data.php');
 
   // Views
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-options-page.php');
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-widget.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options-page.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-widget.php');
 
   // Theming
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-css.php');
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-js.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-css.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-js.php');
 
   // Shortcode
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-shortcode.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-shortcode.php');
 
 ?>
