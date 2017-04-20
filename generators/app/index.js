@@ -5,6 +5,7 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
+const S = require('string');
 
 module.exports = class extends Generator {
 
@@ -16,7 +17,31 @@ module.exports = class extends Generator {
      * {@link https://webcake.co/building-a-yeoman-generator/}
      */
     initializing() {
-        //
+
+        this.config.set(
+            'name',
+            process.cwd().split(path.sep).pop() // get plugin name from parent folder
+        );
+
+        this.config.set(
+            'nameSafe',
+            S( this.config.get('name') ).replaceAll('-','_').s
+        );
+
+        this.config.set(
+            'nameFriendly',
+            S( this.config.get('name') ).humanize().titleCase().s
+        );
+
+        this.config.set(
+            'nameFriendlySafe',
+            S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
+        );
+
+        this.config.set(
+            'urlAdminMenu',
+            S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
+        );
     }
 
     /**
@@ -31,80 +56,78 @@ module.exports = class extends Generator {
           'Welcome to the ' + chalk.red('WordPress Plugin boilerplate') + ' generator!'
         ));
 
-        this.log( 'This folder:', process.cwd().split(path.sep).pop() );
-
         const prompts = [
             {
                 type: 'input',
-                name: 'pluginName',
+                name: 'name',
                 message: 'Plugin name (file safe)',
-                default: this.config.get('pluginName')
+                default: this.config.get('name')
             },
             {
                 type: 'input',
-                name: 'pluginNameSafe',
+                name: 'nameSafe',
                 message: 'Plugin name (function safe)',
-                default: this.config.get('pluginNameSafe')
+                default: this.config.get('nameSafe')
             },
             {
                 type: 'input',
-                name: 'pluginNameFriendly',
+                name: 'nameFriendly',
                 message: 'Plugin name (friendly)',
-                default: this.config.get('pluginNameFriendly')
+                default: this.config.get('nameFriendly')
             },
             {
                 type: 'input',
-                name: 'pluginNameFriendlySafe',
+                name: 'nameFriendlySafe',
                 message: 'Plugin name (friendly & function safe)',
-                default: this.config.get('pluginNameFriendlySafe')
+                default: this.config.get('nameFriendlySafe')
             },
             {
                 type: 'input',
-                name: 'pluginNameAdminMenu',
+                name: 'nameAdminMenu',
                 message: 'Plugin name (admin menu)',
-                default: this.config.get('pluginNameAdminMenu')
+                default: this.config.get('nameAdminMenu')
             },
             {
                 type: 'input',
-                name: 'pluginUrlAdminMenu',
+                name: 'urlAdminMenu',
                 message: 'Plugin URL (admin menu)',
-                default: this.config.get('pluginUrlAdminMenu')
+                default: this.config.get('urlAdminMenu')
             },
             {
                 type: 'input',
-                name: 'pluginDescription',
+                name: 'description',
                 message: 'Plugin description',
-                default: this.config.get('pluginDescription')
+                default: this.config.get('description')
             },
             {
                 type: 'input',
-                name: 'pluginTags',
+                name: 'tags',
                 message: 'Plugin tags',
-                default: this.config.get('pluginTags')
+                default: this.config.get('tags')
             },
             {
                 type: 'input',
-                name: 'pluginUrl',
+                name: 'homepage',
                 message: 'Plugin URL',
-                default: this.config.get('pluginUrl')
+                default: this.config.get('homepage')
             },
             {
                 type: 'input',
-                name: 'pluginLicense',
+                name: 'license',
                 message: 'Plugin License',
-                default: this.config.get('pluginLicense')
+                default: this.config.get('license')
             },
             {
                 type: 'input',
-                name: 'pluginLicenseUrl',
+                name: 'licenseUrl',
                 message: 'Plugin License URL',
-                default: this.config.get('pluginLicenseUrl')
+                default: this.config.get('licenseUrl')
             },
             {
                 type: 'input',
-                name: 'pluginDonateUrl',
+                name: 'donateUrl',
                 message: 'Plugin Donate URL',
-                default: this.config.get('pluginDonateUrl')
+                default: this.config.get('donateUrl')
             },
             {
                 type: 'input',
@@ -138,15 +161,15 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
-                name: 'pluginRepositoryType',
+                name: 'repositoryType',
                 message: 'Version control system (git/svn)',
-                default: this.config.get('pluginRepositoryType')
+                default: this.config.get('repositoryType')
             },
             {
                 type: 'input',
-                name: 'pluginRepositoryUrl',
+                name: 'repositoryUrl',
                 message: 'Repository Url',
-                default: this.config.get('pluginRepositoryUrl')
+                default: this.config.get('repositoryUrl')
             }
         ];
 
@@ -206,12 +229,12 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('_bower.json'),
             this.destinationPath('bower.json'), {
-                name:           this.props.pluginName,
-                description:    this.props.pluginDescription,
+                name:           this.props.name,
+                description:    this.props.description,
                 authorName:     this.props.authorName,
                 authorEmail:    this.props.authorEmail,
                 authorUrl:      this.props.authorUrl,
-                homepage:       this.props.pluginUrl
+                homepage:       this.props.homepage
             }
         );
 
@@ -244,14 +267,14 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('_package.json'),
             this.destinationPath('package.json'), {
-                name:                   this.props.pluginName,
-                description:            this.props.pluginDescription,
-                repositoryType:         this.props.pluginRepositoryType,
-                repositoryUrl:          this.props.pluginRepositoryUrl,
+                name:                   this.props.name,
+                description:            this.props.description,
+                repositoryType:         this.props.repositoryType,
+                repositoryUrl:          this.props.repositoryUrl,
                 authorName:             this.props.authorName,
                 authorEmail:            this.props.authorEmail,
                 authorUrl:              this.props.authorUrl,
-                homepage:               this.props.pluginUrl,
+                homepage:               this.props.homepage,
                 srcDir:                 process.cwd()
             }
         );
@@ -269,38 +292,38 @@ module.exports = class extends Generator {
             this.templatePath('_readme.txt'),
             this.destinationPath('readme.txt'), {
                 authorWordPressName:    this.props.authorWordPressName,
-                pluginTags:             this.props.pluginTags,
-                description:            this.props.pluginDescription,
-                name:                   this.props.pluginName,
-                nameSafe:               this.props.pluginNameSafe,
-                nameFriendly:           this.props.pluginNameFriendly,
+                pluginTags:             this.props.tags,
+                description:            this.props.description,
+                name:                   this.props.name,
+                nameSafe:               this.props.nameSafe,
+                nameFriendly:           this.props.nameFriendly,
                 wpVersion:              this.props.wpVersion,
-                pluginLicense:          this.props.pluginLicense,
-                pluginLicenseUrl:       this.props.pluginLicenseUrl,
-                pluginDonateUrl:        this.props.pluginDonateUrl
+                pluginLicense:          this.props.license,
+                pluginLicenseUrl:       this.props.licenseUrl,
+                pluginDonateUrl:        this.props.donateUrl
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('_uninstall.php'),
             this.destinationPath('uninstall.php'), {
-                name: this.props.pluginName,
-                nameFriendlySafe: this.props.pluginNameFriendlySafe
+                name: this.props.name,
+                nameFriendlySafe: this.props.nameFriendlySafe
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('_wpdtrt-plugin-boilerplate.php'),
-            this.destinationPath(this.props.pluginName + '.php'), {
-                name:                   this.props.pluginName,
-                nameFriendly:           this.props.pluginNameFriendly,
-                nameSafe:               this.props.pluginNameSafe,
+            this.destinationPath(this.props.name + '.php'), {
+                name:                   this.props.name,
+                nameFriendly:           this.props.nameFriendly,
+                nameSafe:               this.props.nameSafe,
                 authorName:             this.props.authorName,
                 authorUrl:              this.props.authorUrl,
-                pluginLicense:          this.props.pluginLicense,
-                pluginUrl:              this.props.pluginUrl,
-                description:            this.props.pluginDescription,
-                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
+                pluginLicense:          this.props.license,
+                pluginUrl:              this.props.homepage,
+                description:            this.props.description,
+                constantStub:           this.props.nameFriendlySafe.toUpperCase()
             }
         );
 
@@ -313,69 +336,69 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-css.php'),
-            this.destinationPath('app/' + this.props.pluginName + '-css.php'), {
-                name:                   this.props.pluginName,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                nameSafe:               this.props.pluginNameSafe,
-                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase(),
-                pluginUrl:              this.props.pluginUrl
+            this.destinationPath('app/' + this.props.name + '-css.php'), {
+                name:                   this.props.name,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                nameSafe:               this.props.nameSafe,
+                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
+                pluginUrl:              this.props.homepage
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-data.php'),
-            this.destinationPath('app/' + this.props.pluginName + '-data.php'), {
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                nameSafe:               this.props.pluginNameSafe,
-                pluginUrl:              this.props.pluginUrl
+            this.destinationPath('app/' + this.props.name + '-data.php'), {
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                nameSafe:               this.props.nameSafe,
+                pluginUrl:              this.props.homepage
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-js.php'),
-            this.destinationPath('app/' + this.props.pluginName + '-js.php'), {
-                name:                   this.props.pluginName,
-                nameSafe:               this.props.pluginNameSafe,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                pluginUrl:              this.props.pluginUrl,
-                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
+            this.destinationPath('app/' + this.props.name + '-js.php'), {
+                name:                   this.props.name,
+                nameSafe:               this.props.nameSafe,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                pluginUrl:              this.props.homepage,
+                constantStub:           this.props.nameFriendlySafe.toUpperCase()
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-options-page.php'),
-            this.destinationPath('app/' + this.props.pluginName + '-options-page.php'), {
-                name:                   this.props.pluginName,
-                nameSafe:               this.props.pluginNameSafe,
-                nameFriendly:           this.props.pluginNameFriendly,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                nameAdminMenu:          this.props.pluginNameAdminMenu,
-                pluginUrl:              this.props.pluginUrl,
-                pluginUrlAdminMenu:     this.props.pluginUrlAdminMenu,
-                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
+            this.destinationPath('app/' + this.props.name + '-options-page.php'), {
+                name:                   this.props.name,
+                nameSafe:               this.props.nameSafe,
+                nameFriendly:           this.props.nameFriendly,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                nameAdminMenu:          this.props.nameAdminMenu,
+                pluginUrl:              this.props.homepage,
+                pluginUrlAdminMenu:     this.props.urlAdminMenu,
+                constantStub:           this.props.nameFriendlySafe.toUpperCase()
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-shortcode.php'),
-            this.destinationPath('app/' + this.props.pluginName + '-shortcode.php'), {
-                name:                   this.props.pluginName,
-                nameSafe:               this.props.pluginNameSafe,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                pluginUrl:              this.props.pluginUrl,
-                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
+            this.destinationPath('app/' + this.props.name + '-shortcode.php'), {
+                name:                   this.props.name,
+                nameSafe:               this.props.nameSafe,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                pluginUrl:              this.props.homepage,
+                constantStub:           this.props.nameFriendlySafe.toUpperCase()
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-widget.php'),
-            this.destinationPath('app/' + this.props.pluginName + '-widget.php'), {
-                name:                   this.props.pluginName,
-                nameSafe:               this.props.pluginNameSafe,
-                nameFriendly:           this.props.pluginNameFriendly,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                pluginUrl:              this.props.pluginUrl,
-                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
+            this.destinationPath('app/' + this.props.name + '-widget.php'), {
+                name:                   this.props.name,
+                nameSafe:               this.props.nameSafe,
+                nameFriendly:           this.props.nameFriendly,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                pluginUrl:              this.props.homepage,
+                constantStub:           this.props.nameFriendlySafe.toUpperCase()
             }
         );
 
@@ -383,7 +406,7 @@ module.exports = class extends Generator {
 
         this.fs.copy(
             this.templatePath('languages/_wpdtrt-plugin-boilerplate.pot'),
-            this.destinationPath('languages/' + this.props.pluginName + '.pot')
+            this.destinationPath('languages/' + this.props.name + '.pot')
         );
 
         // views
@@ -402,10 +425,10 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/admin/css/_wpdtrt-plugin-boilerplate.css'),
-            this.destinationPath('views/admin/css/' + this.props.pluginName + '.css'), {
-                name:                   this.props.pluginName,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                pluginUrl:              this.props.pluginUrl
+            this.destinationPath('views/admin/css/' + this.props.name + '.css'), {
+                name:                   this.props.name,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                pluginUrl:              this.props.homepage
             }
         );
 
@@ -414,22 +437,22 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/admin/partials/_wpdtrt-plugin-boilerplate-options-page.php'),
-            this.destinationPath('views/admin/partials/' + this.props.pluginName + '-options-page.php'), {
-                name:                   this.props.pluginName,
-                nameFriendly:           this.props.pluginNameFriendly,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                nameSafe:               this.props.pluginNameSafe,
-                pluginUrl:              this.props.pluginUrl
+            this.destinationPath('views/admin/partials/' + this.props.name + '-options-page.php'), {
+                name:                   this.props.name,
+                nameFriendly:           this.props.nameFriendly,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                nameSafe:               this.props.nameSafe,
+                pluginUrl:              this.props.homepage
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('views/admin/partials/_wpdtrt-plugin-boilerplate-widget.php'),
-            this.destinationPath('views/admin/partials/' + this.props.pluginName + '-widget.php'), {
-                nameFriendly:           this.props.pluginNameFriendly,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                nameSafe:               this.props.pluginNameSafe,
-                pluginUrl:              this.props.pluginUrl
+            this.destinationPath('views/admin/partials/' + this.props.name + '-widget.php'), {
+                nameFriendly:           this.props.nameFriendly,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                nameSafe:               this.props.nameSafe,
+                pluginUrl:              this.props.homepage
             }
         );
 
@@ -442,10 +465,10 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/public/css/_wpdtrt-plugin-boilerplate.css'),
-            this.destinationPath('views/public/css/' + this.props.pluginName + '.css'), {
-                name:                   this.props.pluginName,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                pluginUrl:              this.props.pluginUrl
+            this.destinationPath('views/public/css/' + this.props.name + '.css'), {
+                name:                   this.props.name,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                pluginUrl:              this.props.homepage
             }
         );
 
@@ -462,22 +485,22 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/public/js/_wpdtrt-plugin-boilerplate.js'),
-            this.destinationPath('views/public/js/' + this.props.pluginName + '.js'), {
-                name:                   this.props.pluginName,
-                nameSafe:               this.props.pluginNameSafe,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                pluginUrl:              this.props.pluginUrl
+            this.destinationPath('views/public/js/' + this.props.name + '.js'), {
+                name:                   this.props.name,
+                nameSafe:               this.props.nameSafe,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                pluginUrl:              this.props.homepage
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('views/public/partials/_wpdtrt-plugin-boilerplate-front-end.php'),
-            this.destinationPath('views/public/partials/' + this.props.pluginName + '-front-end.php'), {
-                name:                   this.props.pluginName,
-                nameSafe:               this.props.pluginNameSafe,
-                nameFriendlySafe:       this.props.pluginNameFriendlySafe,
-                pluginUrl:              this.props.pluginUrl,
-                constantStub:           this.props.pluginNameFriendlySafe.toUpperCase()
+            this.destinationPath('views/public/partials/' + this.props.name + '-front-end.php'), {
+                name:                   this.props.name,
+                nameSafe:               this.props.nameSafe,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                pluginUrl:              this.props.homepage,
+                constantStub:           this.props.nameFriendlySafe.toUpperCase()
             }
         );
 
