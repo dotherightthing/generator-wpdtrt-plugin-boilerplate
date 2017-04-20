@@ -13,6 +13,7 @@
     "bower_components"
   ],
   "devDependencies": {
-    "WordPress-Admin-Style": "https://github.com/bueltge/WordPress-Admin-Style.git#^1.4.1"
+    "WordPress-Admin-Style": "https://github.com/bueltge/WordPress-Admin-Style.git#^1.4.1",
+    "wp-skeleton-plugin": "https://github.com/ptahdunbar/wp-skeleton-plugin.git"
   }
 }
