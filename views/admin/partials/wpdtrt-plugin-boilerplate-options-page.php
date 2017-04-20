@@ -200,11 +200,11 @@
             <h2 class="hndle"><span><?php esc_attr_e( $wpdtrt_username . '\'s Profile', 'wp_admin_style'); ?></span></h2>
 
             <div class="inside">
-              <p><img width="100%" class="wpdtrt-gravatar" src="<?php echo WPDTRT_PLUGIN_BOILERPLATE_URL . 'images/mike-the-frog.png'; ?>" alt="Mike the Frog Gravatar"></p>
+              <p><img width="100%" class="wpdtrt-gravatar" src="<?php echo $wpdtrt_data->{'gravatar_url'}; ?>" alt="<?php esc_attr_e( $wpdtrt_username ); ?>. "></p>
 
               <ul class="wpdtrt-badges-and-points">
-                <li>Badges: <strong>200</strong></li>
-                <li>Points: <strong>10000</strong></li>
+                <li>Badges: <strong><?php echo count( $wpdtrt_data->{'badges'} ); ?></strong></li>
+                <li>Points: <strong><?php echo $wpdtrt_data->{'points'}->{'total'}; ?></strong></li>
               </ul>
 
               <form name="wpdtrt_username_form" method="post" action="">
