@@ -12,7 +12,8 @@ We assign the extended generator to module.exports to make it available to the e
 
 //Require dependencies
 var yeoman = require('yeoman-generator');
-//var yosay = require('yosay');
+var chalk = require('chalk');
+var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
 
