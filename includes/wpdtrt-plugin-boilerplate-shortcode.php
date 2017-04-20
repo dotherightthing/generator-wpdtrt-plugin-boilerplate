@@ -61,7 +61,7 @@ if ( !function_exists( 'wpdtrt_badges_shortcode' ) ) {
      */
     ob_start();
 
-    require(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'public/partials/wpdtrt-plugin-boilerplate-front-end.php');
+    require(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'views/public/partials/wpdtrt-plugin-boilerplate-front-end.php');
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer

@@ -99,7 +99,7 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_options_page' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-    require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'admin/partials/wpdtrt-plugin-boilerplate-options-page.php');
+    require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'views/admin/partials/wpdtrt-plugin-boilerplate-options-page.php');
   }
 
 }
