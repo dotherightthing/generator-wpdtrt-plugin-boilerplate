@@ -230,7 +230,8 @@ module.exports = class extends Generator {
                 nameFriendly:           this.props.pluginNameFriendly,
                 wpVersion:              this.props.wpVersion,
                 pluginLicense:          this.props.pluginLicense,
-                pluginLicenseUrl:       this.props.pluginLicenseUrl
+                pluginLicenseUrl:       this.props.pluginLicenseUrl,
+                pluginDonateUrl:        this.props.pluginDonateUrl
             }
         );
 
@@ -266,7 +267,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-css.php'),
-            this.destinationPath('app/' + this.pluginName + '-css.php'), {
+            this.destinationPath('app/' + this.props.pluginName + '-css.php'), {
                 name:                   this.props.pluginName,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 nameSafe:               this.props.pluginNameSafe,
@@ -277,7 +278,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-data.php'),
-            this.destinationPath('app/' + this.pluginName + '-data.php'), {
+            this.destinationPath('app/' + this.props.pluginName + '-data.php'), {
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 nameSafe:               this.props.pluginNameSafe,
                 pluginUrl:              this.props.pluginUrl
@@ -286,7 +287,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-js.php'),
-            this.destinationPath('app/' + this.pluginName + '-js.php'), {
+            this.destinationPath('app/' + this.props.pluginName + '-js.php'), {
                 name:                   this.props.pluginName,
                 nameSafe:               this.props.pluginNameSafe,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
@@ -297,7 +298,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-options-page.php'),
-            this.destinationPath('app/' + this.pluginName + '-options-page.php'), {
+            this.destinationPath('app/' + this.props.pluginName + '-options-page.php'), {
                 name:                   this.props.pluginName,
                 nameSafe:               this.props.pluginNameSafe,
                 nameFriendly:           this.props.pluginNameFriendly,
@@ -311,7 +312,8 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-shortcode.php'),
-            this.destinationPath('app/' + this.pluginName + '-shortcode.php'), {
+            this.destinationPath('app/' + this.props.pluginName + '-shortcode.php'), {
+                name:                   this.props.pluginName,
                 nameSafe:               this.props.pluginNameSafe,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 pluginUrl:              this.props.pluginUrl,
@@ -321,9 +323,10 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-widget.php'),
-            this.destinationPath('app/' + this.pluginName + '-widget.php'), {
+            this.destinationPath('app/' + this.props.pluginName + '-widget.php'), {
                 name:                   this.props.pluginName,
                 nameSafe:               this.props.pluginNameSafe,
+                nameFriendly:           this.props.pluginNameFriendly,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 pluginUrl:              this.props.pluginUrl,
                 constantStub:           this.props.pluginNameFriendly.toUpperCase()
@@ -334,7 +337,7 @@ module.exports = class extends Generator {
 
         this.fs.copy(
             this.templatePath('languages/_wpdtrt-plugin-boilerplate.pot'),
-            this.destinationPath('languages/' + this.pluginName + '.pot')
+            this.destinationPath('languages/' + this.props.pluginName + '.pot')
         );
 
         // views
@@ -353,7 +356,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/admin/css/_wpdtrt-plugin-boilerplate.css'),
-            this.destinationPath('views/admin/css/' + this.pluginName + '.css'), {
+            this.destinationPath('views/admin/css/' + this.props.pluginName + '.css'), {
                 name:                   this.props.pluginName,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 pluginUrl:              this.props.pluginUrl
@@ -365,7 +368,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/admin/partials/_wpdtrt-plugin-boilerplate-options-page.php'),
-            this.destinationPath('views/admin/partials/' + this.pluginName + '-options-page.php'), {
+            this.destinationPath('views/admin/partials/' + this.props.pluginName + '-options-page.php'), {
                 name:                   this.props.pluginName,
                 nameFriendly:           this.props.pluginNameFriendly,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
@@ -376,7 +379,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/admin/partials/_wpdtrt-plugin-boilerplate-widget.php'),
-            this.destinationPath('views/admin/partials/' + this.pluginName + '-widget.php'), {
+            this.destinationPath('views/admin/partials/' + this.props.pluginName + '-widget.php'), {
                 nameFriendly:           this.props.pluginNameFriendly,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 nameSafe:               this.props.pluginNameSafe,
@@ -393,7 +396,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/public/css/_wpdtrt-plugin-boilerplate.css'),
-            this.destinationPath('views/public/css/' + this.pluginName + '.css'), {
+            this.destinationPath('views/public/css/' + this.props.pluginName + '.css'), {
                 name:                   this.props.pluginName,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
                 pluginUrl:              this.props.pluginUrl
@@ -413,7 +416,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/public/js/_wpdtrt-plugin-boilerplate.js'),
-            this.destinationPath('views/public/js/' + this.pluginName + '.js'), {
+            this.destinationPath('views/public/js/' + this.props.pluginName + '.js'), {
                 name:                   this.props.pluginName,
                 nameSafe:               this.props.pluginNameSafe,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
@@ -423,7 +426,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('views/public/partials/_wpdtrt-plugin-boilerplate-front-end.php'),
-            this.destinationPath('views/public/partials/' + this.pluginName + '-front-end.php'), {
+            this.destinationPath('views/public/partials/' + this.props.pluginName + '-front-end.php'), {
                 name:                   this.props.pluginName,
                 nameSafe:               this.props.pluginNameSafe,
                 nameFriendlySafe:       this.props.pluginNameFriendlySafe,
