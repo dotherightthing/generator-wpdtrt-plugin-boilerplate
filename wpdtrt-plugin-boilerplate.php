@@ -31,8 +31,9 @@ License: GPL2
  */
 
 /**
- * plugin_dir_path( string $file )
- * Get the filesystem directory path (with trailing slash) for the plugin __FILE__ passed in.
+ * plugin_dir_path
+ * @param string $file
+ * @return The filesystem directory path (with trailing slash)
  * @link https://developer.wordpress.org/reference/functions/plugin_dir_path/
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  */
@@ -41,8 +42,9 @@ if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_PATH' ) ) {
 }
 
 /**
- * plugin_dir_url( string $file )
- * Gets the URL (with trailing slash) for the plugin __FILE__ passed in
+ * plugin_dir_url
+ * @param string $file
+ * @return The URL (with trailing slash)
  * @link https://codex.wordpress.org/Function_Reference/plugin_dir_url
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  */
