@@ -4,13 +4,34 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const path = require('path');
 
 module.exports = class extends Generator {
+
+    /**
+     * 1. initializing()
+     * a method for setting up basic initialization,
+     * such as setting some properties names on your generator
+     * based on information passed in by the user
+     * {@link https://webcake.co/building-a-yeoman-generator/}
+     */
+    initializing() {
+        //
+    }
+
+    /**
+     * 2. prompting()
+     * a method reserved for running questions by the user,
+     * the answers to which can be used to further define properties on the generator object
+     * {@link https://webcake.co/building-a-yeoman-generator/}
+     */
     prompting() {
 
         this.log(yosay(
           'Welcome to the ' + chalk.red('WordPress Plugin boilerplate') + ' generator!'
         ));
+
+        this.log( 'This folder:', process.cwd().split(path.sep).pop() );
 
         const prompts = [
             {
@@ -135,6 +156,36 @@ module.exports = class extends Generator {
         });
     }
 
+    /**
+     * 3. configuring()
+     * this method is generally used for the initial configuration steps,
+     * as well as auto-generating files that you might find necessary and kind of a given,
+     * like .gitignore, and .editorconfig as the docs suggest
+     * {@link https://webcake.co/building-a-yeoman-generator/}
+     */
+    configuring() {
+        //
+    }
+
+    /**
+     * 4. default()
+     * if no specific method of the base generator class is extended,
+     * any functionality added to the generator will fall into the default method.
+     * I have yet to find a use for it, since when I write generators
+     * they use the other available methods instead
+     * {@link https://webcake.co/building-a-yeoman-generator/}
+     */
+    default() {
+        //
+    }
+
+    /**
+     * 5. writing()
+     * actually writing the files based on data fields stored in the generator;
+     * this can be done by either copying hard-coded files,
+     * or passing data through EJS templates
+     * {@link https://webcake.co/building-a-yeoman-generator/}
+     */
     writing() {
         // Copy the configuration files
 
@@ -432,6 +483,25 @@ module.exports = class extends Generator {
 
     }
 
+    /**
+     * 6. conflicts()
+     * the docs say ‘Where conflicts are handled (used internally)’.
+     * If it’s an internal-method to the generator class I’m not sure why it’s exposed to developers,
+     * and I have yet to see it used in any generator that I’ve researched
+     * {@link https://webcake.co/building-a-yeoman-generator/}
+     */
+    conflicts() {
+        //
+    }
+
+    /**
+     * 7. install()
+     * where you would either have Yeoman install dependencies – e.g. Bower -
+     * or spawn child processes to install them yourself;
+     * and you could take this opportunity to inject dependencies
+     * into previously-written files as well
+     * {@link https://webcake.co/building-a-yeoman-generator/}
+     */
     install() {
         this.installDependencies({
             npm: true,
@@ -440,6 +510,16 @@ module.exports = class extends Generator {
         });
 
         this.spawnCommand('composer', ['install']);
+    }
+
+    /**
+     * 8. end()
+     * the cleanup process – removing any temp files that may have been written,
+     * running any build or minification tasks, etc.
+     * {@link https://webcake.co/building-a-yeoman-generator/}
+     */
+    end() {
+        //
     }
 
 };
