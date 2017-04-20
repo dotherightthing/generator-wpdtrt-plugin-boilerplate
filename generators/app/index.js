@@ -240,7 +240,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('_wpdtrt-plugin-boilerplate.php'),
-            this.destinationPath(this.pluginName + '.php'), {
+            this.destinationPath(this.props.pluginName + '.php'), {
                 name:                   this.props.pluginName,
                 nameFriendly:           this.props.pluginNameFriendly,
                 nameSafe:               this.props.pluginNameSafe,
