@@ -134,7 +134,7 @@ if ( !function_exists( '<%= nameSafe %>_register_widgets' ) ) {
   add_action( 'widgets_init', '<%= nameSafe %>_register_widgets' );
 
   function <%= nameSafe %>_register_widgets() {
-    register_widget( 'Wp<%= nameFriendlySafe %>_Widget' );
+    register_widget( '<%= nameFriendlySafe %>_Widget' );
   }
 
 }
