@@ -96,7 +96,8 @@
                 <?php
                   $total_badges = count( $wpdtrt_data->{'badges'} );
 
-                  for( $i = $total_badges - 1; $i >= $total_badges - 20; $i-- ):
+                  for( $i = $total_badges - 1; ( ($i >= 0) && ( $i >= $total_badges - 20) ); $i-- ):
+
                 ?>
                 <li>
                   <ul>
