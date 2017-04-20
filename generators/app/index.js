@@ -221,6 +221,7 @@ module.exports = class extends Generator {
                 pluginTags:             this.props.pluginTags,
                 description:            this.props.pluginDescription,
                 name:                   this.props.pluginName,
+                nameSafe:               this.props.pluginNameSafe,
                 nameFriendly:           this.props.pluginNameFriendly,
                 wpVersion:              this.props.wpVersion,
                 pluginLicense:          this.props.pluginLicense,
