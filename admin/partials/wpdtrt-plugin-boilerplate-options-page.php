@@ -92,23 +92,37 @@
 
               <ul class="wpdtrt-badges">
 
+
                 <?php
                   $total_badges = count( $wpdtrt_data->{'badges'} );
 
                   for( $i = $total_badges - 1; $i >= $total_badges - 20; $i-- ):
                 ?>
-
                 <li>
                   <ul>
                     <li>
-                      <img width="120px" src="<?php echo WPDTRT_PLUGIN_BOILERPLATE_URL . 'images/wp-badge.png'; ?>">
+                      <img width="120px" src="<?php echo $wpdtrt_data->{'badges'}[$i]->{'icon_url'}; ?>">
                     </li>
+
+                    <?php if( $wpdtrt_data->{'badges'}[$i]->{'url'} != $wpdtrt_data->{'profile_url'} ): ?>
+
                     <li class="wpdtrt-badge-name">
-                      <a href="#">Badge Name</a>
+                      <a href="<?php echo $wpdtrt_data->{'badges'}[$i]->{'url'}; ?>">
+                        <?php echo $wpdtrt_data->{'badges'}[$i]->{'name'}; ?>
+                      </a>
                     </li>
                     <li class="wpdtrt-project-name">
-                      <a href="#">Project Name</a>
+                      <a href="<?php echo $wpdtrt_data->{'badges'}[$i]->{'courses'}[0]->{'url'}; ?>"><?php echo $wpdtrt_data->{'badges'}[$i]->{'courses'}[0]->{'title'}; ?></a>
                     </li>
+
+                    <?php else: ?>
+
+                    <li class="wpdtrt-badge-name">
+                      <?php echo $wpdtrt_data->{'badges'}[$i]->{'name'}; ?>
+                    </li>
+
+                    <?php endif; ?>
+
                   </ul>
                 </li>
                 <?php endfor; ?>
