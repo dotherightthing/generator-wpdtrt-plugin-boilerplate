@@ -22,9 +22,9 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_css_backend' ) ) {
   function wpdtrt_plugin_boilerplate_css_backend() {
 
     wp_enqueue_style( 'wpdtrt_plugin_boilerplate_css_backend',
-      WPDTRT_PLUGIN_BOILERPLATE_URL . 'views/admin/css/wpdtrt-plugin-boilerplate.css'
-      //array( '' ),
-      //false,
+      WPDTRT_PLUGIN_BOILERPLATE_URL . 'views/admin/css/wpdtrt-plugin-boilerplate.css',
+      array(),
+      WPDTRT_PLUGIN_BOILERPLATE_VERSION
       //'all'
     );
   }
@@ -41,9 +41,9 @@ if ( !function_exists( 'wpdtrt_plugin_boilerplate_css_frontend' ) ) {
   function wpdtrt_plugin_boilerplate_css_frontend() {
 
     wp_enqueue_style( 'wpdtrt_plugin_boilerplate_css_frontend',
-      WPDTRT_PLUGIN_BOILERPLATE_URL . 'views/public/css/wpdtrt-plugin-boilerplate.css'
-      //array( '' ),
-      //false,
+      WPDTRT_PLUGIN_BOILERPLATE_URL . 'views/public/css/wpdtrt-plugin-boilerplate.css',
+      array(),
+      WPDTRT_PLUGIN_BOILERPLATE_VERSION
       //'all'
     );
 

@@ -23,8 +23,8 @@ add_action( 'wp_enqueue_scripts', 'wpdtrt_plugin_boilerplate_frontend_js' );
 
     wp_enqueue_script( 'wpdtrt_plugin_boilerplate_frontend_js',
       WPDTRT_PLUGIN_BOILERPLATE_URL . 'views/public/js/wpdtrt-plugin-boilerplate.js',
-      array( 'jquery' ),
-      '', // string|bool|null, but TH tut says string only
+      array('jquery'),
+      WPDTRT_PLUGIN_BOILERPLATE_VERSION,
       true
     );
 

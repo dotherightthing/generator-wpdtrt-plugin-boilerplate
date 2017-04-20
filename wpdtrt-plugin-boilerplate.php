@@ -31,6 +31,17 @@ License: GPL2
  */
 
 /**
+ * Plugin version
+ * WP provides get_plugin_data(), but it only works within WP Admin,
+ * so we define a constant instead.
+ * @example $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
+ * @link https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically
+ */
+if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_VERSION' ) ) {
+  define( 'WPDTRT_PLUGIN_BOILERPLATE_VERSION', '0.1' );
+}
+
+/**
  * plugin_dir_path
  * @param string $file
  * @return The filesystem directory path (with trailing slash)
@@ -42,7 +53,7 @@ if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_PATH' ) ) {
 }
 
 /**
- * plugin_dir_url
+ * The version information is only available within WP Admin
  * @param string $file
  * @return The URL (with trailing slash)
  * @link https://codex.wordpress.org/Function_Reference/plugin_dir_url
@@ -51,6 +62,7 @@ if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_PATH' ) ) {
 if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_URL' ) ) {
   define( 'WPDTRT_PLUGIN_BOILERPLATE_URL', plugin_dir_url( __FILE__ ) );
 }
+
 
 /**
  * Store all of our plugin options in an array
@@ -65,17 +77,17 @@ if( ! defined( 'WPDTRT_PLUGIN_BOILERPLATE_URL' ) ) {
  */
 
   // API data
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-data.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-data.php');
 
   // Views
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-options-page.php');
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-widget.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-options-page.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-widget.php');
 
   // Theming
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-css.php');
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-js.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-css.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-js.php');
 
   // Shortcode
-  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'includes/wpdtrt-plugin-boilerplate-shortcode.php');
+  require_once(WPDTRT_PLUGIN_BOILERPLATE_PATH . 'app/wpdtrt-plugin-boilerplate-shortcode.php');
 
 ?>
