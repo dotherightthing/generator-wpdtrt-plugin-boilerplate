@@ -15,5 +15,6 @@
   "repository": {
     "type": "git",
     "url": "git@bitbucket.org:dotherightthing/wpdtrt-plugin-boilerplate.git"
-  }
+  },
+  "license": "ISC"
 }
