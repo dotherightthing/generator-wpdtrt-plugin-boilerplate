@@ -1,5 +1,7 @@
+generators
 logs
 node_modules
 tests
 vendor
 composer.phar
+.yo-rc.json
