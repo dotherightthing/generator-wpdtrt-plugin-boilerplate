@@ -4,12 +4,10 @@ A best-practice boilerplate for plugin development.
 
 ## Installation
 
-### A. Create a folder for your plugin
-
-The name should be less than 50 characters, for compatibility with Bower.
+### A. Create the plugin folder
 
 1. Clone this repository to your WordPress plugins folder
-1. Rename `generator-wp-plugin-boilerplate` to `your-plugin-name`
+1. Rename `generator-wp-plugin-boilerplate` to `your-plugin-name` (this should be less than 50 characters, for compatibility with Bower)
 1. Then launch Terminal from this folder
 
 ### B. Install requirements
