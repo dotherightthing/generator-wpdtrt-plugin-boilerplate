@@ -12,6 +12,6 @@
     "authorEmail":            "dev@dotherightthing.co.nz",
     "authorUrl":              "http://dotherightthing.co.nz",
     "repositoryType":         "git",
-    "repositoryUrl":          "git@bitbucket.org:dotherightthing/wpdtrt-plugin-boilerplate.git"
+    "repositoryUrl":          "git@github.com:dotherightthing/generator-wpdtrt-plugin-boilerplate.git"
   }
 }
