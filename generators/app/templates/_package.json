@@ -9,7 +9,7 @@
     "url" : "<%= authorUrl %>"
   },
   "devDependencies": {
-    "generator-wp-plugin-boilerplate": "git+https://github.com/dotherightthing/wpdtrt-plugin-boilerplate.git",
+    "generator-wp-plugin-boilerplate": "git+https://github.com/dotherightthing/generator-wp-plugin-boilerplate.git",
     "gulp-phplint": "^0.3.4",
     "gulp-phpunit": "^0.22.2"
   },
