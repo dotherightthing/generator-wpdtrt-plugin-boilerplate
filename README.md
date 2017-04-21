@@ -6,8 +6,8 @@ A best-practice boilerplate for plugin development.
 
 ### A Create a folder for your plugin
 
-1. `the-folder-name` will be used as `the-plugin-name`
-1. Clone this repository to the folder
+1. Clone this repository to your WordPress plugins folder
+1. Rename `wpdtrt-plugin-boilerplate` to `your-plugin-name`
 1. Then launch Terminal from this folder
 
 ### B. Install requirements
@@ -17,7 +17,6 @@ A best-practice boilerplate for plugin development.
 1. [Bower](http://bower.io/): `$ npm install -g bower`
 1. Composer: <https://getcomposer.org/download/>
 1. [Yeoman](http://yeoman.io/): `$ sudo npm install -g yo`
-
 
 ### C. Set Defaults (optional)
 
