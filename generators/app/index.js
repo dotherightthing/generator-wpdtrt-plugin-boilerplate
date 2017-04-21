@@ -6,6 +6,7 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
 const S = require('string');
+const open = require("open");
 
 module.exports = class extends Generator {
 
@@ -546,7 +547,7 @@ module.exports = class extends Generator {
      * {@link https://webcake.co/building-a-yeoman-generator/}
      */
     end() {
-        //
+        open("readme.txt");
     }
 
 };
