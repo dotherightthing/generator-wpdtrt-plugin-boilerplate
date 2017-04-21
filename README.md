@@ -27,6 +27,8 @@ These will then become the defaults when running the Yeoman generator (`yo`).
 ### D. Scaffold project
 
 ```
+npm install
+
 sudo npm link
 
 yo wp-plugin-boilerplate
