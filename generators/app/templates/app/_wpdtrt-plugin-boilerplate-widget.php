@@ -52,8 +52,8 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
        * Display the title of this instance, which the user can optionally customise
        */
       $title = apply_filters( 'widget_title', $instance['title'] );
-      $num_badges = $instance['num_badges'];
-      $display_tooltips = $instance['display_tooltips'];
+      $number = $instance['number'];
+      $enlargement = $instance['enlargement'];
 
       $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
       $<%= nameSafe %>_data = $<%= nameSafe %>_options['<%= nameSafe %>_data'];
@@ -90,8 +90,8 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
        * @link http://php.net/manual/en/function.strip-tags.php
        */
       $instance['title'] = strip_tags( $new_instance['title'] );
-      $instance['num_badges'] = strip_tags( $new_instance['num_badges'] );
-      $instance['display_tooltips'] = strip_tags( $new_instance['display_tooltips'] );
+      $instance['number'] = strip_tags( $new_instance['number'] );
+      $instance['enlargement'] = strip_tags( $new_instance['enlargement'] );
 
       return $instance;
     }
@@ -109,8 +109,8 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
         * @link https://developer.wordpress.org/reference/functions/esc_attr/
         */
       $title = esc_attr( $instance['title'] );
-      $num_badges = esc_attr( $instance['num_badges'] );
-      $display_tooltips = esc_attr( $instance['display_tooltips'] );
+      $number = esc_attr( $instance['number'] );
+      $enlargement = esc_attr( $instance['enlargement'] );
 
       $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
       $<%= nameSafe %>_data = $<%= nameSafe %>_options['<%= nameSafe %>_data'];

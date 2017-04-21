@@ -15,17 +15,14 @@
 ?>
 
 <p>
-  <label>Title</label>
-  <input class="widefat" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+  <label for="<?php echo $this->get_field_name('title'); ?>">Title</label>
+  <input class="widefat" id="<?php echo $this->get_field_name('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 </p>
 
 <p>
-  Total Badges
-  <?php echo count($<%= nameSafe %>_data->{'badges'}); ?>
-</p>
-<p>
-  <label>How many of your most recent badges would you you like to display?</label>
-  <input size="4" name="<?php echo $this->get_field_name('num_badges'); ?>" type="text" value="<?php echo $num_badges; ?>" />
+  <label for="<?php echo $this->get_field_name('number'); ?>">Number of blocks to display</label>
+  <input size="4" id="<?php echo $this->get_field_name('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="number" value="<?php echo $number; ?>" aria-describedby="<?php echo $this->get_field_name('number'); ?>-tip" />
+  <span id="<?php echo $this->get_field_name('number'); ?>-tip" class="tip">Minimum: 1 | Maximum: <?php echo count($<%= nameSafe %>_data); ?></span>
 </p>
 
 <?php
@@ -39,6 +36,6 @@
  */
 ?>
 <p>
-  <label>Display tooltips?</label>
-  <input type="checkbox" name="<?php echo $this->get_field_name('display_tooltips'); ?>" value="1" <?php checked( $display_tooltips, 1 ); ?> />
+  <label for="<?php echo $this->get_field_name('enlargement'); ?>">Link to enlargement?</label>
+  <input type="checkbox" id="<?php echo $this->get_field_name('enlargement'); ?>" name="<?php echo $this->get_field_name('enlargement'); ?>" value="1" <?php checked( $enlargement, 1 ); ?> />
 </p>

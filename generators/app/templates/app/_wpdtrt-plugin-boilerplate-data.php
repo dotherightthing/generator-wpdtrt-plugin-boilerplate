@@ -13,15 +13,16 @@
 
 /**
  * <%= nameSafe %>_data_get
- * @param string $<%= nameSafe %>_username Required. The account username.
+ * @param string $<%= nameSafe %>_datatype Required. The type of data to return.
  * @return object $<%= nameSafe %>_data. The body of the JSON.
  */
 if ( !function_exists( '<%= nameSafe %>_data_get' ) ) {
 
-  function <%= nameSafe %>_data_get( $<%= nameSafe %>_username ) {
-    $json_feed_url = 'http://teamtreehouse.com/' . $<%= nameSafe %>_username . '.json';
+  function <%= nameSafe %>_data_get( $<%= nameSafe %>_datatype ) {
+    $json_feed_url = 'http://jsonplaceholder.typicode.com/' . $<%= nameSafe %>_datatype;
+
     $args = array(
-      'timeout' => 120 // wait 120 seconds for the request to complete
+      'timeout' => 30 // seconds to wait for the request to complete
     );
 
     /**
@@ -55,8 +56,8 @@ if ( !function_exists( '<%= nameSafe %>_data_refresh' ) ) {
   /**
    * Refresh data
    *
-   * The 'action' key's value 'wptreehouse_badges_refresh_profile',
-   * matches the latter half of the action 'wp_ajax_wptreehouse_badges_refresh_profile' in our AJAX handler.
+   * The 'action' key's value '<%= nameSafe %>_data_refresh',
+   * matches the latter half of the action 'wp_ajax_<%= nameSafe %>_data_refresh' in our AJAX handler.
    * This is because it is used to call the server side PHP function through admin-ajax.php.
    * If an action is not specified, admin-ajax.php will exit, and return 0 in the process.
    * @link https://codex.wordpress.org/AJAX_in_Plugins
@@ -70,13 +71,13 @@ if ( !function_exists( '<%= nameSafe %>_data_refresh' ) ) {
 
     $current_time = time();
     $update_difference = $current_time - $last_updated;
-    $one_day = (24 * 60 * 60);
+    $one_hour = (1 * 60 * 60);
 
-    if ( $update_difference > $one_day ) {
+    if ( $update_difference > $one_hour ) {
 
-      $<%= nameSafe %>_username = $<%= nameSafe %>_options['<%= nameSafe %>_username'];
+      $<%= nameSafe %>_datatype = $<%= nameSafe %>_options['<%= nameSafe %>_datatype'];
 
-      $<%= nameSafe %>_options['<%= nameSafe %>_data'] = <%= nameSafe %>_data_get( $<%= nameSafe %>_username );
+      $<%= nameSafe %>_options['<%= nameSafe %>_data'] = <%= nameSafe %>_data_get( $<%= nameSafe %>_datatype );
 
       // inspecting the database will allow us to check
       // whether the profile is being updated

@@ -18,57 +18,46 @@
   echo $before_title . $title . $after_title;
 ?>
 
-<ul class="<%= name %>-badges frontend">
+<div class="<%= name %>-blocks frontend" data-number="<?php echo $number; ?>">
+  <ul>
 
   <?php
+  /**
+   * cast the $number string to a number
+   * this is required because we are doing a === comparison:
+   * 1 == '1' => true
+   * 1 === '1' => false
+   */
+    $max_length = (int)$number;
+    $count = 0;
+    $display_count = 1;
 
-    $total_badges = count( $<%= nameSafe %>_data->{'badges'} );
+   /**
+     * filter_var
+     * @link http://stackoverflow.com/a/15075609
+     */
+    $has_enlargement = filter_var( $enlargement, FILTER_VALIDATE_BOOLEAN );
 
-    for( $i = $total_badges - 1; $i >= $total_badges - $num_badges; $i-- ):
+    foreach( $<%= nameSafe %>_data as $key => $val ) {
 
-  ;?>
+      echo "<li>";
 
-  <li class="<%= name %>-badge">
+      echo <%= nameSafe %>_html_image( $key, $has_enlargement );
 
-    <img src="<?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'icon_url'}; ?>">
+      echo "</li>\r\n";
 
+      $count++;
+      $display_count++;
 
-    <?php if ( $display_tooltips == '1' ): ?>
-
-
-      <div class="<%= name %>-badge-info">
-
-        <p class="<%= name %>-badge-name">
-          <a href="<?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'url'};; ?>">
-            <?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'name'}; ?>
-          </a>
-        </p>
-
-        <?php if ( $<%= nameSafe %>_data->{'badges'}[$i]->{'courses'}[1]->{'title'} != '' ): ?>
-
-        <p class="<%= name %>-badge-project">
-          <a href="<?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'courses'}[1]->{'url'}; ?>">
-            <?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'courses'}[1]->{'title'} ;?>
-          </a>
-        </p>
-        <?php endif; ?>
-
-        <a href="http://teamtreehouse.com" alt="Team Treehouse | A Better Way to Learn Technology" class="<%= name %>-logo">
-          <img src="<?php echo <%= constantStub %>_URL . 'views/public/images/treehouse-logo.png'; ?>" alt="Treehouse" />
-        </a>
-
-        <span class="<%= name %>-tooltip bottom"></span>
-
-      </div>
-
-    <?php endif; ?>
-
-  </li>
-
-  <?php endfor; ?>
-
-</ul>
-
+      // when we reach the end of the demo sample, stop looping
+      if ($count === $max_length) {
+        break;
+      }
+    }
+    // end foreach
+  ?>
+  </ul>
+</div>
 
 <?php
   // output widget customisations (not output with shortcode)

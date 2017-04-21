@@ -17,7 +17,7 @@
 <div class="wrap">
 
   <div id="icon-options-general" class="icon32"></div>
-  <h1><?php esc_attr_e( '<%= nameFriendly %>', 'wp_admin_style' ); ?></h1>
+  <h1><?php esc_attr_e( '<%= nameFriendly %>', 'wp_admin_style' ); ?>: Placeholder blocks</h1>
 
   <div id="poststuff">
 
@@ -28,30 +28,40 @@
 
         <div class="meta-box-sortables ui-sortable">
 
-          <?php if ( !isset( $<%= nameSafe %>_username ) || ( $<%= nameSafe %>_username === '') ) : ?>
+          <?php
+          /**
+           * Start Scenario 1 - data selection form
+           * If the user has not chosen a content type yet.
+           * then $<%= nameSafe %>_datatype will be set to the default of ""
+           * The user must make a selection so that we know which page to query,
+           * so we show the selection box first.
+           */
+          if ( !isset( $<%= nameSafe %>_datatype ) || ( $<%= nameSafe %>_datatype === '') ) :
+          ?>
 
           <div class="postbox">
 
-            <div class="handlediv" title="Click to toggle"><br></div>
-            <!-- Toggle -->
-
-            <h2 class="hndle">
-              <span><?php esc_attr_e( 'Let\'s Get Started', 'wp_admin_style' ); ?></span>
+            <h2>
+              <span><?php esc_attr_e( 'What kind of blocks would you like?', 'wp_admin_style' ); ?></span>
             </h2>
 
             <div class="inside">
 
-              <form name="<%= nameSafe %>_username_form" method="post" action="">
+              <form name="<%= nameSafe %>_data_form" method="post" action="">
 
                 <input type="hidden" name="<%= nameSafe %>_form_submitted" value="Y" />
 
                 <table class="form-table">
                   <tr>
+                    <th>
+                      <label for="<%= nameSafe %>_datatype">Please select a block type:</label>
+                    </th>
                     <td>
-                      <label for="<%= nameSafe %>_username">Username</label>
-                    </td>
-                    <td>
-                      <input type="text" value="" class="regular-text" name="<%= nameSafe %>_username" id="<%= nameSafe %>_username" />
+                      <select name="<%= nameSafe %>_datatype" id="<%= nameSafe %>_datatype">
+                        <option value="">None</option>
+                        <option value="photos">Coloured Blocks</option>
+                        <option value="users">Map Blocks</option>
+                      </select>
                     </td>
                   </tr>
                 </table>
@@ -61,9 +71,9 @@
                  * submit_button( string $text = null, string $type = 'primary', string $name = 'submit', bool $wrap = true, array|string $other_attributes = null )
                  */
                   submit_button(
-                    $text = 'Save',
+                    $text = 'Go!',
                     $type = 'primary',
-                    $name = '<%= nameSafe %>_username_submit',
+                    $name = '<%= nameSafe %>_submit',
                     $wrap = true,
                     $other_attributes = null
                   );
@@ -76,59 +86,62 @@
           </div>
           <!-- .postbox -->
 
-          <?php else: ?>
+          <?php
+          /**
+           * End Scenario 1 - data selection form
+           */
+
+          else:
+
+          /**
+           * Start Scenario 2 - data selected
+           * If the user has already chosen a content type,
+           * then $<%= nameSafe %>_data will contain the body of the resulting JSON.
+           */
+
+          /**
+           * Start Scenario 2a - data sample
+           * We display a sample of the data
+           * so the user can verify that they have chosen the type
+           * which meets their needs.
+           */
+          ?>
 
           <div class="postbox">
 
-            <div class="handlediv" title="Click to toggle"><br></div>
-            <!-- Toggle -->
-
-            <h2 class="hndle"><span><?php esc_attr_e( 'Most recent badges', 'wp_admin_style' ); ?></span>
+            <h2>
+              <span><?php esc_attr_e( 'Sample blocks', 'wp_admin_style' ); ?></span>
             </h2>
 
             <div class="inside">
 
-              <p>Below are your 20 most recent badges. </p>
+              <p>This data set contains <?php echo count( $<%= nameSafe %>_data ); ?> blocks.</p>
 
-              <ul class="<%= name %>-badges">
+              <p>The first 6 are displayed below:</p>
 
+              <div class="<%= name %>-blocks">
+                <ul>
 
                 <?php
-                  $total_badges = count( $<%= nameSafe %>_data->{'badges'} );
+                  $max_length = 6;
+                  $count = 0;
+                  $display_count = 1;
 
-                  for( $i = $total_badges - 1; ( ($i >= 0) && ( $i >= $total_badges - 20) ); $i-- ):
+                  foreach( $<%= nameSafe %>_data as $key => $val ) {
+                    echo "<li>" . <%= nameSafe %>_html_image( $key ) . "</li>\r\n";
 
+                    $count++;
+                    $display_count++;
+
+                    // when we reach the end of the demo sample, stop looping
+                    if ($count === $max_length) {
+                      break;
+                    }
+                  }
+                  // end foreach
                 ?>
-                <li>
-                  <ul>
-                    <li>
-                      <img width="120px" src="<?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'icon_url'}; ?>">
-                    </li>
-
-                    <?php if( $<%= nameSafe %>_data->{'badges'}[$i]->{'url'} != $<%= nameSafe %>_data->{'profile_url'} ): ?>
-
-                    <li class="<%= name %>-badge-name">
-                      <a href="<?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'url'}; ?>">
-                        <?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'name'}; ?>
-                      </a>
-                    </li>
-                    <li class="<%= name %>-project-name">
-                      <a href="<?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'courses'}[0]->{'url'}; ?>"><?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'courses'}[0]->{'title'}; ?></a>
-                    </li>
-
-                    <?php else: ?>
-
-                    <li class="<%= name %>-badge-name">
-                      <?php echo $<%= nameSafe %>_data->{'badges'}[$i]->{'name'}; ?>
-                    </li>
-
-                    <?php endif; ?>
-
-                  </ul>
-                </li>
-                <?php endfor; ?>
-
-              </ul>
+                </ul>
+              </div>
 
             </div>
             <!-- .inside -->
@@ -136,49 +149,65 @@
           </div>
           <!-- .postbox -->
 
+          <?php
+          /**
+           * End Scenario 2a - data sample
+           */
+
+          /**
+           * Start Scenario 2b - data viewer
+           * For the purposes of debugging, we display the raw data.
+           * var_dump is prefereable to print_r,
+           * because it reveals the data types used,
+           * so we can check whether the data is in the expected format.
+           * @link http://kb.dotherightthing.co.nz/php/print_r-vs-var_dump/
+           */
+          ?>
+
           <div class="postbox">
 
-            <div class="handlediv" title="Click to toggle"><br></div>
-            <!-- Toggle -->
-
-            <h2 class="hndle"><span><?php esc_attr_e( $<%= nameSafe %>_username . '\'s profile data', 'wp_admin_style'); ?></span></h2>
+            <h2>
+              <span><?php esc_attr_e( 'Raw block data', 'wp_admin_style'); ?></span>
+            </h2>
 
             <div class="inside">
 
-              <ul>
-                <li>name: <?php echo $<%= nameSafe %>_data->{'name'}; ?></li>
-                <li>profile_url: <?php echo $<%= nameSafe %>_data->{'profile_url'}; ?></li>
-                <li>number of badges: <?php echo count( $<%= nameSafe %>_data->{'badges'} ); ?>
-                  <ol>
-                  <?php
-                    $badges = $<%= nameSafe %>_data->{'badges'};
+              <p>The data used to generate the blocks above.</p>
 
-                    foreach ( $badges as $badge ) {
-                    //echo "<li>name: " . $badge->{'name'} . "</li>";
-                      echo "<li>name: {$badge->{'name'}}</li>";
+              <div class="<%= name %>-data"><pre><code><?php echo "{\r\n";
+
+                  $count = 0;
+                  $max_length = 6;
+
+                  foreach( $<%= nameSafe %>_data as $key => $val ) {
+                    var_dump( $<%= nameSafe %>_data[$key] );
+
+                    $count++;
+
+                    // when we reach the end of the demo sample, stop looping
+                    if ($count === $max_length) {
+                      break;
                     }
 
-                    // this is equivalent to:
-                    /*
-                    for ($i = 0; $i < count($badges); $i++ ) {
-                      //echo "<li>name: " . $<%= nameSafe %>_data->{'badges'}[$i]->{'name'} . "</li>";
-                      echo "<li>name: {$<%= nameSafe %>_data->{'badges'}[$i]->{'name'}}</li>";
-                    }
-                    */
-                    ?>
-                </li>
-              </ul>
+                  }
 
-              <pre><code>
-                <?php var_dump( $<%= nameSafe %>_data ); ?>
-              </code></pre>
+                  echo "}\r\n"; ?></code></pre></div>
 
             </div> <!-- .inside -->
 
           </div>
           <!-- .postbox -->
 
-        <?php endif; ?>
+          <?php
+          /**
+           * End Scenario 2b - data viewer
+           */
+
+          /**
+           * End Scenario 2 - data selected
+           */
+          endif;
+          ?>
 
         </div>
         <!-- .meta-box-sortables .ui-sortable -->
@@ -191,38 +220,60 @@
 
         <div class="meta-box-sortables">
 
-          <?php if ( isset( $<%= nameSafe %>_username ) && ( $<%= nameSafe %>_username !== '') ) : ?>
+          <?php
+          /**
+           * Start Scenario 2 - data selected
+           */
+
+          /**
+           * Start Scenario 2c - data re-selection form
+           * If the user has already chosen a content type
+           * then we'll provide the selection form again,
+           * so that they can choose a different content type.
+           * But this time we'll give it secondary importance
+           * by displaying it in a sidebar:
+           */
+            if ( isset( $<%= nameSafe %>_datatype ) && ( $<%= nameSafe %>_datatype !== '') ) :
+          ?>
 
           <div class="postbox">
 
-            <div class="handlediv" title="Click to toggle"><br></div>
-            <!-- Toggle -->
-
-            <h2 class="hndle"><span><?php esc_attr_e( $<%= nameSafe %>_username . '\'s Profile', 'wp_admin_style'); ?></span></h2>
+            <h2>
+              <span><?php esc_attr_e( 'Update preferences', 'wp_admin_style'); ?></span>
+            </h2>
 
             <div class="inside">
-              <p><img width="100%" class="<%= name %>-gravatar" src="<?php echo $<%= nameSafe %>_data->{'gravatar_url'}; ?>" alt="<?php esc_attr_e( $<%= nameSafe %>_username ); ?>. "></p>
 
-              <ul class="<%= name %>-badges-and-points">
-                <li>Badges: <strong><?php echo count( $<%= nameSafe %>_data->{'badges'} ); ?></strong></li>
-                <li>Points: <strong><?php echo $<%= nameSafe %>_data->{'points'}->{'total'}; ?></strong></li>
-              </ul>
+              <p>Sample data not what you were expecting?</p>
+              <p>Change your selection here:</p>
 
-              <form name="<%= nameSafe %>_username_form" method="post" action="">
+              <form name="<%= nameSafe %>_data_form" method="post" action="">
 
                 <input type="hidden" name="<%= nameSafe %>_form_submitted" value="Y" />
 
                 <p>
-                  <label for="<%= nameSafe %>_username">Username</label>
+                  <label for="<%= nameSafe %>_datatype">Please select a block type:</label>
                 </p>
                 <p>
-                  <input type="text" value="<?php echo $<%= nameSafe %>_username; ?>" name="<%= nameSafe %>_username" id="<%= nameSafe %>_username" />
+                  <?php
+                  /**
+                   * selected
+                   * Compares two given values (for example, a saved option vs. one chosen in a form) and,
+                   * if the values are the same, adds the selected attribute to the current option tag.
+                   * @link https://codex.wordpress.org/Function_Reference/selected
+                   */
+                  ?>
+                  <select name="<%= nameSafe %>_datatype" id="<%= nameSafe %>_datatype">
+                    <option value="">None</option>
+                    <option value="photos" <?php selected( $<%= nameSafe %>_datatype, "photos" ); ?>>Coloured blocks</option>
+                    <option value="users" <?php selected( $<%= nameSafe %>_datatype, "users" ); ?>>Maps</option>
+                  </select>
 
                   <?php
                     submit_button(
-                      $text = 'Update',
+                      $text = 'Save &amp; load new data',
                       $type = 'primary',
-                      $name = '<%= nameSafe %>_username_submit',
+                      $name = '<%= nameSafe %>_submit',
                       $wrap = false, // don't wrap in paragraph
                       $other_attributes = null
                     );
@@ -236,7 +287,16 @@
           </div>
           <!-- .postbox -->
 
-          <?php endif; ?>
+          <?php
+          /**
+           * End Scenario 2c - data re-selection form
+           */
+
+          /**
+           * End Scenario 2 - data selected
+           */
+          endif;
+          ?>
 
         </div>
         <!-- .meta-box-sortables -->

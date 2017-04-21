@@ -10,106 +10,66 @@
  * @subpackage <%= nameFriendlySafe %>/public/css
  */
 
-.<%= name %>-badges.frontend a,
-.widget-area .widget .<%= name %>-badges.frontend a {
-	color: #999;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	letter-spacing: .25px;
-	text-decoration: none;
+.<%= name %>-blocks {
+  counter-reset: blocks;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  font-size: .9em;
+  padding: 8px 0 0 8px;
+  margin-bottom: 8px;
 }
 
-.<%= name %>-badges.frontend a:hover,
-.widget-area .widget .<%= name %>-badges.frontend a:hover {
-	color: #ddd;
+.<%= name %>-blocks::before {
+  content: attr(data-number) " blocks";
+  display: block;
+  padding-bottom: 8px;
 }
 
-.<%= name %>-badges,
-.widget-area .widget .<%= name %>-badges {
-	display: table;
+.<%= name %>-blocks[data-number="1"]::before {
+  content: attr(data-number) " block";
 }
 
-.<%= name %>-badges li,
-.widget-area .<%= name %>-badges li {
-	float: left;
-	width: 100px;
-	margin: 0 5px 5px;
-	padding: 10px 0 0;
-	position: relative;
-	list-style: none;
+.<%= name %>-blocks::after {
+  content: "";
+  display: table;
+  width: 100%;
+  clear: both;
 }
 
-.<%= name %>-badges .<%= name %>-badge img {
-	width: 100%;
-	border: none;
-	box-shadow: 0 0 0 0;
+.<%= name %>-blocks ul,
+.<%= name %>-blocks li {
+  list-style: none;
 }
 
-.<%= name %>-badges .<%= name %>-badge-info {
-	display: none;
-	background: #3d444b;
-	border-radius: 4px;
-	color: #ededed;
-	padding: 14px;
-	width: 120px;
-	position: absolute;
-	z-index: 100;
-	left: -22px;
-	bottom: 119px;
-	transition: bottom ease-out .5s;
-	-webkit-transition: bottom ease-out .5s;
+.<%= name %>-blocks li {
+  position: relative;
+  float: left;
+  margin: 0 8px 8px 0;
+  height: 150px;
+  width: 150px;
 }
 
-.<%= name %>-badges li:hover .<%= name %>-badge-info {
-	bottom: 129px;
-	transition: bottom ease-out .5s;
-	-webkit-transition: bottom ease-out .5s;
+.widget .<%= name %>-blocks ul li {
+  padding: 0;
+  border: 0;
 }
 
-.<%= name %>-badges .<%= name %>-badge-info .<%= name %>-tooltip.bottom {
-	background: url(../images/tooltip-arrow.png) no-repeat;
-	display: block;
-	position: absolute;
-	width: 26px;
-	height: 13px;
-	bottom: -8px;
-	left: 59px;
-	z-index: 99;
+.widget .<%= name %>-blocks ul li + li {
+  margin-top: 0; /* reset */
 }
 
-.<%= name %>-badge-info p.<%= name %>-badge-name,
-.widget-area .widget .<%= name %>-badge-info p.<%= name %>-badge-name {
-	font-size: 14px;
-	line-height: 16px;
-	margin:  0 0 8px;
+.<%= name %>-blocks li > a::before {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  background-color: #000;
+  content: "+";
+  padding: 8px;
 }
 
-.<%= name %>-badge-info .<%= name %>-badge-name a,
-.widget-area .widget .<%= name %>-badge-info .<%= name %>-badge-name a {
-	color: #fff;
-	text-shadow: 0 0 1px #000;
-}
-
-.<%= name %>-badge-info .<%= name %>-badge-name a:hover,
-.widget-area .widget .<%= name %>-badge-info .<%= name %>-badge-name a:hover {
-	color: #fff
-}
-
-.<%= name %>-badge-info p.<%= name %>-badge-project,
-.widget-area .widget .<%= name %>-badge-info p.<%= name %>-badge-project {
-	color: #edeff0;
-	font-size: 11px;
-	line-height: 14px;
-	margin: 0;
-}
-
-.<%= name %>-badge-info .<%= name %>-logo,
-.widget-area .widget .<%= name %>-badge-info .<%= name %>-logo {
-	display: block;
-	width: 80px;
-	padding: 20px 0 0;
-}
-
-.treehouse-badge-info .treehouse-logo img,
-.widget-area .widget .treehouse-badge-info .treehouse-logo img {
-	display: block;
+.<%= name %>-blocks li img {
+  width: 150px;
+  height: 150px;
 }

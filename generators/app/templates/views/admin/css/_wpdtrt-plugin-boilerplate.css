@@ -10,53 +10,41 @@
  * @subpackage <%= nameFriendlySafe %>/admin/css
  */
 
-.postbox img.gravatar {
-  max-width: 100%;
+.<%= name %>-blocks {
+  counter-reset: blocks;
 }
 
-.postbox .inside {
-  display: table
-}
-
-.postbox .<%= name %>-badges > li {
-  float: left;
-  margin: 5px;
-  text-align: center;
-  height: 300px;
-  width: 120px;
-  overflow: hidden;
-}
-
-.postbox .<%= name %>-badges li li {
-  margin: 2px 0;
-  padding: 0;
-}
-
-.postbox .<%= name %>-badges img {
-  float: left;
+.<%= name %>-blocks::after {
+  content: "";
+  display: table;
   width: 100%;
-  margin-bottom: 5px;
+  clear: both;
 }
 
-.postbox .<%= name %>-project-name a {
-  font-size: .8em;
-  text-decoration: none;
-  line-height: .5em
-}
-
-.postbox .<%= name %>-badges-and-points li {
-  padding: 5px 10px;
-  background: #474747;
-  color: #ddd;
-  border-radius: 20px;
-  font-size: 1.2em;
+.<%= name %>-blocks ul,
+.<%= name %>-blocks li {
   float: left;
 }
 
-.postbox .<%= name %>-badges-and-points li:first-child {
-  margin-right: 5px
+.<%= name %>-blocks li {
+  position: relative;
+  margin: 0 8px 8px 0;
+  height: 150px;
+  width: 150px;
 }
 
-.postbox .<%= name %>-badges-and-points strong {
-  color: #92ae57;
+.<%= name %>-blocks li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color: #000;
+  counter-increment: blocks;
+  content: counter(blocks);
+  padding: 8px;
+}
+
+.<%= name %>-blocks li img {
+  width: 150px;
+  height: 150px;
 }

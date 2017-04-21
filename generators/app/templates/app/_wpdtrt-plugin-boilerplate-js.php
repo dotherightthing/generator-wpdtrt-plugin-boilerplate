@@ -17,7 +17,7 @@
  */
 if ( !function_exists( '<%= nameSafe %>_frontend_js' ) ) {
 
-add_action( 'wp_enqueue_scripts', '<%= nameSafe %>_frontend_js' );
+  add_action( 'wp_enqueue_scripts', '<%= nameSafe %>_frontend_js' );
 
   function <%= nameSafe %>_frontend_js() {
 

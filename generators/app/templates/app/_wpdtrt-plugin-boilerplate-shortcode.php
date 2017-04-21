@@ -8,8 +8,8 @@
  * @link       https://generatewp.com/shortcodes/
  * @since      0.1.0
  *
- * @example    [<%= nameSafe %>_badges num_badges="4" tooltip="on"]
- * @example    do_shortcode( '[<%= nameSafe %>_badges num_badges="4" tooltip="on"]' );
+ * @example    [<%= nameSafe %>_blocks num_blocks="4" tooltip="on"]
+ * @example    do_shortcode( '[<%= nameSafe %>_blocks num_blocks="4" tooltip="on"]' );
  *
  * @package    <%= nameFriendlySafe %>
  * @subpackage <%= nameFriendlySafe %>/includes
@@ -21,33 +21,35 @@
  * @param callable $func Required. Hook to run when shortcode is found.
  * @link https://codex.wordpress.org/Function_Reference/add_shortcode
  */
-if ( !function_exists( '<%= nameSafe %>_badges_shortcode' ) ) {
+if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
 
-  add_shortcode( '<%= nameSafe %>_badges', '<%= nameSafe %>_badges_shortcode' );
+  add_shortcode( '<%= nameSafe %>_blocks', '<%= nameSafe %>_blocks_shortcode' );
 
-  function <%= nameSafe %>_badges_shortcode( $atts, $content = null ) {
+  function <%= nameSafe %>_blocks_shortcode( $atts, $content = null ) {
 
     // post object to get info about the post in which the shortcode appears
     global $post;
 
+    // prevent error when the front-end.php is used
+    // by a shortcode which doesn't pass these variables
+    $before_widget = $before_title = $title = $after_title = $after_widget = null;
+
     extract( shortcode_atts(
       array(
-        'num_badges' => '4',
-        'tooltip' => 'on'
+        'number' => '4',
+        'enlargement' => 'yes'
       ),
       $atts,
       ''
     ) );
 
-    if ( $tooltip === 'on') {
-      $tooltip = '1';
+    if ( $enlargement === 'yes') {
+      $enlargement = '1';
     }
 
-    if ( $tooltip === 'off') {
-      $tooltip = '0';
+    if ( $enlargement === 'no') {
+      $enlargement = '0';
     }
-
-    $display_tooltips = $tooltip;
 
     $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
     $<%= nameSafe %>_data = $<%= nameSafe %>_options['<%= nameSafe %>_data'];

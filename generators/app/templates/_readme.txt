@@ -30,38 +30,36 @@ One or more widgets can be displayed within one or more sidebars:
 1. Locate the widget: Appearance > Widgets > *<%= nameFriendly %> Widget*
 2. Drag and drop the widget into one of your sidebars
 3. Add a *Title*
-4. Specify *How many of your most recent badges would you you like to display*
-5. Toggle *Display tooltips*
+4. Specify *Number of blocks to display*
+5. Toggle *Link to enlargement?*
 
 = How do I use the shortcode? =
 
 One or more shortcodes can be used within the content editor:
 
-* *Title* - n/a
-* *How many of your most recent badges would you you like to display* - `num_badges`
-* *Display tooltips* - `tooltip`
+* Specify *Number of blocks to display* - `number`
+* Toggle *Link to enlargement?* - `enlargement` (`yes` | `no`)
 
 ```
-[<%= nameSafe %>_badges num_badges="2" tooltip="on"]
+[<%= nameSafe %>_blocks number="2" enlargement="yes"]
 
-[<%= nameSafe %>_badges num_badges="4" tooltip="off"]
+[<%= nameSafe %>_blocks number="4" enlargement="no"]
 ```
 
 = How do I use the template tag? =
 
 One or more template tags can be used within your `.php` templates:
 
-* *Title* - n/a
-* *How many of your most recent badges would you you like to display* - `num_badges`
-* *Display tooltips* - `tooltip`
+* Specify *Number of blocks to display* - `number`
+* Toggle *Link to enlargement?* - `enlargement` (`yes` | `no`)
 
 ```
 <?php
-    do_shortcode( '[<%= nameSafe %>_badges num_badges="2" tooltip="on"]' );
+    do_shortcode( '[<%= nameSafe %>_blocks number="2" enlargement="yes"]' );
 ?>
 
 <?php
-    do_shortcode( '[<%= nameSafe %>_badges num_badges="4" tooltip="off"]' );
+    do_shortcode( '[<%= nameSafe %>_blocks number="4" enlargement="no"]' );
 ?>
 ```
 
