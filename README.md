@@ -4,7 +4,7 @@ A best-practice boilerplate for plugin development.
 
 ## Installation
 
-### A Create a folder for your plugin
+### A. Create a folder for your plugin
 
 The name should be less than 50 characters, for compatibility with Bower.
 
@@ -41,6 +41,8 @@ yo wp-plugin-boilerplate
 ## Notes
 
 ### Testing
+
+There aren't any tests yet, but these are on the roadmap.
 
 PHPUnit is currently at version 6.1, but this project uses the Old Stable Release of 5.7 to work with PHP 5.6. This version is supported until February 2018, see https://phpunit.de/.
 
