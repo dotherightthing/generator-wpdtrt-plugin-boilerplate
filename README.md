@@ -9,7 +9,7 @@ A best-practice boilerplate for plugin development.
 The name should be less than 50 characters, for compatibility with Bower.
 
 1. Clone this repository to your WordPress plugins folder
-1. Rename `wpdtrt-plugin-boilerplate` to `your-plugin-name`
+1. Rename `generator-wp-plugin-boilerplate` to `your-plugin-name`
 1. Then launch Terminal from this folder
 
 ### B. Install requirements
