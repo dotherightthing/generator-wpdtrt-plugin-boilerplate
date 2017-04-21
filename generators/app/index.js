@@ -180,7 +180,7 @@ module.exports = class extends Generator {
         ];
 
         return this.prompt(prompts).then(props => {
-          this.props = props;
+            this.props = props;
         });
     }
 
@@ -192,7 +192,7 @@ module.exports = class extends Generator {
      * {@link https://webcake.co/building-a-yeoman-generator/}
      */
     configuring() {
-        this.config.save();
+        this.config.set(this.props);
     }
 
     /**
