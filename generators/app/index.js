@@ -39,6 +39,11 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
+            'nameAdminMenu',
+            this.config.get('nameFriendly')
+        );
+
+        this.config.set(
             'urlAdminMenu',
             S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
         );

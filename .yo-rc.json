@@ -1,6 +1,5 @@
 {
   "generator-wp-plugin-boilerplate": {
-    "nameAdminMenu":          "Plugin Boilerplate",
     "description":            "Just another WordPress plugin",
     "tags":                   "boilerplate, best-practice",
     "homepage":               "http://dotherightthing.co.nz",
