@@ -85,7 +85,7 @@ if ( !function_exists( '<%= nameSafe %>_html_image' ) ) {
 
     $str .= <%= nameSafe %>_html_title( $key, $has_enlargement );
 
-    $str .= '">';
+    $str .= '. ">';
 
     if ( $has_enlargement ) {
       $str .= '</a>';
