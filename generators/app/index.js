@@ -556,6 +556,11 @@ module.exports = class extends Generator {
      * {@link https://webcake.co/building-a-yeoman-generator/}
      */
     end() {
+
+        this.log(yosay(
+          'Thanks for installing the ' + chalk.red('WordPress Plugin boilerplate') + '. Enjoy!'
+        ));
+
         open("readme.txt");
     }
 
