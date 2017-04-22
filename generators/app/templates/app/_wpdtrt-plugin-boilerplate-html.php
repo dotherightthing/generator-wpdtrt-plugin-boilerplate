@@ -176,5 +176,33 @@ if ( !function_exists( '<%= nameSafe %>_html_title' ) ) {
   }
 }
 
+/**
+ * <%= nameSafe %>_html_date
+ * Get the data set's last modified date.
+ * @param boolean $has_enlargement Optional.
+ * @return string. <p class="<%= nameSafe %>_date">Last updated 23rd April 2017</p>
+ */
+if ( !function_exists( '<%= nameSafe %>_html_date' ) ) {
+
+  function <%= nameSafe %>_html_date() {
+
+    // if options have not been stored, exit
+    $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
+
+    if ( $<%= nameSafe %>_options === '' ) {
+      return '';
+    }
+
+    // the data set
+    $last_updated = $<%= nameSafe %>_options['last_updated'];
+
+    // use the date format set by the user
+    $wp_date_format = get_option('date_format');
+
+    $str = '<p class="<%= name %>-date">Data last updated: ' . date( $wp_date_format, $last_updated ) . '. </p>';
+
+    return $str;
+  }
+}
 
 ?>

@@ -143,6 +143,10 @@
                 </ul>
               </div>
 
+              <?php
+                echo <%= nameSafe %>_html_date();
+              ?>
+
             </div>
             <!-- .inside -->
 

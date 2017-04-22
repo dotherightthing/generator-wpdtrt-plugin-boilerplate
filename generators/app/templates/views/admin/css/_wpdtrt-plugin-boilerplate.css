@@ -48,3 +48,8 @@
   width: 150px;
   height: 150px;
 }
+
+.<%= name %>-date {
+  font-size: .95em;
+}
+
