@@ -44,7 +44,7 @@ if ( !function_exists( '<%= nameSafe %>_html_image' ) ) {
         $str .= '?scale=2';
         $str .= '&format=jpg';
         $str .= '&maptype=satellite';
-        $str .= '&zoom=0';
+        $str .= '&zoom=2';
         $str .= '&markers=' . <%= nameSafe %>_html_latlng( $key );
         $str .= '&key=AIzaSyAyMI7z2mnFYdONaVV78weOmB0U2LThZMo';
         $str .= '&size=600x600';
