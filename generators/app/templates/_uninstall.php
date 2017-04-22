@@ -20,7 +20,7 @@
  *
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#file-organization
  * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
- * @since      0.1.0
+ * @since      <%= version %>
  *
  * @package    <%= nameFriendlySafe %>
  */

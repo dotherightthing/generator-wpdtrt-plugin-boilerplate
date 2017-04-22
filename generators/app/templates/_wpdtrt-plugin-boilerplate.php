@@ -4,7 +4,7 @@ Plugin Name: <%= nameFriendly %>
 Plugin URI: <%= pluginUrl %>
 Description: <%= description %>
 Author: <%= authorName %>
-Version: 0.1.0
+Version: <%= version %>
 Author URI: <%= authorUrl %>
 License: <%= pluginLicense %>
 */

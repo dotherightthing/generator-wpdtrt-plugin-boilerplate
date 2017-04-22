@@ -7,6 +7,7 @@ const yosay = require('yosay');
 const path = require('path');
 const S = require('string');
 const open = require("open");
+const pjson = require('../../package.json');
 
 module.exports = class extends Generator {
 
@@ -47,6 +48,11 @@ module.exports = class extends Generator {
         this.config.set(
             'urlAdminMenu',
             S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
+        );
+
+        this.config.set(
+            'version',
+            pjson.version
         );
     }
 
@@ -120,20 +126,26 @@ module.exports = class extends Generator {
             {
                 type: 'input',
                 name: 'license',
-                message: 'Plugin License',
+                message: 'Plugin license',
                 default: this.config.get('license')
             },
             {
                 type: 'input',
                 name: 'licenseUrl',
-                message: 'Plugin License URL',
+                message: 'Plugin license URL',
                 default: this.config.get('licenseUrl')
             },
             {
                 type: 'input',
                 name: 'donateUrl',
-                message: 'Plugin Donate URL',
+                message: 'Plugin donation URL',
                 default: this.config.get('donateUrl')
+            },
+            {
+                type: 'input',
+                name: 'version',
+                message: 'Plugin version',
+                default: this.config.get('version')
             },
             {
                 type: 'input',
@@ -174,7 +186,7 @@ module.exports = class extends Generator {
             {
                 type: 'input',
                 name: 'repositoryUrl',
-                message: 'Repository Url',
+                message: 'Repository URL',
                 default: this.config.get('repositoryUrl')
             }
         ];
@@ -239,7 +251,8 @@ module.exports = class extends Generator {
                 authorName:     this.props.authorName,
                 authorEmail:    this.props.authorEmail,
                 authorUrl:      this.props.authorUrl,
-                homepage:       this.props.homepage
+                homepage:       this.props.homepage,
+                version:        this.props.version
             }
         );
 
@@ -280,7 +293,8 @@ module.exports = class extends Generator {
                 authorEmail:            this.props.authorEmail,
                 authorUrl:              this.props.authorUrl,
                 homepage:               this.props.homepage,
-                srcDir:                 process.cwd()
+                srcDir:                 process.cwd(),
+                version:                this.props.version
             }
         );
 
@@ -305,15 +319,17 @@ module.exports = class extends Generator {
                 wpVersion:              this.props.wpVersion,
                 pluginLicense:          this.props.license,
                 pluginLicenseUrl:       this.props.licenseUrl,
-                pluginDonateUrl:        this.props.donateUrl
+                pluginDonateUrl:        this.props.donateUrl,
+                version:                this.props.version
             }
         );
 
         this.fs.copyTpl(
             this.templatePath('_uninstall.php'),
             this.destinationPath('uninstall.php'), {
-                name: this.props.name,
-                nameFriendlySafe: this.props.nameFriendlySafe
+                name:                   this.props.name,
+                nameFriendlySafe:       this.props.nameFriendlySafe,
+                version:                this.props.version
             }
         );
 
@@ -328,7 +344,8 @@ module.exports = class extends Generator {
                 pluginLicense:          this.props.license,
                 pluginUrl:              this.props.homepage,
                 description:            this.props.description,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase()
+                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
+                version:                this.props.version
             }
         );
 
@@ -346,7 +363,8 @@ module.exports = class extends Generator {
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 nameSafe:               this.props.nameSafe,
                 constantStub:           this.props.nameFriendlySafe.toUpperCase(),
-                pluginUrl:              this.props.homepage
+                pluginUrl:              this.props.homepage,
+                version:                this.props.version
             }
         );
 
@@ -355,7 +373,8 @@ module.exports = class extends Generator {
             this.destinationPath('app/' + this.props.name + '-data.php'), {
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 nameSafe:               this.props.nameSafe,
-                pluginUrl:              this.props.homepage
+                pluginUrl:              this.props.homepage,
+                version:                this.props.version
             }
         );
 
@@ -365,7 +384,8 @@ module.exports = class extends Generator {
                 name:                   this.props.name,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 nameSafe:               this.props.nameSafe,
-                pluginUrl:              this.props.homepage
+                pluginUrl:              this.props.homepage,
+                version:                this.props.version
             }
         );
 
@@ -376,7 +396,8 @@ module.exports = class extends Generator {
                 nameSafe:               this.props.nameSafe,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 pluginUrl:              this.props.homepage,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase()
+                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
+                version:                this.props.version
             }
         );
 
@@ -390,7 +411,8 @@ module.exports = class extends Generator {
                 nameAdminMenu:          this.props.nameAdminMenu,
                 pluginUrl:              this.props.homepage,
                 pluginUrlAdminMenu:     this.props.urlAdminMenu,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase()
+                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
+                version:                this.props.version
             }
         );
 
@@ -401,7 +423,8 @@ module.exports = class extends Generator {
                 nameSafe:               this.props.nameSafe,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 pluginUrl:              this.props.homepage,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase()
+                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
+                version:                this.props.version
             }
         );
 
@@ -413,7 +436,8 @@ module.exports = class extends Generator {
                 nameFriendly:           this.props.nameFriendly,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 pluginUrl:              this.props.homepage,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase()
+                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
+                version:                this.props.version
             }
         );
 
@@ -443,7 +467,8 @@ module.exports = class extends Generator {
             this.destinationPath('views/admin/css/' + this.props.name + '.css'), {
                 name:                   this.props.name,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage
+                pluginUrl:              this.props.homepage,
+                version:                this.props.version
             }
         );
 
@@ -457,7 +482,8 @@ module.exports = class extends Generator {
                 nameFriendly:           this.props.nameFriendly,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 nameSafe:               this.props.nameSafe,
-                pluginUrl:              this.props.homepage
+                pluginUrl:              this.props.homepage,
+                version:                this.props.version
             }
         );
 
@@ -467,7 +493,8 @@ module.exports = class extends Generator {
                 nameFriendly:           this.props.nameFriendly,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 nameSafe:               this.props.nameSafe,
-                pluginUrl:              this.props.homepage
+                pluginUrl:              this.props.homepage,
+                version:                this.props.version
             }
         );
 
@@ -483,7 +510,8 @@ module.exports = class extends Generator {
             this.destinationPath('views/public/css/' + this.props.name + '.css'), {
                 name:                   this.props.name,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage
+                pluginUrl:              this.props.homepage,
+                version:                this.props.version
             }
         );
 
@@ -504,7 +532,8 @@ module.exports = class extends Generator {
                 name:                   this.props.name,
                 nameSafe:               this.props.nameSafe,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage
+                pluginUrl:              this.props.homepage,
+                version:                this.props.version
             }
         );
 
@@ -515,7 +544,8 @@ module.exports = class extends Generator {
                 nameSafe:               this.props.nameSafe,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 pluginUrl:              this.props.homepage,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase()
+                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
+                version:                this.props.version
             }
         );
 

@@ -6,7 +6,7 @@
  *
  * @link       <%= pluginUrl %>
  * @link       https://generatewp.com/shortcodes/
- * @since      0.1.0
+ * @since      <%= version %>
  *
  * @example    [<%= nameSafe %>_blocks num_blocks="4" tooltip="on"]
  * @example    do_shortcode( '[<%= nameSafe %>_blocks num_blocks="4" tooltip="on"]' );

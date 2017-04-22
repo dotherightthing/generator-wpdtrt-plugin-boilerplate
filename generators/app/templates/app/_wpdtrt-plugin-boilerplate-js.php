@@ -6,7 +6,7 @@
  *
  * @link       <%= pluginUrl %>
  * @link       https://codex.wordpress.org/AJAX_in_Plugins
- * @since      0.1.0
+ * @since      <%= version %>
  *
  * @package    <%= nameFriendlySafe %>
  * @subpackage <%= nameFriendlySafe %>/includes

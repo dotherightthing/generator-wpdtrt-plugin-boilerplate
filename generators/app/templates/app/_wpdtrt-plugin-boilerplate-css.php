@@ -5,7 +5,7 @@
  * This file contains PHP.
  *
  * @link       <%= pluginUrl %>
- * @since      0.1.0
+ * @since      <%= version %>
  *
  * @package    <%= nameFriendlySafe %>
  * @subpackage <%= nameFriendlySafe %>/includes

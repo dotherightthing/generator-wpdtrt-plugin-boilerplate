@@ -7,7 +7,7 @@
  *
  * @link       <%= pluginUrl %>
  * @link       /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
- * @since      0.1.0
+ * @since      <%= version %>
  *
  * @package    <%= nameFriendlySafe %>
  * @subpackage <%= nameFriendlySafe %>/admin/partials
