@@ -1,5 +1,9 @@
 {
   "generator-wp-plugin-boilerplate": {
+
+    "nameFriendly":           "automatic",
+    "nameAdminMenu":          "automatic",
+    "urlAdminMenu":           "automatic",
     "description":            "A fake plugin which generates blocks",
     "tags":                   "boilerplate, placeholder",
     "homepage":               "http://dotherightthing.co.nz",

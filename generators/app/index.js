@@ -20,36 +20,58 @@ module.exports = class extends Generator {
      */
     initializing() {
 
+        // name must match the folder name, for WordPress to recognise the plugin
         this.config.set(
             'name',
             process.cwd().split(path.sep).pop() // get plugin name from parent folder
         );
 
+        // nameSafe is used in PHP functions, so is based on name
         this.config.set(
             'nameSafe',
             S( this.config.get('name') ).replaceAll('-','_').s
         );
 
-        this.config.set(
-            'nameFriendly',
-            S( this.config.get('name') ).humanize().titleCase().s
-        );
+        // nameFriendly may be set by the author in .yo-rc.json
+        if ( this.config.get('nameFriendly') === 'automatic' ) {
+            this.config.set(
+                'nameFriendly',
+                S( this.config.get('name') ).humanize().titleCase().s
+            );
+        }
 
-        this.config.set(
-            'nameFriendlySafe',
-            S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
-        );
+        // nameFriendlySafe is used in PHP classes, so is based on nameFriendly
+        if ( this.config.get('nameFriendly') === 'automatic' ) {
+            this.config.set(
+                'nameFriendlySafe',
+                S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
+            );
+        }
+        else {
+            this.config.set(
+                'nameFriendlySafe',
+                S( this.config.get('nameFriendly') ).replaceAll(' ','_').s
+            );
+        }
 
-        this.config.set(
-            'nameAdminMenu',
-            this.config.get('nameFriendly')
-        );
+        // nameAdminMenu may be set by the author in .yo-rc.json
+        if ( this.config.get('nameAdminMenu') === 'automatic' ) {
+            this.config.set(
+                'nameAdminMenu',
+                this.config.get('nameFriendly')
+            );
+        }
 
-        this.config.set(
-            'urlAdminMenu',
-            S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
-        );
+        // urlAdminMenu may be set by the author in .yo-rc.json
+        if ( this.config.get('urlAdminMenu') === 'automatic' ) {
+            this.config.set(
+                'urlAdminMenu',
+                S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
+            );
+        }
 
+        // version is based on the current version of the generator
+        // to allow backfilling of functionality added in spin-off plugins
         this.config.set(
             'version',
             pjson.version
@@ -514,17 +536,6 @@ module.exports = class extends Generator {
                 version:                this.props.version
             }
         );
-
-        this.fs.copy(
-            this.templatePath('views/public/images/_tooltip-arrow.png'),
-            this.destinationPath('views/public/images/tooltip-arrow.png')
-        );
-
-        this.fs.copy(
-            this.templatePath('views/public/images/_treehouse-logo.png'),
-            this.destinationPath('views/public/images/treehouse-logo.png')
-        );
-
 
         this.fs.copyTpl(
             this.templatePath('views/public/js/_wpdtrt-plugin-boilerplate.js'),
