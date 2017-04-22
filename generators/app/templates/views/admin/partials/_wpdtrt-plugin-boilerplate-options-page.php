@@ -268,6 +268,8 @@
                     <option value="photos" <?php selected( $<%= nameSafe %>_datatype, "photos" ); ?>>Coloured blocks</option>
                     <option value="users" <?php selected( $<%= nameSafe %>_datatype, "users" ); ?>>Maps</option>
                   </select>
+                </p>
+                <p>
 
                   <?php
                     submit_button(
