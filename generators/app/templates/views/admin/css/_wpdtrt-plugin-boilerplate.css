@@ -53,3 +53,8 @@
   font-size: .95em;
 }
 
+.widget .<%= name %>-tip {
+  display: block;
+  padding-top: 4px;
+}
+
