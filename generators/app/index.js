@@ -512,6 +512,7 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('views/admin/partials/_wpdtrt-plugin-boilerplate-widget.php'),
             this.destinationPath('views/admin/partials/' + this.props.name + '-widget.php'), {
+                name:                   this.props.name,
                 nameFriendly:           this.props.nameFriendly,
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 nameSafe:               this.props.nameSafe,
