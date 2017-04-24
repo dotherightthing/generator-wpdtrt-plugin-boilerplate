@@ -3,11 +3,11 @@
  *
  * This file contains CSS.
  *
- * @link       <%= pluginUrl %>
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @since       0.1.0
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/admin/css
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/views
  */
 
 .<%= name %>-blocks {

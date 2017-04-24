@@ -1,16 +1,16 @@
 <?php
 /**
  * Template partial for Admin Options page
- * WP Admin > Settings > <%= nameFriendly %>
+ *    WP Admin > Settings > <%= nameFriendly %>
  *
  * This file contains PHP, and HTML from the WordPress_Admin_Style plugin.
  *
- * @link       <%= pluginUrl %>
- * @link       /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @link        /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
+ * @since       0.1.0
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/admin/partials
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/views
  */
 ?>
 

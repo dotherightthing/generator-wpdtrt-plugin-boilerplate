@@ -1,26 +1,29 @@
 <?php
 /**
  * Functions which generate HTML strings
- * These are separated out for testing purposes.
  *
  * This file contains PHP.
  *
- * @link       <%= pluginUrl %>
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @since       0.1.0
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/includes
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/app
  */
 
-/**
- * <%= nameSafe %>_html_image
- * Generate the HTML for a block image
- * @param string $key Required. The key of the corresponding JSON object.
- * @param boolean $has_enlargement Optional.
- * @return string. An HTML image element, optionally wrapped in a hyperlink.
- */
 if ( !function_exists( '<%= nameSafe %>_html_image' ) ) {
 
+  /**
+   * Generate the HTML for a (linked) image
+   *
+   * @param       string $key
+   *    The key of the corresponding JSON object
+   * @param       boolean $has_enlargement (optional)
+   *    Whether the image should link to an enlargement
+   * @return      string <a href="..."><img src="..." alt="..."></a>
+   *
+   * @since       0.1.0
+   */
   function <%= nameSafe %>_html_image( $key, $has_enlargement = 0 ) {
 
     // if options have not been stored, exit
@@ -95,16 +98,17 @@ if ( !function_exists( '<%= nameSafe %>_html_image' ) ) {
   }
 }
 
-/**
- * <%= nameSafe %>_html_latlng
- * Get a block's map coordinates
- * @param string $key Required. The key of the JSON object.
- * @return string. "lat,lng" | ""
- */
 if ( !function_exists( '<%= nameSafe %>_html_latlng' ) ) {
 
-  //$<%= nameSafe %>_data[$key]->{'address'}
-
+  /**
+   * Get the coordinates of a map location
+   *
+   * @param string $key
+   *    The key of the JSON object.
+   * @return      string "lat,lng" | ""
+   *
+   * @since       0.1.0
+   */
   function <%= nameSafe %>_html_latlng( $key ) {
 
     // if options have not been stored, exit
@@ -135,15 +139,19 @@ if ( !function_exists( '<%= nameSafe %>_html_latlng' ) ) {
   }
 }
 
-/**
- * <%= nameSafe %>_html_title
- * Get a block's title
- * @param string $key Required. The key of the JSON object.
- * @param boolean $has_enlargement Optional.
- * @return string. "The title"
- */
 if ( !function_exists( '<%= nameSafe %>_html_title' ) ) {
 
+  /**
+   * Generate an Alt attribute
+   *
+   * @param       string $key
+   *    The key of the JSON object.
+   * @param       boolean $has_enlargement (optional)
+   *    Whether the image should link to an enlargement
+   * @return      string The title
+   *
+   * @since       0.1.0
+   */
   function <%= nameSafe %>_html_title( $key, $has_enlargement = 0 ) {
 
     // if options have not been stored, exit
@@ -176,14 +184,15 @@ if ( !function_exists( '<%= nameSafe %>_html_title' ) ) {
   }
 }
 
-/**
- * <%= nameSafe %>_html_date
- * Get the data set's last modified date.
- * @param boolean $has_enlargement Optional.
- * @return string. <p class="<%= nameSafe %>_date">Last updated 23rd April 2017</p>
- */
 if ( !function_exists( '<%= nameSafe %>_html_date' ) ) {
 
+  /**
+   * Generate the HTML for the last modified date
+   *
+   * @return      string <p class="wpdtrt_soundcloud_pages_date">Last updated 23rd April 2017</p>
+   *
+   * @since       0.1.0
+   */
   function <%= nameSafe %>_html_date() {
 
     // if options have not been stored, exit

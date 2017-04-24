@@ -2,13 +2,13 @@
  * Scripts for the public front-end
  *
  * This file contains JavaScript.
- * PHP variables are provided in <%= nameSafe %>_config.
+ *    PHP variables are provided in wpdtrt_soundcloud_pages_config.
  *
- * @link       <%= pluginUrl %>
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @since       0.1.0
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/public/js
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/views
  */
 
 jQuery(document).ready(function($){

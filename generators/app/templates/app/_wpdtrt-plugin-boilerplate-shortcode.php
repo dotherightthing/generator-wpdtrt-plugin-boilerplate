@@ -4,27 +4,32 @@
  *
  * This file contains PHP.
  *
- * @link       <%= pluginUrl %>
- * @link       https://generatewp.com/shortcodes/
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @link        https://generatewp.com/shortcodes/
+ * @since       0.1.0
  *
- * @example    [<%= nameSafe %>_blocks num_blocks="4" tooltip="on"]
- * @example    do_shortcode( '[<%= nameSafe %>_blocks num_blocks="4" tooltip="on"]' );
+ * @example     [<%= nameSafe %>_blocks number="4" enlargement="yes"]
+ * @example     do_shortcode( '[<%= nameSafe %>_blocks number="4" enlargement="yes"]' );
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/includes
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/app
  */
 
-/**
- * add_shortcode
- * @param string $tag Required. Shortcode tag to be searched in post content.
- * @param callable $func Required. Hook to run when shortcode is found.
- * @link https://codex.wordpress.org/Function_Reference/add_shortcode
- */
 if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
 
-  add_shortcode( '<%= nameSafe %>_blocks', '<%= nameSafe %>_blocks_shortcode' );
-
+  /**
+   * add_shortcode
+   * @param       string $tag
+   *    Shortcode tag to be searched in post content.
+   * @param       callable $func
+   *    Hook to run when shortcode is found.
+   *
+   * @since       0.1.0
+   * @uses        ../../../../wp-includes/shortcodes.php
+   * @see         https://codex.wordpress.org/Function_Reference/add_shortcode
+   * @see         http://php.net/manual/en/function.ob-start.php
+   * @see         http://php.net/manual/en/function.ob-get-clean.php
+   */
   function <%= nameSafe %>_blocks_shortcode( $atts, $content = null ) {
 
     // post object to get info about the post in which the shortcode appears
@@ -59,7 +64,6 @@ if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
      * This stores the HTML template in the buffer
      * so that it can be output into the content
      * rather than at the top of the page.
-     * @link http://php.net/manual/en/function.ob-start.php
      */
     ob_start();
 
@@ -67,12 +71,13 @@ if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer
-     * @link http://php.net/manual/en/function.ob-get-clean.php
      */
     $content = ob_get_clean();
 
     return $content;
   }
+
+  add_shortcode( '<%= nameSafe %>_blocks', '<%= nameSafe %>_blocks_shortcode' );
 
 }
 

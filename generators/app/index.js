@@ -391,8 +391,8 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-data.php'),
-            this.destinationPath('app/' + this.props.name + '-data.php'), {
+            this.templatePath('app/_wpdtrt-plugin-boilerplate-api.php'),
+            this.destinationPath('app/' + this.props.name + '-api.php'), {
                 nameFriendlySafe:       this.props.nameFriendlySafe,
                 nameSafe:               this.props.nameSafe,
                 pluginUrl:              this.props.homepage,
@@ -590,6 +590,8 @@ module.exports = class extends Generator {
         });
 
         this.spawnCommand('composer', ['install']);
+
+        this.spawnCommand('vendor/phpdocumentor/phpdocumentor/bin/phpdoc -d ./app -t ./docs/php/');
     }
 
     /**

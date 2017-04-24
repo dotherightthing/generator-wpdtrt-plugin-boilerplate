@@ -4,21 +4,25 @@
  *
  * This file contains PHP.
  *
- * @link       <%= pluginUrl %>
- * @link       https://codex.wordpress.org/AJAX_in_Plugins
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @see         https://codex.wordpress.org/AJAX_in_Plugins
+ * @since       0.1.0
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/includes
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/app
  */
 
-/**
- * Specify and attach JS for the front-end widget
- */
 if ( !function_exists( '<%= nameSafe %>_frontend_js' ) ) {
 
-  add_action( 'wp_enqueue_scripts', '<%= nameSafe %>_frontend_js' );
-
+  /**
+   * Attach JS for front-end widgets and shortcodes
+   *    Generate a configuration object which the JavaScript can access.
+   *    When an Ajax command is submitted, pass it to our function via the Admin Ajax page.
+   *
+   * @since       0.1.0
+   * @see         https://codex.wordpress.org/AJAX_in_Plugins
+   * @see         https://codex.wordpress.org/Function_Reference/wp_localize_script
+   */
   function <%= nameSafe %>_frontend_js() {
 
     wp_enqueue_script( '<%= nameSafe %>_frontend_js',
@@ -28,17 +32,6 @@ if ( !function_exists( '<%= nameSafe %>_frontend_js' ) ) {
       true
     );
 
-    /**
-     * Permit the Ajax call when an Ajax command is submitted,
-     * passing it through the Admin Ajax page, and then onto our refresh_data function.
-     *
-     * wp_localize_script
-     * @param string $handle
-     * @param string $name
-     * @param array $data
-     * @link https://codex.wordpress.org/AJAX_in_Plugins
-     * @link https://codex.wordpress.org/Function_Reference/wp_localize_script
-     */
     wp_localize_script( '<%= nameSafe %>_frontend_js',
       '<%= nameSafe %>_config',
       array(
@@ -47,6 +40,8 @@ if ( !function_exists( '<%= nameSafe %>_frontend_js' ) ) {
     );
 
   }
+
+  add_action( 'wp_enqueue_scripts', '<%= nameSafe %>_frontend_js' );
 
 }
 

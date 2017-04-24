@@ -4,22 +4,25 @@
  *
  * This file contains PHP.
  *
- * @link       <%= pluginUrl %>
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @since       0.1.0
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/includes
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/app
  */
 
-/**
- * WP_Widget class
- * This class must be extended for each widget, and WP_Widget::widget() must be overridden.
- * Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
- * @link https://developer.wordpress.org/reference/classes/wp_widget/
- * @link https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
- */
 if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
 
+  /**
+   * Extend WP_Widget
+   *    This class must be extended for each widget, and WP_Widget::widget() must be overridden.
+   *    Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
+   *
+   * @since       0.1.0
+   * @uses        ../../../../wp-includes/class-wp-widget.php:
+   * @see         https://developer.wordpress.org/reference/classes/wp_widget/
+   * @see         https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
+   */
   class <%= nameFriendlySafe %>_Widget extends WP_Widget {
 
     function __construct() {
@@ -28,11 +31,7 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
     }
 
     /**
-     * WP_Widget::widget
      * Echoes the widget content to the front-end
-     * @param $args (array) (Required) Display arguments including 'before_title', 'after_title', 'before_widget', and 'after_widget'.
-     * @param $instance (array) (Required) The settings for the particular instance of the widget.
-     * @link https://developer.wordpress.org/reference/classes/wp_widget/widget/
      */
     function widget( $args, $instance ) {
 
@@ -72,12 +71,7 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
     }
 
     /**
-     * WP_Widget::update
-     * Updates a particular instance of a widget,
-     * by replacing the old instance with data from the new instance
-     * @param array $new_instance
-     * @param array $old_instance
-     * @link https://developer.wordpress.org/reference/classes/wp_widget/update/
+     * Updates a particular instance of a widget, by replacing the old instance with data from the new instance
      */
     function update( $new_instance, $old_instance ) {
       // Save user input (widget options)
@@ -97,8 +91,6 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
     }
 
     /**
-     * WP_Widget::form
-     * @param array $instance
      * Outputs the settings update form in wp-admin.
      */
     function form( $instance ) {
@@ -128,14 +120,18 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
 if ( !function_exists( '<%= nameSafe %>_register_widgets' ) ) {
 
   /**
-   * register the widget
-   * @link https://codex.wordpress.org/Function_Reference/register_widget#Example
+   * Register the widget
+   *
+   * @since       0.1.0
+   * @uses        ../../../../wp-includes/widgets.php
+   * @see         https://codex.wordpress.org/Function_Reference/register_widget#Example
    */
-  add_action( 'widgets_init', '<%= nameSafe %>_register_widgets' );
 
   function <%= nameSafe %>_register_widgets() {
     register_widget( '<%= nameFriendlySafe %>_Widget' );
   }
+
+  add_action( 'widgets_init', '<%= nameSafe %>_register_widgets' );
 
 }
 

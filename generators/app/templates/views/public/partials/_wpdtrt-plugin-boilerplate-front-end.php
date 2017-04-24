@@ -4,11 +4,11 @@
  *
  * This file contains PHP, and HTML.
  *
- * @link       <%= pluginUrl %>
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @since       0.1.0
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/public/partials
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/views
  */
 ?>
 

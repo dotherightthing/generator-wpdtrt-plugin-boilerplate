@@ -1,12 +1,15 @@
 <?php
 /*
-Plugin Name: <%= nameFriendly %>
-Plugin URI: <%= pluginUrl %>
-Description: <%= description %>
-Author: <%= authorName %>
-Version: <%= version %>
-Author URI: <%= authorUrl %>
-License: <%= pluginLicense %>
+Plugin Name:  <%= nameFriendly %>
+Plugin URI:   <%= pluginUrl %>
+Description:  <%= description %>
+Version:      <%= version %>
+Author:       <%= authorName %>
+Author URI:   <%= authorUrl %>
+License:      <%= pluginLicense %>
+License URI:  <%= licenseUrl %>
+Text Domain:  <%= name %>
+Domain Path:  /languages
 */
 
 /**
@@ -77,7 +80,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
  */
 
   // API data
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-data.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-api.php');
 
   // Views
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options-page.php');

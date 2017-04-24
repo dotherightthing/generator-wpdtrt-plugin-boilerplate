@@ -1,16 +1,15 @@
 <?php
 /**
- * Template partial for Admin Widget
- * WP Admin > Appearance > Widgets > <%= nameFriendly %>
+ * Template partial for Widget administration
+ *    WP Admin > Appearance > Widgets > <%= nameFriendly %>
  *
  * This file contains PHP, and HTML fields.
  *
- * @link       <%= pluginUrl %>
- * @link       /wp-admin/admin.php?page=WordPress_Admin_Style#twocolumnlayout2
- * @since      <%= version %>
+ * @link        <%= pluginUrl %>
+ * @since       0.1.0
  *
- * @package    <%= nameFriendlySafe %>
- * @subpackage <%= nameFriendlySafe %>/admin/partials
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/views
  */
 ?>
 
