@@ -387,7 +387,8 @@ module.exports = class extends Generator {
                 nameSafe:               this.props.nameSafe,
                 constantStub:           this.props.nameFriendlySafe.toUpperCase(),
                 pluginUrl:              this.props.homepage,
-                version:                this.props.version
+                version:                this.props.version,
+                nameAdminMenu:          this.props.nameAdminMenu
             }
         );
 
