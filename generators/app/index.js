@@ -33,24 +33,16 @@ module.exports = class extends Generator {
         );
 
         // nameFriendly may be set by the author in .yo-rc.json
-        if ( this.config.get('nameFriendly') === 'automatic' ) {
-            this.config.set(
-                'nameFriendly',
-                S( this.config.get('name') ).humanize().titleCase().s
-            );
-        }
-
         // nameFriendlySafe is used in PHP classes, so is based on nameFriendly
         if ( this.config.get('nameFriendly') === 'automatic' ) {
             this.config.set(
-                'nameFriendlySafe',
-                S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
+                'nameFriendly',
+                S( this.config.get('name') ).humanize().titleCase().replace('Wp ','').s
             );
-        }
-        else {
+
             this.config.set(
                 'nameFriendlySafe',
-                S( this.config.get('nameFriendly') ).replaceAll(' ','_').s
+                S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
             );
         }
 
@@ -67,6 +59,14 @@ module.exports = class extends Generator {
             this.config.set(
                 'urlAdminMenu',
                 S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
+            );
+        }
+
+        // repositoryUrl may be set by the author in .yo-rc.json
+        if ( this.config.get('repositoryUrl') === 'automatic' ) {
+            this.config.set(
+                'repositoryUrl',
+                ( 'git@github.com:dotherightthing/' + this.config.get('name') + '.git' )
             );
         }
 
