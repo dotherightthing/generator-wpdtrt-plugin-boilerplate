@@ -33,18 +33,28 @@ module.exports = class extends Generator {
         );
 
         // nameFriendly may be set by the author in .yo-rc.json
-        // nameFriendlySafe is used in PHP classes, so is based on nameFriendly
         if ( this.config.get('nameFriendly') === 'automatic' ) {
             this.config.set(
                 'nameFriendly',
-                S( this.config.get('name') ).humanize().titleCase().replace('Wp ','').s
+                S( this.config.get('name') ).humanize().titleCase().s
             );
+        }
 
+        // nameFriendlySafe is used in PHP classes, so is based on nameFriendly
+        // TODO this should fail as nameFriendly has now been overwritten
+        if ( this.config.get('nameFriendly') === 'automatic' ) {
             this.config.set(
                 'nameFriendlySafe',
                 S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
             );
         }
+        else {
+            this.config.set(
+                'nameFriendlySafe',
+                S( this.config.get('nameFriendly') ).replaceAll(' ','_').s
+            );
+        }
+
 
         // nameAdminMenu may be set by the author in .yo-rc.json
         if ( this.config.get('nameAdminMenu') === 'automatic' ) {
