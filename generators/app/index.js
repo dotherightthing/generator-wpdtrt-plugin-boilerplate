@@ -364,6 +364,7 @@ module.exports = class extends Generator {
                 authorName:             this.props.authorName,
                 authorUrl:              this.props.authorUrl,
                 pluginLicense:          this.props.license,
+                pluginLicenseUrl:       this.props.licenseUrl,
                 pluginUrl:              this.props.homepage,
                 description:            this.props.description,
                 constantStub:           this.props.nameFriendlySafe.toUpperCase(),

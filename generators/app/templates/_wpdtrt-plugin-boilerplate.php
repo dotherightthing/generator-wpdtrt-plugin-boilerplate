@@ -7,7 +7,7 @@ Version:      <%= version %>
 Author:       <%= authorName %>
 Author URI:   <%= authorUrl %>
 License:      <%= pluginLicense %>
-License URI:  <%= licenseUrl %>
+License URI:  <%= pluginLicenseUrl %>
 Text Domain:  <%= name %>
 Domain Path:  /languages
 */
