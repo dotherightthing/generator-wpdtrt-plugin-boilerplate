@@ -4,19 +4,21 @@ A best-practice boilerplate for plugin development.
 
 ## Installation
 
-### A. Create the plugin folder
-
-1. Clone this repository to your WordPress plugins folder
-1. Rename `generator-wp-plugin-boilerplate` to `your-plugin-name` (this should be less than 50 characters, for compatibility with Bower)
-1. Then launch Terminal from this folder
-
-### B. Install requirements
+### A. Install the generator dependencies
 
 1. Node & NPM: <https://nodejs.org/>
 1. Git: <https://git-scm.com/>
 1. [Bower](http://bower.io/): `$ npm install -g bower`
 1. Composer: <https://getcomposer.org/download/>
 1. [Yeoman](http://yeoman.io/): `$ sudo npm install -g yo`
+
+### B. Install the generator
+
+1. Clone this repository to a folder
+1. Open Terminal
+1. `cd`, into the downloaded folder
+1. `npm install`
+1. `sudo npm link`
 
 ### C. Set Defaults (optional)
 
@@ -27,10 +29,6 @@ These will then become the defaults when running the Yeoman generator (`yo`).
 ### D. Scaffold project
 
 ```
-npm install
-
-sudo npm link
-
 yo wp-plugin-boilerplate
 ```
 
