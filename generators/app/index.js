@@ -37,7 +37,7 @@ module.exports = class extends Generator {
         // human readable name
         this.config.set(
             'nameFriendly',
-            S( this.config.get('name') ).humanize().titleCase().s
+            S( this.config.get('name') ).humanize().titleCase().replaceAll('Wp ', '').s
         );
 
         // nameFriendlySafe is used in PHP classes, so is based on nameFriendly
