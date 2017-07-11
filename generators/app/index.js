@@ -20,6 +20,8 @@ module.exports = class extends Generator {
      */
     initializing() {
 
+        // Set config defaults
+
         // name must match the folder name, for WordPress to recognise the plugin
         this.config.set(
             'name',
@@ -32,53 +34,92 @@ module.exports = class extends Generator {
             S( this.config.get('name') ).replaceAll('-','_').s
         );
 
-        // nameFriendly may be set by the author in .yo-rc.json
-        if ( this.config.get('nameFriendly') === 'automatic' ) {
-            this.config.set(
-                'nameFriendly',
-                S( this.config.get('name') ).humanize().titleCase().s
-            );
-        }
+        // human readable name
+        this.config.set(
+            'nameFriendly',
+            S( this.config.get('name') ).humanize().titleCase().s
+        );
 
         // nameFriendlySafe is used in PHP classes, so is based on nameFriendly
-        // TODO this should fail as nameFriendly has now been overwritten
-        if ( this.config.get('nameFriendly') === 'automatic' ) {
-            this.config.set(
-                'nameFriendlySafe',
-                S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
-            );
-        }
-        else {
-            this.config.set(
-                'nameFriendlySafe',
-                S( this.config.get('nameFriendly') ).replaceAll(' ','_').s
-            );
-        }
+        this.config.set(
+            'nameFriendlySafe',
+            S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
+        );
 
+        this.config.set(
+            'nameAdminMenu',
+            this.config.get('nameFriendly')
+        );
 
-        // nameAdminMenu may be set by the author in .yo-rc.json
-        if ( this.config.get('nameAdminMenu') === 'automatic' ) {
-            this.config.set(
-                'nameAdminMenu',
-                this.config.get('nameFriendly')
-            );
-        }
+        this.config.set(
+            'urlAdminMenu',
+            S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
+        );
 
-        // urlAdminMenu may be set by the author in .yo-rc.json
-        if ( this.config.get('urlAdminMenu') === 'automatic' ) {
-            this.config.set(
-                'urlAdminMenu',
-                S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
-            );
-        }
+        this.config.set(
+            'description',
+            'Just another WordPress plugin'
+        );
 
-        // repositoryUrl may be set by the author in .yo-rc.json
-        if ( this.config.get('repositoryUrl') === 'automatic' ) {
-            this.config.set(
-                'repositoryUrl',
-                ( 'git@github.com:dotherightthing/' + this.config.get('name') + '.git' )
-            );
-        }
+        this.config.set(
+            'tags',
+            'boilerplate, placeholder'
+        );
+
+        this.config.set(
+            'homepage',
+            'http://dotherightthing.co.nz'
+        );
+
+        this.config.set(
+            'license',
+            'GPLv2 or later'
+        );
+
+        this.config.set(
+            'licenseUrl',
+            'http://www.gnu.org/licenses/gpl-2.0.html'
+        );
+
+        this.config.set(
+            'donateUrl',
+            'http://dotherightthing.co.nz'
+        );
+
+        this.config.set(
+            'wpVersion',
+            '4.7.3'
+        );
+
+        this.config.set(
+            'authorName',
+            'Dan Smith'
+        );
+
+        this.config.set(
+            'authorWordPressName',
+            'dotherightthingnz'
+        );
+
+        this.config.set(
+            'authorEmail',
+            'dev@dotherightthing.co.nz'
+        );
+
+        this.config.set(
+            'authorUrl',
+            'http://dotherightthing.co.nz'
+        );
+
+        this.config.set(
+            'repositoryType',
+            'git'
+        );
+
+        this.config.set(
+            'repositoryUrl',
+            ( 'git@github.com:dotherightthing/' + this.config.get('name') + '.git' )
+        );
 
         // version is based on the current version of the generator
         // to allow backfilling of functionality added in spin-off plugins
