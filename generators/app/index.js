@@ -337,15 +337,17 @@ module.exports = class extends Generator {
 
         // Composer
 
-        this.fs.copy(
-            this.templatePath('_composer.json'),
-            this.destinationPath('composer.json')
-        );
+        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
+        //this.fs.copy(
+        //    this.templatePath('_composer.json'),
+        //    this.destinationPath('composer.json')
+        //);
 
-        this.fs.copy(
-            this.templatePath('_composer.lock'),
-            this.destinationPath('composer.lock')
-        );
+        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
+        //this.fs.copy(
+        //    this.templatePath('_composer.lock'),
+        //    this.destinationPath('composer.lock')
+        //);
 
         // Gulp
 
@@ -642,9 +644,11 @@ module.exports = class extends Generator {
             yarn: false
         });
 
-        this.spawnCommand('composer', ['install']);
+        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
+        //this.spawnCommand('composer', ['install']);
 
-        this.spawnCommand('vendor/phpdocumentor/phpdocumentor/bin/phpdoc -d ./app -t ./docs/php/');
+        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/6
+        //this.spawnCommand('vendor/phpdocumentor/phpdocumentor/bin/phpdoc -d ./app -t ./docs/php/');
     }
 
     /**
