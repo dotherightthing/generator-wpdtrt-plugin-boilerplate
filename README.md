@@ -28,21 +28,10 @@ These will then become the defaults when running the Yeoman generator (`yo`).
 
 ### D. Scaffold project
 
-```
-yo wp-plugin-boilerplate
-```
-
-When you encounter the following prompts, hit ENTER to confirm that it's ok to copy over the replacement files:
-
-```
-conflict package.json
-? Overwrite package.json? (Ynaxdh)
-```
-
-```
-conflict .gitignore
-? Overwrite .gitignore? (Ynaxdh)
-```
+1. Create a folder for the plugin
+1. Open Terminal
+1. `cd`, into the folder
+1. yo wp-plugin-boilerplate
 
 --
 
