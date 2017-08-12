@@ -128,7 +128,7 @@ if ( !function_exists( '<%= nameSafe %>_options_page' ) ) {
      * This function's variables will be available to this template.
      * @todo display the last generated timestamp on the options page
      */
-    require_once(<%= constantStub %>_PATH . 'views/admin/partials/<%= name %>-options-page.php');
+    require_once(<%= constantStub %>_PATH . 'templates/<%= name %>-options-page.php');
   }
 
 }

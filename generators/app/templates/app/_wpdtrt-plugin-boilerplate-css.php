@@ -21,7 +21,7 @@ if ( !function_exists( '<%= nameSafe %>_css_backend' ) ) {
   function <%= nameSafe %>_css_backend() {
 
     wp_enqueue_style( '<%= nameSafe %>_css_backend',
-      <%= constantStub %>_URL . 'views/admin/css/<%= name %>.css',
+      <%= constantStub %>_URL . 'css/<%= name %>-admin.css',
       array(),
       <%= constantStub %>_VERSION
       //'all'
@@ -42,7 +42,7 @@ if ( !function_exists( '<%= nameSafe %>_css_frontend' ) ) {
   function <%= nameSafe %>_css_frontend() {
 
     wp_enqueue_style( '<%= nameSafe %>_css_frontend',
-      <%= constantStub %>_URL . 'views/public/css/<%= name %>.css',
+      <%= constantStub %>_URL . 'css/<%= name %>.css',
       array(),
       <%= constantStub %>_VERSION
       //'all'

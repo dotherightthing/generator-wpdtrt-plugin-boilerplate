@@ -67,7 +67,7 @@ if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
      */
     ob_start();
 
-    require(<%= constantStub %>_PATH . 'views/public/partials/<%= name %>-front-end.php');
+    require(<%= constantStub %>_PATH . 'templates/<%= name %>-front-end.php');
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer

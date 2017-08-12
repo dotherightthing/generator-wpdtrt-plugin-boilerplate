@@ -67,7 +67,7 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require(<%= constantStub %>_PATH . 'views/public/partials/<%= name %>-front-end.php');
+      require(<%= constantStub %>_PATH . 'templates/<%= name %>-front-end.php');
     }
 
     /**
@@ -111,7 +111,7 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
      * Load the HTML template
      * This function's variables will be available to this template.
      */
-      require(<%= constantStub %>_PATH . 'views/admin/partials/<%= name %>-widget.php');
+      require(<%= constantStub %>_PATH . 'templates/<%= name %>-widget.php');
     }
   }
 

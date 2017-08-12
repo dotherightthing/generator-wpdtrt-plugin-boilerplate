@@ -26,7 +26,7 @@ if ( !function_exists( '<%= nameSafe %>_frontend_js' ) ) {
   function <%= nameSafe %>_frontend_js() {
 
     wp_enqueue_script( '<%= nameSafe %>_frontend_js',
-      <%= constantStub %>_URL . 'views/public/js/<%= name %>.js',
+      <%= constantStub %>_URL . 'js/<%= name %>.js',
       array('jquery'),
       <%= constantStub %>_VERSION,
       true
