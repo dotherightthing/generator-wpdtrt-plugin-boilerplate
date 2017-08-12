@@ -72,6 +72,8 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
  * So that we only use have to consume one row in the WP Options table
  * WordPress automatically serializes this (into a string)
  * because MySQL does not support arrays as a data type
+ * @example update_option('<%= nameSafe %>', $<%= nameSafe %>_options);
+ * @example $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
  */
   $<%= nameSafe %>_options = array();
 
