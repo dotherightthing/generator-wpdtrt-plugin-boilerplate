@@ -85,7 +85,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-api.php');
 
   // Views
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options-page.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-widget.php');
 
   // Theming

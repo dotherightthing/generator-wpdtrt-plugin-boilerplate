@@ -68,7 +68,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'homepage',
-            ( 'git@github.com:dotherightthing/' + this.config.get('name') + '.git' )
+            ( 'https://github.com/dotherightthing/' + this.config.get('name') )
         );
 
         this.config.set(

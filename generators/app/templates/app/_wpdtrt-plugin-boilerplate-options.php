@@ -81,7 +81,7 @@ if ( !function_exists( '<%= nameSafe %>_options_page' ) ) {
         $<%= nameSafe %>_datatype = esc_html( $_POST['<%= nameSafe %>_datatype'] );
 
         // 2. send user preferences to API to get results
-        $<%= nameSafe %>_data = <%= nameSafe %>_data_get(
+        $<%= nameSafe %>_data = <%= nameSafe %>_get_data(
           $<%= nameSafe %>_datatype
         );
 
@@ -128,7 +128,7 @@ if ( !function_exists( '<%= nameSafe %>_options_page' ) ) {
      * This function's variables will be available to this template.
      * @todo display the last generated timestamp on the options page
      */
-    require_once(<%= constantStub %>_PATH . 'templates/<%= name %>-options-page.php');
+    require_once(<%= constantStub %>_PATH . 'templates/<%= name %>-options.php');
   }
 
 }
