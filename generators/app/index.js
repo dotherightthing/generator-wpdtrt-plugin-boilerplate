@@ -125,7 +125,7 @@ module.exports = class extends Generator {
         // to allow backfilling of functionality added in spin-off plugins
         this.config.set(
             'version',
-            pjson.version
+            '0.1.0' // pjson.version
         );
     }
 
