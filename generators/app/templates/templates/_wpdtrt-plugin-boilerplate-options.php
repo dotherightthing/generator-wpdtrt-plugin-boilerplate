@@ -71,7 +71,7 @@
                  * submit_button( string $text = null, string $type = 'primary', string $name = 'submit', bool $wrap = true, array|string $other_attributes = null )
                  */
                   submit_button(
-                    $text = 'Go!',
+                    $text = 'Save',
                     $type = 'primary',
                     $name = '<%= nameSafe %>_submit',
                     $wrap = true,

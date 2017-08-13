@@ -599,6 +599,29 @@ module.exports = class extends Generator {
             }
         );
 
+        // Vendor folder and all files
+
+        this.fs.copy(
+            this.templatePath('vendor'),
+            this.destinationPath('vendor')
+        );
+
+        // Config
+
+        this.fs.copy(
+            this.templatePath('config/_index.php'),
+            this.destinationPath('config/index.php')
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('config/_tgm-plugin-activation.php'),
+            this.destinationPath('config/tgm-plugin-activation.php'), {
+                name:                   this.props.name,
+                nameSafe:               this.props.nameSafe,
+                nameFriendly:           this.props.nameFriendly
+            }
+        );
+
     }
 
     /**

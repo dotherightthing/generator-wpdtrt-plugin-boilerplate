@@ -46,7 +46,7 @@ One or more widgets can be displayed within one or more sidebars:
 = Shortcode options =
 
 1. `Number of blocks to display="4"` (default) - number of blocks to display
-2. `enlargement="yes"` (default) - optionally link the block to a larger version
+2. `enlargement="yes"` (default) - optionally link each block to a larger version
 
 == Screenshots ==
 

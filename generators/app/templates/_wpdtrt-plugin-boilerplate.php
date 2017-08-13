@@ -81,19 +81,15 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
  * Include plugin logic
  */
 
-  // API data
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-api.php');
-
-  // Views
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-css.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-html.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-js.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-shortcode.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-widget.php');
 
-  // Theming
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-html.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-css.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-js.php');
-
-  // Shortcode
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-shortcode.php');
+  require_once(<%= constantStub %>_PATH . 'vendor/tgm-plugin-activation/class-tgm-plugin-activation.php');
+  require_once(<%= constantStub %>_PATH . 'config/tgm-plugin-activation.php');
 
 ?>
