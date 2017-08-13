@@ -8,14 +8,14 @@
  * @link        https://generatewp.com/shortcodes/
  * @since       0.1.0
  *
- * @example     [<%= nameSafe %>_blocks number="4" enlargement="yes"]
- * @example     do_shortcode( '[<%= nameSafe %>_blocks number="4" enlargement="yes"]' );
+ * @example     [<%= nameSafe %> number="4" enlargement="yes"]
+ * @example     do_shortcode( '[<%= nameSafe %> number="4" enlargement="yes"]' );
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
  */
 
-if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
+if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
 
   /**
    * add_shortcode
@@ -30,7 +30,7 @@ if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
    * @see         http://php.net/manual/en/function.ob-start.php
    * @see         http://php.net/manual/en/function.ob-get-clean.php
    */
-  function <%= nameSafe %>_blocks_shortcode( $atts, $content = null ) {
+  function <%= nameSafe %>_shortcode( $atts, $content = null ) {
 
     // post object to get info about the post in which the shortcode appears
     global $post;
@@ -43,7 +43,7 @@ if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
     $after_widget = null;
     $number = null;
     $enlargement = null;
-    $shortcode = '<%= nameSafe %>_blocks_shortcode';
+    $shortcode = '<%= nameSafe %>_shortcode';
 
     /**
      * Combine user attributes with known attributes and fill in defaults when needed.
@@ -90,7 +90,7 @@ if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
     return $content;
   }
 
-  add_shortcode( '<%= nameSafe %>_blocks', '<%= nameSafe %>_blocks_shortcode' );
+  add_shortcode( '<%= nameSafe %>', '<%= nameSafe %>_shortcode' );
 
 }
 

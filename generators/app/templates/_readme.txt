@@ -18,8 +18,8 @@ License URI: <%= pluginLicenseUrl %>
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/<%= name %>` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the Settings->Plugin Name screen to configure the plugin
+2. Activate the plugin through the 'Plugins' screen in WordPress
+3. Use the Settings->Plugin Name screen to configure the plugin
 
 == Frequently Asked Questions ==
 
@@ -35,33 +35,18 @@ One or more widgets can be displayed within one or more sidebars:
 
 = How do I use the shortcode? =
 
-One or more shortcodes can be used within the content editor:
-
-* Specify *Number of blocks to display* - `number`
-* Toggle *Link to enlargement?* - `enlargement` (`yes` | `no`)
-
 ```
-[<%= nameSafe %>_blocks number="2" enlargement="yes"]
+<!-- within the editor -->
+[<%= nameSafe %> option="value"]
 
-[<%= nameSafe %>_blocks number="4" enlargement="no"]
+// in a PHP template, as a template tag
+<?php echo do_shortcode( '[<%= nameSafe %> option="value"]' ); ?>
 ```
 
-= How do I use the template tag? =
+= Shortcode options =
 
-One or more template tags can be used within your `.php` templates:
-
-* Specify *Number of blocks to display* - `number`
-* Toggle *Link to enlargement?* - `enlargement` (`yes` | `no`)
-
-```
-<?php
-    do_shortcode( '[<%= nameSafe %>_blocks number="2" enlargement="yes"]' );
-?>
-
-<?php
-    do_shortcode( '[<%= nameSafe %>_blocks number="4" enlargement="no"]' );
-?>
-```
+1. `Number of blocks to display="4"` (default) - number of blocks to display
+2. `enlargement="yes"` (default) - optionally link the block to a larger version
 
 == Screenshots ==
 
