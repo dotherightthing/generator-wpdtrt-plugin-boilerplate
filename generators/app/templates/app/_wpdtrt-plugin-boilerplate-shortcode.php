@@ -35,18 +35,31 @@ if ( !function_exists( '<%= nameSafe %>_blocks_shortcode' ) ) {
     // post object to get info about the post in which the shortcode appears
     global $post;
 
-    // prevent error when the front-end.php is used
-    // by a shortcode which doesn't pass these variables
-    $before_widget = $before_title = $title = $after_title = $after_widget = null;
+    // predeclare variables
+    $before_widget = null;
+    $before_title = null;
+    $title = null;
+    $after_title = null;
+    $after_widget = null;
+    $number = null;
+    $enlargement = null;
+    $shortcode = '<%= nameSafe %>_blocks_shortcode';
 
-    extract( shortcode_atts(
+    /**
+     * Combine user attributes with known attributes and fill in defaults when needed.
+     * @see https://developer.wordpress.org/reference/functions/shortcode_atts/
+     */
+    $atts = shortcode_atts(
       array(
         'number' => '4',
         'enlargement' => 'yes'
       ),
       $atts,
-      ''
-    ) );
+      $shortcode
+    );
+
+    // only overwrite predeclared variables
+    extract( $atts, EXTR_IF_EXISTS );
 
     if ( $enlargement === 'yes') {
       $enlargement = '1';
