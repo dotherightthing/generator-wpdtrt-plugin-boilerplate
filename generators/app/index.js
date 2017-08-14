@@ -108,7 +108,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'authorUrl',
-            'http://dotherightthing.co.nz'
+            'https://profiles.wordpress.org/dotherightthingnz'
         );
 
         this.config.set(
