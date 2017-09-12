@@ -8,7 +8,7 @@
  * @since       0.1.0
  *
  * @package     <%= nameFriendlySafe %>
- * @subpackage  <%= nameFriendlySafe %>/views
+ * @subpackage  <%= nameFriendlySafe %>/templates
  */
 ?>
 
