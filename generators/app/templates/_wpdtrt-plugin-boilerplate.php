@@ -89,7 +89,6 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-shortcode.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-widget.php');
 
-  require_once(<%= constantStub %>_PATH . 'vendor/tgm-plugin-activation/class-tgm-plugin-activation.php');
   require_once(<%= constantStub %>_PATH . 'config/tgm-plugin-activation.php');
 
 ?>

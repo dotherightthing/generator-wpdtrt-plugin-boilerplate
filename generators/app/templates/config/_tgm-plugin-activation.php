@@ -17,6 +17,22 @@
  * @link       https://github.com/TGMPA/TGM-Plugin-Activation
  */
 
+/**
+ * Include the TGM_Plugin_Activation class.
+ *
+ * Depending on your implementation, you may want to change the include call:
+ *
+ * Parent Theme:
+ * require_once get_template_directory() . '/path/to/class-tgm-plugin-activation.php';
+ *
+ * Child Theme:
+ * require_once get_stylesheet_directory() . '/path/to/class-tgm-plugin-activation.php';
+ *
+ * Plugin:
+ * require_once dirname( __FILE__ ) . '/path/to/class-tgm-plugin-activation.php';
+ */
+require_once(<%= constantStub %>_PATH . 'vendor/tgm-plugin-activation/class-tgm-plugin-activation.php');
+
 add_action( 'tgmpa_register', '<%= nameSafe %>_register_required_plugins' );
 
 /**
