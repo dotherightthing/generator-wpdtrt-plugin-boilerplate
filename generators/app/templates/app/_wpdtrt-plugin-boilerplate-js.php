@@ -57,6 +57,7 @@ if ( !function_exists( '<%= nameSafe %>_js' ) ) {
     wp_enqueue_script( '<%= nameSafe %>',
       <%= constantStub %>_URL . 'js/<%= name %>.js',
       array(
+        // load these registered dependencies first:
         'jquery'
         // a_dependency
       ),

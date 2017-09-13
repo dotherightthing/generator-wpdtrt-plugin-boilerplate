@@ -57,6 +57,7 @@ if ( !function_exists( '<%= nameSafe %>_css_frontend' ) ) {
     wp_enqueue_style( '<%= nameSafe %>',
       <%= constantStub %>_URL . 'css/<%= name %>.css',
       array(
+        // load these registered dependencies first:
         'a_dependency'
       ),
       <%= constantStub %>_VERSION,
