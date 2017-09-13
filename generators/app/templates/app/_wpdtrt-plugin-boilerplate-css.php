@@ -20,11 +20,13 @@ if ( !function_exists( '<%= nameSafe %>_css_backend' ) ) {
    */
   function <%= nameSafe %>_css_backend() {
 
+     $media = 'all';
+
     wp_enqueue_style( '<%= nameSafe %>_css_backend',
       <%= constantStub %>_URL . 'css/<%= name %>-admin.css',
       array(),
-      <%= constantStub %>_VERSION
-      //'all'
+      <%= constantStub %>_VERSION,
+      $media
     );
   }
 
@@ -41,11 +43,24 @@ if ( !function_exists( '<%= nameSafe %>_css_frontend' ) ) {
    */
   function <%= nameSafe %>_css_frontend() {
 
-    wp_enqueue_style( '<%= nameSafe %>_css_frontend',
-      <%= constantStub %>_URL . 'css/<%= name %>.css',
+    $media = 'all';
+
+    /*
+    wp_register_style( 'a_dependency',
+      <%= constantStub %>_URL . 'vendor/bower_components/a_dependency/a_dependency.css',
       array(),
-      <%= constantStub %>_VERSION
-      //'all'
+      DEPENDENCY_VERSION,
+      $media
+    );
+    */
+
+    wp_enqueue_style( '<%= nameSafe %>',
+      <%= constantStub %>_URL . 'css/<%= name %>.css',
+      array(
+        'a_dependency'
+      ),
+      <%= constantStub %>_VERSION,
+      $media
     );
 
   }
