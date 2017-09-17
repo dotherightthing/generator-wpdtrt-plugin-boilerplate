@@ -349,6 +349,33 @@ module.exports = class extends Generator {
         //    this.destinationPath('composer.lock')
         //);
 
+        var userSettings = {
+            authorEmail:            this.props.authorEmail,
+            authorName:             this.props.authorName,
+            authorUrl:              this.props.authorUrl,
+            authorWordPressName:    this.props.authorWordPressName,
+            description:            this.props.description,
+            homepage:               this.props.homepage,
+            name:                   this.props.name,
+            nameAdminMenu:          this.props.nameAdminMenu,
+            nameFriendly:           this.props.nameFriendly,
+            nameFriendlySafe:       this.props.nameFriendlySafe,
+            nameSafe:               this.props.nameSafe,
+            pluginDonateUrl:        this.props.donateUrl,
+            pluginLicense:          this.props.license,
+            pluginLicenseUrl:       this.props.licenseUrl,
+            pluginTags:             this.props.tags,
+            pluginUrl:              this.props.homepage,
+            pluginUrlAdminMenu:     this.props.urlAdminMenu,
+            repositoryType:         this.props.repositoryType,
+            repositoryUrl:          this.props.repositoryUrl,
+            srcDir:                 process.cwd(),
+            wpVersion:              this.props.wpVersion,
+            version:                this.props.version
+        };
+
+        userSettings.constantStub = this.props.nameFriendlySafe.toUpperCase(),
+
         // Gulp
 
         this.fs.copy(
@@ -359,18 +386,8 @@ module.exports = class extends Generator {
         // NPM
         this.fs.copyTpl(
             this.templatePath('_package.json'),
-            this.destinationPath('package.json'), {
-                name:                   this.props.name,
-                description:            this.props.description,
-                repositoryType:         this.props.repositoryType,
-                repositoryUrl:          this.props.repositoryUrl,
-                authorName:             this.props.authorName,
-                authorEmail:            this.props.authorEmail,
-                authorUrl:              this.props.authorUrl,
-                homepage:               this.props.homepage,
-                srcDir:                 process.cwd(),
-                version:                this.props.version
-            }
+            this.destinationPath('package.json'),
+            userSettings
         );
 
         // APP
@@ -384,45 +401,20 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('_readme.txt'),
-            this.destinationPath('readme.txt'), {
-                authorWordPressName:    this.props.authorWordPressName,
-                pluginTags:             this.props.tags,
-                description:            this.props.description,
-                name:                   this.props.name,
-                nameSafe:               this.props.nameSafe,
-                nameFriendly:           this.props.nameFriendly,
-                wpVersion:              this.props.wpVersion,
-                pluginLicense:          this.props.license,
-                pluginLicenseUrl:       this.props.licenseUrl,
-                pluginDonateUrl:        this.props.donateUrl,
-                version:                this.props.version
-            }
+            this.destinationPath('readme.txt'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('_uninstall.php'),
-            this.destinationPath('uninstall.php'), {
-                name:                   this.props.name,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                version:                this.props.version
-            }
+            this.destinationPath('uninstall.php'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('_wpdtrt-plugin-boilerplate.php'),
-            this.destinationPath(this.props.name + '.php'), {
-                name:                   this.props.name,
-                nameFriendly:           this.props.nameFriendly,
-                nameSafe:               this.props.nameSafe,
-                authorName:             this.props.authorName,
-                authorUrl:              this.props.authorUrl,
-                pluginLicense:          this.props.license,
-                pluginLicenseUrl:       this.props.licenseUrl,
-                pluginUrl:              this.props.homepage,
-                description:            this.props.description,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
-                version:                this.props.version
-            }
+            this.destinationPath(this.props.name + '.php'),
+            userSettings
         );
 
         // app
@@ -434,88 +426,44 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-css.php'),
-            this.destinationPath('app/' + this.props.name + '-css.php'), {
-                name:                   this.props.name,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                nameSafe:               this.props.nameSafe,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
-                pluginUrl:              this.props.homepage,
-                version:                this.props.version,
-                nameAdminMenu:          this.props.nameAdminMenu
-            }
+            this.destinationPath('app/' + this.props.name + '-css.php'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-api.php'),
-            this.destinationPath('app/' + this.props.name + '-api.php'), {
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                nameSafe:               this.props.nameSafe,
-                pluginUrl:              this.props.homepage,
-                version:                this.props.version
-            }
+            this.destinationPath('app/' + this.props.name + '-api.php'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-html.php'),
-            this.destinationPath('app/' + this.props.name + '-html.php'), {
-                name:                   this.props.name,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                nameSafe:               this.props.nameSafe,
-                pluginUrl:              this.props.homepage,
-                version:                this.props.version
-            }
+            this.destinationPath('app/' + this.props.name + '-html.php'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-js.php'),
-            this.destinationPath('app/' + this.props.name + '-js.php'), {
-                name:                   this.props.name,
-                nameSafe:               this.props.nameSafe,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
-                version:                this.props.version
-            }
+            this.destinationPath('app/' + this.props.name + '-js.php'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-options.php'),
-            this.destinationPath('app/' + this.props.name + '-options.php'), {
-                name:                   this.props.name,
-                nameSafe:               this.props.nameSafe,
-                nameFriendly:           this.props.nameFriendly,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                nameAdminMenu:          this.props.nameAdminMenu,
-                pluginUrl:              this.props.homepage,
-                pluginUrlAdminMenu:     this.props.urlAdminMenu,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
-                version:                this.props.version
-            }
+            this.destinationPath('app/' + this.props.name + '-options.php'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-shortcode.php'),
-            this.destinationPath('app/' + this.props.name + '-shortcode.php'), {
-                name:                   this.props.name,
-                nameSafe:               this.props.nameSafe,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
-                version:                this.props.version
-            }
+            this.destinationPath('app/' + this.props.name + '-shortcode.php'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-widget.php'),
-            this.destinationPath('app/' + this.props.name + '-widget.php'), {
-                name:                   this.props.name,
-                nameSafe:               this.props.nameSafe,
-                nameFriendly:           this.props.nameFriendly,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
-                version:                this.props.version
-            }
+            this.destinationPath('app/' + this.props.name + '-widget.php'),
+            userSettings
         );
 
         // languages
@@ -529,12 +477,8 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('css/_wpdtrt-plugin-boilerplate-admin.css'),
-            this.destinationPath('css/' + this.props.name + '-admin.css'), {
-                name:                   this.props.name,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage,
-                version:                this.props.version
-            }
+            this.destinationPath('css/' + this.props.name + '-admin.css'),
+            userSettings
         );
 
         //this.dest.mkdir(this.folderName + '/views/admin/images');
@@ -542,61 +486,34 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('templates/_wpdtrt-plugin-boilerplate-options.php'),
-            this.destinationPath('templates/' + this.props.name + '-options.php'), {
-                name:                   this.props.name,
-                nameFriendly:           this.props.nameFriendly,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                nameSafe:               this.props.nameSafe,
-                pluginUrl:              this.props.homepage,
-                version:                this.props.version
-            }
+            this.destinationPath('templates/' + this.props.name + '-options.php'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('templates/_wpdtrt-plugin-boilerplate-widget.php'),
-            this.destinationPath('templates/' + this.props.name + '-widget.php'), {
-                name:                   this.props.name,
-                nameFriendly:           this.props.nameFriendly,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                nameSafe:               this.props.nameSafe,
-                pluginUrl:              this.props.homepage,
-                version:                this.props.version
-            }
+            this.destinationPath('templates/' + this.props.name + '-widget.php'),
+            userSettings
         );
 
         // public
 
         this.fs.copyTpl(
             this.templatePath('css/_wpdtrt-plugin-boilerplate.css'),
-            this.destinationPath('css/' + this.props.name + '.css'), {
-                name:                   this.props.name,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage,
-                version:                this.props.version
-            }
+            this.destinationPath('css/' + this.props.name + '.css'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('js/_wpdtrt-plugin-boilerplate.js'),
-            this.destinationPath('js/' + this.props.name + '.js'), {
-                name:                   this.props.name,
-                nameSafe:               this.props.nameSafe,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage,
-                version:                this.props.version
-            }
+            this.destinationPath('js/' + this.props.name + '.js'),
+            userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('templates/_wpdtrt-plugin-boilerplate-front-end.php'),
-            this.destinationPath('templates/' + this.props.name + '-front-end.php'), {
-                name:                   this.props.name,
-                nameSafe:               this.props.nameSafe,
-                nameFriendlySafe:       this.props.nameFriendlySafe,
-                pluginUrl:              this.props.homepage,
-                constantStub:           this.props.nameFriendlySafe.toUpperCase(),
-                version:                this.props.version
-            }
+            this.destinationPath('templates/' + this.props.name + '-front-end.php'),
+            userSettings
         );
 
         // Vendor folder and all files
@@ -615,11 +532,8 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('config/_tgm-plugin-activation.php'),
-            this.destinationPath('config/tgm-plugin-activation.php'), {
-                name:                   this.props.name,
-                nameSafe:               this.props.nameSafe,
-                nameFriendly:           this.props.nameFriendly
-            }
+            this.destinationPath('config/tgm-plugin-activation.php'),
+            userSettings
         );
 
     }
