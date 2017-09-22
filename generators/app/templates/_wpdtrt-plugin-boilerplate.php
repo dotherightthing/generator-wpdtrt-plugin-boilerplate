@@ -89,8 +89,32 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-js.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-shortcode.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-rewrite-rules.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-widget.php');
 
   require_once(<%= constantStub %>_PATH . 'config/tgm-plugin-activation.php');
 
+  /**
+   * The register_activation_hook function registers a plugin function
+   * to be run when the plugin is activated.
+   * @see https://codex.wordpress.org/Function_Reference/register_activation_hook
+   */
+
+  register_activation_hook(__FILE__, '<%= nameSafe %>_activate');
+
+  function <%= nameSafe %>_activate() {
+    <%= nameSafe %>_rewrite_rules();
+    flush_rewrite_rules();
+  }
+
+  /**
+   * The function register_deactivation_hook (introduced in WordPress 2.0) registers a plugin function
+   * to be run when the plugin is deactivated.
+   * @see https://codex.wordpress.org/Function_Reference/register_deactivation_hook
+   */
+  register_deactivation_hook(__FILE__, '<%= nameSafe %>_deactivate');
+
+  function <%= nameSafe %>_deactivate() {
+    flush_rewrite_rules();
+  }
 ?>
