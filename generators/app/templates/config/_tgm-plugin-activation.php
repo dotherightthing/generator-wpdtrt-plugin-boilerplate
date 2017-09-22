@@ -59,6 +59,14 @@ function <%= nameSafe %>_register_required_plugins() {
 	 */
 	$plugins = array(
 
+	    array(
+	      	'name'          => 'WordPress Admin Style',
+	      	'slug'          => 'wordpress-admin-style',
+      		'source'        => 'https://github.com/bueltge/wordpress-admin-style/archive/master.zip',
+      		'external_url'  => 'https://github.com/bueltge/wordpress-admin-style',
+      		'required' 		=> false
+	    )
+
 		/*
 	    array(
 	      'name'          => 'Advanced Custom Fields',
