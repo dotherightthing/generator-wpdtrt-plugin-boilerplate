@@ -429,6 +429,10 @@ module.exports = class extends Generator {
             this.destinationPath('app/class-' + this.props.name + '-template-loader.php'),
             userSettings
         );
+
+        this.fs.copyTpl(
+            this.templatePath('app/_wpdtrt-plugin-boilerplate-admin-notices.php'),
+            this.destinationPath('app/' + this.props.name + '-admin-notices.php'),
             userSettings
         );
 

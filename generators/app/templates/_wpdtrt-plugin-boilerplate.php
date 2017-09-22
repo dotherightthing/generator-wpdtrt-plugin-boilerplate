@@ -82,6 +82,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
  */
 
   require_once(<%= constantStub %>_PATH . 'app/class-<%= name %>-template-loader.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-admin-notices.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-api.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-css.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-html.php');
