@@ -4,22 +4,31 @@
   "description": "<%= description %>",
   "main": "readme.txt",
   "person": {
-    "name" : "<%= authorName %>",
-    "email" : "<%= authorEmail %>",
-    "url" : "<%= authorUrl %>"
+    "name": "<%= authorName %>",
+    "email": "<%= authorEmail %>",
+    "url": "<%= authorUrl %>"
   },
   "devDependencies": {
-    "generator-wp-plugin-boilerplate": "git+https://github.com/dotherightthing/generator-wp-plugin-boilerplate.git",
+    "generator-wp-theme-boilerplate": "git+https://github.com/dotherightthing/generator-wp-theme-boilerplate.git",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-phplint": "^0.3.4",
-    "gulp-phpunit": "^0.22.2"
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "postcss-pxtorem": "^4.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "node_modules/.bin/bower install && composer install && vendor/bin/phpdoc && gulp"
   },
   "repository": {
     "type": "<%= repositoryType %>",
     "url": "<%= repositoryUrl %>"
   },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11"
+  ],
   "license": "ISC",
   "homepage": "<%= homepage %>",
   "srcDir": "<%= srcDir %>"

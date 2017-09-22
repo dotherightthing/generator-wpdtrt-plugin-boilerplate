@@ -1,16 +1,20 @@
 /**
- * Styles for the public front-end
+ * Styles for the public front-end, at the desktop breakpoint
  *
- * This file contains CSS.
+ * This file contains SCSS (CSS) and is a combination of:
+ * - cherry picked site and primary-nav styles from AT project
+ * - styles from the responsive-nav dropdowns demo
+ *   http://samikeijonen.github.io/responsive-nav.js/demos/multiple-levels/styles.css
+ * - custom CSS
  *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
+ * @requires    responsive-nav.css
+ * @since       0.6.0
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/css
  */
 
-.<%= name %>-blocks {
+.<%= name %>-items {
   counter-reset: blocks;
   background-color: #f0f0f0;
   color: #333;
@@ -20,29 +24,29 @@
   margin-bottom: 8px;
 }
 
-.<%= name %>-blocks::before {
+.<%= name %>-items::before {
   content: attr(data-number) " blocks";
   display: block;
   padding-bottom: 8px;
 }
 
-.<%= name %>-blocks[data-number="1"]::before {
+.<%= name %>-items[data-number="1"]::before {
   content: attr(data-number) " block";
 }
 
-.<%= name %>-blocks::after {
+.<%= name %>-items::after {
   content: "";
   display: table;
   width: 100%;
   clear: both;
 }
 
-.<%= name %>-blocks ul,
-.<%= name %>-blocks li {
+.<%= name %>-items ul,
+.<%= name %>-items li {
   list-style: none;
 }
 
-.<%= name %>-blocks li {
+.<%= name %>-items li {
   position: relative;
   float: left;
   margin: 0 8px 8px 0;
@@ -50,16 +54,16 @@
   width: 150px;
 }
 
-.widget .<%= name %>-blocks ul li {
+.widget .<%= name %>-items ul li {
   padding: 0;
   border: 0;
 }
 
-.widget .<%= name %>-blocks ul li + li {
+.widget .<%= name %>-items ul li + li {
   margin-top: 0; /* reset */
 }
 
-.<%= name %>-blocks li > a::before {
+.<%= name %>-items li > a::before {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -69,7 +73,7 @@
   padding: 8px;
 }
 
-.<%= name %>-blocks li img {
+.<%= name %>-items li img {
   width: 150px;
   height: 150px;
 }

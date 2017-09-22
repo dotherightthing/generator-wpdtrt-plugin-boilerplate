@@ -1,0 +1,261 @@
+/**
+ * Styles for the public front-end, at the mobile breakpoint
+ *
+ * This file contains SCSS (CSS).
+ *
+ * @since       0.6.0
+ *
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/css
+ */
+
+/**
+ * Always show the toggle on mobile
+ */
+.wpdtrt-responsive-nav-toggle-wrapper {
+  display: block;
+}
+
+/**
+ * When JS is disabled, hide the toggled header nav on mobile
+ */
+.wpdtrt-nojs .wpdtrt-responsive-nav-header {
+  display: none;
+}
+
+/**
+ * When JS is disabled, show the noscript footer fallback on mobile
+ */
+.wpdtrt-nojs .wpdtrt-responsive-nav-footer {
+  display: block;
+}
+
+/**
+ * Nav toggle
+ * The button which opens and closes the menu.
+ * This is a link, which jumps the user down to the footer clone
+ * when JS is disabled
+ */
+
+.wpdtrt-responsive-nav-toggle-wrapper {
+  @extend .clear;
+  margin: 0 0 16px;
+}
+
+.wpdtrt-responsive-nav-toggle-text {
+  .wpdtrt-responsive-nav-hide-labels & {
+    @extend .screen-reader-text;
+  }
+}
+
+.wpdtrt-responsive-nav-dropdown-button-text {
+  .wpdtrt-responsive-nav-hide-labels & {
+    @extend .screen-reader-text;
+  }
+}
+
+.nav-toggle {
+  display: block;
+  float: right;
+
+  background-color: $responsive_nav_toggle_background_color;
+  color: #fff;
+  text-shadow: 0px -1px 0 rgba(0, 0, 0, .3);
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 0, 0, .5);
+  border-radius: 5px;
+  text-decoration: none;
+
+  transition: all .1s ease;
+
+  &.nav-toggle-loading {
+    background-color: #333;
+    opacity: .5;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: rgba(255, 255, 255, .9);
+    border-color: rgba(255, 255, 255, .5);
+  }
+
+  &.active {
+    background-color: $responsive_nav_background_color_level_1;
+  }
+}
+
+.nav-toggle-icon {
+  .wpdtrt-responsive-nav-show-labels & {
+    display: none;
+  }
+}
+
+/**
+ * Nav
+ */
+.wpdtrt-responsive-nav {
+
+  li {
+    float: none; // allow nav height to be calculated via JS
+    border-left: 0;
+
+    &.focus {
+      a {
+        background-color: $responsive_nav_hover_color_level_1;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    color: rgba(255, 255, 255, .9);
+    line-height: normal;
+    padding: 1em $responsive_nav_item_indent;
+
+    // i.e. not just sub menu:
+    border-top: 1px solid $responsive_nav_shadow_color_level_1;
+    border-bottom: 1px solid $responsive_nav_divider_color_level_1;
+
+    .wpdtrt-responsive-nav-hide-labels & {
+      padding-right: 60px; // create space for fixed width dropdown buttons
+    }
+  }
+
+}
+
+/**
+ * Nav collapse
+ * The collapsed state of #main-nav
+ */
+.nav-collapse {
+
+  .js & {
+    visibility: hidden;
+  }
+
+  .js &.opened {
+    visibility: visible;
+  }
+
+}
+
+/**
+ * Nested sub menus
+ */
+.nav-collapse {
+
+  // Enable active class to let the navigation expand over the calculated max height.
+  .js &.multiple-level-nav.opened.dropdown-active {
+    max-height: 9999px !important;
+  }
+
+  .js &.multiple-level-nav {
+
+    .sub-menu {
+      display: none; // prevents focus on items within closed sub menu
+
+      &.toggled {
+        display: block;
+        position: relative; // overrides desktop
+      }
+    }
+  }
+
+  .js & li {
+    position: relative;
+  }
+
+/**
+ * Dropdown toggle
+ * The injected buttons which open and closes the sub menus
+ */
+  .dropdown-toggle {
+    cursor: pointer;
+
+    position: absolute;
+    top: 14px;
+    right: $responsive_nav_item_indent;
+
+    background-color: $responsive_nav_background_color_level_1;
+    color: rgba(255, 255, 255, .9);
+    border: 1px solid #666;
+    border-radius: 5px;
+    margin: 0;
+    box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, .4);
+
+    &:hover,
+    &:focus,
+    &:active  {
+      background-color: $responsive_nav_hover_color_level_1;
+    }
+
+    &:after {
+      content: "+";
+      font-size: 20px;
+    }
+
+    &.toggled:after {
+      content: "-";
+    }
+  }
+
+  &.wpdtrt-responsive-nav-show-labels {
+
+    .dropdown-toggle {
+      max-width: 70px;
+      padding: 5px;
+    }
+
+    .dropdown-toggle:after {
+      display: none;
+    }
+
+    .dropdown-toggle.toggled:after {
+      display: none;
+    }
+  }
+
+  &.wpdtrt-responsive-nav-hide-labels {
+    .dropdown-toggle {
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      line-height: 0;
+    }
+  }
+}
+
+.dropdown,
+.menu-item-has-children {
+
+  ul {
+
+    a {
+      padding-left: ($responsive_nav_item_indent * 1.5);
+    }
+
+    ul {
+
+      a {
+        padding-left: ($responsive_nav_item_indent * 2);
+      }
+
+      ul {
+
+        a {
+          padding-left: ($responsive_nav_item_indent * 2.5);
+        }
+      }
+    }
+  }
+
+  /**
+   * .wpdtrt-responsive-nav.opened
+   */
+  //&.opened .has-dropdown {
+  //  background-color: #9c2c12;
+  //}
+
+}

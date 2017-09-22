@@ -1,39 +1,44 @@
 /**
- * Styles for the WP Admin plugin options page
+ * Styles for the admin front-end
  *
  * This file contains CSS.
  *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
+ * @since       0.6.0
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/css
  */
 
-.<%= name %>-blocks {
+.<%= name %>-version {
+	// copied from dashboard-widgets-suite plugin
+	color: #c7c7c7;
+    font-size: 90%;
+}
+
+.<%= name %>-items {
   counter-reset: blocks;
 }
 
-.<%= name %>-blocks::after {
+.<%= name %>-items::after {
   content: "";
   display: table;
   width: 100%;
   clear: both;
 }
 
-.<%= name %>-blocks ul,
-.<%= name %>-blocks li {
+.<%= name %>-items ul,
+.<%= name %>-items li {
   float: left;
 }
 
-.<%= name %>-blocks li {
+.<%= name %>-items li {
   position: relative;
   margin: 0 8px 8px 0;
   height: 150px;
   width: 150px;
 }
 
-.<%= name %>-blocks li::before {
+.<%= name %>-items li::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -44,7 +49,7 @@
   padding: 8px;
 }
 
-.<%= name %>-blocks li img {
+.<%= name %>-items li img {
   width: 150px;
   height: 150px;
 }
@@ -57,4 +62,3 @@
   display: block;
   padding-top: 4px;
 }
-

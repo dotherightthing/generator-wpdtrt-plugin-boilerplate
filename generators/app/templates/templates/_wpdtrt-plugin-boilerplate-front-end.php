@@ -18,7 +18,7 @@
   echo $before_title . $title . $after_title;
 ?>
 
-<div class="<%= name %>-blocks frontend" data-number="<?php echo $number; ?>">
+<div class="<%= name %>-items frontend" data-number="<?php echo $number; ?>">
   <ul>
 
   <?php

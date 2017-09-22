@@ -443,6 +443,12 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
+            this.templatePath('app/_wpdtrt-plugin-boilerplate-css.php'),
+            this.destinationPath('app/' + this.props.name + '-css.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-html.php'),
             this.destinationPath('app/' + this.props.name + '-html.php'),
             userSettings
@@ -492,16 +498,16 @@ module.exports = class extends Generator {
             this.destinationPath('languages/' + this.props.name + '.pot')
         );
 
-        // admin
-
-        this.fs.copyTpl(
-            this.templatePath('css/_wpdtrt-plugin-boilerplate-admin.css'),
-            this.destinationPath('css/' + this.props.name + '-admin.css'),
-            userSettings
-        );
-
         //this.dest.mkdir(this.folderName + '/views/admin/images');
         //this.dest.mkdir(this.folderName + '/views/admin/js');
+
+        // templates
+
+        this.fs.copyTpl(
+            this.templatePath('templates/_wpdtrt-plugin-boilerplate-front-end.php'),
+            this.destinationPath('templates/' + this.props.name + '-front-end.php'),
+            userSettings
+        );
 
         this.fs.copyTpl(
             this.templatePath('templates/_wpdtrt-plugin-boilerplate-options.php'),
@@ -515,23 +521,55 @@ module.exports = class extends Generator {
             userSettings
         );
 
-        // public
+        // scss
 
         this.fs.copyTpl(
-            this.templatePath('css/_wpdtrt-plugin-boilerplate.css'),
-            this.destinationPath('css/' + this.props.name + '.css'),
+            this.templatePath('scss/__wpdtrt-plugin-boilerplate-extends.scss'),
+            this.destinationPath('scss/_' + this.props.name + '-extends.scss'),
             userSettings
         );
+
+        this.fs.copyTpl(
+            this.templatePath('scss/__wpdtrt-plugin-boilerplate-mobile.scss'),
+            this.destinationPath('scss/_' + this.props.name + '-mobile.scss'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('scss/__wpdtrt-plugin-boilerplate-variables.scss'),
+            this.destinationPath('scss/_' + this.props.name + '-variables.scss'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('scss/__wpdtrt-plugin-boilerplate.scss'),
+            this.destinationPath('scss/_' + this.props.name + '.scss'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('scss/_wpdtrt-plugin-boilerplate-admin.scss'),
+            this.destinationPath('scss/' + this.props.name + '-admin.scss'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('scss/_wpdtrt-plugin-boilerplate-mobile.scss'),
+            this.destinationPath('scss/' + this.props.name + '-mobile.scss'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('scss/_wpdtrt-plugin-boilerplate.scss'),
+            this.destinationPath('scss/' + this.props.name + '.scss'),
+            userSettings
+        );
+
+        // js
 
         this.fs.copyTpl(
             this.templatePath('js/_wpdtrt-plugin-boilerplate.js'),
             this.destinationPath('js/' + this.props.name + '.js'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('templates/_wpdtrt-plugin-boilerplate-front-end.php'),
-            this.destinationPath('templates/' + this.props.name + '-front-end.php'),
             userSettings
         );
 

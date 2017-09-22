@@ -1,0 +1,15 @@
+/**
+ * Styles for the public front-end
+ *
+ * This file contains CSS.
+ *
+ * @since       0.6.0
+ *
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/css
+ */
+
+@import "<%= name %>-variables";
+@import "<%= name %>-extends";
+//@import "icons/icomoon/style.scss";
+@import "<%= name %>-mobile";
