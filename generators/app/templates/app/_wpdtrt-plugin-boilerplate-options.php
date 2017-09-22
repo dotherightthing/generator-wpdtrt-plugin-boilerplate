@@ -25,11 +25,11 @@ if ( !function_exists( '<%= nameSafe %>_menu' ) ) {
   function <%= nameSafe %>_menu() {
 
     add_options_page(
-      '<%= nameFriendly %>',
-      '<%= nameAdminMenu %>',
-      'manage_options',
-      '<%= pluginUrlAdminMenu %>',
-      '<%= nameSafe %>_options_page'
+      '<%= nameFriendly %>', // <title>
+      '<%= nameAdminMenu %>', // menu
+      'manage_options', // capability
+      '<%= pluginUrlAdminMenu %>', // menu_slug
+      '<%= nameSafe %>_options_page' // function callback
     );
   }
 
@@ -131,6 +131,50 @@ if ( !function_exists( '<%= nameSafe %>_options_page' ) ) {
     require_once(<%= constantStub %>_PATH . 'templates/<%= name %>-options.php');
   }
 
+}
+
+/**
+ * Form field templating for the options page
+ * @since 0.6.0
+ */
+function <%= nameSafe %>_options_page_field( $type, $name, $label, $tip=null ) {
+
+  /**
+   * Load options array
+   */
+  $<%= nameSafe %>_options = get_option( '<%= nameSafe %>' );
+
+  /**
+   * Create variables and values fro the array items
+   */
+  extract( <%= nameSafe %>_options );
+
+  /**
+   * Set the value to the variable with the same name as the $name string
+   * e.g. $name="<%= nameSafe %>_toggle_label" => $<%= nameSafe %>_toggle_label => ('Open menu', '<%= name %>')
+   * @see http://php.net/manual/en/language.variables.variable.php
+   */
+  $value = ${$name};
+
+  /**
+   * Load the HTML template
+   * The supplied arguments will be available to this template.
+   */
+
+  /**
+   * ob_start — Turn on output buffering
+   * This stores the HTML template in the buffer
+   * so that it can be output into the content
+   * rather than at the top of the page.
+   */
+  ob_start();
+
+  require(<%= constantStub %> . 'templates/<%= name %>-options-' . $type . '.php');
+
+  /**
+   * ob_get_clean — Get current buffer contents and delete current output buffer
+   */
+  return ob_get_clean();
 }
 
 ?>
