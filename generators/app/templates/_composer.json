@@ -1,6 +1,6 @@
 {
-	"name": "dotherightthingnz/wpdtrt-responsive-nav",
-	"description": "A WordPress plugin wrapper for responsive-nav.js",
+	"name": "dotherightthingnz/<%= name %>",
+	"description": "<%= description %>",
 	"type": "library",
 	"require-dev": {
 		"phpunit/phpunit": "^5.7",
@@ -11,8 +11,8 @@
     },
     "authors": [
         {
-            "name": "Dan Smith",
-            "email": "dev@dotherightthing.co.nz"
+            "name": "<%= authorName %>",
+            "email": "<%= authorEmail %>"
         }
     ]
 }
