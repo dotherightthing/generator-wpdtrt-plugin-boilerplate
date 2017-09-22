@@ -472,6 +472,10 @@ module.exports = class extends Generator {
             this.destinationPath('app/' + this.props.name + '-rewrite-rules.php'),
             userSettings
         );
+
+        this.fs.copyTpl(
+            this.templatePath('app/_wpdtrt-plugin-boilerplate-shortcodes.php'),
+            this.destinationPath('app/' + this.props.name + '-shortcodes.php'),
             userSettings
         );
 

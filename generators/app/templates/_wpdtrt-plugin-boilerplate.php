@@ -89,8 +89,8 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-js.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-menus.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-shortcode.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-rewrite-rules.php');
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-shortcodes.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-widget.php');
 
   require_once(<%= constantStub %>_PATH . 'config/tgm-plugin-activation.php');
