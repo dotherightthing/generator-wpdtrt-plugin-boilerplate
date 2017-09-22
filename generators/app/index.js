@@ -455,6 +455,13 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
+            this.templatePath('app/_wpdtrt-plugin-boilerplate-menus.php'),
+            this.destinationPath('app/' + this.props.name + '-menus.php'),
+            userSettings
+        );
+
+
+        this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-options.php'),
             this.destinationPath('app/' + this.props.name + '-options.php'),
             userSettings
