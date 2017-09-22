@@ -33,7 +33,7 @@ These will then become the defaults when running the Yeoman generator (`yo`).
 1. `cd`, into the folder
 1. yo wp-plugin-boilerplate
 
---
+---
 
 ## Notes
 
