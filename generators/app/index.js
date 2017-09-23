@@ -375,10 +375,11 @@ module.exports = class extends Generator {
         // Composer
 
         // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
-        //this.fs.copy(
-        //    this.templatePath('_composer.json'),
-        //    this.destinationPath('composer.json')
-        //);
+        this.fs.copyTpl(
+            this.templatePath('_composer.json'),
+            this.destinationPath('composer.json'),
+            userSettings
+        );
 
         // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
         //this.fs.copy(
