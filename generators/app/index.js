@@ -237,6 +237,12 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
+                name: 'phpVersion',
+                message: 'PHP version',
+                default: this.config.get('phpVersion')
+            },
+            {
+                type: 'input',
                 name: 'authorName',
                 message: 'Your first and last names',
                 default: this.config.get('authorName')
@@ -309,6 +315,35 @@ module.exports = class extends Generator {
      * {@link https://webcake.co/building-a-yeoman-generator/}
      */
     writing() {
+
+        var userSettings = {
+            authorEmail:            this.props.authorEmail,
+            authorName:             this.props.authorName,
+            authorUrl:              this.props.authorUrl,
+            authorWordPressName:    this.props.authorWordPressName,
+            description:            this.props.description,
+            homepage:               this.props.homepage,
+            name:                   this.props.name,
+            nameAdminMenu:          this.props.nameAdminMenu,
+            nameFriendly:           this.props.nameFriendly,
+            nameFriendlySafe:       this.props.nameFriendlySafe,
+            nameSafe:               this.props.nameSafe,
+            phpVersion:             this.props.phpVersion,
+            pluginDonateUrl:        this.props.donateUrl,
+            pluginLicense:          this.props.license,
+            pluginLicenseUrl:       this.props.licenseUrl,
+            pluginTags:             this.props.tags,
+            pluginUrl:              this.props.homepage,
+            pluginUrlAdminMenu:     this.props.urlAdminMenu,
+            repositoryType:         this.props.repositoryType,
+            repositoryUrl:          this.props.repositoryUrl,
+            srcDir:                 process.cwd(),
+            wpVersion:              this.props.wpVersion,
+            version:                this.props.version
+        };
+
+        userSettings.constantStub = this.props.nameFriendlySafe.toUpperCase(),
+
         // Copy the configuration files
 
         // Security
@@ -327,15 +362,8 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('_bower.json'),
-            this.destinationPath('bower.json'), {
-                name:           this.props.name,
-                description:    this.props.description,
-                authorName:     this.props.authorName,
-                authorEmail:    this.props.authorEmail,
-                authorUrl:      this.props.authorUrl,
-                homepage:       this.props.homepage,
-                version:        this.props.version
-            }
+            this.destinationPath('bower.json'),
+            userSettings
         );
 
         // Git
@@ -357,33 +385,6 @@ module.exports = class extends Generator {
         //    this.templatePath('_composer.lock'),
         //    this.destinationPath('composer.lock')
         //);
-
-        var userSettings = {
-            authorEmail:            this.props.authorEmail,
-            authorName:             this.props.authorName,
-            authorUrl:              this.props.authorUrl,
-            authorWordPressName:    this.props.authorWordPressName,
-            description:            this.props.description,
-            homepage:               this.props.homepage,
-            name:                   this.props.name,
-            nameAdminMenu:          this.props.nameAdminMenu,
-            nameFriendly:           this.props.nameFriendly,
-            nameFriendlySafe:       this.props.nameFriendlySafe,
-            nameSafe:               this.props.nameSafe,
-            pluginDonateUrl:        this.props.donateUrl,
-            pluginLicense:          this.props.license,
-            pluginLicenseUrl:       this.props.licenseUrl,
-            pluginTags:             this.props.tags,
-            pluginUrl:              this.props.homepage,
-            pluginUrlAdminMenu:     this.props.urlAdminMenu,
-            repositoryType:         this.props.repositoryType,
-            repositoryUrl:          this.props.repositoryUrl,
-            srcDir:                 process.cwd(),
-            wpVersion:              this.props.wpVersion,
-            version:                this.props.version
-        };
-
-        userSettings.constantStub = this.props.nameFriendlySafe.toUpperCase(),
 
         // Gulp
 
