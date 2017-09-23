@@ -28,6 +28,10 @@ module.exports = class extends Generator {
             process.cwd().split(path.sep).pop() // get plugin name from parent folder
         );
 
+        if ( this.config.get('name').match('wpdtrt') ) {
+            var prefix = 'wpdtrt-';
+        }
+
         // nameSafe is used in PHP functions, so is based on name
         this.config.set(
             'nameSafe',
@@ -37,23 +41,23 @@ module.exports = class extends Generator {
         // human readable name
         this.config.set(
             'nameFriendly',
-            S( this.config.get('name') ).humanize().titleCase().replaceAll('Wp ', '').s
+            S( this.config.get('name') ).humanize().titleCase().replaceAll('Wpdtrt', 'DTRT').s
         );
 
         // nameFriendlySafe is used in PHP classes, so is based on nameFriendly
         this.config.set(
             'nameFriendlySafe',
-            S( this.config.get('name') ).humanize().titleCase().replaceAll(' ','_').s
+            S( this.config.get('name') ).humanize().titleCase().replaceAll('Wpdtrt','WPDTRT').replaceAll(' ','_').s
         );
 
         this.config.set(
             'nameAdminMenu',
-            this.config.get('nameFriendly')
+            S( this.config.get('nameFriendly') ).replaceAll('DTRT ', '').s
         );
 
         this.config.set(
             'urlAdminMenu',
-            S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
+            prefix + S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
         );
 
         this.config.set(
