@@ -4,7 +4,7 @@
  *
  * This file contains PHP and HTML
  *
- * @since       0.5.0
+ * @since       0.6.0
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/templates
