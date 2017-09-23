@@ -51,7 +51,7 @@
             echo <%= nameSafe %>_options_page_field(
               'textfield',
               '<%= nameSafe %>_colour',
-              __('Your favourite colour', '<%= name %')
+              __('Your favourite colour', '<%= name %>')
             );
           ?>
           <tr>
