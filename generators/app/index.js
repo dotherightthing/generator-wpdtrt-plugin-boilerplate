@@ -96,6 +96,11 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
+            'phpVersion',
+            '5.6.30'
+        );
+
+        this.config.set(
             'authorName',
             'Dan Smith'
         );
@@ -191,7 +196,7 @@ module.exports = class extends Generator {
             {
                 type: 'input',
                 name: 'tags',
-                message: 'Plugin tags',
+                message: 'Plugin tags (<=12, !wordpress, !wp)',
                 default: this.config.get('tags')
             },
             {

@@ -5,6 +5,7 @@ Donate link: <%= pluginDonateUrl %>
 Tags: <%= pluginTags %>
 Requires at least: <%= wpVersion %>
 Tested up to: <%= wpVersion %>
+Requires PHP: <%= phpVersion %>
 Stable tag: <%= version %>
 License: <%= pluginLicense %>
 License URI: <%= pluginLicenseUrl %>
