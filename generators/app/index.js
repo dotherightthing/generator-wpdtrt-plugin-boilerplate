@@ -541,20 +541,8 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('scss/__wpdtrt-plugin-boilerplate-mobile.scss'),
-            this.destinationPath('scss/_' + this.props.name + '-mobile.scss'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
             this.templatePath('scss/__wpdtrt-plugin-boilerplate-variables.scss'),
             this.destinationPath('scss/_' + this.props.name + '-variables.scss'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('scss/__wpdtrt-plugin-boilerplate.scss'),
-            this.destinationPath('scss/_' + this.props.name + '.scss'),
             userSettings
         );
 

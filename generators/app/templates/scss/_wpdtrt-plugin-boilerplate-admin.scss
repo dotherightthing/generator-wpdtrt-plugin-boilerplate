@@ -9,6 +9,9 @@
  * @subpackage  <%= nameFriendlySafe %>/css
  */
 
+@import "<%= name %>-variables";
+@import "<%= name %>-extends";
+
 .<%= name %>-version {
 	// copied from dashboard-widgets-suite plugin
 	color: #c7c7c7;
