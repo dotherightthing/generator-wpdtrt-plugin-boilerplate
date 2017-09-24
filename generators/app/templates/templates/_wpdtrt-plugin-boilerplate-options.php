@@ -48,11 +48,13 @@
       <table class="form-table">
         <tbody>
           <?php
+          /*
             echo <%= nameSafe %>_options_page_field(
               'textfield',
               '<%= nameSafe %>_colour',
               __('Your favourite colour', '<%= name %>')
             );
+          */
           ?>
           <tr>
             <th scope="row">
@@ -94,7 +96,7 @@
      * We display a sample of the data, so the user can verify that they have chosen the type
      * which meets their needs.
      */
-    if ( isset( $<%= nameSafe %>_datatype ) && ( $<%= nameSafe %>_datatype !== '') ) :
+    if ( isset( $<%= nameSafe %>_data ) ) :
   ?>
 
   <h2>

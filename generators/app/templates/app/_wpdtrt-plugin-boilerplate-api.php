@@ -11,13 +11,11 @@
  * @subpackage  <%= nameFriendlySafe %>/app
  */
 
-if ( !function_exists( '<%= nameSafe %>_get_data' ) ) {
+if ( !function_exists( '<%= nameSafe %>_api_request' ) ) {
 
   /**
    * Request the data from the API
    *
-   * @param       string $<%= nameSafe %>_datatype
-   *    The type of data to return.
    * @return      object $<%= nameSafe %>_data
    *    The body of the JSON response
    *
@@ -25,7 +23,16 @@ if ( !function_exists( '<%= nameSafe %>_get_data' ) ) {
    * @uses        ../../../../wp-includes/http.php
    * @see         https://developer.wordpress.org/reference/functions/wp_remote_get/
    */
-  function <%= nameSafe %>_get_data( $<%= nameSafe %>_datatype ) {
+  function <%= nameSafe %>_api_request() {
+
+    // Load existing options
+    $<%= nameSafe %>_options = get_option( '<%= nameSafe %>' );
+
+    $<%= nameSafe %>_datatype = $<%= nameSafe %>_options['<%= nameSafe %>_datatype'];
+
+    if ( !isset ( $<%= nameSafe %>_datatype ) ) {
+      return (object)[];
+    }
 
     $endpoint = 'http://jsonplaceholder.typicode.com/' . $<%= nameSafe %>_datatype;
 
@@ -74,7 +81,7 @@ if ( !function_exists( '<%= nameSafe %>_data_refresh' ) ) {
 
       $<%= nameSafe %>_datatype = $<%= nameSafe %>_options['<%= nameSafe %>_datatype'];
 
-      $<%= nameSafe %>_options['<%= nameSafe %>_data'] = <%= nameSafe %>_get_data( $<%= nameSafe %>_datatype );
+      $<%= nameSafe %>_options['<%= nameSafe %>_data'] = <%= nameSafe %>_api_request( $<%= nameSafe %>_datatype );
 
       // inspecting the database will allow us to check
       // whether the profile is being updated

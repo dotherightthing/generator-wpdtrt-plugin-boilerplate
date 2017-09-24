@@ -106,7 +106,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   function <%= nameSafe %>_activate() {
     <%= nameSafe %>_rewrite_rules();
     flush_rewrite_rules();
-    //<%= nameSafe %>_options_create
+    <%= nameSafe %>_options_create();
   }
 
   /**
