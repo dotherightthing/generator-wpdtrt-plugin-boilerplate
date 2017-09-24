@@ -18,6 +18,7 @@
 if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
 
   /**
+   * add_shortcode
    * @param       array $atts
    *    Optional shortcode attributes specified by the user
    * @param       string $content
@@ -35,12 +36,14 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
     // post object to get info about the post in which the shortcode appears
     global $post;
 
-    // predeclare variables
+    // predeclare wp variables
     $before_widget = null;
     $before_title = null;
     $title = null;
     $after_title = null;
     $after_widget = null;
+
+    // predeclare shortcode option variables
     $number = null;
     $enlargement = null;
     $shortcode = '<%= nameSafe %>_shortcode';
@@ -61,6 +64,7 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
     // only overwrite predeclared variables
     extract( $atts, EXTR_IF_EXISTS );
 
+    // TODO: is this conversion redundant?
     if ( $enlargement === 'yes') {
       $enlargement = '1';
     }
@@ -68,9 +72,37 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
     if ( $enlargement === 'no') {
       $enlargement = '0';
     }
+    // end
 
-    $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
-    $<%= nameSafe %>_data = $<%= nameSafe %>_options['<%= nameSafe %>_data'];
+    /**
+     * Get plugin options
+     */
+    $<%= nameSafe %>_options = get_option( '<%= nameSafe %>' );
+
+    // predeclare options variables
+    $<%= nameSafe %>_datatype = null;
+    $<%= nameSafe %>_data = null;
+
+    // only overwrite predeclared variables
+    extract( $<%= nameSafe %>_options, EXTR_IF_EXISTS );
+
+    // configure mobile JS
+    wp_localize_script(
+      '<%= nameSafe %>_frontend_js',
+      '<%= nameSafe %>_options',
+      array(
+        'datatype' => $<%= nameSafe %>_datatype,
+        'data' => $<%= nameSafe %>_menu_data
+      )
+    );
+
+    // mimic WordPress template loading
+    // to allow authors to override loaded templates
+    $templates = new WPDTRT_Responsive_Nav_Template_Loader;
+
+    // pass options to get_template_part()
+    $<%= nameSafe %>_options_all = array_merge( $atts, $<%= nameSafe %>_options );
+    set_query_var( '<%= nameSafe %>_options_all', $<%= nameSafe %>_options_all );
 
     /**
      * ob_start — Turn on output buffering
@@ -80,7 +112,7 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
      */
     ob_start();
 
-    require(<%= constantStub %>_PATH . 'templates/<%= name %>-front-end.php');
+    $templates->get_template_part( 'content', 'blocks' );
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer
@@ -90,12 +122,6 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
     return $content;
   }
 
-  /**
-   * @param string $tag
-   *    Shortcode tag to be searched in post content.
-   * @param callable $func
-   *    Hook to run when shortcode is found.
-   */
   add_shortcode( '<%= nameSafe %>', '<%= nameSafe %>_shortcode' );
 
 }
