@@ -29,7 +29,7 @@ if ( ! function_exists('<%= nameSafe %>_register_menus') ) {
 	 */
 	//add_action( 'init', '<%= nameSafe %>_register_menus' );
 
-	function wpdtrt_responsive_nav_register_menus() {
+	function <%= nameSafe %>_register_menus() {
 	  register_nav_menus(
 	    array(
 	    	// Menu name set in wp_nav_menu => wp-admin Display location / Theme Location
