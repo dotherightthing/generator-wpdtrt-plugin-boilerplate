@@ -32,13 +32,13 @@ function <%= nameSafe %>_admin_notice_settings_updated() {
 
 	$screen = get_current_screen();
 
-	if ($screen->id === 'settings_page_<%= nameSafe %>'):
+	if ($screen->id === 'settings_page_<%= name %>'):
 
 		if ( isset( $_POST['<%= nameSafe %>_form_submitted'] ) ):
 ?>
 
 			<div class="notice notice-success is-dismissible">
-				<p><?php _e('Boilerplate settings successfully updated', '<%= name %>'); ?></p>
+				<p><?php _e('<%= nameFriendly %> settings successfully updated', '<%= name %>'); ?></p>
 			</div>
 
 <?php
