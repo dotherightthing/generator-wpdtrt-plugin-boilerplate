@@ -527,6 +527,24 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
+            this.templatePath('templates/_wpdtrt-plugin-boilerplate-options-checkbox.php'),
+            this.destinationPath('templates/' + this.props.name + '-options-checkbox.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('templates/_wpdtrt-plugin-boilerplate-options-password.php'),
+            this.destinationPath('templates/' + this.props.name + '-options-password.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('templates/_wpdtrt-plugin-boilerplate-options-textfield.php'),
+            this.destinationPath('templates/' + this.props.name + '-options-textfield.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
             this.templatePath('templates/_wpdtrt-plugin-boilerplate-widget.php'),
             this.destinationPath('templates/' + this.props.name + '-widget.php'),
             userSettings

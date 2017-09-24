@@ -20,7 +20,7 @@ if ( !function_exists( '<%= nameSafe %>_css_backend' ) ) {
    */
   function <%= nameSafe %>_css_backend() {
 
-     $media = 'all';
+    $media = 'all';
 
     wp_enqueue_style( '<%= nameSafe %>_css_backend',
       <%= constantStub %>_URL . 'css/<%= name %>-admin.css',
@@ -58,7 +58,7 @@ if ( !function_exists( '<%= nameSafe %>_css_frontend' ) ) {
       <%= constantStub %>_URL . 'css/<%= name %>.css',
       array(
         // load these registered dependencies first:
-        'a_dependency'
+        //'a_dependency'
       ),
       <%= constantStub %>_VERSION,
       $media

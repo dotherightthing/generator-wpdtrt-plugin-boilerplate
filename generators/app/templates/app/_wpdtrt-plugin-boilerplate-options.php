@@ -145,9 +145,9 @@ function <%= nameSafe %>_options_page_field( $type, $name, $label, $tip=null ) {
   $<%= nameSafe %>_options = get_option( '<%= nameSafe %>' );
 
   /**
-   * Create variables and values fro the array items
+   * Create variables and values from the array items
    */
-  extract( <%= nameSafe %>_options );
+  extract( $<%= nameSafe %>_options );
 
   /**
    * Set the value to the variable with the same name as the $name string
@@ -169,7 +169,7 @@ function <%= nameSafe %>_options_page_field( $type, $name, $label, $tip=null ) {
    */
   ob_start();
 
-  require(<%= constantStub %> . 'templates/<%= name %>-options-' . $type . '.php');
+  require(<%= constantStub %>_PATH . 'templates/<%= name %>-options-' . $type . '.php');
 
   /**
    * ob_get_clean — Get current buffer contents and delete current output buffer
