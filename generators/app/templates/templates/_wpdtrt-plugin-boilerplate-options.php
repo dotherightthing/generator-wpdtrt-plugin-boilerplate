@@ -164,7 +164,7 @@
 
       echo "}\r\n"; ?></code></pre></div>
 
-    <p><em><?php _e('Data generated:', '<%= name %>'); echo ' ' . <%= nameSafe %>_html_date(); ?></em></p>
+    <p class="<%= name %>-date"><em><?php _e('Data generated:', '<%= name %>'); echo ' ' . <%= nameSafe %>_html_date(); ?></em></p>
 
   <?php
     endif;

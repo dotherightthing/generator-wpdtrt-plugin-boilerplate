@@ -207,8 +207,12 @@ if ( !function_exists( '<%= nameSafe %>_html_date' ) ) {
 
     // use the date format set by the user
     $wp_date_format = get_option('date_format');
+    $wp_time_format = get_option('time_format');
 
-    $str = '<p class="<%= name %>-date">Data last updated: ' . date( $wp_date_format, $last_updated ) . '. </p>';
+    $str = '';
+    $str .= date( $wp_time_format, $last_updated );
+    $str .= ', ';
+    $str .= date( $wp_date_format, $last_updated );
 
     return $str;
   }
