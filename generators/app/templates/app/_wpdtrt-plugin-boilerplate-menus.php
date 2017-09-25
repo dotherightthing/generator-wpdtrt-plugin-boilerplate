@@ -4,12 +4,11 @@
  *
  * This file contains PHP.
  *
- * @since       0.1.0
+ * @todo For the actual nav see wpdtrt-responsive-nav/template-parts/wpdtrt-responsive-nav/navigation-header.php
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
- *
- * @todo For the actual nav see wpdtrt-responsive-nav/template-parts/wpdtrt-responsive-nav/navigation-header.php
+ * @since       0.6.0
  */
 
 /**
@@ -26,6 +25,9 @@ if ( ! function_exists('<%= nameSafe %>_register_menus') ) {
 	 *
 	 * @see http://www.wpbeginner.com/wp-themes/how-to-add-custom-navigation-menus-in-wordpress-3-0-themes/
 	 * @see https://developer.wordpress.org/themes/functionality/navigation-menus/#register-menus
+	 *
+     * @since       0.6.0
+   	 * @version     1.0.0
 	 */
 	//add_action( 'init', '<%= nameSafe %>_register_menus' );
 

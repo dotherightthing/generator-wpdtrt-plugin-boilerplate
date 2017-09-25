@@ -3,13 +3,10 @@
  * Template partial for Widget administration
  *    WP Admin > Appearance > Widgets > <%= nameFriendly %>
  *
- * This file contains PHP, and HTML fields.
- *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
- *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/templates
+ * @since     0.1.0
+ * @version   1.0.0
  */
 ?>
 

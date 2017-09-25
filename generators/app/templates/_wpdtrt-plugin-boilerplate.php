@@ -37,8 +37,12 @@ Domain Path:  /languages
  * Plugin version
  * WP provides get_plugin_data(), but it only works within WP Admin,
  * so we define a constant instead.
+ *
  * @example $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
  * @link https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically
+ *
+ * @since     0.1.0
+ * @version   1.0.0
  */
 if( ! defined( '<%= constantStub %>_VERSION' ) ) {
   define( '<%= constantStub %>_VERSION', '0.1' );
@@ -46,10 +50,15 @@ if( ! defined( '<%= constantStub %>_VERSION' ) ) {
 
 /**
  * plugin_dir_path
+ *
  * @param string $file
  * @return The filesystem directory path (with trailing slash)
+ *
  * @link https://developer.wordpress.org/reference/functions/plugin_dir_path/
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
+ *
+ * @since     0.1.0
+ * @version   1.0.0
  */
 if( ! defined( '<%= constantStub %>_PATH' ) ) {
   define( '<%= constantStub %>_PATH', plugin_dir_path( __FILE__ ) );
@@ -57,10 +66,15 @@ if( ! defined( '<%= constantStub %>_PATH' ) ) {
 
 /**
  * The version information is only available within WP Admin
+ *
  * @param string $file
  * @return The URL (with trailing slash)
+ *
  * @link https://codex.wordpress.org/Function_Reference/plugin_dir_url
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
+ *
+ * @since     0.1.0
+ * @version   1.0.0
  */
 if( ! defined( '<%= constantStub %>_URL' ) ) {
   define( '<%= constantStub %>_URL', plugin_dir_url( __FILE__ ) );
@@ -69,23 +83,30 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
 
 /**
  * Store all of our plugin options in an array
+ *
  * So that we only use have to consume one row in the WP Options table
  * WordPress automatically serializes this (into a string)
  * because MySQL does not support arrays as a data type
+ *
  * @example update_option('<%= nameSafe %>', $<%= nameSafe %>_options);
  * @example $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
+ *
+ * @since     0.1.0
+ * @version   1.0.0
  */
   $<%= nameSafe %>_options = array();
 
 /**
  * Include plugin logic
+ *
+ * @since     0.1.0
+ * @version   1.0.0
  */
-
   require_once(<%= constantStub %>_PATH . 'app/class-<%= name %>-template-loader.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-admin-notices.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-api.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-css.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-html.php'); // TODO
+  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-html.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-js.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-menus.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options.php');
@@ -98,9 +119,12 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   /**
    * The register_activation_hook function registers a plugin function
    * to be run when the plugin is activated.
+   *
    * @see https://codex.wordpress.org/Function_Reference/register_activation_hook
+   *
+   * @since     0.6.0
+   * @version   1.0.0
    */
-
   register_activation_hook(__FILE__, '<%= nameSafe %>_activate');
 
   function <%= nameSafe %>_activate() {
@@ -112,7 +136,11 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   /**
    * The function register_deactivation_hook (introduced in WordPress 2.0) registers a plugin function
    * to be run when the plugin is deactivated.
+   *
    * @see https://codex.wordpress.org/Function_Reference/register_deactivation_hook
+   *
+   * @since     0.6.0
+   * @version   1.0.0
    */
   register_deactivation_hook(__FILE__, '<%= nameSafe %>_deactivate');
 

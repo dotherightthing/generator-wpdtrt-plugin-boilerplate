@@ -2,34 +2,33 @@
 /**
  * Generate a shortcode, to embed the widget inside a content area.
  *
- * This file contains PHP.
- *
- * @link        <%= pluginUrl %>
- * @link        https://generatewp.com/shortcodes/
- * @since       0.1.0
- *
- * @example     [<%= nameSafe %> number="4" enlargement="yes"]
- * @example     do_shortcode( '[<%= nameSafe %> number="4" enlargement="yes"]' );
+ * @example     [<%= nameSafe %> option="value"]
+ * @example     do_shortcode( '[<%= nameSafe %> option="value"]' );
+ * @see         https://generatewp.com/shortcodes/
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
+ * @since       0.1.0
+ * @since       0.6.0 Renamed to ~shortcodes.php
  */
 
 if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
 
   /**
-   * add_shortcode
-   * @param       array $atts
-   *    Optional shortcode attributes specified by the user
-   * @param       string $content
-   *    Content within the enclosing shortcode tags
+   * Add_shortcode
    *
-   * @since       0.1.0
+   * @param       array $atts Optional shortcode attributes specified by the user
+   * @param       string $content Content within the enclosing shortcode tags
+   * @return      Shortcode
+   *
    * @uses        ../../../../wp-includes/shortcodes.php
    * @see         https://codex.wordpress.org/Function_Reference/add_shortcode
    * @see         https://codex.wordpress.org/Shortcode_API#Enclosing_vs_self-closing_shortcodes
    * @see         http://php.net/manual/en/function.ob-start.php
    * @see         http://php.net/manual/en/function.ob-get-clean.php
+   *
+   * @since       0.1.0
+   * @version     1.0.0
    */
   function <%= nameSafe %>_shortcode( $atts, $content = null ) {
 

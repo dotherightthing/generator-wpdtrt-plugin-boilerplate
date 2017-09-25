@@ -2,12 +2,10 @@
 /**
  * Form field partial for Admin Options page: Password
  *
- * This file contains PHP and HTML
- *
- * @since       0.6.0
- *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/templates
+ * @since 		0.6.0
+ * @version 	1.0.0
  */
 ?>
 

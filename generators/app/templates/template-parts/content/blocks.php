@@ -1,14 +1,14 @@
 <?php
 /**
- * Displays blocks
- *
- * @since       0.1.0
+ * Displays data blocks
  *
  * @package     <%= nameFriendlySafe %>
- * @subpackage  <%= nameFriendlySafe %>/templates-parts
+ * @subpackage  <%= nameFriendlySafe %>/template-parts
+ * @since     0.6.0
+ * @version   1.0.0
  */
 
-$options = get_query_var( 'wpdtrt_responsive_nav_options_all' );
+$options = get_query_var( '<%= nameSafe %>_options_all' );
 
 if ( is_array( $options ) ) {
 
@@ -18,8 +18,8 @@ if ( is_array( $options ) ) {
    */
     $number = null;
     $enlargement = null;
-    $wpdtrt_responsive_nav_datatype = null;
-    $wpdtrt_responsive_nav_data = null;
+    $<%= nameSafe %>_datatype = null;
+    $<%= nameSafe %>_data = null;
 
   /**
    * only overwrite the predeclared variables

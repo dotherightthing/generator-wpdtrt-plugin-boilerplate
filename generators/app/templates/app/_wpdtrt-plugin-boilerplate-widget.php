@@ -2,13 +2,9 @@
 /**
  * Generate a widget, which is configured in WP Admin, and can be displayed in sidebars.
  *
- * This file contains PHP.
- *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
- *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
+ * @since       0.1.0
  */
 
 if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
@@ -18,10 +14,12 @@ if ( !class_exists( '<%= nameFriendlySafe %>_Widget' ) ) {
    *    This class must be extended for each widget, and WP_Widget::widget() must be overridden.
    *    Class names should use capitalized words separated by underscores. Any acronyms should be all upper case.
    *
-   * @since       0.1.0
    * @uses        ../../../../wp-includes/class-wp-widget.php:
    * @see         https://developer.wordpress.org/reference/classes/wp_widget/
    * @see         https://make.wordpress.org/core/handbook/best-practices/coding-standards/php/#naming-conventions
+   *
+   * @since       0.1.0
+   * @version     1.0.0
    */
   class <%= nameFriendlySafe %>_Widget extends WP_Widget {
 
@@ -122,9 +120,11 @@ if ( !function_exists( '<%= nameSafe %>_register_widgets' ) ) {
   /**
    * Register the widget
    *
-   * @since       0.1.0
    * @uses        ../../../../wp-includes/widgets.php
    * @see         https://codex.wordpress.org/Function_Reference/register_widget#Example
+   *
+   * @since       0.1.0
+   * @version     1.0.0
    */
 
   function <%= nameSafe %>_register_widgets() {

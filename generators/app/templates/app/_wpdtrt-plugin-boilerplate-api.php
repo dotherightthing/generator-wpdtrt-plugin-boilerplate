@@ -2,13 +2,9 @@
 /**
  * API requests
  *
- * This file contains PHP.
- *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
- *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
+ * @since       0.1.0
  */
 
 if ( !function_exists( '<%= nameSafe %>_api_request' ) ) {
@@ -16,12 +12,13 @@ if ( !function_exists( '<%= nameSafe %>_api_request' ) ) {
   /**
    * Request the data from the API
    *
-   * @return      object $<%= nameSafe %>_data
-   *    The body of the JSON response
+   * @return      object The body of the JSON response
    *
-   * @since       0.1.0
    * @uses        ../../../../wp-includes/http.php
    * @see         https://developer.wordpress.org/reference/functions/wp_remote_get/
+   *
+   * @since       0.1.0
+   * @version     1.0.0
    */
   function <%= nameSafe %>_api_request() {
 
@@ -65,8 +62,11 @@ if ( !function_exists( '<%= nameSafe %>_data_refresh' ) ) {
    *    This is because it is used to call the server side PHP function through admin-ajax.php.
    *    If an action is not specified, admin-ajax.php will exit, and return 0 in the process.
    *
-   * @since       0.1.0
    * @see         https://codex.wordpress.org/AJAX_in_Plugins
+   * @todo        Create example
+   *
+   * @since       0.1.0
+   * @version     1.0.0
    */
   function <%= nameSafe %>_data_refresh() {
 

@@ -1,19 +1,20 @@
 <?php
 /**
  * Admin Notices
+ * Displayed below the H1
  *
- * This file contains PHP.
- *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
+ * @see 		https://digwp.com/2016/05/wordpress-admin-notices/
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
+ * @since       0.6.0
  */
 
 /**
- * Display any error messages below the H1
- * @see https://digwp.com/2016/05/wordpress-admin-notices/
+ * Admin Notices: Errors
+ *
+ * @since       0.6.0
+ * @version 	1.0.0
  */
 add_action('admin_notices', '<%= nameSafe %>_add_settings_errors');
 
@@ -22,9 +23,11 @@ function <%= nameSafe %>_add_settings_errors() {
 }
 
 /**
- * Display a custom admin notice below the H1
+ * Admin Notices: Custom
  * Possible classes: notice-error, notice-warning, notice-success, or notice-info
- * @see https://digwp.com/2016/05/wordpress-admin-notices/
+ *
+ * @since       0.6.0
+ * @version 	1.0.0
  */
 add_action('admin_notices', '<%= nameSafe %>_admin_notice_settings_updated');
 

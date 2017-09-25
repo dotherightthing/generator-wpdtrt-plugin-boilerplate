@@ -3,13 +3,12 @@
  * Template partial for Admin Options page
  *    WP Admin > Settings > <%= nameFriendly %>
  *
- * This file contains PHP, and HTML from the WordPress_Admin_Style plugin.
- *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
+ * @uses        WordPress_Admin_Style
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/templates
+ * @since     0.1.0
+ * @version   1.0.0
  */
 ?>
 

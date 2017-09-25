@@ -4,11 +4,9 @@
  * This file contains JavaScript.
  *    PHP variables are provided in <%= nameSafe %>_config.
  *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
- *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/js
+ * @since       0.1.0
  */
 
 jQuery(document).ready(function($){

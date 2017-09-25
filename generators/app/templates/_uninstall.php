@@ -20,14 +20,16 @@
  *
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#file-organization
  * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
- * @since      <%= version %>
  *
- * @package    <%= nameFriendlySafe %>
+ * @package     <%= nameFriendlySafe %>
+ * @since       0.1.0
+ * @since 		0.6.0 Use correct option name
+ * @version     1.0.0
  */
 
 // if uninstall.php is not called by WordPress, die
 if ( ! defined('WP_UNINSTALL_PLUGIN') ) {
-  die;
+	die;
 }
 
 delete_option('<%= nameSafe %>');

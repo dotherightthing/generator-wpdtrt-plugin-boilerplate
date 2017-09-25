@@ -2,14 +2,11 @@
 /**
  * JS imports
  *
- * This file contains PHP.
- *
- * @link        <%= pluginUrl %>
  * @see         https://codex.wordpress.org/AJAX_in_Plugins
- * @since       0.1.0
  *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
+ * @since       0.1.0
  */
 
 if ( !function_exists( '<%= nameSafe %>_js' ) ) {
@@ -19,9 +16,11 @@ if ( !function_exists( '<%= nameSafe %>_js' ) ) {
    *    Generate a configuration object which the JavaScript can access.
    *    When an Ajax command is submitted, pass it to our function via the Admin Ajax page.
    *
-   * @since       0.1.0
    * @see         https://codex.wordpress.org/AJAX_in_Plugins
    * @see         https://codex.wordpress.org/Function_Reference/wp_localize_script
+   *
+   * @since       0.1.0
+   * @version     1.0.0
    */
   function <%= nameSafe %>_js() {
 

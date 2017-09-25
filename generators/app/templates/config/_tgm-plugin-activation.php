@@ -8,13 +8,15 @@
  *
  * @see http://tgmpluginactivation.com/configuration/ for detailed documentation.
  *
- * @package    TGM-Plugin-Activation
- * @subpackage Example
  * @version    2.6.1 for plugin <%= nameFriendly %>
  * @author     Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright  Copyright (c) 2011, Thomas Griffin
  * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
  * @link       https://github.com/TGMPA/TGM-Plugin-Activation
+ *
+ * @package     <%= nameFriendlySafe %>
+ * @subpackage  <%= nameFriendlySafe %>/config
+ * @since       0.4.0
  */
 
 /**

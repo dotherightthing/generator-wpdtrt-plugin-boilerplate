@@ -3,13 +3,9 @@
  * Functionality for the WP Admin Plugin Options page
  *    WP Admin > Settings > <%= nameFriendly %>
  *
- * This file contains PHP.
- *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
- *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
+ * @since       0.1.0
  */
 
 if ( !function_exists( '<%= nameSafe %>_menu' ) ) {
@@ -18,9 +14,11 @@ if ( !function_exists( '<%= nameSafe %>_menu' ) ) {
   /**
    * Display a link to the options page in the admin menu
    *
-   * @since       0.1.0
    * @uses        ../../../../wp-admin/includes/plugin.php
    * @see         https://developer.wordpress.org/reference/functions/add_options_page/
+   *
+   * @since       0.1.0
+   * @version     1.0.0
    */
   function <%= nameSafe %>_menu() {
 
@@ -98,6 +96,7 @@ if ( !function_exists( '<%= nameSafe %>_options_page' ) ) {
    *    and are thus stored with those individual instances.
    *
    * @since       0.1.0
+   * @version     1.0.0
    */
   function <%= nameSafe %>_options_page() {
 
@@ -192,54 +191,60 @@ if ( !function_exists( '<%= nameSafe %>_options_page' ) ) {
 
 }
 
-/**
- * Form field templating for the options page
- * @since 0.6.0
- */
-function <%= nameSafe %>_options_page_field( $type, $name, $label, $tip=null ) {
-
-  // Load options array
-  $<%= nameSafe %>_options = get_option( '<%= nameSafe %>' );
-
-  // Create variables
-  $<%= nameSafe %>_username = null;
-  $<%= nameSafe %>_datatype = null;
-
-  // Assign values to variables
-  extract( $<%= nameSafe %>_options );
+if ( !function_exists( '<%= nameSafe %>_options_page_field' ) ) {
 
   /**
-   * Set the value to the variable with the same name as the $name string
-   * e.g. $name="<%= nameSafe %>_toggle_label" => $<%= nameSafe %>_toggle_label => ('Open menu', '<%= name %>')
-   * @see http://php.net/manual/en/language.variables.variable.php
+   * Form field templating for the options page
+   *
+   * @since       0.6.0
+   * @version     1.0.0
    */
+  function <%= nameSafe %>_options_page_field( $type, $name, $label, $tip=null ) {
 
-  // if the option doesn't exist yet, don't output it
-  if ( ! isset( ${$name} ) ) {
-    return;
+    // Load options array
+    $<%= nameSafe %>_options = get_option( '<%= nameSafe %>' );
+
+    // Create variables
+    $<%= nameSafe %>_username = null;
+    $<%= nameSafe %>_datatype = null;
+
+    // Assign values to variables
+    extract( $<%= nameSafe %>_options );
+
+    /**
+     * Set the value to the variable with the same name as the $name string
+     * e.g. $name="<%= nameSafe %>_toggle_label" => $<%= nameSafe %>_toggle_label => ('Open menu', '<%= name %>')
+     * @see http://php.net/manual/en/language.variables.variable.php
+     */
+
+    // if the option doesn't exist yet, don't output it
+    if ( ! isset( ${$name} ) ) {
+      return;
+    }
+
+    $value = ${$name};
+
+    /**
+     * Load the HTML template
+     * The supplied arguments will be available to this template.
+     */
+
+    /**
+     * ob_start — Turn on output buffering
+     * This stores the HTML template in the buffer
+     * so that it can be output into the content
+     * rather than at the top of the page.
+     */
+    ob_start();
+
+    require(<%= constantStub %>_PATH . 'templates/<%= name %>-options-' . $type . '.php');
+
+    /**
+     * ob_get_clean — Get current buffer contents and delete current output buffer
+     */
+    return ob_get_clean();
   }
 
-  $value = ${$name};
-
-  /**
-   * Load the HTML template
-   * The supplied arguments will be available to this template.
-   */
-
-  /**
-   * ob_start — Turn on output buffering
-   * This stores the HTML template in the buffer
-   * so that it can be output into the content
-   * rather than at the top of the page.
-   */
-  ob_start();
-
-  require(<%= constantStub %>_PATH . 'templates/<%= name %>-options-' . $type . '.php');
-
-  /**
-   * ob_get_clean — Get current buffer contents and delete current output buffer
-   */
-  return ob_get_clean();
 }
 
 ?>

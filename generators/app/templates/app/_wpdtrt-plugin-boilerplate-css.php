@@ -2,13 +2,9 @@
 /**
  * CSS imports
  *
- * This file contains PHP.
- *
- * @link        <%= pluginUrl %>
- * @since       0.1.0
- *
  * @package     <%= nameFriendlySafe %>
  * @subpackage  <%= nameFriendlySafe %>/app
+ * @since       0.1.0
  */
 
 if ( !function_exists( '<%= nameSafe %>_css_backend' ) ) {
@@ -17,6 +13,7 @@ if ( !function_exists( '<%= nameSafe %>_css_backend' ) ) {
    * Attach CSS for Settings > <%= nameAdminMenu %>
    *
    * @since       0.1.0
+   * @version     1.0.0
    */
   function <%= nameSafe %>_css_backend() {
 
@@ -40,6 +37,7 @@ if ( !function_exists( '<%= nameSafe %>_css_frontend' ) ) {
    * Attach CSS for front-end widgets and shortcodes
    *
    * @since       0.1.0
+   * @version     1.0.0
    */
   function <%= nameSafe %>_css_frontend() {
 
