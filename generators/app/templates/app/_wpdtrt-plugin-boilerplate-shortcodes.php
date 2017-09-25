@@ -111,7 +111,7 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
      */
     ob_start();
 
-    $templates->get_template_part( 'content', 'blocks' );
+    $templates->get_template_part( 'content', '<%= name %>-blocks' );
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer
