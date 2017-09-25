@@ -417,6 +417,12 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
+            this.templatePath('_README.md'),
+            this.destinationPath('README.md'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
             this.templatePath('_uninstall.php'),
             this.destinationPath('uninstall.php'),
             userSettings
