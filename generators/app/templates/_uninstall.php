@@ -30,12 +30,10 @@ if ( ! defined('WP_UNINSTALL_PLUGIN') ) {
   die;
 }
 
-$option_name = "<%= name %>";
-
-delete_option($option_name);
+delete_option('<%= nameSafe %>');
 
 // for site options in Multisite
-delete_site_option($option_name);
+delete_site_option('<%= nameSafe %>');
 
 // drop a custom database table
 //global $wpdb;
