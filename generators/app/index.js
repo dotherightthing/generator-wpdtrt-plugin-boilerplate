@@ -67,7 +67,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'tags',
-            'boilerplate'
+            'boilerplate, foo, bar, baz'
         );
 
         this.config.set(
@@ -92,7 +92,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'wpVersion',
-            '4.8.1'
+            '4.8.2'
         );
 
         this.config.set(
@@ -462,12 +462,6 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-css.php'),
             this.destinationPath('app/' + this.props.name + '-css.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-html.php'),
-            this.destinationPath('app/' + this.props.name + '-html.php'),
             userSettings
         );
 

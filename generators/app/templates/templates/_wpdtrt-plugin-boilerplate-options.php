@@ -138,6 +138,17 @@
    * so we can check whether the data is in the expected format.
    * @link http://kb.dotherightthing.co.nz/php/print_r-vs-var_dump/
    */
+
+  // the data set
+  $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
+
+  $last_updated = $<%= nameSafe %>_options['last_updated'];
+
+  // use the date format set by the user
+  $wp_date_format = get_option('date_format');
+  $wp_time_format = get_option('time_format');
+
+  $last_updated_str = date( $wp_time_format, $last_updated ) . ', ' . date( $wp_date_format, $last_updated );
   ?>
 
   <h2>
@@ -165,7 +176,7 @@
 
       echo "}\r\n"; ?></code></pre></div>
 
-    <p class="<%= name %>-date"><em><?php _e('Data generated:', '<%= name %>'); echo ' ' . <%= nameSafe %>_html_date(); ?></em></p>
+    <p class="<%= name %>-date"><em><?php _e('Data generated:', '<%= name %>'); echo ' ' . $last_updated; ?></em></p>
 
   <?php
     endif;
