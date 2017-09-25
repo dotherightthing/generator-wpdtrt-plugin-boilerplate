@@ -512,6 +512,14 @@ module.exports = class extends Generator {
         //this.dest.mkdir(this.folderName + '/views/admin/images');
         //this.dest.mkdir(this.folderName + '/views/admin/js');
 
+        // template-parts
+
+        this.fs.copyTpl(
+            this.templatePath('template-parts/content/_wpdtrt-plugin-boilerplate-blocks.php'),
+            this.destinationPath('template-parts/content/' + this.props.name + '-blocks.php'),
+            userSettings
+        );
+
         // templates
 
         this.fs.copyTpl(
