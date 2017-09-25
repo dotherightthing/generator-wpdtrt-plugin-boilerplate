@@ -106,29 +106,7 @@
 
   <p>The first 6 are displayed below:</p>
 
-  <div class="<%= name %>-items">
-    <ul>
-    <?php
-      $max_length = 6;
-      $count = 0;
-      $display_count = 1;
-
-      foreach( $<%= nameSafe %>_data as $key => $val ) {
-        echo "<li>" . <%= nameSafe %>_html_image( $key ) . "</li>\r\n";
-
-        $count++;
-        $display_count++;
-
-        // when we reach the end of the demo sample, stop looping
-        if ($count === $max_length) {
-          break;
-        }
-      }
-      // end foreach
-    ?>
-    </ul>
-
-  </div>
+  <?php do_shortcode( '[<%= nameSafe %> number="6"]' ); ?>
 
   <?php
   /**

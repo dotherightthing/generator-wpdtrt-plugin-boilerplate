@@ -91,7 +91,7 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
       '<%= nameSafe %>_options',
       array(
         'datatype' => $<%= nameSafe %>_datatype,
-        'data' => $<%= nameSafe %>_menu_data
+        'data' => $<%= nameSafe %>_data
       )
     );
 
