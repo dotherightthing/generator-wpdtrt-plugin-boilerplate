@@ -18,6 +18,7 @@ if ( is_array( $options ) ) {
    */
     $number = null;
     $enlargement = null;
+    $<%= nameSafe %>_google_maps_api_key = null;
     $<%= nameSafe %>_datatype = null;
     $<%= nameSafe %>_data = null;
 
@@ -42,7 +43,7 @@ $after_widget = null;
 
 $max_length = (int)$number;
 $count = 0;
-$apikey = 'AIzaSyAyMI7z2mnFYdONaVV78weOmB0U2LThZMo'; // TODO add field
+$apikey = $<%= nameSafe %>_google_maps_api_key;
 
  /**
   * filter_var

@@ -48,7 +48,7 @@ if ( !function_exists( '<%= nameSafe %>_options_create' ) ) {
      * Set option defaults
      */
     $<%= nameSafe %>_options_default = array(
-      '<%= nameSafe %>_username' => __('Default User 1', '<%= name %>'),
+      '<%= nameSafe %>_google_maps_api_key' => '',
       '<%= nameSafe %>_datatype' => __('photos', '<%= name %>')
     );
 
@@ -175,7 +175,7 @@ if ( !function_exists( '<%= nameSafe %>_options_page' ) ) {
     }
 
     // Create variables from options
-    $<%= nameSafe %>_username = null;
+    $<%= nameSafe %>_google_maps_api_key = null;
     $<%= nameSafe %>_datatype = null;
     $<%= nameSafe %>_data = null;
 
@@ -205,7 +205,7 @@ if ( !function_exists( '<%= nameSafe %>_options_page_field' ) ) {
     $<%= nameSafe %>_options = get_option( '<%= nameSafe %>' );
 
     // Create variables
-    $<%= nameSafe %>_username = null;
+    $<%= nameSafe %>_google_maps_api_key = null;
     $<%= nameSafe %>_datatype = null;
 
     // Assign values to variables

@@ -47,13 +47,11 @@
       <table class="form-table">
         <tbody>
           <?php
-          /*
             echo <%= nameSafe %>_options_page_field(
-              'textfield',
-              '<%= nameSafe %>_colour',
-              __('Your favourite colour', '<%= name %>')
+              'password',
+              '<%= nameSafe %>_google_maps_api_key',
+              __('Google maps API key', '<%= name %>')
             );
-          */
           ?>
           <tr>
             <th scope="row">
