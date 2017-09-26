@@ -97,7 +97,7 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
 
     // mimic WordPress template loading
     // to allow authors to override loaded templates
-    $templates = new WPDTRT_Responsive_Nav_Template_Loader;
+    $templates = new <%= nameFriendlySafe %>_Template_Loader;
 
     // pass options to get_template_part()
     $<%= nameSafe %>_options_all = array_merge( $atts, $<%= nameSafe %>_options );
@@ -111,7 +111,8 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
      */
     ob_start();
 
-    $templates->get_template_part( 'content', '<%= name %>-blocks' );
+    // /template-parts/<%= name %>/content-blocks.php
+    $templates->get_template_part( 'content', 'blocks' );
 
     /**
      * ob_get_clean — Get current buffer contents and delete current output buffer

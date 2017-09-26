@@ -34,6 +34,12 @@ if ( is_array( $options ) ) {
  * 1 == '1' => true
  * 1 === '1' => false
  */
+$before_widget = null;
+$before_title = null;
+$title = null;
+$after_title = null;
+$after_widget = null;
+
 $max_length = (int)$number;
 $count = 0;
 $apikey = 'AIzaSyAyMI7z2mnFYdONaVV78weOmB0U2LThZMo'; // TODO add field

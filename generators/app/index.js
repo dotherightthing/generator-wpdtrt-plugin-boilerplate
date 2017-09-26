@@ -515,8 +515,8 @@ module.exports = class extends Generator {
         // template-parts
 
         this.fs.copyTpl(
-            this.templatePath('template-parts/content/_wpdtrt-plugin-boilerplate-blocks.php'),
-            this.destinationPath('template-parts/content/' + this.props.name + '-blocks.php'),
+            this.templatePath('template-parts/_wpdtrt-plugin-boilerplate/_content-blocks.php'),
+            this.destinationPath('template-parts/' + this.props.name + '/content-blocks.php'),
             userSettings
         );
 

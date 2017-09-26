@@ -106,7 +106,7 @@
 
   <p>The first 6 are displayed below:</p>
 
-  <?php do_shortcode( '[<%= nameSafe %> number="6"]' ); ?>
+  <?php echo do_shortcode( '[<%= nameSafe %> number="6"]' ); ?>
 
   <?php
   /**
