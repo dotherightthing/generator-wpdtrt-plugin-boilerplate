@@ -102,6 +102,9 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
  * @since     0.1.0
  * @version   1.0.0
  */
+
+  require_once(<%= constantStub %>_PATH . 'vendor/gamajo/template-loader/class-gamajo-template-loader.php');
+  require_once(<%= constantStub %>_PATH . 'app/class-wpdtrt-plugin-shortcode.php'); // make into a composer include
   require_once(<%= constantStub %>_PATH . 'app/class-<%= name %>-template-loader.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-admin-notices.php');
   require_once(<%= constantStub %>_PATH . 'app/<%= name %>-api.php');

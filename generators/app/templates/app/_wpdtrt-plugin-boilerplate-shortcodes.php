@@ -54,7 +54,7 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
     $atts = shortcode_atts(
       array(
         'number' => '4',
-        'enlargement' => 'yes'
+        'enlargement' => '1'
       ),
       $atts,
       $shortcode
@@ -64,7 +64,7 @@ if ( !function_exists( '<%= nameSafe %>_shortcode' ) ) {
     extract( $atts, EXTR_IF_EXISTS );
 
     // TODO: is this conversion redundant?
-    if ( $enlargement === 'yes') {
+    if ( $enlargement === '1') {
       $enlargement = '1';
     }
 

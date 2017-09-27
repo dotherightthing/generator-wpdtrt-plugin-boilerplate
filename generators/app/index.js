@@ -497,6 +497,12 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
+            this.templatePath('app/_class-wpdtrt-plugin-shortcode.php'),
+            this.destinationPath('app/class-wpdtrt-plugin-shortcode.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
             this.templatePath('app/_wpdtrt-plugin-boilerplate-widget.php'),
             this.destinationPath('app/' + this.props.name + '-widget.php'),
             userSettings
