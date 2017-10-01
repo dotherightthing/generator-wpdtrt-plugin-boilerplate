@@ -8,42 +8,35 @@
  * @version   1.0.0
  */
 
-$options = get_query_var( '<%= nameSafe %>_options_all' );
+//global $<%= nameSafe %>_plugin;
 
-if ( is_array( $options ) ) {
+// todo: is this query var seen by other plugins which also use this class?
+// $options = get_query_var( $<%= nameSafe %>_plugin->get_prefix() . '_options_all' );
+$options = get_query_var( 'wpdtrt_plugin_options' );
 
-  /**
-   * predeclare the expected variables
-   * @see http://kb.dotherightthing.dan/php/wordpress/extract/
-   */
-    $number = null;
-    $enlargement = null;
-    $<%= nameSafe %>_google_maps_api_key = null;
-    $<%= nameSafe %>_datatype = null;
-    $<%= nameSafe %>_data = null;
+// plugin options
+$datatype = null;
+$data = null;
 
-  /**
-   * only overwrite the predeclared variables
-   * @see http://kb.dotherightthing.dan/php/wordpress/extract/
-   */
-  extract($options, EXTR_IF_EXISTS);
-}
+// shortcode options
+$enlargement = null;
+$number = null;
 
-/**
- * cast the $number string to a number
- * this is required because we are doing a === comparison:
- * 1 == '1' => true
- * 1 === '1' => false
- */
+// overwrite plugin and enlargement options from array values
+// @link http://kb.network.dan/php/wordpress/extract/
+extract( $options, EXTR_IF_EXISTS );
+
+// Internal WordPress arguments available to widgets
+// This allows us to use the same template for shortcodes and front-end widgets
 $before_widget = null;
 $before_title = null;
 $title = null;
 $after_title = null;
 $after_widget = null;
 
+// Convert shortcode string attributes to integers
 $max_length = (int)$number;
 $count = 0;
-$apikey = $<%= nameSafe %>_google_maps_api_key;
 
  /**
   * filter_var
@@ -51,7 +44,7 @@ $apikey = $<%= nameSafe %>_google_maps_api_key;
   */
 $has_enlargement = filter_var( $enlargement, FILTER_VALIDATE_BOOLEAN );
 
-// output widget customisations (not output with shortcode)
+// WordPress widget options (not output with shortcode)
 echo $before_widget;
 echo $before_title . $title . $after_title;
 ?>
@@ -59,13 +52,14 @@ echo $before_title . $title . $after_title;
 <div class="<%= name %>-items frontend">
   <ul>
   <?php
-    foreach( $<%= nameSafe %>_data as $key => $val ):
+    foreach( $data as $key => $val ):
 
       // user - map block
-      if ( isset( $<%= nameSafe %>_data[$key]->{'address'} ) ):
+      if ( isset( $data[$key]->{'address'} ) ):
 
-        $lat = $<%= nameSafe %>_data[$key]->{'address'}->{'geo'}->{'lat'};
-        $lng = $<%= nameSafe %>_data[$key]->{'address'}->{'geo'}->{'lng'};
+        // TODO: convert to class methods format--()
+        $lat = $data[$key]->{'address'}->{'geo'}->{'lat'};
+        $lng = $data[$key]->{'address'}->{'geo'}->{'lng'};
         $latlng = $lat . ',' . $lng;
         $alt = esc_html__('Map showing the co-ordinates', '<%= name %>') . ' ' . $latlng;
 
@@ -73,7 +67,7 @@ echo $before_title . $title . $after_title;
       else:
 
         $latlng = '';
-        $alt = $<%= nameSafe %>_data[$key]->{'title'};
+        $alt = $data[$key]->{'title'};
 
       endif;
 
@@ -85,17 +79,18 @@ echo $before_title . $title . $after_title;
       <li>
       <?php if ( $latlng !== '' ): ?>
         <?php if ( $has_enlargement ): ?>
-          <a href="http://maps.googleapis.com/maps/api/staticmap?scale=2&amp;format=jpg&amp;maptype=satellite&amp;zoom=2&amp;markers=<?php echo $latlng; ?>&amp;key=<?php echo $apikey; ?>&amp;size=600x600">
+          <!-- TODO: convert to class method format__() -->
+          <a href="http://maps.googleapis.com/maps/api/staticmap?scale=2&amp;format=jpg&amp;maptype=satellite&amp;zoom=2&amp;markers=<?php echo $latlng; ?>&amp;key=<?php echo $google_maps_api_key; ?>&amp;size=600x600">
         <?php endif; ?>
-            <img src="http://maps.googleapis.com/maps/api/staticmap?scale=2&amp;format=jpg&amp;maptype=satellite&amp;zoom=0&amp;markers=<?php echo $latlng; ?>&amp;key=<?php echo $apikey; ?>&amp;size=150x150" alt="<?php echo $alt; ?>. ">
+            <img src="http://maps.googleapis.com/maps/api/staticmap?scale=2&amp;format=jpg&amp;maptype=satellite&amp;zoom=0&amp;markers=<?php echo $latlng; ?>&amp;key=<?php echo $google_maps_api_key; ?>&amp;size=150x150" alt="<?php echo $alt; ?>. ">
         <?php if ( $has_enlargement ): ?>
           </a>
         <?php endif; ?>
       <?php else: ?>
         <?php if ( $has_enlargement ): ?>
-          <a href="<?php echo $<%= nameSafe %>_data[$key]->{'url'}; ?>">
+          <a href="<?php echo $data[$key]->{'url'}; ?>">
         <?php endif; ?>
-          <img src="<?php echo $<%= nameSafe %>_data[$key]->{'thumbnailUrl'}; ?>" alt="<?php echo $alt; ?>. ">
+          <img src="<?php echo $data[$key]->{'thumbnailUrl'}; ?>" alt="<?php echo $alt; ?>. ">
         <?php if ( $has_enlargement ): ?>
           </a>
         <?php endif; ?>
@@ -116,6 +111,6 @@ echo $before_title . $title . $after_title;
 </div>
 
 <?php
-  // output widget customisations (not output with shortcode)
+  // WordPress widget options (not output with shortcode)
   echo $after_widget;
 ?>

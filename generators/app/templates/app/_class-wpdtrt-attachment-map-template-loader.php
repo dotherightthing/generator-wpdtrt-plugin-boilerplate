@@ -14,9 +14,8 @@
  * @subpackage  <%= nameFriendlySafe %>/app
  * @since       0.6.0
  * @version 	1.0.0
+ * @todo Make name generic for class-wpdtrt-plugin.php
  */
-
-require_once(<%= constantStub %>_PATH . 'vendor/gamajo/template-loader/class-gamajo-template-loader.php');
 
 /**
  * Only need to specify class properties here.

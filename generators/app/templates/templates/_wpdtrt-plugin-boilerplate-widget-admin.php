@@ -7,6 +7,8 @@
  * @subpackage  <%= nameFriendlySafe %>/templates
  * @since     0.1.0
  * @version   1.0.0
+ *
+ * @todo Add fields dynamically
  */
 ?>
 
@@ -18,7 +20,7 @@
 <p>
   <label for="<?php echo $this->get_field_name('number'); ?>">Number of blocks to display</label>
   <input size="4" id="<?php echo $this->get_field_name('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="number" value="<?php echo $number; ?>" aria-describedby="<?php echo $this->get_field_name('number'); ?>-tip" />
-  <span id="<?php echo $this->get_field_name('number'); ?>-tip" class="<%= name %>-tip">Minimum: 1 | Maximum: <?php echo count($<%= nameSafe %>_data); ?></span>
+  <span id="<?php echo $this->get_field_name('number'); ?>-tip" class="description">Minimum: 1 | Maximum: <?php echo count($data); ?></span>
 </p>
 
 <?php

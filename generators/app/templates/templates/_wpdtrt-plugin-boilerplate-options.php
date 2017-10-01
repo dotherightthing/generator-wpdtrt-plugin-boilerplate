@@ -9,7 +9,10 @@
  * @subpackage  <%= nameFriendlySafe %>/templates
  * @since     0.1.0
  * @version   1.0.0
+ *
+ * @todo Add fields dynamically
  */
+
 ?>
 
 <div class="wrap">
@@ -23,7 +26,7 @@
   <?php
   /**
    * If the user has not chosen a content type yet.
-   * then $<%= nameSafe %>_datatype will be set to the default of ""
+   * then $datatype will be set to the default of ""
    * The user must make a selection so that we know which page to query,
    * so we show the selection form.
    *
@@ -33,7 +36,7 @@
    * @link https://codex.wordpress.org/Function_Reference/selected
    */
   ?>
-  <form name="<%= nameSafe %>_data_form" method="post" action="">
+  <form name="data_form" method="post" action="">
 
     <input type="hidden" name="<%= nameSafe %>_form_submitted" value="Y" />
 
@@ -47,23 +50,23 @@
       <table class="form-table">
         <tbody>
           <?php
-            echo <%= nameSafe %>_options_page_field(
+            echo $this->render_options_page_field(
               'password',
-              '<%= nameSafe %>_google_maps_api_key',
+              'google_maps_api_key',
               __('Google maps API key', '<%= name %>')
             );
           ?>
           <tr>
             <th scope="row">
-              <label for="<%= nameSafe %>_datatype">
+              <label for="datatype">
                 <?php _e('Data type', '<%= name %>'); ?>
               </label>
             </th>
             <td>
-              <select name="<%= nameSafe %>_datatype" id="<%= nameSafe %>_datatype">
+              <select name="datatype" id="datatype">
                 <option value="">None</option>
-                <option value="photos" <?php selected( $<%= nameSafe %>_datatype, "photos" ); ?>><?php _e('Coloured blocks', '<%= name %>'); ?></option>
-                <option value="users" <?php selected( $<%= nameSafe %>_datatype, "users" ); ?>><?php _e('Maps', '<%= name %>'); ?></option>
+                <option value="photos" <?php selected( $datatype, "photos" ); ?>><?php _e('Coloured blocks', '<%= name %>'); ?></option>
+                <option value="users" <?php selected( $datatype, "users" ); ?>><?php _e('Maps', '<%= name %>'); ?></option>
               </select>
             </td>
           </tr>
@@ -89,18 +92,18 @@
   <?php
     /**
      * If the user has already chosen a content type,
-     * then $<%= nameSafe %>_data will exist and contain the body of the resulting JSON.
+     * then $data will exist and contain the body of the resulting JSON.
      * We display a sample of the data, so the user can verify that they have chosen the type
      * which meets their needs.
      */
-    if ( isset( $<%= nameSafe %>_data ) ) :
+    if ( isset( $data ) ) :
   ?>
 
   <h2>
     <span><?php esc_attr_e( 'Sample content', '<%= name %>' ); ?></span>
   </h2>
 
-  <p>This data set contains <?php echo count( $<%= nameSafe %>_data ); ?> items.</p>
+  <p>This data set contains <?php echo count( $data ); ?> items.</p>
 
   <p>The first 6 are displayed below:</p>
 
@@ -113,12 +116,13 @@
    * because it reveals the data types used,
    * so we can check whether the data is in the expected format.
    * @link http://kb.dotherightthing.co.nz/php/print_r-vs-var_dump/
+   * @todo Convert inline function into class method
    */
 
   // the data set
-  $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
+  $options = $this->get_options();
 
-  $last_updated = $<%= nameSafe %>_options['last_updated'];
+  $last_updated = $options['last_updated'];
 
   // use the date format set by the user
   $wp_date_format = get_option('date_format');
@@ -138,8 +142,8 @@
       $count = 0;
       $max_length = 6;
 
-      foreach( $<%= nameSafe %>_data as $key => $val ) {
-        var_dump( $<%= nameSafe %>_data[$key] );
+      foreach( $data as $key => $val ) {
+        var_dump( $data[$key] );
 
         $count++;
 
