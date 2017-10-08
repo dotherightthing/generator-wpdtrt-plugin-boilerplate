@@ -8,7 +8,7 @@
  * @version   1.0.0
  */
 
-//global $<%= nameSafe %>_plugin;
+global $<%= nameSafe %>_plugin;
 
 // todo: is this query var seen by other plugins which also use this class?
 // $options = get_query_var( $<%= nameSafe %>_plugin->get_prefix() . '_options_all' );
@@ -17,6 +17,7 @@ $options = get_query_var( 'wpdtrt_plugin_options' );
 // plugin options
 $datatype = null;
 $data = null;
+$google_maps_api_key = null;
 
 // shortcode options
 $enlargement = null;
@@ -54,56 +55,30 @@ echo $before_title . $title . $after_title;
   <?php
     foreach( $data as $key => $val ):
 
-      // user - map block
-      if ( isset( $data[$key]->{'address'} ) ):
-
-        // TODO: convert to class methods format--()
-        $lat = $data[$key]->{'address'}->{'geo'}->{'lat'};
-        $lng = $data[$key]->{'address'}->{'geo'}->{'lng'};
-        $latlng = $lat . ',' . $lng;
-        $alt = esc_html__('Map showing the co-ordinates', '<%= name %>') . ' ' . $latlng;
-
-      // coloured block
-      else:
-
-        $latlng = '';
-        $alt = $data[$key]->{'title'};
-
-      endif;
-
-      if ( $has_enlargement ):
-        $alt .= esc_html__('Click to view an enlargement', '<%= name %>');
-      endif;
+      $object =           $data[$key];
+      $latlng =           $<%= nameSafe %>_plugin->get_api_latlng( $object );
+      $thetitle =         $<%= nameSafe %>_plugin->get_api_title( $object );
+      $enlargement_url =  $<%= nameSafe %>_plugin->get_api_thumbnail_url( $object, true, $google_maps_api_key );
+      $thumbnail_url =    $<%= nameSafe %>_plugin->get_api_thumbnail_url( $object, false, $google_maps_api_key );
+      $alt =              $latlng ? ( esc_html__('Map showing the co-ordinates', '<%= name %>') . ' ' . $latlng ) : $thetitle;
   ?>
-
       <li>
-      <?php if ( $latlng !== '' ): ?>
         <?php if ( $has_enlargement ): ?>
-          <!-- TODO: convert to class method format__() -->
-          <a href="http://maps.googleapis.com/maps/api/staticmap?scale=2&amp;format=jpg&amp;maptype=satellite&amp;zoom=2&amp;markers=<?php echo $latlng; ?>&amp;key=<?php echo $google_maps_api_key; ?>&amp;size=600x600">
-        <?php endif; ?>
-            <img src="http://maps.googleapis.com/maps/api/staticmap?scale=2&amp;format=jpg&amp;maptype=satellite&amp;zoom=0&amp;markers=<?php echo $latlng; ?>&amp;key=<?php echo $google_maps_api_key; ?>&amp;size=150x150" alt="<?php echo $alt; ?>. ">
-        <?php if ( $has_enlargement ): ?>
+          <a href="<?php echo $enlargement_url; ?>">
+            <img src="<?php echo $thumbnail_url; ?>" alt="<?php echo $alt; ?>. ">
           </a>
+        <?php else: ?>
+            <img src="<?php echo $thumbnail_url; ?>" alt="<?php echo $alt; ?>. ">
         <?php endif; ?>
-      <?php else: ?>
-        <?php if ( $has_enlargement ): ?>
-          <a href="<?php echo $data[$key]->{'url'}; ?>">
-        <?php endif; ?>
-          <img src="<?php echo $data[$key]->{'thumbnailUrl'}; ?>" alt="<?php echo $alt; ?>. ">
-        <?php if ( $has_enlargement ): ?>
-          </a>
-        <?php endif; ?>
-      <?php endif; ?>
       </li>
 
   <?php
       $count++;
 
       // when we reach the end of the demo sample, stop looping
-      if ($count === $max_length) {
+      if ($count === $max_length):
         break;
-      }
+      endif;
 
     endforeach;
   ?>

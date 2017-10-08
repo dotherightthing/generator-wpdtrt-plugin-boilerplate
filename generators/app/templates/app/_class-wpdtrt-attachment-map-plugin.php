@@ -8,6 +8,8 @@
  * @version 	1.0.0
  */
 
+//if ( class_exists('WPDTRT_Plugin') ) {
+
 class <%= nameFriendlySafe %>_Plugin extends WPDTRT_Plugin {
 
     /**
@@ -51,6 +53,114 @@ class <%= nameFriendlySafe %>_Plugin extends WPDTRT_Plugin {
 		$data = json_decode( $response['body'] );
 
 		return $data;
+    }
+
+	/**
+	* Get the latitude and longitude of an API result item
+	*
+	* @param 		object Single API data object
+	* @return 		string Comma separated string (lat,lng)
+	*
+	* @since 		0.7.0
+	* @version 		1.0.0
+	*/
+    public function get_api_latlng( $object ) {
+
+    	$latlng = false;
+
+     	// user - map block
+      	if ( isset( $object->{'address'} ) ):
+
+        	$lat = $object->{'address'}->{'geo'}->{'lat'};
+        	$lng = $object->{'address'}->{'geo'}->{'lng'};
+        	$latlng = $lat . ',' . $lng;
+
+    	endif;
+
+    	return $latlng;
+    }
+
+	/**
+	* Get the thumbnail url of an API result item
+	*
+	* @param 	   	object Single API data object
+	* @param 	   	boolean $linked_enlargement
+	* @return 		string The Thumbnail URL
+	*
+	* @since       	0.7.0
+	* @version     	1.0.0
+	*/
+    public function get_api_thumbnail_url( $object, $linked_enlargement = false, $google_maps_api_key = null ) {
+
+		$latlng = $this->get_api_latlng( $object );
+		$thumbnail_url = '';
+
+		if ( $latlng ) {
+			if ( $linked_enlargement ) {
+				$thumbnail_url = $this->get_api_map_url( $object, $latlng, 600, 2, $google_maps_api_key );
+			}
+			else {
+				$thumbnail_url = $this->get_api_map_url( $object, $latlng, 150, 0, $google_maps_api_key );
+			}
+		}
+		else {
+			if ( $linked_enlargement ) {
+				$thumbnail_url = $object->{'url'};
+			}
+			else {
+				$thumbnail_url = $object->{'thumbnailUrl'};
+			}
+		}
+
+    	return $thumbnail_url;
+    }
+
+	/**
+	* Get the title of an API result item
+	*
+	* @param 	   	object Single API data object
+	* @return 		string The title
+	*
+	* @since       	0.7.0
+	* @version     	1.0.0
+	*/
+    public function get_api_title( $object ) {
+
+    	$title = '';
+
+    	if ( isset( $object->{'title'} ) ) {
+    		$title = $object->{'title'};
+    	}
+
+    	return $title;
+    }
+
+	/**
+	* Build the Google map URL for an API result item
+	*
+	* @param 	   	object Single API data object
+	* @param 	   	number $size Value for width and height
+	* @param 	   	number $google_maps_api_key
+	* @return 		string $url Google Map URL
+	*
+	* @since       	0.7.0
+	* @version     	1.0.0
+	*/
+    public function get_api_map_url( $object, $latlng, $size = 600, $zoom = 0, $google_maps_api_key ) {
+    	$url = 'http://maps.googleapis.com/maps/api/staticmap?';
+		$args = array(
+			'scale' => '2',
+			'format' => 'jpg',
+			'maptype' => 'satellite',
+			'zoom' => $zoom,
+			'markers' => $latlng,
+			'key' => $google_maps_api_key,
+			'size' => ( $size . 'x' . $size )
+		);
+
+		$url .= http_build_query($args);
+
+    	return $url;
     }
 
 	/**
@@ -155,5 +265,6 @@ class <%= nameFriendlySafe %>_Plugin extends WPDTRT_Plugin {
 	}
 
 }
+//}
 
 ?>
