@@ -80,22 +80,6 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   define( '<%= constantStub %>_URL', plugin_dir_url( __FILE__ ) );
 }
 
-
-/**
- * Store all of our plugin options in an array
- *
- * So that we only use have to consume one row in the WP Options table
- * WordPress automatically serializes this (into a string)
- * because MySQL does not support arrays as a data type
- *
- * @example update_option('<%= nameSafe %>', $<%= nameSafe %>_options);
- * @example $<%= nameSafe %>_options = get_option('<%= nameSafe %>');
- *
- * @since     0.1.0
- * @version   1.0.0
- */
-  $<%= nameSafe %>_options = array();
-
 /**
  * Include plugin logic
  *
@@ -103,20 +87,59 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
  * @version   1.0.0
  */
 
+  // base classes
   require_once(<%= constantStub %>_PATH . 'vendor/gamajo/template-loader/class-gamajo-template-loader.php');
-  require_once(<%= constantStub %>_PATH . 'app/class-wpdtrt-plugin-shortcode.php'); // make into a composer include
+  require_once(<%= constantStub %>_PATH . 'app/class-wpdtrt-plugin.php'); // make into a composer include
+
+  // extended classes:
   require_once(<%= constantStub %>_PATH . 'app/class-<%= name %>-template-loader.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-admin-notices.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-api.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-css.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-js.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-menus.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-options.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-rewrite-rules.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-shortcodes.php');
-  require_once(<%= constantStub %>_PATH . 'app/<%= name %>-widget.php');
+  require_once(<%= constantStub %>_PATH . 'app/class-<%= name %>-plugin.php');
+  require_once(<%= constantStub %>_PATH . 'app/class-<%= name %>-widget.php');
 
   require_once(<%= constantStub %>_PATH . 'config/tgm-plugin-activation.php');
+
+  /**
+   * Call init before widget_init so that the plugin object properties are available to it.
+   *
+   * If widget_init is not working when called via init with priority 1, try changing the priority of init to 0.
+   *
+   * init: Typically used by plugins to initialize. The current user is already authenticated by this time.
+   * └─ widgets_init: Used to register sidebars. Fired at 'init' priority 1 (and so before 'init' actions with priority ≥ 1!)
+   *
+   * @see https://wp-mix.com/wordpress-widget_init-not-working/
+   * @see https://codex.wordpress.org/Plugin_API/Action_Reference
+   */
+  add_action( 'init', 'wpdtrt_attachment_map_init', 0 );
+
+  function wpdtrt_attachment_map_init() {
+
+    // pass object reference between classes via global
+    // because the object does not exist until the WordPress init action has fired
+    global $wpdtrt_attachment_map_plugin;
+
+    // hmm, not sure about this approach
+    // as having shortcode and plugin tied together
+    // means we can only have one shortcode per plugin
+    $wpdtrt_attachment_map_plugin = new <%= nameFriendly %> (
+      array(
+        'prefix' => '<%= nameSafe %>',
+        'slug' => '<%= name %>',
+        'menu_title' => __('Attachment Map', '<%= name %>'),
+        'developer_prefix' => 'DTRT',
+        'shortcode_name' => '<%= nameSafe %>',
+        'plugin_directory' => <%= constantStub %>_PATH,
+        'option_defaults' => array(
+          'google_maps_api_key' => '',
+          'datatype' => 'photos'
+        ),
+        'shortcode_option_defaults' => array(
+          'number' => '0',
+          'enlargement' => '0' // 1 || 0
+        )
+      )
+    );
+
+  }
 
   /**
    * The register_activation_hook function registers a plugin function
@@ -132,7 +155,6 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
   function <%= nameSafe %>_activate() {
     <%= nameSafe %>_rewrite_rules();
     flush_rewrite_rules();
-    <%= nameSafe %>_options_create();
   }
 
   /**

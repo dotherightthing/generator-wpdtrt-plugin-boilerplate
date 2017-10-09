@@ -35,11 +35,29 @@ if ( !class_exists( 'WPDTRT_Plugin' ) ) {
 
     /**
      * Hook the plugin in to WordPress
-     * This constructor initialises the object's properties when it is instantiated
+     * This constructor automatically initialises the object's properties
+     * when it is instantiated,
+     * using new WPDTRT_Attachment_Map_Plugin
      *
-     * @since 1.0.0
+     * @param     array $options Plugin options
+     *
+     * @version   1.1.0
+     * @since     1.0.0
      */
-    function __construct( $prefix, $slug, $menu_title, $developer_prefix, $shortcode_name, $plugin_directory, $option_defaults, $shortcode_option_defaults ) {
+    function __construct( $options ) {
+
+      // define variables
+      $prefix = null;
+      $slug = null;
+      $menu_title = null;
+      $developer_prefix = null;
+      $shortcode_name = null;
+      $plugin_directory = null;
+      $option_defaults = null;
+      $shortcode_option_defaults = null;
+
+      // extract variables
+      extract( $options, EXTR_IF_EXISTS );
 
       $this->set_prefix( $prefix );
       $this->set_slug( $slug );
