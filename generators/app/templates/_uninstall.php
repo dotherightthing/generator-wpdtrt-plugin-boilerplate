@@ -22,9 +22,8 @@
  * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
  *
  * @package     <%= nameFriendlySafe %>
- * @since       0.1.0
- * @since 		0.6.0 Use correct option name
- * @version     1.0.0
+ * @since       0.0.1
+ * @version     0.0.1
  */
 
 // if uninstall.php is not called by WordPress, die
@@ -36,9 +35,5 @@ delete_option('<%= nameSafe %>');
 
 // for site options in Multisite
 delete_site_option('<%= nameSafe %>');
-
-// drop a custom database table
-//global $wpdb;
-//$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}mytable");
 
 ?>
