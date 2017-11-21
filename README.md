@@ -20,18 +20,12 @@ A best-practice boilerplate for plugin development.
 1. `npm install`
 1. `sudo npm link`
 
-### C. Set Defaults (optional)
-
-Edit `.yo-rc.json`, to substitute in your own values.
-
-These will then become the defaults when running the Yeoman generator (`yo`).
-
-### D. Scaffold project
+### C. Scaffold project
 
 1. Create a folder for the plugin
 1. Open Terminal
 1. `cd`, into the folder
-1. yo wp-plugin-boilerplate
+1. `yo wp-plugin-boilerplate`
 
 ---
 

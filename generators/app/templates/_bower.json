@@ -1,17 +1,21 @@
 {
-  "name": "<%= name %>",
-  "version": "<%= version %>",
+  "name": "<%= authorWordPressName %>/<%= name %>",
   "description": "<%= description %>",
-  "main": "readme.txt",
+  "version": "<%= version %>",
+  "main": "<%= name %>.php",
   "authors": [
-    "<%= authorName %> <<%= authorEmail %>>"
+    {
+      "name": "<%= authorName %>",
+      "email": "<%= authorEmail %>"
+    }
   ],
-  "devDependencies": {},
+  "dependencies": {},
   "license": "All Rights Reserved",
   "homepage": "<%= homepage %>",
   "ignore": [
     "**/.*",
-    "bower_components"
+    "node_modules",
+    "vendor"
   ],
   "private": true
 }

@@ -56,6 +56,11 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
+            'nameTemplate',
+            S( this.config.get('name') ).replaceAll('wpdtrt- ', '').s
+        );
+
+        this.config.set(
             'urlAdminMenu',
             prefix + S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
         );
@@ -111,6 +116,11 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
+            'authorAbbreviation',
+            'DTRT'
+        );
+
+        this.config.set(
             'authorEmail',
             'dev@dotherightthing.co.nz'
         );
@@ -134,7 +144,7 @@ module.exports = class extends Generator {
         // to allow backfilling of functionality added in spin-off plugins
         this.config.set(
             'version',
-            '0.1.0' // pjson.version
+            '0.0.1' // pjson.version
         );
     }
 
@@ -320,6 +330,7 @@ module.exports = class extends Generator {
             authorEmail:            this.props.authorEmail,
             authorName:             this.props.authorName,
             authorUrl:              this.props.authorUrl,
+            authorAbbreviation:     this.props.authorAbbreviation,
             authorWordPressName:    this.props.authorWordPressName,
             description:            this.props.description,
             homepage:               this.props.homepage,
@@ -328,6 +339,7 @@ module.exports = class extends Generator {
             nameFriendly:           this.props.nameFriendly,
             nameFriendlySafe:       this.props.nameFriendlySafe,
             nameSafe:               this.props.nameSafe,
+            nameTemplate:           this.props.nameTemplate,
             phpVersion:             this.props.phpVersion,
             pluginDonateUrl:        this.props.donateUrl,
             pluginLicense:          this.props.license,
@@ -344,14 +356,58 @@ module.exports = class extends Generator {
 
         userSettings.constantStub = this.props.nameFriendlySafe.toUpperCase(),
 
-        // Copy the configuration files
+        // APP
+        // --------
 
-        // Security
+        // http://yeoman.io/authoring/file-system.html - Location contexts:
+        // [dest] is defined as either the current working directory
+        // or the closest parent folder containing a .yo-rc.json
 
-        this.fs.copy(
-            this.templatePath('_index.php'),
-            this.destinationPath('index.php')
+        // js
+
+        this.fs.copyTpl(
+            this.templatePath('js/_frontend.js'),
+            this.destinationPath('js/frontend.js'),
+            userSettings
         );
+
+        // scss
+
+        this.fs.copyTpl(
+            this.templatePath('scss/_backend.scss'),
+            this.destinationPath('scss/backend.scss'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('scss/_frontend.scss'),
+            this.destinationPath('scss/frontend.scss'),
+            userSettings
+        );
+
+        // src
+
+        this.fs.copyTpl(
+            this.templatePath('src/_class-wpdtrt-plugin-boilerplate-plugin.php'),
+            this.destinationPath('src/class-' + this.props.name + '-plugin.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('src/_class-wpdtrt-plugin-boilerplate-widgets.php'),
+            this.destinationPath('src/class-' + this.props.name + '-widgets.php'),
+            userSettings
+        );
+
+        // template-parts
+
+        this.fs.copyTpl(
+            this.templatePath('template-parts/_wpdtrt-plugin-boilerplate/_content.php'),
+            this.destinationPath('template-parts/' + this.props.name + '/content-' + this.props.nameTemplate + '.php'),
+            userSettings
+        );
+
+        // root configuration files
 
         // Bower
 
@@ -367,6 +423,7 @@ module.exports = class extends Generator {
         );
 
         // Git
+
         this.fs.copy(
             this.templatePath('_.gitignore'),
             this.destinationPath('.gitignore')
@@ -374,41 +431,20 @@ module.exports = class extends Generator {
 
         // Composer
 
-        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
         this.fs.copyTpl(
             this.templatePath('_composer.json'),
             this.destinationPath('composer.json'),
             userSettings
         );
 
-        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
-        //this.fs.copy(
-        //    this.templatePath('_composer.lock'),
-        //    this.destinationPath('composer.lock')
-        //);
-
-        // Gulp
+        // root security
 
         this.fs.copy(
-            this.templatePath('_gulpfile.js'),
-            this.destinationPath('gulpfile.js')
+            this.templatePath('_index.php'),
+            this.destinationPath('index.php')
         );
 
-        // NPM
-        this.fs.copyTpl(
-            this.templatePath('_package.json'),
-            this.destinationPath('package.json'),
-            userSettings
-        );
-
-        // APP
-        // --------
-
-        // http://yeoman.io/authoring/file-system.html - Location contexts:
-        // [dest] is defined as either the current working directory
-        // or the closest parent folder containing a .yo-rc.json
-
-        // root
+        // documentation
 
         this.fs.copyTpl(
             this.templatePath('_readme.txt'),
@@ -422,6 +458,8 @@ module.exports = class extends Generator {
             userSettings
         );
 
+        // app
+
         this.fs.copyTpl(
             this.templatePath('_uninstall.php'),
             this.destinationPath('uninstall.php'),
@@ -431,196 +469,6 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('_wpdtrt-plugin-boilerplate.php'),
             this.destinationPath(this.props.name + '.php'),
-            userSettings
-        );
-
-        // app
-
-        this.fs.copyTpl(
-            this.templatePath('app/_index.php'),
-            this.destinationPath('app/index.php')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_class-wpdtrt-plugin-boilerplate-template-loader.php'),
-            this.destinationPath('app/class-' + this.props.name + '-template-loader.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-admin-notices.php'),
-            this.destinationPath('app/' + this.props.name + '-admin-notices.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-api.php'),
-            this.destinationPath('app/' + this.props.name + '-api.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-css.php'),
-            this.destinationPath('app/' + this.props.name + '-css.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-js.php'),
-            this.destinationPath('app/' + this.props.name + '-js.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-menus.php'),
-            this.destinationPath('app/' + this.props.name + '-menus.php'),
-            userSettings
-        );
-
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-options.php'),
-            this.destinationPath('app/' + this.props.name + '-options.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-rewrite-rules.php'),
-            this.destinationPath('app/' + this.props.name + '-rewrite-rules.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-shortcodes.php'),
-            this.destinationPath('app/' + this.props.name + '-shortcodes.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_class-wpdtrt-plugin-shortcode.php'),
-            this.destinationPath('app/class-wpdtrt-plugin-shortcode.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('app/_wpdtrt-plugin-boilerplate-widget.php'),
-            this.destinationPath('app/' + this.props.name + '-widget.php'),
-            userSettings
-        );
-
-        // languages
-
-        this.fs.copy(
-            this.templatePath('languages/_wpdtrt-plugin-boilerplate.pot'),
-            this.destinationPath('languages/' + this.props.name + '.pot')
-        );
-
-        //this.dest.mkdir(this.folderName + '/views/admin/images');
-        //this.dest.mkdir(this.folderName + '/views/admin/js');
-
-        // template-parts
-
-        this.fs.copyTpl(
-            this.templatePath('template-parts/_wpdtrt-plugin-boilerplate/_content-blocks.php'),
-            this.destinationPath('template-parts/' + this.props.name + '/content-blocks.php'),
-            userSettings
-        );
-
-        // templates
-
-        this.fs.copyTpl(
-            this.templatePath('templates/_wpdtrt-plugin-boilerplate-front-end.php'),
-            this.destinationPath('templates/' + this.props.name + '-front-end.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('templates/_wpdtrt-plugin-boilerplate-options.php'),
-            this.destinationPath('templates/' + this.props.name + '-options.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('templates/_wpdtrt-plugin-boilerplate-options-checkbox.php'),
-            this.destinationPath('templates/' + this.props.name + '-options-checkbox.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('templates/_wpdtrt-plugin-boilerplate-options-password.php'),
-            this.destinationPath('templates/' + this.props.name + '-options-password.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('templates/_wpdtrt-plugin-boilerplate-options-textfield.php'),
-            this.destinationPath('templates/' + this.props.name + '-options-textfield.php'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('templates/_wpdtrt-plugin-boilerplate-widget.php'),
-            this.destinationPath('templates/' + this.props.name + '-widget.php'),
-            userSettings
-        );
-
-        // scss
-
-        this.fs.copyTpl(
-            this.templatePath('scss/__wpdtrt-plugin-boilerplate-extends.scss'),
-            this.destinationPath('scss/_' + this.props.name + '-extends.scss'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('scss/__wpdtrt-plugin-boilerplate-variables.scss'),
-            this.destinationPath('scss/_' + this.props.name + '-variables.scss'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('scss/_wpdtrt-plugin-boilerplate-admin.scss'),
-            this.destinationPath('scss/' + this.props.name + '-admin.scss'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('scss/_wpdtrt-plugin-boilerplate-mobile.scss'),
-            this.destinationPath('scss/' + this.props.name + '-mobile.scss'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('scss/_wpdtrt-plugin-boilerplate.scss'),
-            this.destinationPath('scss/' + this.props.name + '.scss'),
-            userSettings
-        );
-
-        // js
-
-        this.fs.copyTpl(
-            this.templatePath('js/_wpdtrt-plugin-boilerplate.js'),
-            this.destinationPath('js/' + this.props.name + '.js'),
-            userSettings
-        );
-
-        // Vendor folder and all files
-
-        this.fs.copy(
-            this.templatePath('vendor'),
-            this.destinationPath('vendor')
-        );
-
-        // Config
-
-        this.fs.copy(
-            this.templatePath('config/_index.php'),
-            this.destinationPath('config/index.php')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('config/_tgm-plugin-activation.php'),
-            this.destinationPath('config/tgm-plugin-activation.php'),
             userSettings
         );
 
@@ -647,16 +495,13 @@ module.exports = class extends Generator {
      */
     install() {
         this.installDependencies({
-            npm: true,
+            npm: false,
             bower: true,
             yarn: false
         });
 
         // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
-        //this.spawnCommand('composer', ['install']);
-
-        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/6
-        //this.spawnCommand('vendor/phpdocumentor/phpdocumentor/bin/phpdoc -d ./app -t ./docs/php/');
+        this.spawnCommand('composer', ['install']);
     }
 
     /**

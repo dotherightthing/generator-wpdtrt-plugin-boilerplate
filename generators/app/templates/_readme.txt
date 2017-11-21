@@ -31,8 +31,7 @@ One or more widgets can be displayed within one or more sidebars:
 1. Locate the widget: Appearance > Widgets > *<%= nameFriendly %> Widget*
 2. Drag and drop the widget into one of your sidebars
 3. Add a *Title*
-4. Specify *Number of blocks to display*
-5. Toggle *Link to enlargement?*
+4. Specify options
 
 = How do I use the shortcode? =
 
@@ -44,22 +43,19 @@ One or more widgets can be displayed within one or more sidebars:
 <?php echo do_shortcode( '[<%= nameSafe %> option="value"]' ); ?>
 ```
 
-= Shortcode options =
-
-1. `Number of blocks to display="4"` (default) - number of blocks to display
-2. `enlargement="1"` (default) - optionally link each block to a larger version
+Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
 
 == Screenshots ==
 
-1. The caption for ./assets/screenshot-1.(png|jpg|jpeg|gif)
-2. The caption for ./assets/screenshot-2.(png|jpg|jpeg|gif)
+1. The caption for ./images/screenshot-1.(png|jpg|jpeg|gif)
+2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
 
 == Changelog ==
 
-= 0.1 =
+= 0.0.1 =
 * Initial version
 
 == Upgrade Notice ==
 
-= 0.1 =
+= 0.0.1 =
 * Initial release
