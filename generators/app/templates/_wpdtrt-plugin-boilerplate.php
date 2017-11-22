@@ -130,7 +130,14 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
      * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-select.php
      * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-text.php
      */
-    //$plugin_options = array();
+    $plugin_options = array(
+      'pluginoption1' => array(
+        'type' => 'text',
+        'label' => __('Field label', '<%= name %>'),
+        'size' => 10,
+        'tip' => __('Helper text', '<%= name %>')
+      )
+    );
 
     /**
      * All options available to Widgets and Shortcodes
@@ -141,7 +148,14 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
      * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-select.php
      * @see https://github.com/dotherightthing/wpdtrt-plugin/blob/master/views/form-element-text.php
      */
-    //$instance_options = array();
+    $instance_options = array(
+      'instanceoption1' => array(
+        'type' => 'text',
+        'label' => __('Field label', '<%= name %>'),
+        'size' => 10,
+        'tip' => __('Helper text', '<%= name %>')
+      )
+    );
 
     $<%= nameSafe %>_plugin = new <%= nameFriendlySafe %>_Plugin(
       array(
@@ -209,7 +223,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
         'plugin' => $<%= nameSafe %>_plugin,
         'template' => '<%= nameTemplate %>',
         'selected_instance_options' => array(
-          //'fieldvalue',
+          'instanceoption1'
         )
       )
     );
@@ -235,7 +249,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
         'plugin' => $<%= nameSafe %>_plugin,
         'template' => '<%= nameTemplate %>',
         'selected_instance_options' => array(
-          //'fieldvalue',
+          'instanceoption1'
         )
       )
     );
