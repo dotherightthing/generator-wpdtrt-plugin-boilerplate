@@ -9,3 +9,9 @@
  *
  * @package     <%= nameFriendlySafe %>
  */
+ 
+jQuery(document).ready(function($){
+
+	var config = <%= nameSafe %>_config;
+
+});

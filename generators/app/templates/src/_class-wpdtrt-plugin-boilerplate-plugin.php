@@ -37,6 +37,24 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 		parent::__construct( $settings );
     }
 
+    //// START WORDPRESS INTEGRATION \\\\
+
+    /**
+     * Initialise plugin options ONCE.
+     *
+     * @param array $default_options
+     *
+     * @since 1.0.0
+     */
+    protected function wp_setup() {
+
+    	parent::wp_setup();
+
+		// add actions and filters here
+    }
+
+    //// END WORDPRESS INTEGRATION \\\\
+
     /* ====== Add public functions here ====== */
 
 	/**

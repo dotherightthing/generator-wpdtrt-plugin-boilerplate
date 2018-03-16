@@ -35,6 +35,14 @@ require_once plugin_dir_path( __FILE__ ) . "vendor/autoload.php";
  * @link https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Plugins
  */
 
+/**
+  * Determine the correct path to the autoloader
+  * @see https://github.com/dotherightthing/wpdtrt-plugin/issues/51
+  */
+if( ! defined( 'WPDTRT_CHILD_PLUGIN' ) ) {
+  define( 'WPDTRT_CHILD_PLUGIN', true );
+}
+
 if( ! defined( '<%= constantStub %>_VERSION' ) ) {
 /**
  * Plugin version.
@@ -177,17 +185,17 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
         'plugin_options' => $plugin_options,
         'instance_options' => $instance_options,
         'version' => <%= constantStub %>_VERSION,
+        /*
         'plugin_dependencies' => array(
           array(
-            /*
             'name'          => 'Plugin Name',
             'slug'          => 'plugin-name',
             'source'        => 'https://github.com/user/library/archive/master.zip',
             'required'      => true,
             'is_callable'   => 'function_name'
-            */
           )
         ),
+        */
         'demo_shortcode_params' => null
       )
     );

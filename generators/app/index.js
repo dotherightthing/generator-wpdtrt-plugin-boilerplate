@@ -7,7 +7,6 @@ const yosay = require('yosay');
 const path = require('path');
 const S = require('string');
 const open = require("open");
-const pjson = require('../../package.json');
 
 module.exports = class extends Generator {
 
@@ -76,8 +75,13 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
+            'githubUserName',
+            'dotherightthing'
+        );
+
+        this.config.set(
             'homepage',
-            ( 'https://github.com/dotherightthing/' + this.config.get('name') )
+            ( 'https://github.com/' + this.config.get('githubUserName') + '/' + this.config.get('name') )
         );
 
         this.config.set(
@@ -116,6 +120,16 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
+            'slackName',
+            'dotherightthing'
+        );
+
+        this.config.set(
+            'slackPasswordEncrypted',
+            'Wu2ypwc2wIFZVqVqc2jRkbWw'
+        );
+
+        this.config.set(
             'authorAbbreviation',
             'DTRT'
         );
@@ -137,14 +151,19 @@ module.exports = class extends Generator {
 
         this.config.set(
             'repositoryUrl',
-            ( 'git@github.com:dotherightthing/' + this.config.get('name') + '.git' )
+            ( 'git@github.com:' + this.config.get('githubUserName') + '/' + this.config.get('name') + '.git' )
+        );
+
+        this.config.set(
+            'githubApiPersonalAccessToken',
+            ''
         );
 
         // version is based on the current version of the generator
         // to allow backfilling of functionality added in spin-off plugins
         this.config.set(
             'version',
-            '0.0.1' // pjson.version
+            '0.0.1'
         );
     }
 
@@ -265,6 +284,18 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
+                name: 'slackName',
+                message: 'Slack channel name for notifications',
+                default: this.config.get('slackName')
+            },
+            {
+                type: 'input',
+                name: 'slackPasswordEncrypted',
+                message: 'Encrypted Slack password',
+                default: this.config.get('slackPasswordEncrypted')
+            },
+            {
+                type: 'input',
                 name: 'authorEmail',
                 message: 'Your email address',
                 default: this.config.get('authorEmail')
@@ -286,6 +317,12 @@ module.exports = class extends Generator {
                 name: 'repositoryUrl',
                 message: 'Repository URL',
                 default: this.config.get('repositoryUrl')
+            },
+            {
+                type: 'input',
+                name: 'githubApiPersonalAccessToken',
+                message: 'Github Releases API Key',
+                default: this.config.get('githubApiPersonalAccessToken')
             }
         ];
 
@@ -327,34 +364,38 @@ module.exports = class extends Generator {
     writing() {
 
         var userSettings = {
-            authorEmail:            this.props.authorEmail,
-            authorName:             this.props.authorName,
-            authorUrl:              this.props.authorUrl,
-            authorAbbreviation:     this.props.authorAbbreviation,
-            authorWordPressName:    this.props.authorWordPressName,
-            description:            this.props.description,
-            homepage:               this.props.homepage,
-            name:                   this.props.name,
-            nameAdminMenu:          this.props.nameAdminMenu,
-            nameFriendly:           this.props.nameFriendly,
-            nameFriendlySafe:       this.props.nameFriendlySafe,
-            nameSafe:               this.props.nameSafe,
-            nameTemplate:           this.props.nameTemplate,
-            phpVersion:             this.props.phpVersion,
-            pluginDonateUrl:        this.props.donateUrl,
-            pluginLicense:          this.props.license,
-            pluginLicenseUrl:       this.props.licenseUrl,
-            pluginTags:             this.props.tags,
-            pluginUrl:              this.props.homepage,
-            pluginUrlAdminMenu:     this.props.urlAdminMenu,
-            repositoryType:         this.props.repositoryType,
-            repositoryUrl:          this.props.repositoryUrl,
-            srcDir:                 process.cwd(),
-            wpVersion:              this.props.wpVersion,
-            version:                this.props.version
+            authorEmail:                    this.props.authorEmail,
+            authorName:                     this.props.authorName,
+            authorUrl:                      this.props.authorUrl,
+            authorAbbreviation:             this.props.authorAbbreviation,
+            authorWordPressName:            this.props.authorWordPressName,
+            description:                    this.props.description,
+            githubUserName:                 this.props.githubUserName,
+            githubApiPersonalAccessToken:   this.props.githubApiPersonalAccessToken,
+            homepage:                       this.props.homepage,
+            name:                           this.props.name,
+            nameAdminMenu:                  this.props.nameAdminMenu,
+            nameFriendly:                   this.props.nameFriendly,
+            nameFriendlySafe:               this.props.nameFriendlySafe,
+            nameSafe:                       this.props.nameSafe,
+            nameTemplate:                   this.props.nameTemplate,
+            phpVersion:                     this.props.phpVersion,
+            pluginDonateUrl:                this.props.donateUrl,
+            pluginLicense:                  this.props.license,
+            pluginLicenseUrl:               this.props.licenseUrl,
+            pluginTags:                     this.props.tags,
+            pluginUrl:                      this.props.homepage,
+            pluginUrlAdminMenu:             this.props.urlAdminMenu,
+            repositoryType:                 this.props.repositoryType,
+            repositoryUrl:                  this.props.repositoryUrl,
+            slackName:                      this.props.slackName,
+            slackPasswordEncrypted:         this.props.slackPasswordEncrypted,
+            srcDir:                         process.cwd(),
+            wpVersion:                      this.props.wpVersion,
+            version:                        this.props.version
         };
 
-        userSettings.constantStub = this.props.nameFriendlySafe.toUpperCase(),
+        userSettings.constantStub =         this.props.nameFriendlySafe.toUpperCase(),
 
         // APP
         // --------
@@ -429,11 +470,33 @@ module.exports = class extends Generator {
             this.destinationPath('.gitignore')
         );
 
+        // Travis CI (Github build)
+
+        this.fs.copyTpl(
+            this.templatePath('_.travis.yml'),
+            this.destinationPath('.travis.yml'),
+            userSettings
+        );
+
         // Composer
 
         this.fs.copyTpl(
             this.templatePath('_composer.json'),
             this.destinationPath('composer.json'),
+            userSettings
+        );
+
+        // Gulp / NPM
+
+        this.fs.copyTpl(
+            this.templatePath('_package.json'),
+            this.destinationPath('package.json'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('_gulpfile.js'),
+            this.destinationPath('gulpfile.js'),
             userSettings
         );
 
@@ -444,17 +507,30 @@ module.exports = class extends Generator {
             this.destinationPath('index.php')
         );
 
+        // PHPUnit testing
+
+        this.fs.copy(
+            this.templatePath('_phpunit.xml.dist'),
+            this.destinationPath('phpunit.xml.dist')
+        );
+
         // documentation
 
         this.fs.copyTpl(
-            this.templatePath('_readme.txt'),
-            this.destinationPath('readme.txt'),
+            this.templatePath('_phpdoc.dist.xml'),
+            this.destinationPath('phpdoc.dist.xml'),
             userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('_README.md'),
             this.destinationPath('README.md'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('_readme.txt'),
+            this.destinationPath('readme.txt'),
             userSettings
         );
 
@@ -513,7 +589,7 @@ module.exports = class extends Generator {
     end() {
 
         this.log(yosay(
-          'Thanks for installing the ' + chalk.red('WordPress Plugin boilerplate') + '. Enjoy!'
+          'Thanks for installing the ' + chalk.red('DTRT WordPress Plugin boilerplate') + '. Enjoy!'
         ));
 
         open("readme.txt");

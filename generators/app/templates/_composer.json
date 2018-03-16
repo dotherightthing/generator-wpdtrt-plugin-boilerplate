@@ -1,8 +1,8 @@
 {
-	"name": "<%= authorWordPressName %>/<%= name %>",
+	"name": "<%= githubUserName =>/<%= name %>",
 	"description": "<%= description %>",
 	"type": "library",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "config": {
         "vendor-dir": "vendor"
     },
@@ -22,14 +22,7 @@
             "url":  "git@github.com:dotherightthing/wpdtrt-plugin.git"
         }
     ],
-	"require-dev": {
-        "wp-cli/wp-cli" : "~0.22",
-        "psy/psysh" : "~0.6",
-        "phpdocumentor/phpdocumentor": "2.*",
-        "dotherightthing/wpdtrt-debug": "dev-master"
-	},
     "require": {
-        "php": ">=5.6.30",
-        "dotherightthing/wpdtrt-plugin": "dev-master"
+        "dotherightthing/wpdtrt-plugin": "^1.0.0"
     }
 }
