@@ -140,6 +140,11 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
+            'authorSupportEmail',
+            'support@dotherightthing.co.nz'
+        );
+
+        this.config.set(
             'authorUrl',
             'https://profiles.wordpress.org/dotherightthingnz'
         );
@@ -302,6 +307,12 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
+                name: 'authorSupportEmail',
+                message: 'Email address for plugin support enquiries',
+                default: this.config.get('authorSupportEmail')
+            },
+            {
+                type: 'input',
                 name: 'authorUrl',
                 message: 'Author URL',
                 default: this.config.get('authorUrl')
@@ -365,10 +376,12 @@ module.exports = class extends Generator {
 
         var userSettings = {
             authorEmail:                    this.props.authorEmail,
+            authorSupportEmail:             this.props.authorSupportEmail,
             authorName:                     this.props.authorName,
             authorUrl:                      this.props.authorUrl,
             authorAbbreviation:             this.props.authorAbbreviation,
             authorWordPressName:            this.props.authorWordPressName,
+            constantStub:                   this.props.nameFriendlySafe.toUpperCase(),
             description:                    this.props.description,
             githubUserName:                 this.props.githubUserName,
             githubApiPersonalAccessToken:   this.props.githubApiPersonalAccessToken,
@@ -381,6 +394,7 @@ module.exports = class extends Generator {
             nameTemplate:                   this.props.nameTemplate,
             phpVersion:                     this.props.phpVersion,
             pluginDonateUrl:                this.props.donateUrl,
+            pluginKeywords:                 this.props.tags.split(', '),
             pluginLicense:                  this.props.license,
             pluginLicenseUrl:               this.props.licenseUrl,
             pluginTags:                     this.props.tags,
@@ -394,8 +408,6 @@ module.exports = class extends Generator {
             wpVersion:                      this.props.wpVersion,
             version:                        this.props.version
         };
-
-        userSettings.constantStub =         this.props.nameFriendlySafe.toUpperCase(),
 
         // APP
         // --------

@@ -2,16 +2,24 @@
 	"name": "<%= githubUserName =>/<%= name %>",
 	"description": "<%= description %>",
 	"type": "library",
-    "minimum-stability": "stable",
-    "config": {
-        "vendor-dir": "vendor"
-    },
+    "keywords": <%= pluginKeywords %>,
+    "license": "ISC",
     "authors": [
         {
             "name": "<%= authorName %>",
-            "email": "<%= authorEmail %>"
+            "email": "<%= authorEmail %>",
+            "homepage": "<%= homepage %>",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "email": "<%= authorSupportEmail %>",
+        "issues": "https://github.com/<%= githubUserName =>/<%= name =>/issues"
+    },
+    "require": {
+        "dotherightthing/wpdtrt-plugin": "^1.0.0"
+    },
+    "minimum-stability": "stable",
     "repositories": [
         {
             "type": "vcs",
@@ -22,7 +30,7 @@
             "url":  "git@github.com:dotherightthing/wpdtrt-plugin.git"
         }
     ],
-    "require": {
-        "dotherightthing/wpdtrt-plugin": "^1.0.0"
+    "config": {
+        "vendor-dir": "vendor"
     }
 }
