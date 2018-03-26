@@ -69,7 +69,7 @@ install:
   - npm link
   - mkdir 'wpdtrt-generated-plugin'
   - cd wpdtrt-generated-plugin
-  - yo Wp Plugin Boilerplate
+  - yo wp-plugin-boilerplate
   #
   # Expect failure here as Yeoman currently expects user input
   #
