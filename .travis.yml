@@ -3,6 +3,9 @@
 # To skip a build, add [ci skip] to the commit message.
 # This file has been linted using: http://lint.travis-ci.org/
 
+# https://stackoverflow.com/a/39174337/6850747
+dist: trusty
+
 # Use Node.js, to run Yeoman
 language: node_js
 
