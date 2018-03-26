@@ -1,8 +1,8 @@
 {
-	"name": "<%= githubUserName =>/<%= name %>",
+	"name": "<%= githubUserName %>/<%= name %>",
 	"description": "<%= description %>",
 	"type": "library",
-    "keywords": <%= pluginKeywords %>,
+    "keywords": <%- pluginKeywords %>,
     "license": "ISC",
     "authors": [
         {
@@ -14,7 +14,7 @@
     ],
     "support": {
         "email": "<%= authorSupportEmail %>",
-        "issues": "https://github.com/<%= githubUserName =>/<%= name =>/issues"
+        "issues": "https://github.com/<%= githubUserName %>/<%= name %>/issues"
     },
     "require": {
         "dotherightthing/wpdtrt-plugin": "^1.0.0"

@@ -331,6 +331,12 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
+                name: 'githubUserName',
+                message: 'Github Vendor Name',
+                default: this.config.get('githubUserName')
+            },    
+            {
+                type: 'input',
                 name: 'githubApiPersonalAccessToken',
                 message: 'Github Releases API Key',
                 default: this.config.get('githubApiPersonalAccessToken')
@@ -394,7 +400,7 @@ module.exports = class extends Generator {
             nameTemplate:                   this.props.nameTemplate,
             phpVersion:                     this.props.phpVersion,
             pluginDonateUrl:                this.props.donateUrl,
-            pluginKeywords:                 this.props.tags.split(', '),
+            pluginKeywords:                 '["' + this.props.tags.split(', ').join('", "') + '"]',
             pluginLicense:                  this.props.license,
             pluginLicenseUrl:               this.props.licenseUrl,
             pluginTags:                     this.props.tags,

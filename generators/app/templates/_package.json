@@ -1,8 +1,8 @@
 {
-  "name": "<%= name =>",
+  "name": "<%= name %>",
   "version": "<%= version %>",
   "description": "<%= description %>",
-  "main": "<%= name =>.php",
+  "main": "<%= name %>.php",
   "person": {
     "name": "<%= authorName %>",
     "email": "<%= authorEmail %>",
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:<%= githubUserName =>/<%= name =>.git"
+    "url": "git@github.com:<%= githubUserName %>/<%= name %>.git"
   },
   "browserslist": [
     "last 2 versions",
     "ie >= 11"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/<%= githubUserName =>/<%= name =>",
-  "srcDir": "/Volumes/DanBackup/Websites/<%= name =>",
+  "homepage": "https://github.com/<%= githubUserName %>/<%= name %>",
+  "srcDir": "/Volumes/DanBackup/Websites/<%= name %>",
   "dependencies": {
     "bower": "^1.8.2"
   }
