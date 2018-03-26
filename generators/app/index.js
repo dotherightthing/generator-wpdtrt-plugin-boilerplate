@@ -3,7 +3,7 @@
  *
  * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin
  *
- * @version     0.6.0
+ * @version     0.7.0
  */
 
 
@@ -29,6 +29,13 @@ module.exports = class extends Generator {
     initializing() {
 
         // Set config defaults
+
+        // generatorVersion aids backfilling of functionality
+        // in generated plugins
+        this.config.set(
+            'generatorVersion',
+            '0.7.0'
+        );
 
         // name must match the folder name, for WordPress to recognise the plugin
         this.config.set(
@@ -171,13 +178,6 @@ module.exports = class extends Generator {
         this.config.set(
             'githubApiPersonalAccessToken',
             ''
-        );
-
-        // generatorVersion aids backfilling of functionality
-        // in generated plugins
-        this.config.set(
-            'generatorVersion',
-            '0.6.0'
         );
     }
 
