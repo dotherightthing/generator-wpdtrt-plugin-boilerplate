@@ -25,13 +25,8 @@ install:
   - npm install yo -g
   - npm link
 
-# https://github.com/wp-cli/sample-plugin/blob/master/.travis.yml
-before_script:
-  - mkdir 'wpdtrt-generated-plugin'
-  - cd wpdtrt-generated-plugin
-
 # Run the build script
-script: ../travis-yo.sh
+script: ./travis-yo.sh
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
