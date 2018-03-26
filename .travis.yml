@@ -25,6 +25,11 @@ install:
   - npm install yo -g
   - npm link
 
+# Make shell script executable
+# https://github.com/travis-ci/travis-ci/issues/5804
+before_script:
+  - chmod a+x travis-yo.sh
+
 # Run the build script
 script: ./travis-yo.sh
 
