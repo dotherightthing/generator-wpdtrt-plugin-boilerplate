@@ -3,7 +3,6 @@
  *
  * PHP variables are provided in <%= nameSafe %>_config.
  *
- * @package     <%= nameFriendlySafe %>
  * @version 	0.0.1
  * @since       <%= generatorVersion %>
  */
