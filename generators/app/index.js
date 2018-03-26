@@ -101,7 +101,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'wpVersion',
-            '4.8.2'
+            '4.9.4'
         );
 
         this.config.set(
