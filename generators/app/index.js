@@ -177,7 +177,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'githubApiPersonalAccessToken',
-            ''
+            'TODO'
         );
     }
 
@@ -489,6 +489,20 @@ module.exports = class extends Generator {
             userSettings
         );
 
+        // tests
+
+        this.fs.copyTpl(
+            this.templatePath('tests/bootstrap.php'),
+            this.destinationPath('tests/bootstrap.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('tests/test-wpdtrt-plugin-boilerplate.php'),
+            this.destinationPath('tests/test-' + this.props.name + '.php'),
+            userSettings
+        );
+
         // root configuration files
 
         // Bower
@@ -609,6 +623,8 @@ module.exports = class extends Generator {
      * and you could take this opportunity to inject dependencies
      * into previously-written files as well
      * {@link https://webcake.co/building-a-yeoman-generator/}
+     * @see https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
+     * @todo https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/30
      */
     install() {
         this.installDependencies({
@@ -617,8 +633,13 @@ module.exports = class extends Generator {
             yarn: false
         });
 
-        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
-        this.spawnCommand('composer', ['install']);
+        this.spawnCommand('open', ['https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin']);
+        //this.spawnCommandSync('npm', ['install ./vendor/dotherightthing/wpdtrt-plugin/ --prefix ./vendor/dotherightthing/wpdtrt-plugin/']);
+        //this.spawnCommandSync('npm', ['install']);
+        //this.spawnCommandSync('npm', ['install gulp-cli -g']);
+        //this.spawnCommandSync('gulp', ['dev --gulpfile ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js --cwd ./']);
+        //this.spawnCommandSync('bash', ['bin/install-wp-tests.sh wordpress_test4 root root localhost 4.8.2']);
+        //this.spawnCommandSync('phpunit');
     }
 
     /**

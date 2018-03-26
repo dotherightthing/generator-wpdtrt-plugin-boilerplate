@@ -2,6 +2,8 @@
 
 A best-practice boilerplate for plugin development.
 
+The generated plugin consumes <https://github.com/dotherightthing/wpdtrt-plugin/>.
+
 ## Installation
 
 ### A. Install the generator dependencies
