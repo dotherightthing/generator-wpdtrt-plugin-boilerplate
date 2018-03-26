@@ -422,10 +422,25 @@ module.exports = class extends Generator {
         // [dest] is defined as either the current working directory
         // or the closest parent folder containing a .yo-rc.json
 
+
+        // bin - unit testing
+
+        this.fs.copy(
+            this.templatePath('bin/install-wp-tests.sh'),
+            this.destinationPath('bin/install-wp-tests.sh')
+        );
+
+        // images
+
+        this.fs.copy(
+            this.templatePath('images/github-header.pxm'),
+            this.destinationPath('images/github-header.pxm')
+        );
+
         // js
 
         this.fs.copyTpl(
-            this.templatePath('js/_frontend.js'),
+            this.templatePath('js/frontend.js'),
             this.destinationPath('js/frontend.js'),
             userSettings
         );
@@ -433,27 +448,32 @@ module.exports = class extends Generator {
         // scss
 
         this.fs.copyTpl(
-            this.templatePath('scss/_backend.scss'),
+            this.templatePath('scss/backend.scss'),
             this.destinationPath('scss/backend.scss'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('scss/_frontend.scss'),
+            this.templatePath('scss/frontend.scss'),
             this.destinationPath('scss/frontend.scss'),
             userSettings
         );
 
         // src
 
+        this.fs.copy(
+            this.templatePath('src/index.php'),
+            this.destinationPath('src/index.php')
+        );
+
         this.fs.copyTpl(
-            this.templatePath('src/_class-wpdtrt-plugin-boilerplate-plugin.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-plugin.php'),
             this.destinationPath('src/class-' + this.props.name + '-plugin.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/_class-wpdtrt-plugin-boilerplate-widgets.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-widgets.php'),
             this.destinationPath('src/class-' + this.props.name + '-widgets.php'),
             userSettings
         );
@@ -461,7 +481,7 @@ module.exports = class extends Generator {
         // template-parts
 
         this.fs.copyTpl(
-            this.templatePath('template-parts/_wpdtrt-plugin-boilerplate/_content.php'),
+            this.templatePath('template-parts/wpdtrt-plugin-boilerplate/content.php'),
             this.destinationPath('template-parts/' + this.props.name + '/content-' + this.props.nameTemplate + '.php'),
             userSettings
         );
@@ -471,12 +491,12 @@ module.exports = class extends Generator {
         // Bower
 
         this.fs.copy(
-            this.templatePath('_.bowerrc'),
+            this.templatePath('.bowerrc'),
             this.destinationPath('.bowerrc')
         );
 
         this.fs.copyTpl(
-            this.templatePath('_bower.json'),
+            this.templatePath('bower.json'),
             this.destinationPath('bower.json'),
             userSettings
         );
@@ -484,14 +504,14 @@ module.exports = class extends Generator {
         // Git
 
         this.fs.copy(
-            this.templatePath('_.gitignore'),
+            this.templatePath('.gitignore'),
             this.destinationPath('.gitignore')
         );
 
         // Travis CI (Github build)
 
         this.fs.copyTpl(
-            this.templatePath('_.travis.yml'),
+            this.templatePath('.travis.yml'),
             this.destinationPath('.travis.yml'),
             userSettings
         );
@@ -499,7 +519,7 @@ module.exports = class extends Generator {
         // Composer
 
         this.fs.copyTpl(
-            this.templatePath('_composer.json'),
+            this.templatePath('composer.json'),
             this.destinationPath('composer.json'),
             userSettings
         );
@@ -507,47 +527,47 @@ module.exports = class extends Generator {
         // Gulp / NPM
 
         this.fs.copyTpl(
-            this.templatePath('_package.json'),
-            this.destinationPath('package.json'),
+            this.templatePath('gulpfile.js'),
+            this.destinationPath('gulpfile.js'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('_gulpfile.js'),
-            this.destinationPath('gulpfile.js'),
+            this.templatePath('package.json'),
+            this.destinationPath('package.json'),
             userSettings
         );
 
         // root security
 
         this.fs.copy(
-            this.templatePath('_index.php'),
+            this.templatePath('index.php'),
             this.destinationPath('index.php')
         );
 
         // PHPUnit testing
 
         this.fs.copy(
-            this.templatePath('_phpunit.xml.dist'),
+            this.templatePath('phpunit.xml.dist'),
             this.destinationPath('phpunit.xml.dist')
         );
 
         // documentation
 
         this.fs.copyTpl(
-            this.templatePath('_phpdoc.dist.xml'),
+            this.templatePath('phpdoc.dist.xml'),
             this.destinationPath('phpdoc.dist.xml'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('_README.md'),
+            this.templatePath('README.md'),
             this.destinationPath('README.md'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('_readme.txt'),
+            this.templatePath('readme.txt'),
             this.destinationPath('readme.txt'),
             userSettings
         );
@@ -555,13 +575,13 @@ module.exports = class extends Generator {
         // app
 
         this.fs.copyTpl(
-            this.templatePath('_uninstall.php'),
+            this.templatePath('uninstall.php'),
             this.destinationPath('uninstall.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('_wpdtrt-plugin-boilerplate.php'),
+            this.templatePath('wpdtrt-plugin-boilerplate.php'),
             this.destinationPath(this.props.name + '.php'),
             userSettings
         );
