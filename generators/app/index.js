@@ -1,3 +1,12 @@
+/**
+ * Plugin generator
+ *
+ * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin
+ *
+ * @version     0.6.0
+ */
+
+
 /*jslint node: true, esversion:6 */
 
 'use strict';
@@ -164,11 +173,11 @@ module.exports = class extends Generator {
             ''
         );
 
-        // version is based on the current version of the generator
-        // to allow backfilling of functionality added in spin-off plugins
+        // generatorVersion aids backfilling of functionality
+        // in generated plugins
         this.config.set(
-            'version',
-            '0.0.1'
+            'generatorVersion',
+            '0.6.0'
         );
     }
 

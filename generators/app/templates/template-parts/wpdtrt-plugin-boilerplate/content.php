@@ -3,8 +3,8 @@
  * Template to display plugin output in shortcodes and widgets
  *
  * @package   <%= nameFriendly %>
- * @since     <%= version %>
- * @version   <%= version %>
+ * @version   0.0.1
+ * @since     <%= generatorVersion %>
  */
 
 // Predeclare variables

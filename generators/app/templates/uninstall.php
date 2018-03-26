@@ -22,8 +22,8 @@
  * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
  *
  * @package     <%= nameFriendlySafe %>
- * @since       0.0.1
  * @version     0.0.1
+ * @since       <%= generatorVersion %>
  */
 
 // if uninstall.php is not called by WordPress, die

@@ -3,7 +3,7 @@
 Plugin Name:  <%= nameFriendly %>
 Plugin URI:   <%= pluginUrl %>
 Description:  <%= description %>
-Version:      <%= version %>
+Version:      0.0.1
 Author:       <%= authorName %>
 Author URI:   <%= authorUrl %>
 License:      <%= pluginLicense %>
@@ -53,8 +53,8 @@ if( ! defined( '<%= constantStub %>_VERSION' ) ) {
  * @example $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
  * @link https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically
  *
- * @since     0.0.1
  * @version   0.0.1
+ * @since     <%= generatorVersion %>
  */
   define( '<%= constantStub %>_VERSION', '0.1' );
 }
@@ -69,8 +69,8 @@ if( ! defined( '<%= constantStub %>_PATH' ) ) {
  * @link https://developer.wordpress.org/reference/functions/plugin_dir_path/
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  *
- * @since     0.0.1
  * @version   0.0.1
+ * @since     <%= generatorVersion %>
  */
   define( '<%= constantStub %>_PATH', plugin_dir_path( __FILE__ ) );
 }
@@ -85,8 +85,8 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
  * @link https://codex.wordpress.org/Function_Reference/plugin_dir_url
  * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
  *
- * @since     0.0.1
  * @version   0.0.1
+ * @since     <%= generatorVersion %>
  */
   define( '<%= constantStub %>_URL', plugin_dir_url( __FILE__ ) );
 }
@@ -94,8 +94,8 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
 /**
  * Include plugin logic
  *
- * @since     0.0.1
  * @version   0.0.1
+ * @since     <%= generatorVersion %>
  */
 
   // base class
@@ -214,8 +214,8 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
    * @see         https://codex.wordpress.org/Plugin_API/Action_Reference
    * @uses        https://github.com/dotherightthing/wpdtrt/tree/master/library/sidebars.php
    *
-   * @since       0.0.1
    * @version     0.0.1
+   * @since       <%= generatorVersion %>
    * @todo        Add form field parameters to the options array
    * @todo        Investigate the 'classname' option
    */
@@ -270,8 +270,8 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
    *
    * @see https://codex.wordpress.org/Function_Reference/register_activation_hook
    *
-   * @since       0.0.1
-   * @version     0.0.1
+   * @version   0.0.1
+   * @since     <%= generatorVersion %>
    */
   function <%= nameSafe %>_activate() {
     //<%= nameSafe %>_rewrite_rules();
@@ -287,8 +287,8 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
    *
    * @see https://codex.wordpress.org/Function_Reference/register_deactivation_hook
    *
-   * @since       0.0.1
-   * @version     0.0.1
+   * @version   0.0.1
+   * @since     <%= generatorVersion %>
    */
   function <%= nameSafe %>_deactivate() {
     flush_rewrite_rules();

@@ -39,6 +39,10 @@ PHPUnit is currently at version 6.1, but this project uses the Old Stable Releas
 
 ### Publishing
 
+#### @since
+
+PHP Doc's `@since` tag is used to track the generator version.
+
 #### `readme.txt`
 
 The headings correspond to the horizontal tabs that display on a plugin detail page on <http://wordpress.org/plugins>:

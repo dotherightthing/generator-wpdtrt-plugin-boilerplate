@@ -3,8 +3,8 @@
  * Plugin sub class.
  *
  * @package     <%= nameSafe %>
- * @since       <%= version %>
- * @version 	<%= version %>
+ * @version 	0.0.1
+ * @since       <%= generatorVersion %>
  */
 
 /**
@@ -13,8 +13,8 @@
  * Extends the base class to inherit boilerplate functionality.
  * Adds application-specific methods.
  *
- * @since       <%= version %>
- * @version 	<%= version %>
+ * @version 	0.0.1
+ * @since       <%= generatorVersion %>
  */
 class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 
@@ -26,8 +26,8 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPPlugin\Plugin {
      *
      * @param     array $settings Plugin options
      *
-	 * @since       <%= version %>
-	 * @version 	<%= version %>
+	 * @version 	0.0.1
+     * @since       <%= generatorVersion %>
      */
     function __construct( $settings ) {
 
@@ -44,7 +44,8 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPPlugin\Plugin {
      *
      * @param array $default_options
      *
-     * @since 1.0.0
+     * @version     0.0.1
+     * @since       <%= generatorVersion %>
      */
     protected function wp_setup() {
 
@@ -66,8 +67,8 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 	 * @see https://www.addedbytes.com/articles/for-beginners/url-rewriting-for-beginners/
 	 * @see http://codex.wordpress.org/Rewrite_API
 	 *
-	 * @since       1.0.0
-	 * @version     1.0.0
+	 * @version     0.0.1
+     * @since       <%= generatorVersion %>
 	 */
 	public function set_rewrite_rules() {
 

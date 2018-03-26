@@ -3,8 +3,8 @@
  * Widget classes.
  *
  * @package     <%= nameSafe %>
- * @since       <%= version %>
- * @version 	<%= version %>
+ * @version 	0.0.1
+ * @since       <%= generatorVersion %>
  */
 
 /**
