@@ -268,12 +268,6 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
-                name: 'version',
-                message: 'Plugin version',
-                default: this.config.get('version')
-            },
-            {
-                type: 'input',
                 name: 'wpVersion',
                 message: 'WordPress version',
                 default: this.config.get('wpVersion')
@@ -398,6 +392,7 @@ module.exports = class extends Generator {
             authorWordPressName:            this.props.authorWordPressName,
             constantStub:                   this.props.nameFriendlySafe.toUpperCase(),
             description:                    this.props.description,
+            generatorVersion:               this.props.generatorVersion,
             githubUserName:                 this.props.githubUserName,
             githubApiPersonalAccessToken:   this.props.githubApiPersonalAccessToken,
             homepage:                       this.props.homepage,
@@ -420,8 +415,7 @@ module.exports = class extends Generator {
             slackName:                      this.props.slackName,
             slackPasswordEncrypted:         this.props.slackPasswordEncrypted,
             srcDir:                         process.cwd(),
-            wpVersion:                      this.props.wpVersion,
-            version:                        this.props.version
+            wpVersion:                      this.props.wpVersion
         };
 
         // APP
