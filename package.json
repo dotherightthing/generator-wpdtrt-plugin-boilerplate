@@ -14,7 +14,7 @@
     "path": "^0.12.7",
     "string": "^3.3.3",
     "yeoman-generator": "^1.1.1",
-    "yosay": "^2.0.0"
+    "yosay": "^2.0.2"
   },
   "repository": {
     "type": "git",
