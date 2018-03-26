@@ -629,7 +629,7 @@ module.exports = class extends Generator {
     install() {
         this.installDependencies({
             npm: false,
-            bower: true,
+            bower: false,
             yarn: false
         });
 
