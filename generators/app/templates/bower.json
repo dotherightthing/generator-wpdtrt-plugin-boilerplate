@@ -1,5 +1,5 @@
 {
-  "name": "<%= authorWordPressName %>/<%= name %>",
+  "name": "<%= githubUserName %>/<%= name %>",
   "version": "<%= version %>",
   "description": "<%= description %>",
   "main": "<%= name %>.php",
