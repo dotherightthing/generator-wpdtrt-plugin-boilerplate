@@ -1,4 +1,4 @@
-# WordPress Plugin Boilerplate
+# WordPress Plugin Boilerplate Generator
 
 [![GitHub tags](https://img.shields.io/github/tag/dotherightthing/generator-wp-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wp-plugin-boilerplate/tags) [![Build Status](https://travis-ci.org/dotherightthing/generator-wp-plugin-boilerplate.svg?branch=wpplugin)](https://travis-ci.org/dotherightthing/generator-wp-plugin-boilerplate) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/generator-wp-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues)
 
