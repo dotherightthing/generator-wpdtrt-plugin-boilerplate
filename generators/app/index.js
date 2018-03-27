@@ -622,13 +622,14 @@ module.exports = class extends Generator {
      * or spawn child processes to install them yourself;
      * and you could take this opportunity to inject dependencies
      * into previously-written files as well
+     * note: installDependencies needs at least one of `npm`, `bower` or `yarn` to run.
      * {@link https://webcake.co/building-a-yeoman-generator/}
      * @see https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
      * @todo https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/30
      */
     install() {
         this.installDependencies({
-            npm: false,
+            npm: true,
             bower: false,
             yarn: false
         });
