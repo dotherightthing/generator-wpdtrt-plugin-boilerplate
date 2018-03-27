@@ -705,20 +705,15 @@ module.exports = class extends Generator {
             this.props.wpVersion
         ]);
 
-        // phpunit is installed with composer install
-        this.spawnCommandSync('phpunit');
-
         // gulp-cli is installed by travis
         // gulp is installed with the generator
         this.spawnCommandSync('gulp', [
-            'dist',
+            'install',
             '--gulpfile',
             './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
             '--cwd',
             './'
         ]);
-
-
 
         this.spawnCommand('open', [
             'https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin'

@@ -79,7 +79,6 @@ before_script:
 # Run the build script
 script:
   - gulp dist --gulpfile ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js --cwd ./
-  - phpunit
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
