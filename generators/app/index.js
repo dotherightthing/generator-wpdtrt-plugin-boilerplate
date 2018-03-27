@@ -210,6 +210,12 @@ module.exports = class extends Generator {
         const prompts = [
             {
                 type: 'input',
+                name: 'generatorVersion',
+                message: 'Generator version',
+                default: this.config.get('generatorVersion')
+            },
+            {
+                type: 'input',
                 name: 'name',
                 message: 'Plugin name (file safe)',
                 default: this.config.get('name')
