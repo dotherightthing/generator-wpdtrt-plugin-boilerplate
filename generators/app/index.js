@@ -670,7 +670,8 @@ module.exports = class extends Generator {
             'dist',
             '--gulpfile',
             './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
-            '--cwd ./'
+            '--cwd',
+            './'
         ]);
 
 
