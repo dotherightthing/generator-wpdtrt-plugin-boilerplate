@@ -2,42 +2,88 @@
 
 [![GitHub tags](https://img.shields.io/github/tag/dotherightthing/generator-wp-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wp-plugin-boilerplate/tags) [![Build Status](https://travis-ci.org/dotherightthing/generator-wp-plugin-boilerplate.svg?branch=wpplugin)](https://travis-ci.org/dotherightthing/generator-wp-plugin-boilerplate) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/generator-wp-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues)
 
-A best-practice boilerplate for plugin development.
-
-The generated plugin consumes <https://github.com/dotherightthing/wpdtrt-plugin/>.
+Generates a best-practice boilerplate for [WordPress](https://wordpress.org/) plugin development.
 
 ## Installation
 
 ### A. Install the generator dependencies
 
-1. Node & NPM: <https://nodejs.org/>
-1. Git: <https://git-scm.com/>
-1. [Bower](http://bower.io/): `$ npm install -g bower`
-1. Composer: <https://getcomposer.org/download/>
+1. [Composer](https://getcomposer.org/download/)
+1. [Node.js & NPM](https://nodejs.org/)
+1. [Bower](https://bower.io/): `$ npm install -g bower`
+1. [Gulp](https://gulpjs.com/): `$ sudo npm install -g gulp-cli`
 1. [Yeoman](http://yeoman.io/): `$ sudo npm install -g yo`
+1. [GraphViz](http://graphviz.org/download/), for graphs in PHPDoc (optional)
+
+This process is also automated:
+
+* by Travis CI
+* from `generator-wp-plugin-boilerplate/.travis.yml`
+* in tasks `before_install` and `install`
 
 ### B. Install the generator
 
-1. Clone this repository to a folder
-1. Open Terminal
-1. `cd`, into the downloaded folder
-1. `npm install`
-1. `sudo npm link`
+1. `$ git clone https://github.com/dotherightthing/generator-wp-plugin-boilerplate.git`
+1. `$ cd generator-wp-plugin-boilerplate`
+1. `$ npm install`
+1. `$ sudo npm link`
 
-### C. Scaffold project
+This process is also automated:
 
-1. Create a folder for the plugin
-1. Open Terminal
-1. `cd`, into the folder
-1. `yo wp-plugin-boilerplate`
+* by Travis CI
+* from `generator-wp-plugin-boilerplate/.travis.yml`
+* in task `install`
+
+### C. Use the generator to scaffold a custom plugin
+
+1. `$ mkdir wpdtrt-mypluginname` (note: the name `wpdtrt-plugin` is reserved)
+1. `$ cd wpdtrt-mypluginname`
+1. `$ yo wp-plugin-boilerplate`
+
+This process is also automated:
+
+* by Travis CI
+* from `generator-wp-plugin-boilerplate/.travis.yml`
+* in task `script`
+
+### D. Yeoman runs
+
+1. The config options are used to customise a set of base files
+1. The latest tagged version of [wpdtrt-plugin](https://github.com/dotherightthing/wpdtrt-plugin) is installed via Composer
+1. `wpdtrt-plugin`'s Gulp/Node dependencies are installed
+1. The WordPress Unit Testing framework is installed
+1. `wpdtrt-plugin`'s PHPUnit tests are run
+1. `wpdtrt-plugin`'s Gulp build task (`gulp dist`) is run
+
+This process is automated:
+
+* by Yeoman
+* from `generator-wp-plugin-boilerplate/generators/app/index.js`
+* in task `install`
+
+### E. Gulp runs
+
+1. `wpdtrt-mypluginname`'s Bower (front-end) dependencies are installed
+1. `wpdtrt-mypluginname`'s Composer (PHP) dependencies are installed, including development libraries specified by `wpdtrt-plugin`
+1. `wpdtrt-mypluginname`'s SCSS files are compiled into SCSS
+1. `wpdtrt-mypluginname`'s JS files are linted and documented
+1. `wpdtrt-mypluginname`'s PHP files are linted and documented
+1. `wpdtrt-mypluginname`'s WordPress-friendly `./release.zip` is generated
+
+This process is automated:
+
+* by Gulp
+* from `wpdtrt-mypluginname/vendor/dotherightthing/wpdtrt-plugin/gulpfile.js`
+* in task `dist`
+* on `wpdtrt-mypluginname/*`
+
+This task can also be run on `wpdtrt-mypluginname` after it has been cloned from its own Git repo, see [Develop child plugins](https://github.com/dotherightthing/wpdtrt-plugin#develop-child-plugins-or-maintain-this-one).
 
 ---
 
 ## Notes
 
 ### Testing
-
-There aren't any tests yet, but these are on the roadmap.
 
 PHPUnit is currently at version 6.1, but this project uses the Old Stable Release of 5.7 to work with PHP 5.6. This version is supported until February 2018, see https://phpunit.de/.
 

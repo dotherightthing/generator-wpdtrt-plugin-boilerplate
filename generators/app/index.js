@@ -651,15 +651,6 @@ module.exports = class extends Generator {
             './vendor/dotherightthing/wpdtrt-plugin/'
         ]);
 
-        // gulp-cli is installed by travis
-        // gulp is installed with the generator
-        this.spawnCommandSync('gulp', [
-            'dist',
-            '--gulpfile',
-            './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
-            '--cwd ./'
-        ]);
-
         // test setup is run by travis on before_script
         this.spawnCommandSync('bash', [
             'bin/install-wp-tests.sh',
@@ -672,6 +663,17 @@ module.exports = class extends Generator {
 
         // phpunit is installed with composer install
         this.spawnCommandSync('phpunit');
+
+        // gulp-cli is installed by travis
+        // gulp is installed with the generator
+        this.spawnCommandSync('gulp', [
+            'dist',
+            '--gulpfile',
+            './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
+            '--cwd ./'
+        ]);
+
+
 
         this.spawnCommand('open', [
             'https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin'
