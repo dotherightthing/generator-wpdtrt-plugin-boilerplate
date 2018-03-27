@@ -178,6 +178,21 @@ module.exports = class extends Generator {
             'githubApiPersonalAccessToken',
             'TODO'
         );
+
+        this.config.set(
+            'testDatabaseName',
+            this.config.get('nameSafe') + 'Test'
+        );
+
+        this.config.set(
+            'testDatabaseUserName',
+            'root'
+        );
+
+        this.config.set(
+            'testDatabasePassword',
+            ''
+        );
     }
 
     /**
@@ -342,6 +357,24 @@ module.exports = class extends Generator {
                 name: 'githubApiPersonalAccessToken',
                 message: 'Github Releases API Key',
                 default: this.config.get('githubApiPersonalAccessToken')
+            },
+            {
+                type: 'input',
+                name: 'testDatabaseName',
+                message: 'Database name for WordPress Unit tests',
+                default: this.config.get('testDatabaseName')
+            },
+            {
+                type: 'input',
+                name: 'testDatabaseUserName',
+                message: 'Database user name for WordPress Unit tests',
+                default: this.config.get('testDatabaseUserName')
+            },
+            {
+                type: 'input',
+                name: 'testDatabasePassword',
+                message: 'Database password for WordPress Unit tests',
+                default: this.config.get('testDatabasePassword')
             }
         ];
 
@@ -414,6 +447,9 @@ module.exports = class extends Generator {
             slackName:                      this.props.slackName,
             slackPasswordEncrypted:         this.props.slackPasswordEncrypted,
             srcDir:                         process.cwd(),
+            testDatabaseName:               this.testDatabaseName,
+            testDatabaseUserName:           this.testDatabaseUserName,
+            testDatabasePassword:           this.testDatabasePassword,
             wpVersion:                      this.props.wpVersion
         };
 
@@ -654,11 +690,11 @@ module.exports = class extends Generator {
         // test setup is run by travis on before_script
         this.spawnCommandSync('bash', [
             'bin/install-wp-tests.sh',
-            'wordpress_test',
-            'root',
-            '',
+            this.props.testDatabaseName,
+            this.props.testDatabaseUserName,
+            this.props.testDatabasePassword,
             'localhost',
-            '4.9.4'
+            this.props.wpVersion
         ]);
 
         // phpunit is installed with composer install
