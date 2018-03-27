@@ -29,6 +29,8 @@ module.exports = class extends Generator {
 
         // Set config defaults
 
+        var prefix = '';
+
         // generatorVersion aids backfilling of functionality
         // in generated plugins
         this.config.set(
@@ -43,7 +45,7 @@ module.exports = class extends Generator {
         );
 
         if ( this.config.get('name').match('wpdtrt') ) {
-            var prefix = 'wpdtrt-';
+            prefix = 'wpdtrt-';
         }
 
         // nameSafe is used in PHP functions, so is based on name
