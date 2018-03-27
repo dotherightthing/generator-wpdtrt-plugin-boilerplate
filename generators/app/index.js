@@ -71,7 +71,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'nameTemplate',
-            S( this.config.get('name') ).replaceAll('wpdtrt- ', '').s
+            S( this.config.get('name') ).replaceAll('wpdtrt-', '').s
         );
 
         this.config.set(
