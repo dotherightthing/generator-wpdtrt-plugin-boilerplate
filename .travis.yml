@@ -27,7 +27,7 @@ before_install:
 # Note: Remember to run composer update on local dev to get latest updates to dependencies
 install:
   - npm install # child plugin
-  - npm install yo -g
+  - npm install -g yo
   - npm link
 
 # Make shell script executable
