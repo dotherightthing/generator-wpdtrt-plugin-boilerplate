@@ -634,13 +634,27 @@ module.exports = class extends Generator {
             yarn: false
         });
 
-        this.spawnCommand('open', ['https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin']);
-        //this.spawnCommandSync('npm', ['install ./vendor/dotherightthing/wpdtrt-plugin/ --prefix ./vendor/dotherightthing/wpdtrt-plugin/']);
-        //this.spawnCommandSync('npm', ['install']);
-        //this.spawnCommandSync('npm', ['install gulp-cli -g']);
-        //this.spawnCommandSync('gulp', ['dev --gulpfile ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js --cwd ./']);
-        //this.spawnCommandSync('bash', ['bin/install-wp-tests.sh wordpress_test4 root root localhost 4.8.2']);
-        //this.spawnCommandSync('phpunit');
+        // loads parent plugin class, which in turn runs a composer install via gulpfile.js
+        this.spawnCommandSync('composer', [
+            'install',
+            '--prefer-dist --no-interaction'
+        ]);
+
+        this.spawnCommandSync('npm', [
+            'install ./vendor/dotherightthing/wpdtrt-plugin/',
+            '--prefix ./vendor/dotherightthing/wpdtrt-plugin/'
+        ]);
+
+        this.spawnCommandSync('gulp', [
+            'dist',
+            '--gulpfile ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js --cwd ./'
+        ]);
+
+        this.spawnCommandSync('phpunit');
+
+        this.spawnCommand('open', [
+            'https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin'
+        ]);
     }
 
     /**
