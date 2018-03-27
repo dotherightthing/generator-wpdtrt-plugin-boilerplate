@@ -6,7 +6,6 @@
  * @version     0.7.0
  */
 
-
 /*jslint node: true, esversion:6 */
 
 'use strict';
@@ -625,6 +624,8 @@ module.exports = class extends Generator {
      * note: installDependencies needs at least one of `npm`, `bower` or `yarn` to run.
      * {@link https://webcake.co/building-a-yeoman-generator/}
      * @see https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
+     * @see https://stackoverflow.com/a/29834006/6850747
+     * @see https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
      * @todo https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/30
      */
     install() {
@@ -634,22 +635,42 @@ module.exports = class extends Generator {
             yarn: false
         });
 
+        // composer is installed by travis
         // loads parent plugin class, which in turn runs a composer install via gulpfile.js
         this.spawnCommandSync('composer', [
             'install',
-            '--prefer-dist --no-interaction'
+            '--prefer-dist',
+            '--no-interaction'
         ]);
 
+        // node is installed by travis
         this.spawnCommandSync('npm', [
-            'install ./vendor/dotherightthing/wpdtrt-plugin/',
-            '--prefix ./vendor/dotherightthing/wpdtrt-plugin/'
+            'install',
+            './vendor/dotherightthing/wpdtrt-plugin/',
+            '--prefix',
+            './vendor/dotherightthing/wpdtrt-plugin/'
         ]);
 
+        // gulp-cli is installed by travis
+        // gulp is installed with the generator
         this.spawnCommandSync('gulp', [
             'dist',
-            '--gulpfile ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js --cwd ./'
+            '--gulpfile',
+            './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
+            '--cwd ./'
         ]);
 
+        // test setup is run by travis on before_script
+        this.spawnCommandSync('bash', [
+            'bin/install-wp-tests.sh',
+            'wordpress_test',
+            'root',
+            '',
+            'localhost',
+            '4.9.4'
+        ]);
+
+        // phpunit is installed with composer install
         this.spawnCommandSync('phpunit');
 
         this.spawnCommand('open', [
