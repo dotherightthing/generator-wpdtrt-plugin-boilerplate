@@ -2,25 +2,61 @@
 # which are automatically run when code is pushed to Github.
 # To skip a build, add [ci skip] to the commit message.
 
-# Use Node.js, to run Yeoman
-language: node_js
+# Use PHP, to use Composer, WordPress and PHPUnit
+language: php
+
+# PHP versions to test against
+# https://github.com/meitar/wordpress-plugin-skeleton/blob/master/.travis.yml
+php:
+  - 5.6.30 # MAMP
+#  - 5.5 # Sitehost - fails phpunit version requirement
+
+# Public Environment Variables
+# https://docs.travis-ci.com/user/environment-variables
+# https://github.com/meitar/wordpress-plugin-skeleton/blob/master/.travis.yml
+env:
+  - WP_VERSION=latest WP_MULTISITE=0
+
+# Build Matrix
+# consisting of specific runtime/env/exclude/include combinations.
+# Each 'include' is run as a separate job.
+# https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
+# https://github.com/meitar/wordpress-plugin-skeleton/blob/master/.travis.yml
+matrix:
+  # reduce the delay in the build status being reported
+  # https://johnblackbourn.com/reducing-travis-ci-build-times-for-wordpress-projects/
+  fast_finish: true
+  include:
+    - php: 5.6.30
+      env: WP_VERSION=latest WP_MULTISITE=0
 
 # Cache directories between builds, to store dependencies
 # which take longer to compile or download.
 # https://docs.travis-ci.com/user/caching#Caching-directories-(Bundler%2C-dependencies)
 # https://github.com/wp-cli/sample-plugin/blob/master/.travis.yml
 # https://johnblackbourn.com/reducing-travis-ci-build-times-for-wordpress-projects/
+# ~/files - https://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
 cache:
   directories:
 #   - node_modules
 #   - vendor
+#    - $HOME/.composer/cache/files
     - $HOME/.npm 
 
-# Specify a newer version of Node than the Travis default
-# in order to avoid the build error "Use of const in strict mode"
-# https://stackoverflow.com/a/44250453/6850747
 before_install:
+  # Install a Second Programming Language (Node, to run Gulp tasks)
+  # We need to specify a newer version than the Travis default
+  # in order to avoid the build error "Use of const in strict mode"
+  # https://docs.travis-ci.com/user/customizing-the-build/#Installing-a-Second-Programming-language
+  # https://stackoverflow.com/a/44250453/6850747
   - nvm install 6.11.2
+  # Disable XDebug which is only required for Code Coverage reports
+  # https://johnblackbourn.com/reducing-travis-ci-build-times-for-wordpress-projects/
+  - phpenv config-rm xdebug.ini
+  # Fix PHPDoc error:
+  # "Unable to find the `dot` command of the GraphViz package. Is GraphViz correctly installed and present in your path?"
+  - sudo apt-get install graphviz
+  # Expect is required to automate user config of the Yeoman plugin generator
   - sudo apt-get install expect
 
 # Install dependencies
@@ -28,16 +64,22 @@ before_install:
 # Note: Remember to run composer update on local dev to get latest updates to dependencies
 install:
   - npm install # child plugin
+  - npm install -g bower
+  - npm install -g gulp-cli
   - npm install -g yo
+  # Make the generator available via the commandline:
   - npm link
 
 # Make shell script executable
 # https://github.com/travis-ci/travis-ci/issues/5804
 before_script:
   - chmod a+x travis-yo.sh
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
 
 # Run the build script
-script: ./travis-yo.sh
+script:
+  - ./travis-yo.sh
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
