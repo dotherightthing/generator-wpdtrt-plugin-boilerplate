@@ -1,16 +1,16 @@
 <?php
-/*
-Plugin Name:  <%= nameFriendly %>
-Plugin URI:   <%= pluginUrl %>
-Description:  <%= description %>
-Version:      0.0.1
-Author:       <%= authorName %>
-Author URI:   <%= authorUrl %>
-License:      <%= pluginLicense %>
-License URI:  <%= pluginLicenseUrl %>
-Text Domain:  <%= name %>
-Domain Path:  /languages
-*/
+/**
+ * Plugin Name:  <%= nameFriendly %>
+ * Plugin URI:   <%= pluginUrl %>
+ * Description:  <%= description %>
+ * Version:      0.0.1
+ * Author:       <%= authorName %>
+ * Author URI:   <%= authorUrl %>
+ * License:      <%= pluginLicense %>
+ * License URI:  <%= pluginLicenseUrl %>
+ * Text Domain:  <%= name %>
+ * Domain Path:  /languages
+ */
 
 require_once plugin_dir_path( __FILE__ ) . "vendor/autoload.php";
 
