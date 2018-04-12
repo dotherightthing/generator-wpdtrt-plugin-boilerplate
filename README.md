@@ -6,7 +6,12 @@ Generates a best-practice boilerplate for [WordPress](https://wordpress.org/) pl
 
 ## Installation
 
-### A. Install the generator dependencies
+### A. Create a Git repo to store the code
+
+1. Create a remote Git repo `wpdtrt-mypluginname` - note that the name `wpdtrt-plugin` is reserved. [Github instructions](https://help.github.com/articles/create-a-repo/)
+1. Clone `wpdtrt-mypluginname` to your local computer
+
+### B. Install the generator dependencies
 
 1. [Composer](https://getcomposer.org/download/)
 1. [Node.js & NPM](https://nodejs.org/)
@@ -21,7 +26,7 @@ This process is also automated:
 * from `generator-wp-plugin-boilerplate/.travis.yml`
 * in tasks `before_install` and `install`
 
-### B. Install the generator
+### C. Install the generator
 
 1. `$ git clone https://github.com/dotherightthing/generator-wp-plugin-boilerplate.git`
 1. `$ cd generator-wp-plugin-boilerplate`
@@ -34,9 +39,8 @@ This process is also automated:
 * from `generator-wp-plugin-boilerplate/.travis.yml`
 * in task `install`
 
-### C. Use the generator to scaffold a custom plugin
+### D. Use the generator to scaffold a custom plugin
 
-1. `$ mkdir wpdtrt-mypluginname` (note: the name `wpdtrt-plugin` is reserved)
 1. `$ cd wpdtrt-mypluginname`
 1. `$ yo wp-plugin-boilerplate`
 
@@ -46,7 +50,7 @@ This process is also automated:
 * from `generator-wp-plugin-boilerplate/.travis.yml`
 * in task `script`
 
-### D. Yeoman runs
+### E. Yeoman runs
 
 1. The config options are used to customise a set of base files
 1. The latest tagged version of [wpdtrt-plugin](https://github.com/dotherightthing/wpdtrt-plugin) is installed via Composer
@@ -61,7 +65,7 @@ This process is automated:
 * from `generator-wp-plugin-boilerplate/generators/app/index.js`
 * in task `install`
 
-### E. Gulp runs
+### F. Gulp runs
 
 1. `wpdtrt-mypluginname`'s Bower (front-end) dependencies are installed
 1. `wpdtrt-mypluginname`'s Composer (PHP) dependencies are installed, including development libraries specified by `wpdtrt-plugin`
