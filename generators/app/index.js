@@ -182,17 +182,32 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
-            'testDatabaseName',
+            'travisTestDatabaseName',
             this.config.get('nameSafe') + 'Test'
         );
 
         this.config.set(
-            'testDatabaseUserName',
+            'travisTestDatabaseUserName',
             'root'
         );
 
         this.config.set(
-            'testDatabasePassword',
+            'travisTestDatabasePassword',
+            ''
+        );
+
+        this.config.set(
+            'localTestDatabaseName',
+            this.config.get('nameSafe') + 'Test'
+        );
+
+        this.config.set(
+            'localTestDatabaseUserName',
+            ''
+        );
+
+        this.config.set(
+            'localTestDatabasePassword',
             ''
         );
     }
@@ -368,21 +383,21 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
-                name: 'testDatabaseName',
+                name: 'localTestDatabaseName',
                 message: 'Database name for WordPress Unit tests',
-                default: this.config.get('testDatabaseName')
+                default: this.config.get('localTestDatabaseName')
             },
             {
                 type: 'input',
-                name: 'testDatabaseUserName',
+                name: 'localTestDatabaseUserName',
                 message: 'Database user name for WordPress Unit tests',
-                default: this.config.get('testDatabaseUserName')
+                default: this.config.get('localTestDatabaseUserName')
             },
             {
                 type: 'input',
-                name: 'testDatabasePassword',
+                name: 'localTestDatabasePassword',
                 message: 'Database password for WordPress Unit tests',
-                default: this.config.get('testDatabasePassword')
+                default: this.config.get('localTestDatabasePassword')
             }
         ];
 
@@ -436,6 +451,9 @@ module.exports = class extends Generator {
             githubUserName:                 this.props.githubUserName,
             githubApiPersonalAccessToken:   this.props.githubApiPersonalAccessToken,
             homepage:                       this.props.homepage,
+            localTestDatabaseName:          this.localTestDatabaseName,
+            localTestDatabaseUserName:      this.localTestDatabaseUserName,
+            localTestDatabasePassword:      this.localTestDatabasePassword,
             name:                           this.props.name,
             nameAdminMenu:                  this.props.nameAdminMenu,
             nameFriendly:                   this.props.nameFriendly,
@@ -455,9 +473,9 @@ module.exports = class extends Generator {
             slackName:                      this.props.slackName,
             slackPasswordEncrypted:         this.props.slackPasswordEncrypted,
             srcDir:                         process.cwd(),
-            testDatabaseName:               this.testDatabaseName,
-            testDatabaseUserName:           this.testDatabaseUserName,
-            testDatabasePassword:           this.testDatabasePassword,
+            travisTestDatabaseName:         this.travisTestDatabaseName,
+            travisTestDatabaseUserName:     this.travisTestDatabaseUserName,
+            travisTestDatabasePassword:     this.travisTestDatabasePassword,
             wpVersion:                      this.props.wpVersion
         };
 
@@ -698,9 +716,9 @@ module.exports = class extends Generator {
         // test setup is run by travis on before_script
         this.spawnCommandSync('bash', [
             'bin/install-wp-tests.sh',
-            this.props.testDatabaseName,
-            this.props.testDatabaseUserName,
-            this.props.testDatabasePassword,
+            this.props.localTestDatabaseName,
+            this.props.localTestDatabaseUserName,
+            this.props.localTestDatabasePassword,
             'localhost',
             this.props.wpVersion
         ]);
