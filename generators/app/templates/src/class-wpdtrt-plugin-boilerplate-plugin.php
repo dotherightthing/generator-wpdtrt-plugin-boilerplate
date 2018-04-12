@@ -56,28 +56,17 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPPlugin\Plugin {
 
     //// END WORDPRESS INTEGRATION \\\\
 
-    /* ====== Add public functions here ====== */
+    //// START SETTERS AND GETTERS \\\\
+    //// END SETTERS AND GETTERS \\\\
 
-	/**
-	 * Add custom rewrite rules
-	 * WordPress allows theme and plugin developers to programmatically specify new, custom rewrite rules.
-	 *
-	 * @see http://clivern.com/how-to-add-custom-rewrite-rules-in-wordpress/
-	 * @see https://www.pmg.com/blog/a-mostly-complete-guide-to-the-wordpress-rewrite-api/
-	 * @see https://www.addedbytes.com/articles/for-beginners/url-rewriting-for-beginners/
-	 * @see http://codex.wordpress.org/Rewrite_API
-	 *
-	 * @version     0.0.1
-     * @since       <%= generatorVersion %>
-	 */
-	public function set_rewrite_rules() {
+    //// START RENDERERS \\\\
+    //// END RENDERERS \\\\
 
-	    global $wp_rewrite;
+    //// START FILTERS \\\\
+    //// END FILTERS \\\\
 
-	    // Add rewrite rules in case another plugin flushes rules
-	  	// add_action('init', [$this, 'set_rewrite_rules'] );
-	    // ...
-	}
+    //// START HELPERS \\\\
+    //// END HELPERS \\\\
 }
 
 ?>
