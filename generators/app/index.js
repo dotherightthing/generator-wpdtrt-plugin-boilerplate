@@ -178,7 +178,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'githubApiPersonalAccessToken',
-            'TODO'
+            ''
         );
 
         this.config.set(
@@ -364,7 +364,7 @@ module.exports = class extends Generator {
                 type: 'input',
                 name: 'githubApiPersonalAccessToken',
                 message: 'Github Releases API Key',
-                default: this.config.get('githubApiPersonalAccessToken')
+                default: 'https://github.com/settings/tokens > Generate new token'
             },
             {
                 type: 'input',

@@ -97,7 +97,7 @@ notifications:
 deploy:
   provider: releases
   api_key:
-    secure: W/C0d6kkg6h5+6bQ7S181YlbH45kwOKCq1fo+PS+KIaxAX80NomMo0PAC2h/puNGNeLD5O8knWYcc4tNg059zcGyuf3m6Hs6r959Wlk1RvN3MtdOfm0+Z30xQJEFMuanTSVg1R4lvvKQutADF5T5HT82kjscCzWlFONxsq5kp6/2Z98mN5bCDaQuB2FeyBCCM1TH/OTAtUgdYGQVEJdb1sfv/GLtuYshfLxKycU0bJVo15sOkTyeJM0Qx1CwLovSkpZrqYfrl3vJhDF0MrgI3YKoHFejYXZD4/at5W+buNX95bmXjEI5YLNs2W5GZIi+wUNgJI8qoXxC4pZzc+zxm1ZqaSnYMSOG1HXrZzESbBdUhYbmIU0zuKJnQw8hP1b8GlNruiGrcc4I6iR7yB7OXh9xxyqMWzWgYmhEhGxDQz8wtKvoA/IXKHArfXOasFH+mytFGgwrdLaE9Z5FTRo42DQ/J8td5AzVBl6WVgWHYMJ1zZiGYWllX8oV33kZBUhExqFVe00SksL++HenkDekpUgl7xZQc1Misw5+QemQaIsPMZ5112jSq5uxc2EpWqeTj2lxUWv5ZstZUMt4d+RnDV6o9tPQQh5B3CiZiDHfmLYOMG6O5Zz3Ue3A5OkCSvzVd6cBW3H11NmBQl8rbwhb7Y+WzcXSwPkJLLqeUF/vhs0=
+    secure: <%= githubApiPersonalAccessToken %>
   file: 'release.zip'
   # prevent Travis CI from resetting the working directory
   # which deletes all changes made during the build 
