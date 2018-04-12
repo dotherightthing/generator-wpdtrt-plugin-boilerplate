@@ -509,6 +509,14 @@ module.exports = class extends Generator {
             userSettings
         );
 
+        // i18n
+
+        this.fs.copyTpl(
+            this.templatePath('languages/wpdtrt-plugin-boilerplate.pot'),
+            this.destinationPath('src/' + this.props.name + '.pot'),
+            userSettings
+        );
+
         // scss
 
         this.fs.copyTpl(
