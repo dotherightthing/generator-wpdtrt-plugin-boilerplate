@@ -56,7 +56,7 @@ if( ! defined( '<%= constantStub %>_VERSION' ) ) {
  * @version   0.0.1
  * @since     <%= generatorVersion %>
  */
-  define( '<%= constantStub %>_VERSION', '0.1' );
+  define( '<%= constantStub %>_VERSION', '0.0.1' );
 }
 
 if( ! defined( '<%= constantStub %>_PATH' ) ) {
