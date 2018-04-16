@@ -379,7 +379,7 @@ module.exports = class extends Generator {
                 type: 'input',
                 name: 'githubApiPersonalAccessToken',
                 message: 'Github Releases API Key',
-                default: 'https://github.com/settings/tokens > Generate new token'
+                default: 'https://github.com/settings/tokens > Generate new token > repo:public_repo'
             },
             {
                 type: 'input',
