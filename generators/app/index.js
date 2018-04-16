@@ -451,9 +451,9 @@ module.exports = class extends Generator {
             githubUserName:                 this.props.githubUserName,
             githubApiPersonalAccessToken:   this.props.githubApiPersonalAccessToken,
             homepage:                       this.props.homepage,
-            localTestDatabaseName:          this.localTestDatabaseName,
-            localTestDatabaseUserName:      this.localTestDatabaseUserName,
-            localTestDatabasePassword:      this.localTestDatabasePassword,
+            localTestDatabaseName:          this.props.localTestDatabaseName,
+            localTestDatabaseUserName:      this.props.localTestDatabaseUserName,
+            localTestDatabasePassword:      this.props.localTestDatabasePassword,
             name:                           this.props.name,
             nameAdminMenu:                  this.props.nameAdminMenu,
             nameFriendly:                   this.props.nameFriendly,
@@ -473,9 +473,9 @@ module.exports = class extends Generator {
             slackName:                      this.props.slackName,
             slackPasswordEncrypted:         this.props.slackPasswordEncrypted,
             srcDir:                         process.cwd(),
-            travisTestDatabaseName:         this.travisTestDatabaseName,
-            travisTestDatabaseUserName:     this.travisTestDatabaseUserName,
-            travisTestDatabasePassword:     this.travisTestDatabasePassword,
+            travisTestDatabaseName:         this.props.travisTestDatabaseName,
+            travisTestDatabaseUserName:     this.props.travisTestDatabaseUserName,
+            travisTestDatabasePassword:     this.props.travisTestDatabasePassword,
             wpVersion:                      this.props.wpVersion
         };
 
