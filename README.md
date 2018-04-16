@@ -83,6 +83,26 @@ This process is automated:
 
 This task can also be run on `wpdtrt-mypluginname` after it has been cloned from its own Git repo, see [Develop child plugins](https://github.com/dotherightthing/wpdtrt-plugin#develop-child-plugins-or-maintain-this-one).
 
+### G. Set up Travis CI
+
+1. https://travis-ci.org/
+1. https://travis-ci.org/profile/yourtravisusername
+1. Sync account
+1. Flick the `wpdtrt-mypluginname` repository switch to 'on'
+1. This adds a commit hook to https://github.com/~/wpdtrt-mypluginname/settings/installations
+
+Tip: [CCMenu](http://ccmenu.org/) displays the build status of projects on a continuous integration server as an item in the Mac's menu bar
+
+### H. Set up Private Packagist (optional)
+
+Travis sometimes fails to download all of the Composer dependencies from Github, causing builds to fail. The premium Private Packagist service makes this process much more robust, by mirorring dependencies onto its own servers.
+
+This settingis optional and Composer will fall back to the original sources if a Private Packagist `COMPOSER_AUTH` key is not configured.
+
+1. https://travis-ci.org/dotherightthing/wpdtrt-anchorlinks/settings > Environmental Variables
+1. Name: `COMPOSER_AUTH`
+1. Value: Copy from https://packagist.com/orgs/yourpackagistusername/tokens
+
 ---
 
 ## Notes
