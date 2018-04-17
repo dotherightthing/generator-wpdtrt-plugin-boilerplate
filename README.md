@@ -93,15 +93,28 @@ This task can also be run on `wpdtrt-mypluginname` after it has been cloned from
 
 Tip: [CCMenu](http://ccmenu.org/) displays the build status of projects on a continuous integration server as an item in the Mac's menu bar
 
-### H. Set up Private Packagist (optional)
+### H. Set up tokens for Travis CI
+
+1. https://travis-ci.org/yourtravisusername/wpdtrt-mypluginname/settings > Environmental Variables
+
+#### Github Releases
+
+1. Name: `GITHUB_AUTH`
+1. Value: <https://github.com/settings/tokens> > Generate new token > `repo:public_repo`
+
+#### Private Packagist (optional)
 
 Travis sometimes fails to download all of the Composer dependencies from Github, causing builds to fail. The premium Private Packagist service makes this process much more robust, by mirorring dependencies onto its own servers.
 
 This settingis optional and Composer will fall back to the original sources if a Private Packagist `COMPOSER_AUTH` key is not configured.
 
-1. https://travis-ci.org/dotherightthing/wpdtrt-anchorlinks/settings > Environmental Variables
 1. Name: `COMPOSER_AUTH`
 1. Value: Copy from https://packagist.com/orgs/yourpackagistusername/tokens
+
+#### Slack Notifications
+
+1. Name: `SLACK_AUTH`
+1. Value: Follow the instructions at https://docs.travis-ci.com/user/notifications/#Configuring-Slack-notifications to generate an encrypted key in the format `<account>:<token>`
 
 ---
 

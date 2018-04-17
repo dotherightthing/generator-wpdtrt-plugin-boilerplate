@@ -84,7 +84,7 @@ script:
 # https://docs.travis-ci.com/user/notifications/
 notifications:
   email: false
-  slack: <%= slackName %>:<%= slackPasswordEncrypted %>
+  slack: $SLACK_AUTH
 
 # Deploy code to Github as a 'release'
 # This is run after a tagged commit triggers a successful build

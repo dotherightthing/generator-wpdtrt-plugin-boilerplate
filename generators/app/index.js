@@ -136,16 +136,6 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
-            'slackName',
-            'dotherightthing'
-        );
-
-        this.config.set(
-            'slackPasswordEncrypted',
-            'Wu2ypwc2wIFZVqVqc2jRkbWw'
-        );
-
-        this.config.set(
             'authorAbbreviation',
             'DTRT'
         );
@@ -173,11 +163,6 @@ module.exports = class extends Generator {
         this.config.set(
             'repositoryUrl',
             ( 'git@github.com:' + this.config.get('githubUserName') + '/' + this.config.get('name') + '.git' )
-        );
-
-        this.config.set(
-            'githubApiPersonalAccessToken',
-            ''
         );
 
         this.config.set(
@@ -328,18 +313,6 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
-                name: 'slackName',
-                message: 'Slack channel name for notifications',
-                default: this.config.get('slackName')
-            },
-            {
-                type: 'input',
-                name: 'slackPasswordEncrypted',
-                message: 'Encrypted Slack password',
-                default: this.config.get('slackPasswordEncrypted')
-            },
-            {
-                type: 'input',
                 name: 'authorEmail',
                 message: 'Your email address',
                 default: this.config.get('authorEmail')
@@ -374,12 +347,6 @@ module.exports = class extends Generator {
                 message: 'Github Vendor Name',
                 default: this.config.get('githubUserName')
             },    
-            {
-                type: 'input',
-                name: 'githubApiPersonalAccessToken',
-                message: 'Github Releases API Key',
-                default: 'https://github.com/settings/tokens > Generate new token > repo:public_repo'
-            },
             {
                 type: 'input',
                 name: 'localTestDatabaseName',
@@ -466,7 +433,6 @@ module.exports = class extends Generator {
             description:                    this.props.description,
             generatorVersion:               this.props.generatorVersion,
             githubUserName:                 this.props.githubUserName,
-            githubApiPersonalAccessToken:   this.props.githubApiPersonalAccessToken,
             homepage:                       this.props.homepage,
             localTestDatabaseName:          this.props.localTestDatabaseName,
             localTestDatabaseUserName:      this.props.localTestDatabaseUserName,
@@ -487,8 +453,6 @@ module.exports = class extends Generator {
             pluginUrlAdminMenu:             this.props.urlAdminMenu,
             repositoryType:                 this.props.repositoryType,
             repositoryUrl:                  this.props.repositoryUrl,
-            slackName:                      this.props.slackName,
-            slackPasswordEncrypted:         this.props.slackPasswordEncrypted,
             srcDir:                         process.cwd(),
             travisTestDatabaseName:         this.props.travisTestDatabaseName,
             travisTestDatabaseUserName:     this.props.travisTestDatabaseUserName,
