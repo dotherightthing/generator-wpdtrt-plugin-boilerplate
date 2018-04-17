@@ -3,7 +3,7 @@
  *
  * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin
  *
- * @version     0.7.1
+ * @version     0.7.2
  */
 
 /*jslint node: true, esversion:6 */
