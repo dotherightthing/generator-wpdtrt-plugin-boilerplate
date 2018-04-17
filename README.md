@@ -91,8 +91,6 @@ This task can also be run on `wpdtrt-mypluginname` after it has been cloned from
 1. Flick the `wpdtrt-mypluginname` repository switch to 'on'
 1. This adds a commit hook to https://github.com/~/wpdtrt-mypluginname/settings/installations
 
-Tip: [CCMenu](http://ccmenu.org/) displays the build status of projects on a continuous integration server as an item in the Mac's menu bar
-
 ### H. Set up tokens for Travis CI
 
 1. https://travis-ci.org/yourtravisusername/wpdtrt-mypluginname/settings > Environmental Variables
@@ -100,7 +98,9 @@ Tip: [CCMenu](http://ccmenu.org/) displays the build status of projects on a con
 #### Github Releases
 
 1. Name: `GITHUB_AUTH`
-1. Value: <https://github.com/settings/tokens> > Generate new token > `repo:public_repo`
+1. Value: <https://github.com/settings/tokens> > Generate new token
+1. Token description: `automatic releases for yourtravisname/wpdtrt-mypluginname`
+1. Select scopes > repo > `public_repo`
 
 Tip: This key should not be encrypted. Wrap the value in single quotes (`'...'`) for maximum compatibility with Bash.
 
@@ -108,7 +108,7 @@ Tip: This key should not be encrypted. Wrap the value in single quotes (`'...'`)
 
 Travis sometimes fails to download all of the Composer dependencies from Github, causing builds to fail. The premium Private Packagist service makes this process much more robust, by mirorring dependencies onto its own servers.
 
-This settingis optional and Composer will fall back to the original sources if a Private Packagist `COMPOSER_AUTH` key is not configured.
+This setting is optional and Composer will fall back to the original sources if a Private Packagist `COMPOSER_AUTH` key is not configured.
 
 1. Name: `COMPOSER_AUTH`
 1. Value: Copy from https://packagist.com/orgs/yourpackagistusername/tokens
@@ -117,6 +117,13 @@ This settingis optional and Composer will fall back to the original sources if a
 
 1. Name: `SLACK_AUTH`
 1. Value: Follow the instructions at https://docs.travis-ci.com/user/notifications/#Configuring-Slack-notifications to generate an encrypted key in the format `<account>:<token>`
+
+### I. Add the package to CC Menu (optional)
+
+1. https://travis-ci.org/yourtravisusername/wpdtrt-mypluginname > Trigger Build
+1. CCMenu > Preferences > + > Feed URL: `https://api.travis-ci.org/repositories/dotherightthing/wpdtrt-mypluginname/cc.xml`
+
+Tip: [CCMenu](http://ccmenu.org/) displays the build status of projects on a continuous integration server as an item in the Mac's menu bar
 
 ---
 
