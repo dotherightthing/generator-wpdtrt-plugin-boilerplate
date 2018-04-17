@@ -192,7 +192,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'travisTestDatabasePassword',
-            ''
+            '""'
         );
 
         this.config.set(
