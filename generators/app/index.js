@@ -14,7 +14,6 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const path = require('path');
 const S = require('string');
-const open = require("open");
 
 module.exports = class extends Generator {
 
@@ -740,10 +739,6 @@ module.exports = class extends Generator {
             '--cwd',
             './'
         ]);
-
-        this.spawnCommand('open', [
-            'https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin'
-        ]);
     }
 
     /**
@@ -755,10 +750,12 @@ module.exports = class extends Generator {
     end() {
 
         this.log(yosay(
-          'Thanks for installing the ' + chalk.red('DTRT WordPress Plugin boilerplate') + '. Enjoy!'
+          'Thanks for installing the ' + chalk.red('DTRT WordPress Plugin boilerplate')
         ));
 
-        open("readme.txt");
+        this.log(yosay(
+            'Please read readme.txt and https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin'
+        ));
     }
 
 };
