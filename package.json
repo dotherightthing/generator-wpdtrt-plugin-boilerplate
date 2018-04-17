@@ -1,6 +1,6 @@
 {
   "name": "generator-wp-plugin-boilerplate",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Scaffold a WordPress plugin",
   "keywords": [
     "yeoman-generator"
