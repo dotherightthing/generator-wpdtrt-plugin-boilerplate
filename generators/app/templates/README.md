@@ -1,6 +1,6 @@
 # <%= nameFriendly %>
 
-[![GitHub tags](https://img.shields.io/github/tag/<%= githubUserName %>/<%= name %>.svg)](https://github.com/<%= githubUserName %>/<%= name %>/tags) [![Build Status](https://travis-ci.org/<%= githubUserName %>/<%= name %>.svg?branch=wpplugin)](https://travis-ci.org/<%= githubUserName %>/<%= name %>) [![GitHub issues](https://img.shields.io/github/issues/<%= githubUserName %>/<%= name %>.svg)](https://github.com/<%= githubUserName %>/<%= name %>/issues)
+[![GitHub tags](https://img.shields.io/github/tag/<%= githubUserName %>/<%= name %>.svg)](https://github.com/<%= githubUserName %>/<%= name %>/tags) [![Build Status](https://travis-ci.org/<%= githubUserName %>/<%= name %>.svg?branch=master)](https://travis-ci.org/<%= githubUserName %>/<%= name %>) [![GitHub issues](https://img.shields.io/github/issues/<%= githubUserName %>/<%= name %>.svg)](https://github.com/<%= githubUserName %>/<%= name %>/issues)
 
 <%= description %>
 
