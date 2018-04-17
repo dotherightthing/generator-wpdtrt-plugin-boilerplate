@@ -102,6 +102,8 @@ Tip: [CCMenu](http://ccmenu.org/) displays the build status of projects on a con
 1. Name: `GITHUB_AUTH`
 1. Value: <https://github.com/settings/tokens> > Generate new token > `repo:public_repo`
 
+Tip: This key should not be encrypted. Wrap the value in single quotes (`'...'`) for maximum compatibility with Bash.
+
 #### Private Packagist (optional)
 
 Travis sometimes fails to download all of the Composer dependencies from Github, causing builds to fail. The premium Private Packagist service makes this process much more robust, by mirorring dependencies onto its own servers.
