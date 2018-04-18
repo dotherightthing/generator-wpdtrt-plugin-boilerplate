@@ -494,7 +494,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('languages/wpdtrt-plugin-boilerplate.pot'),
-            this.destinationPath('src/' + this.props.name + '.pot'),
+            this.destinationPath('languages/' + this.props.name + '.pot'),
             userSettings
         );
 
