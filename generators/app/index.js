@@ -3,7 +3,7 @@
  *
  * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin
  *
- * @version     0.7.4
+ * @version     0.7.5
  */
 
 /*jslint node: true, esversion:6 */
@@ -34,7 +34,7 @@ module.exports = class extends Generator {
         // in generated plugins
         this.config.set(
             'generatorVersion',
-            '0.7.0'
+            '0.7.5'
         );
 
         // name must match the folder name, for WordPress to recognise the plugin
