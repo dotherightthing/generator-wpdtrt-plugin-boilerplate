@@ -57,7 +57,6 @@ class <%= nameSafe %>Test extends WP_UnitTestCase {
 
 	    $this->post_id_1 = $this->create_post( array(
 	    	'post_title' => '<%= nameFriendly %> test',
-	    	'post_date' => '2018-03-14 19:00:00',
 	    	'post_content' => 'This is a simple test'
 	    ) );
     }
