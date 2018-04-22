@@ -243,9 +243,6 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
 
   /**
    * Register Shortcode
-   *
-   * @todo Add centigrade as a shortcode option (#1)
-   * @todo Add units as a shortcode option (#2)
    */
   function <%= nameSafe %>_shortcode_1_init() {
 
