@@ -46,6 +46,6 @@ echo $before_title . $title . $after_title;
 </div>
 
 <?php
-  // output widget customisations (not output with shortcode)
-  echo $after_widget;
+// output widget customisations (not output with shortcode)
+echo $after_widget;
 ?>
