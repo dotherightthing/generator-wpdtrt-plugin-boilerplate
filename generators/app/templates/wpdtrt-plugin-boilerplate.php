@@ -227,7 +227,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
       array(
         'name' => '<%= nameSafe %>_widget_1',
         'title' => __('<%= authorAbbreviation %> <%= nameAdminMenu %> Widget', '<%= name %>'),
-        'description' => __('<%= description %>.', '<%= name %>'),
+        'description' => __('<%= description %>', '<%= name %>'),
         'plugin' => $<%= nameSafe %>_plugin,
         'template' => '<%= nameTemplate %>',
         'selected_instance_options' => array(
