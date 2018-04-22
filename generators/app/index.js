@@ -350,37 +350,37 @@ module.exports = class extends Generator {
             {
                 type: 'input',
                 name: 'localTestDatabaseName',
-                message: 'Database name for WordPress Unit tests',
+                message: 'Database name for WordPress Unit tests (local dev)',
                 default: this.config.get('localTestDatabaseName')
             },
             {
                 type: 'input',
                 name: 'localTestDatabaseUserName',
-                message: 'Database user name for WordPress Unit tests',
+                message: 'Database user for WordPress Unit tests (local dev)',
                 default: this.config.get('localTestDatabaseUserName')
             },
             {
                 type: 'input',
                 name: 'localTestDatabasePassword',
-                message: 'Database password for WordPress Unit tests',
+                message: 'Database password for WordPress Unit tests (local dev)',
                 default: this.config.get('localTestDatabasePassword')
             },
             {
                 type: 'input',
                 name: 'travisTestDatabaseName',
-                message: 'Database name for WordPress Unit tests run by Travis CI',
+                message: 'Database name for WordPress Unit tests (Travis CI)',
                 default: this.config.get('travisTestDatabaseName')
             },
             {
                 type: 'input',
                 name: 'travisTestDatabaseUserName',
-                message: 'Database user name for WordPress Unit tests run by Travis CI',
+                message: 'Database user for WordPress Unit tests (Travis CI)',
                 default: this.config.get('travisTestDatabaseUserName')
             },
             {
                 type: 'input',
                 name: 'travisTestDatabasePassword',
-                message: 'Database password for WordPress Unit tests run by Travis CI',
+                message: 'Database password for WordPress Unit tests (Travis CI)',
                 default: this.config.get('travisTestDatabasePassword')
             }
         ];
