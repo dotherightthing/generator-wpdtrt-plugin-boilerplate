@@ -72,7 +72,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'nameTemplate',
-            'content-' + S( this.config.get('name') ).replaceAll('wpdtrt-', '').s
+            S( this.config.get('name') ).replaceAll('wpdtrt-', '').s
         );
 
         this.config.set(
@@ -567,7 +567,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('template-parts/wpdtrt-plugin-boilerplate/content.php'),
-            this.destinationPath('template-parts/' + this.props.name + '/' + this.props.nameTemplate + '.php'),
+            this.destinationPath('template-parts/' + this.props.name + '/content-' + this.props.nameTemplate + '.php'),
             userSettings
         );
 
