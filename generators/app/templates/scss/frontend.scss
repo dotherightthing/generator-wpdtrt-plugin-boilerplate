@@ -1,10 +1,24 @@
-/**
- * Styles for the public front-end
- *
- * @package     <%= nameFriendlySafe %>
- * @version 	0.0.1
- * @since       <%= generatorVersion %>
- */
+//
+// Styles for the public front-end
+//
+// @package     <%= nameFriendlySafe %>
+// @version 	0.0.1
+// @since       <%= generatorVersion %>
+//
 
 @import "vendor/dotherightthing/wpdtrt-plugin/scss/_variables.scss";
 @import "vendor/dotherightthing/wpdtrt-plugin/scss/_extends.scss";
+@import "variables";
+@import "extends";
+
+// -------------------------------------------------------------------
+// Styles
+// -------------------------------------------------------------------
+
+.<%= name %>--demo {
+	background-color: $<%= name %>-bg-color--demo;
+}
+
+// -------------------------------------------------------------------
+// Media Queries
+// -------------------------------------------------------------------

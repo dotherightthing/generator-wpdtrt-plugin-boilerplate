@@ -501,6 +501,18 @@ module.exports = class extends Generator {
         // scss
 
         this.fs.copyTpl(
+            this.templatePath('scss/_extends.scss'),
+            this.destinationPath('scss/_extends.scss'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('scss/_variables.scss'),
+            this.destinationPath('scss/_variables.scss'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
             this.templatePath('scss/backend.scss'),
             this.destinationPath('scss/backend.scss'),
             userSettings
