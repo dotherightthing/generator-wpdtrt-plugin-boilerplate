@@ -72,7 +72,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'nameTemplate',
-            S( this.config.get('name') ).replaceAll('wpdtrt-', '').s
+            'content-' + S( this.config.get('name') ).replaceAll('wpdtrt-', '').s
         );
 
         this.config.set(
@@ -249,6 +249,12 @@ module.exports = class extends Generator {
                 name: 'nameAdminMenu',
                 message: 'Plugin name (admin menu)',
                 default: this.config.get('nameAdminMenu')
+            },
+            {
+                type: 'input',
+                name: 'nameTemplate',
+                message: 'Template name',
+                default: this.config.get('nameTemplate')
             },
             {
                 type: 'input',
@@ -561,7 +567,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('template-parts/wpdtrt-plugin-boilerplate/content.php'),
-            this.destinationPath('template-parts/' + this.props.name + '/content-' + this.props.nameTemplate + '.php'),
+            this.destinationPath('template-parts/' + this.props.name + '/' + this.props.nameTemplate + '.php'),
             userSettings
         );
 
