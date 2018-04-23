@@ -208,6 +208,11 @@ module.exports = class extends Generator {
           'Welcome to the ' + chalk.red('WordPress Plugin boilerplate') + ' generator!'
         ));
 
+        // https://github.com/dotherightthing/wpdtrt-plugin/issues/68
+        this.log(yosay(
+          'Before we begin, please run ' + chalk.yellow('source ~/.bash_profile')
+        ));
+
         const prompts = [
             {
                 type: 'input',
