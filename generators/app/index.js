@@ -729,7 +729,7 @@ module.exports = class extends Generator {
             this.props.localTestDatabaseName,
             this.props.localTestDatabaseUserName,
             this.props.localTestDatabasePassword,
-            'localhost',
+            '127.0.0.1',
             this.props.wpVersion
         ]);
 
