@@ -307,6 +307,12 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
+                name: 'authorAbbreviation',
+                message: 'Your abbreviated name',
+                default: this.config.get('authorAbbreviation')
+            },
+            {
+                type: 'input',
                 name: 'authorWordPressName',
                 message: 'Your WordPress.org username',
                 default: this.config.get('authorWordPressName')
@@ -385,6 +391,9 @@ module.exports = class extends Generator {
             }
         ];
 
+        // return the promise from your task
+        // in order to wait for its completion before running the next one
+        // @see http://yeoman.io/authoring/user-interactions.html
         return this.prompt(prompts).then(props => {
             this.props = props;
         });
