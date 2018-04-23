@@ -43,8 +43,6 @@ One or more widgets can be displayed within one or more sidebars:
 <?php echo do_shortcode( '[<%= nameSafe %> option="value"]' ); ?>
 ```
 
-Please refer to the *Shortcode Options* on Settings-><%= nameFriendly %>.
-
 == Screenshots ==
 
 1. The caption for ./images/screenshot-1.(png|jpg|jpeg|gif)
