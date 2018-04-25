@@ -587,18 +587,6 @@ module.exports = class extends Generator {
 
         // root configuration files
 
-        // Bower
-
-        this.fs.copy(
-            this.templatePath('.bowerrc'),
-            this.destinationPath('.bowerrc')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('bower.json'),
-            this.destinationPath('bower.json'),
-            userSettings
-        );
 
         // Git
 
