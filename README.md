@@ -15,7 +15,7 @@ Generates a best-practice boilerplate for [WordPress](https://wordpress.org/) pl
 
 1. [Composer](https://getcomposer.org/download/)
 1. [Node.js & NPM](https://nodejs.org/)
-1. [Bower](https://bower.io/): `$ npm install -g bower`
+1. [Yarn](https://yarnpkg.com/en/): `$ npm install -g yarn`
 1. [Gulp](https://gulpjs.com/): `$ sudo npm install -g gulp-cli`
 1. [Yeoman](http://yeoman.io/): `$ sudo npm install -g yo`
 1. [GraphViz](http://graphviz.org/download/), for graphs in PHPDoc (optional)
@@ -30,8 +30,8 @@ This process is also automated:
 
 1. `$ git clone https://github.com/dotherightthing/generator-wp-plugin-boilerplate.git`
 1. `$ cd generator-wp-plugin-boilerplate`
-1. `$ npm install`
-1. `$ sudo npm link`
+1. `$ yarn install`
+1. `$ sudo yarn link`
 
 This process is also automated:
 
@@ -55,7 +55,7 @@ This process is also automated:
 
 1. The config options are used to customise a set of base files
 1. The latest tagged version of [wpdtrt-plugin](https://github.com/dotherightthing/wpdtrt-plugin) is installed via Composer
-1. `wpdtrt-plugin`'s Gulp/Node dependencies are installed
+1. `wpdtrt-plugin`'s Gulp/Yarn/Node dependencies are installed
 1. The WordPress Unit Testing framework is installed
 1. `wpdtrt-plugin`'s PHPUnit tests are run
 1. `wpdtrt-plugin`'s Gulp build task (`gulp dist`) is run
@@ -68,7 +68,7 @@ This process is automated:
 
 ### F. Gulp runs
 
-1. `wpdtrt-mypluginname`'s Bower (front-end) dependencies are installed
+1. `wpdtrt-mypluginname`'s Yarn (front-end) dependencies are installed
 1. `wpdtrt-mypluginname`'s Composer (PHP) dependencies are installed, including development libraries specified by `wpdtrt-plugin`
 1. `wpdtrt-mypluginname`'s SCSS files are compiled into SCSS
 1. `wpdtrt-mypluginname`'s JS files are linted and documented
