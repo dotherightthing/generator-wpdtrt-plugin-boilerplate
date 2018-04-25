@@ -587,7 +587,6 @@ module.exports = class extends Generator {
 
         // root configuration files
 
-
         // Git
 
         this.fs.copy(
@@ -611,13 +610,15 @@ module.exports = class extends Generator {
             userSettings
         );
 
-        // Gulp / NPM
+        // Gulp
 
         this.fs.copyTpl(
             this.templatePath('gulpfile.js'),
             this.destinationPath('gulpfile.js'),
             userSettings
         );
+        
+        // Yarn / NPM
 
         this.fs.copyTpl(
             this.templatePath('package.json'),
@@ -701,9 +702,9 @@ module.exports = class extends Generator {
      */
     install() {
         this.installDependencies({
-            npm: true,
+            npm: false,
             bower: false,
-            yarn: false
+            yarn: true
         });
 
         // composer is installed by travis
