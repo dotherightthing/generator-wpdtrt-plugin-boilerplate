@@ -69,8 +69,8 @@ install:
   - yarn install --non-interactive # child plugin
   - yarn global add gulp-cli
   - yarn global add yo
-  # Make the generator available via the commandline:
-  - npm link
+  # Symlink the package to make the generator available via the commandline:
+  - yarn link
 
 # Make shell script executable
 # https://github.com/travis-ci/travis-ci/issues/5804
