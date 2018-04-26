@@ -74,7 +74,11 @@ install:
 # https://github.com/wp-cli/sample-plugin/blob/master/.travis.yml
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - bash bin/install-wp-tests.sh <%= travisTestDatabaseName %> <%= travisTestDatabaseUserName %> <%- travisTestDatabasePassword %> localhost $WP_VERSION
+  # setup of test database
+  # - immediately after generating a plugin on local dev = index.js (Yeoman)
+  # - immediately after generating a plugin on GitHub/Travis = below
+  # - each time generated plugin is updated on GitHub = below
+  - bash bin/install-wp-tests.sh wpdtrt_travisTest root '' localhost $WP_VERSION
 
 # Run the build script
 script:

@@ -687,22 +687,11 @@ module.exports = class extends Generator {
             './vendor/dotherightthing/wpdtrt-plugin/'
         ]);
 
-        // test setup is run by travis on before_script
-
-        // if travis
-        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/42
-        if ( this.props.name === 'wpdtrt-travistest') {
-            this.spawnCommandSync('bash', [
-                'bin/install-wp-tests.sh',
-                this.config.get('nameSafe') + 'Test',
-                'root',
-                '',
-                'localhost',
-                this.props.wpVersion
-            ]);
-        }
-        // if local
-        else {
+        // setup of test database
+        // - immediately after generating a plugin on local dev = below
+        // - immediately after generating a plugin on GitHub/Travis = generators/app/templates/.travis.yml:before_script
+        // - each time generated plugin is updated on GitHub = generators/app/templates/.travis.yml:before_script
+        if ( this.props.name !== 'wpdtrt-travistest') {
             this.spawnCommandSync('bash', [
                 'bin/install-wp-tests.sh',
                 this.props.localTestDatabaseName,
