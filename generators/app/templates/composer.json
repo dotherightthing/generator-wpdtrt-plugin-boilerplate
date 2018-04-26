@@ -1,7 +1,7 @@
 {
-	"name": "<%= githubUserName %>/<%= name %>",
-	"description": "<%= description %>",
-	"type": "library",
+    "name": "<%= githubUserName %>/<%= name %>",
+    "description": "<%= description %>",
+    "type": "library",
     "keywords": <%- pluginKeywords %>,
     "license": "ISC",
     "authors": [
