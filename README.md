@@ -8,7 +8,7 @@ Generates a best-practice boilerplate for [WordPress](https://wordpress.org/) pl
 
 ### A. Create a Git repo to store the code
 
-1. Create a remote Git repo `wpdtrt-mypluginname` - note that the name `wpdtrt-plugin` is reserved. [Github instructions](https://help.github.com/articles/create-a-repo/)
+1. Create a remote Git repo `wpdtrt-mypluginname` - note that the names `wpdtrt-plugin` and `wpdtrt-travistest` are reserved. [Github instructions](https://help.github.com/articles/create-a-repo/)
 1. Clone `wpdtrt-mypluginname` to your local computer
 
 ### B. Install the generator dependencies

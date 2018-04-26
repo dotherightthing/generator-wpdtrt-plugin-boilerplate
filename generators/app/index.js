@@ -724,14 +724,30 @@ module.exports = class extends Generator {
         ]);
 
         // test setup is run by travis on before_script
-        this.spawnCommandSync('bash', [
-            'bin/install-wp-tests.sh',
-            this.props.localTestDatabaseName,
-            this.props.localTestDatabaseUserName,
-            this.props.localTestDatabasePassword,
-            '127.0.0.1',
-            this.props.wpVersion
-        ]);
+
+        // if travis
+        // https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/42
+        if ( this.props.name === 'wpdtrt-travistest') {
+            this.spawnCommandSync('bash', [
+                'bin/install-wp-tests.sh',
+                this.props.travisTestDatabaseName,
+                this.props.travisTestDatabaseUserName,
+                this.props.travisTestDatabasePassword,
+                '127.0.0.1',
+                this.props.wpVersion
+            ]);
+        }
+        // if local
+        else {
+            this.spawnCommandSync('bash', [
+                'bin/install-wp-tests.sh',
+                this.props.localTestDatabaseName,
+                this.props.localTestDatabaseUserName,
+                this.props.localTestDatabasePassword,
+                '127.0.0.1',
+                this.props.wpVersion
+            ]);
+        }
 
         // gulp-cli is installed by travis
         // gulp is installed with the generator

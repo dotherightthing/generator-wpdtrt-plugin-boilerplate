@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ev
-mkdir 'wpdtrt-generated-plugin'
+mkdir 'wpdtrt-travistest'
 
-cd wpdtrt-generated-plugin
+cd wpdtrt-travistest
 
 expect ../expect.sh
