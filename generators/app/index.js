@@ -591,9 +591,9 @@ module.exports = class extends Generator {
         ]);
 
         // setup of test database
-        // - immediately after generating a plugin on local dev = below
+        // - immediately after generating a plugin on GitHub/Travis = below
         // - each time generated plugin is updated on GitHub = generators/app/templates/.travis.yml:before_script
-        if ( this.config.get('name') !== 'wpdtrt-travistest') {
+        if ( this.config.get('name') === 'wpdtrt-travistest') {
             this.spawnCommandSync('bash', [
                 'bin/install-wp-tests.sh',
                 this.props.localTestDatabaseName,
@@ -604,7 +604,7 @@ module.exports = class extends Generator {
             ]);
         }
         // setup of test database
-        // - immediately after generating a plugin on GitHub/Travis = below
+        // - immediately after generating a plugin on local dev = below
         else {
             this.spawnCommandSync('bash', [
                 'bin/install-wp-tests.sh',
@@ -646,13 +646,24 @@ module.exports = class extends Generator {
         // gulp-cli is installed by travis
         // gulp is installed with the generator
         // gulp reads ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js
-        this.spawnCommandSync('gulp', [
-            'install',
-            '--gulpfile',
-            './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
-            '--cwd',
-            './'
-        ]);
+        if ( this.config.get('name') === 'wpdtrt-travistest') {
+            this.spawnCommandSync('gulp', [
+                'dist',
+                '--gulpfile',
+                './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
+                '--cwd',
+                './'
+            ]);
+        }
+        else {
+            this.spawnCommandSync('gulp', [
+                'install',
+                '--gulpfile',
+                './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
+                '--cwd',
+                './'
+            ]);
+        }
     };
 
     /**
