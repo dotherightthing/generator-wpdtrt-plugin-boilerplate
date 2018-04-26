@@ -733,7 +733,7 @@ module.exports = class extends Generator {
                 this.props.travisTestDatabaseName,
                 this.props.travisTestDatabaseUserName,
                 this.props.travisTestDatabasePassword,
-                '127.0.0.1',
+                'localhost',
                 this.props.wpVersion
             ]);
         }
