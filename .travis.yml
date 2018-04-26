@@ -63,7 +63,6 @@ before_install:
 # https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step
 # Note: Remember to run composer update on local dev to get latest updates to dependencies
 install:
-
   # Adding Yarn to Travis CI - https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
   - npm install -g yarn
   - yarn install --non-interactive # child plugin
