@@ -596,10 +596,10 @@ module.exports = class extends Generator {
         if ( this.config.get('name') === 'wpdtrt-travistest') {
             this.spawnCommandSync('bash', [
                 'bin/install-wp-tests.sh',
-                this.props.localTestDatabaseName,
-                this.props.localTestDatabaseUserName,
-                this.props.localTestDatabasePassword,
-                '127.0.0.1',
+                'wordpress_test',
+                'root',
+                '',
+                'localhost',
                 this.props.wpVersion
             ]);
         }
@@ -608,10 +608,10 @@ module.exports = class extends Generator {
         else {
             this.spawnCommandSync('bash', [
                 'bin/install-wp-tests.sh',
-                'wordpress_test',
-                'root',
-                '',
-                'localhost',
+                this.props.localTestDatabaseName,
+                this.props.localTestDatabaseUserName,
+                this.props.localTestDatabasePassword,
+                '127.0.0.1',
                 this.props.wpVersion
             ]);
         }
