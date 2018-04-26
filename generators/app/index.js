@@ -166,21 +166,6 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
-            'travisTestDatabaseName',
-            this.config.get('nameSafe') + 'Test'
-        );
-
-        this.config.set(
-            'travisTestDatabaseUserName',
-            'root'
-        );
-
-        this.config.set(
-            'travisTestDatabasePassword',
-            '""'
-        );
-
-        this.config.set(
             'localTestDatabaseName',
             this.config.get('nameSafe') + 'Test'
         );
@@ -381,24 +366,6 @@ module.exports = class extends Generator {
                 name: 'localTestDatabasePassword',
                 message: 'Database password for WordPress Unit tests (local dev)',
                 default: this.config.get('localTestDatabasePassword')
-            },
-            {
-                type: 'input',
-                name: 'travisTestDatabaseName',
-                message: 'Database name for WordPress Unit tests (Travis CI)',
-                default: this.config.get('travisTestDatabaseName')
-            },
-            {
-                type: 'input',
-                name: 'travisTestDatabaseUserName',
-                message: 'Database user for WordPress Unit tests (Travis CI)',
-                default: this.config.get('travisTestDatabaseUserName')
-            },
-            {
-                type: 'input',
-                name: 'travisTestDatabasePassword',
-                message: 'Database password for WordPress Unit tests (Travis CI)',
-                default: this.config.get('travisTestDatabasePassword')
             }
         ];
 
@@ -474,9 +441,6 @@ module.exports = class extends Generator {
             repositoryType:                 this.props.repositoryType,
             repositoryUrl:                  this.props.repositoryUrl,
             srcDir:                         process.cwd(),
-            travisTestDatabaseName:         this.props.travisTestDatabaseName,
-            travisTestDatabaseUserName:     this.props.travisTestDatabaseUserName,
-            travisTestDatabasePassword:     this.props.travisTestDatabasePassword,
             wpVersion:                      this.props.wpVersion
         };
 
@@ -730,9 +694,9 @@ module.exports = class extends Generator {
         if ( this.props.name === 'wpdtrt-travistest') {
             this.spawnCommandSync('bash', [
                 'bin/install-wp-tests.sh',
-                this.props.travisTestDatabaseName,
-                this.props.travisTestDatabaseUserName,
-                this.props.travisTestDatabasePassword,
+                this.config.get('nameSafe') + 'Test',
+                'root',
+                '',
                 'localhost',
                 this.props.wpVersion
             ]);
