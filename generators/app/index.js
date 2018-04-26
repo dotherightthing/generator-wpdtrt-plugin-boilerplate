@@ -33,39 +33,39 @@ module.exports = class extends Generator {
         var version = '0.7.7';
         var folderName = process.cwd().split(path.sep).pop();
         var folderNameFunctionSafe = S( folderName ).replaceAll('-','_').s;
-        var dtrt = false;
+        this.dtrt = false;
 
         // Use DTRT's defaults
         // Could this also be managed by .yo-rc.json?
         if ( folderName.match('wpdtrt-') ) {
-            dtrt = true;
+            this.dtrt = true;
         }
 
         // Configuration options, in alphabetical order
 
         this.config.set(
             'authorAbbreviation',
-            dtrt ? 'DTRT' : ''
+            this.dtrt ? 'DTRT' : ''
         );
 
         this.config.set(
             'authorEmail',
-            dtrt ? 'dev@dotherightthing.co.nz' : ''
+            this.dtrt ? 'dev@dotherightthing.co.nz' : ''
         );
 
         this.config.set(
             'authorName',
-            dtrt ? 'Dan Smith' : ''
+            this.dtrt ? 'Dan Smith' : ''
         );
 
         this.config.set(
             'authorSupportEmail',
-            dtrt ? 'support@dotherightthing.co.nz' : ''
+            this.dtrt ? 'support@dotherightthing.co.nz' : ''
         );
 
         this.config.set(
             'authorWordPressName',
-            dtrt ? 'dotherightthingnz' : ''
+            this.dtrt ? 'dotherightthingnz' : ''
         );
 
         this.config.set(
@@ -75,7 +75,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'donateUrl',
-            dtrt ? 'http://dotherightthing.co.nz' : ''
+            this.dtrt ? 'http://dotherightthing.co.nz' : ''
         );
 
         // generatorVersion aids backfilling of functionality in generated plugins
@@ -86,7 +86,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'githubUserName',
-            dtrt ? 'dotherightthing' : ''
+            this.dtrt ? 'dotherightthing' : ''
         );
 
         this.config.set(
@@ -133,7 +133,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'phpVersion',
-            dtrt ? '5.6.30' : ''
+            this.dtrt ? '5.6.30' : ''
         );
 
         this.config.set(
@@ -157,8 +157,15 @@ module.exports = class extends Generator {
 
         // https://github.com/dotherightthing/wpdtrt-plugin/issues/68
         this.log(yosay(
-          chalk.yellow('DTRT WordPress Plugin generator (' + this.config.get('generatorVersion') + ')' ) + '. Before we begin, please run ' + chalk.yellow('source ~/.bash_profile')
+          chalk.yellow('DTRT WordPress Plugin generator (' + this.config.get('generatorVersion') + ')' )
         ));
+
+        if ( this.dtrt ) {
+            // https://github.com/dotherightthing/wpdtrt-plugin/issues/68
+            this.log(yosay(
+              'Before we begin, please run ' + chalk.yellow('source ~/.bash_profile')
+            ));
+        }
 
         const prompts = [
             {
@@ -610,8 +617,8 @@ module.exports = class extends Generator {
         }
 
         // enable support for yarn workspaces (experimental)
-        // this allows us to install the dependencies of wpdtrt-plugin (gulp)
-        // as well as those of the generated plugin (gulp-autoprefixer etc)
+        // this allows us to install the dependencies of wpdtrt-plugin (autoprefixer etc)
+        // as well as those of the generated plugin (gulp)
         // see ./package.json
         this.spawnCommandSync('yarn', [
             'config',
