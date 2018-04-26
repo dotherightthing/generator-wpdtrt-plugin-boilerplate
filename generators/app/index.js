@@ -585,7 +585,6 @@ module.exports = class extends Generator {
 
         // setup of test database
         // - immediately after generating a plugin on local dev = below
-        // - immediately after generating a plugin on GitHub/Travis = generators/app/templates/.travis.yml:before_script
         // - each time generated plugin is updated on GitHub = generators/app/templates/.travis.yml:before_script
         if ( this.config.get('name') !== 'wpdtrt-travistest') {
             this.spawnCommandSync('bash', [
@@ -594,6 +593,18 @@ module.exports = class extends Generator {
                 this.props.localTestDatabaseUserName,
                 this.props.localTestDatabasePassword,
                 '127.0.0.1',
+                this.props.wpVersion
+            ]);
+        }
+        // setup of test database
+        // - immediately after generating a plugin on GitHub/Travis = below
+        else {
+            this.spawnCommandSync('bash', [
+                'bin/install-wp-tests.sh',
+                'wordpress_test',
+                'root',
+                '',
+                'localhost',
                 this.props.wpVersion
             ]);
         }
