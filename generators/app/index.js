@@ -716,7 +716,7 @@ module.exports = class extends Generator {
         ]);
 
         // node is installed by travis
-        this.spawnCommandSync('npm', [
+        this.spawnCommandSync('yarn', [
             'install',
             './vendor/dotherightthing/wpdtrt-plugin/',
             '--prefix',
