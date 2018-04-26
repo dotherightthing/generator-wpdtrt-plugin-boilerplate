@@ -187,6 +187,8 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
           'demo_shortcode_title' => __('Demo shortcode', '<%= name %>'),
           'demo_data_description' => __('This demo was generated from the following data', '<%= name %>'),
           'demo_date_last_updated' => __('Data last updated', '<%= name %>'),
+          'demo_data_length' => __('results', '<%= name %>'),
+          'demo_data_displayed_length' => __('results displayed', '<%= name %>'),
         ),
         'plugin_options' => $plugin_options,
         'instance_options' => $instance_options,
