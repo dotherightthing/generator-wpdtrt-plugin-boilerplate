@@ -6,7 +6,7 @@
  * @version     0.7.7
  */
 
-/*jslint node: true, esversion:6 */
+/*jshint node: true, esversion:6 */
 
 'use strict';
 const Generator = require('yeoman-generator');
@@ -27,57 +27,45 @@ module.exports = class extends Generator {
     initializing() {
 
         // Set config defaults
+        // Some defaults are also generated from these values
+        // - see writing()
 
-        var prefix = '';
+        var version = '0.7.7';
+        var folderName = process.cwd().split(path.sep).pop();
+        var folderNameFunctionSafe = S( folderName ).replaceAll('-','_').s;
+        var dtrt = false;
 
-        // generatorVersion aids backfilling of functionality
-        // in generated plugins
-        this.config.set(
-            'generatorVersion',
-            '0.7.7'
-        );
-
-        // name must match the folder name, for WordPress to recognise the plugin
-        this.config.set(
-            'name',
-            process.cwd().split(path.sep).pop() // get plugin name from parent folder
-        );
-
-        if ( this.config.get('name').match('wpdtrt') ) {
-            prefix = 'wpdtrt-';
+        // Use DTRT's defaults
+        // Could this also be managed by .yo-rc.json?
+        if ( folderName.match('wpdtrt-') ) {
+            dtrt = true;
         }
 
-        // nameSafe is used in PHP functions, so is based on name
-        this.config.set(
-            'nameSafe',
-            S( this.config.get('name') ).replaceAll('-','_').s
-        );
+        // Configuration options, in alphabetical order
 
-        // human readable name
         this.config.set(
-            'nameFriendly',
-            S( this.config.get('name') ).humanize().titleCase().replaceAll('Wpdtrt', 'DTRT').s
-        );
-
-        // nameFriendlySafe is used in PHP classes, so is based on nameFriendly
-        this.config.set(
-            'nameFriendlySafe',
-            S( this.config.get('name') ).humanize().titleCase().replaceAll('Wpdtrt','WPDTRT').replaceAll(' ','_').s
+            'authorAbbreviation',
+            dtrt ? 'DTRT' : ''
         );
 
         this.config.set(
-            'nameAdminMenu',
-            S( this.config.get('nameFriendly') ).replaceAll('DTRT ', '').s
+            'authorEmail',
+            dtrt ? 'dev@dotherightthing.co.nz' : ''
         );
 
         this.config.set(
-            'nameTemplate',
-            S( this.config.get('name') ).replaceAll('wpdtrt-', '').s
+            'authorName',
+            dtrt ? 'Dan Smith' : ''
         );
 
         this.config.set(
-            'urlAdminMenu',
-            prefix + S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s
+            'authorSupportEmail',
+            dtrt ? 'support@dotherightthing.co.nz' : ''
+        );
+
+        this.config.set(
+            'authorWordPressName',
+            dtrt ? 'dotherightthingnz' : ''
         );
 
         this.config.set(
@@ -86,18 +74,19 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
-            'tags',
-            'boilerplate, foo, bar, baz'
+            'donateUrl',
+            dtrt ? 'http://dotherightthing.co.nz' : ''
+        );
+
+        // generatorVersion aids backfilling of functionality in generated plugins
+        this.config.set(
+            'generatorVersion',
+            version
         );
 
         this.config.set(
             'githubUserName',
-            'dotherightthing'
-        );
-
-        this.config.set(
-            'homepage',
-            ( 'https://github.com/' + this.config.get('githubUserName') + '/' + this.config.get('name') )
+            dtrt ? 'dotherightthing' : ''
         );
 
         this.config.set(
@@ -111,63 +100,13 @@ module.exports = class extends Generator {
         );
 
         this.config.set(
-            'donateUrl',
-            'http://dotherightthing.co.nz'
-        );
-
-        this.config.set(
-            'wpVersion',
-            '4.9.5'
-        );
-
-        this.config.set(
-            'phpVersion',
-            '5.6.30'
-        );
-
-        this.config.set(
-            'authorName',
-            'Dan Smith'
-        );
-
-        this.config.set(
-            'authorWordPressName',
-            'dotherightthingnz'
-        );
-
-        this.config.set(
-            'authorAbbreviation',
-            'DTRT'
-        );
-
-        this.config.set(
-            'authorEmail',
-            'dev@dotherightthing.co.nz'
-        );
-
-        this.config.set(
-            'authorSupportEmail',
-            'support@dotherightthing.co.nz'
-        );
-
-        this.config.set(
-            'authorUrl',
-            'https://profiles.wordpress.org/dotherightthingnz'
-        );
-
-        this.config.set(
-            'repositoryType',
-            'git'
-        );
-
-        this.config.set(
-            'repositoryUrl',
-            ( 'git@github.com:' + this.config.get('githubUserName') + '/' + this.config.get('name') + '.git' )
-        );
-
-        this.config.set(
             'localTestDatabaseName',
-            this.config.get('nameSafe') + 'Test'
+            folderNameFunctionSafe + 'Test'
+        );
+
+        this.config.set(
+            'localTestDatabasePassword',
+            ''
         );
 
         this.config.set(
@@ -175,11 +114,38 @@ module.exports = class extends Generator {
             ''
         );
 
+        // name must match the folder name, for WordPress to recognise the plugin
         this.config.set(
-            'localTestDatabasePassword',
-            ''
+            'name',
+            folderName
         );
-    }
+
+        // human readable name
+        this.config.set(
+            'nameFriendly',
+            S( folderName ).humanize().titleCase().replaceAll('Wpdtrt', 'DTRT').s
+        );
+
+        this.config.set(
+            'nameSafe',
+            folderNameFunctionSafe
+        );
+
+        this.config.set(
+            'phpVersion',
+            dtrt ? '5.6.30' : ''
+        );
+
+        this.config.set(
+            'tags',
+            'foo, bar, baz'
+        );
+
+        this.config.set(
+            'wpVersion',
+            '4.9.5'
+        );
+    };
 
     /**
      * 2. prompting()
@@ -189,63 +155,17 @@ module.exports = class extends Generator {
      */
     prompting() {
 
-        this.log(yosay(
-          'Welcome to the ' + chalk.red('WordPress Plugin boilerplate') + ' generator!'
-        ));
-
         // https://github.com/dotherightthing/wpdtrt-plugin/issues/68
         this.log(yosay(
-          'Before we begin, please run ' + chalk.yellow('source ~/.bash_profile')
+          chalk.yellow('DTRT WordPress Plugin generator (' + this.config.get('generatorVersion') + ')' ) + '. Before we begin, please run ' + chalk.yellow('source ~/.bash_profile')
         ));
 
         const prompts = [
             {
                 type: 'input',
-                name: 'generatorVersion',
-                message: 'Generator version',
-                default: this.config.get('generatorVersion')
-            },
-            {
-                type: 'input',
-                name: 'name',
-                message: 'Plugin name (file safe)',
-                default: this.config.get('name')
-            },
-            {
-                type: 'input',
-                name: 'nameSafe',
-                message: 'Plugin name (function safe)',
-                default: this.config.get('nameSafe')
-            },
-            {
-                type: 'input',
                 name: 'nameFriendly',
-                message: 'Plugin name (friendly)',
+                message: 'Plugin name (spaces allowed)',
                 default: this.config.get('nameFriendly')
-            },
-            {
-                type: 'input',
-                name: 'nameFriendlySafe',
-                message: 'Plugin name (friendly & function safe)',
-                default: this.config.get('nameFriendlySafe')
-            },
-            {
-                type: 'input',
-                name: 'nameAdminMenu',
-                message: 'Plugin name (admin menu)',
-                default: this.config.get('nameAdminMenu')
-            },
-            {
-                type: 'input',
-                name: 'nameTemplate',
-                message: 'Template name',
-                default: this.config.get('nameTemplate')
-            },
-            {
-                type: 'input',
-                name: 'urlAdminMenu',
-                message: 'Plugin URL (admin menu)',
-                default: this.config.get('urlAdminMenu')
             },
             {
                 type: 'input',
@@ -261,94 +181,58 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
-                name: 'homepage',
-                message: 'Plugin URL',
-                default: this.config.get('homepage')
-            },
-            {
-                type: 'input',
-                name: 'license',
-                message: 'Plugin license',
-                default: this.config.get('license')
-            },
-            {
-                type: 'input',
-                name: 'licenseUrl',
-                message: 'Plugin license URL',
-                default: this.config.get('licenseUrl')
-            },
-            {
-                type: 'input',
-                name: 'donateUrl',
-                message: 'Plugin donation URL',
-                default: this.config.get('donateUrl')
-            },
-            {
-                type: 'input',
-                name: 'wpVersion',
-                message: 'WordPress version',
-                default: this.config.get('wpVersion')
-            },
-            {
-                type: 'input',
                 name: 'phpVersion',
-                message: 'PHP version',
+                message: 'Software version (PHP)',
                 default: this.config.get('phpVersion')
             },
             {
                 type: 'input',
+                name: 'wpVersion',
+                message: 'Software version (WordPress)',
+                default: this.config.get('wpVersion')
+            },
+            {
+                type: 'input',
                 name: 'authorName',
-                message: 'Your first and last names',
+                message: 'Author names (first and last)',
                 default: this.config.get('authorName')
             },
             {
                 type: 'input',
-                name: 'authorAbbreviation',
-                message: 'Your abbreviated name',
-                default: this.config.get('authorAbbreviation')
-            },
+                name: 'githubUserName',
+                message: 'Author name (GitHub.com)',
+                default: this.config.get('githubUserName')
+            },  
             {
                 type: 'input',
                 name: 'authorWordPressName',
-                message: 'Your WordPress.org username',
+                message: 'Author name (WordPress.org)',
                 default: this.config.get('authorWordPressName')
             },
             {
                 type: 'input',
+                name: 'authorAbbreviation',
+                message: 'Author abbreviation (no spaces)',
+                default: this.config.get('authorAbbreviation')
+            },
+            {
+                type: 'input',
                 name: 'authorEmail',
-                message: 'Your email address',
+                message: 'Author email (general)',
                 default: this.config.get('authorEmail')
             },
             {
                 type: 'input',
                 name: 'authorSupportEmail',
-                message: 'Email address for plugin support enquiries',
+                message: 'Author email (plugin support)',
                 default: this.config.get('authorSupportEmail')
-            },
+            },  
             {
                 type: 'input',
-                name: 'authorUrl',
-                message: 'Author URL',
-                default: this.config.get('authorUrl')
+                name: 'donateUrl',
+                message: 'Author donation URL',
+                default: this.config.get('donateUrl')
             },
-            {
-                type: 'input',
-                name: 'repositoryType',
-                message: 'Version control system (git/svn)',
-                default: this.config.get('repositoryType')
-            },
-            {
-                type: 'input',
-                name: 'repositoryUrl',
-                message: 'Repository URL',
-                default: this.config.get('repositoryUrl')
-            },
-            {
-                type: 'input',
-                name: 'githubUserName',
-                message: 'Github Vendor Name',
-                default: this.config.get('githubUserName')
-            },    
             {
                 type: 'input',
                 name: 'localTestDatabaseName',
@@ -362,7 +246,7 @@ module.exports = class extends Generator {
                 default: this.config.get('localTestDatabaseUserName')
             },
             {
-                type: 'input',
+                type: 'password',
                 name: 'localTestDatabasePassword',
                 message: 'Database password for WordPress Unit tests (local dev)',
                 default: this.config.get('localTestDatabasePassword')
@@ -375,7 +259,7 @@ module.exports = class extends Generator {
         return this.prompt(prompts).then(props => {
             this.props = props;
         });
-    }
+    };
 
     /**
      * 3. configuring()
@@ -383,10 +267,22 @@ module.exports = class extends Generator {
      * as well as auto-generating files that you might find necessary and kind of a given,
      * like .gitignore, and .editorconfig as the docs suggest
      * {@link https://webcake.co/building-a-yeoman-generator/}
+     * {@link https://stackoverflow.com/a/45427521/6850747}
+     * {@link https://stackoverflow.com/a/49809192/6850747}
      */
     configuring() {
-        this.config.set(this.props);
-    }
+        let defaultValues = this.config.getAll();
+        let userValues = this.props;
+
+        let mergedValues = {
+          ...defaultValues,
+          ...userValues
+        };
+
+        // set either takes a key and an associated value, or an object hash of multiple keys/values.
+        // http://yeoman.io/authoring/storage.html
+        this.config.set(mergedValues);
+    };
 
     /**
      * 4. default()
@@ -398,7 +294,7 @@ module.exports = class extends Generator {
      */
     default() {
         //
-    }
+    };
 
     /**
      * 5. writing()
@@ -409,37 +305,49 @@ module.exports = class extends Generator {
      */
     writing() {
 
+        // transformations
+
+        this.transforms = [];
+
+        this.transforms.authorUrl = 'https://profiles.wordpress.org/' + this.config.get('authorWordPressName');
+        this.transforms.homepage = 'https://github.com/' + this.config.get('githubUserName') + '/' + this.config.get('name');
+        this.transforms.nameAdminMenu = S( this.config.get('nameFriendly') ).replaceAll('DTRT ', '').s;
+        this.transforms.nameFriendlySafe = S( this.config.get('name') ).humanize().titleCase().replaceAll('Wpdtrt','WPDTRT').replaceAll(' ','_').s;
+        this.transforms.nameTemplate = S( this.config.get('name') ).replaceAll('wpdtrt-', '').s;
+        this.transforms.pluginKeywords = '["' + this.props.tags.split(', ').join('", "') + '"]';
+        this.transforms.pluginUrlAdminMenu = S(this.props.authorAbbreviation).toLowerCase().s + '-' + S( this.config.get('nameAdminMenu') ).toLowerCase().replaceAll(' ','-').s;
+        this.transforms.repositoryUrl = 'git@github.com:' + this.config.get('githubUserName') + '/' + this.config.get('name') + '.git';
+
         var userSettings = {
             authorEmail:                    this.props.authorEmail,
             authorSupportEmail:             this.props.authorSupportEmail,
             authorName:                     this.props.authorName,
-            authorUrl:                      this.props.authorUrl,
+            authorUrl:                      this.transforms.authorUrl,
             authorAbbreviation:             this.props.authorAbbreviation,
             authorWordPressName:            this.props.authorWordPressName,
-            constantStub:                   this.props.nameFriendlySafe.toUpperCase(),
+            constantStub:                   this.transforms.nameFriendlySafe.toUpperCase(),
             description:                    this.props.description,
-            generatorVersion:               this.props.generatorVersion,
+            generatorVersion:               this.config.get('generatorVersion'),
             githubUserName:                 this.props.githubUserName,
-            homepage:                       this.props.homepage,
+            homepage:                       this.transforms.homepage,
             localTestDatabaseName:          this.props.localTestDatabaseName,
             localTestDatabaseUserName:      this.props.localTestDatabaseUserName,
             localTestDatabasePassword:      this.props.localTestDatabasePassword,
-            name:                           this.props.name,
-            nameAdminMenu:                  this.props.nameAdminMenu,
+            name:                           this.config.get('name'),
+            nameAdminMenu:                  this.transforms.nameAdminMenu,
             nameFriendly:                   this.props.nameFriendly,
-            nameFriendlySafe:               this.props.nameFriendlySafe,
-            nameSafe:                       this.props.nameSafe,
-            nameTemplate:                   this.props.nameTemplate,
+            nameFriendlySafe:               this.transforms.nameFriendlySafe,
+            nameSafe:                       this.config.get('folderNameSafe'),
+            nameTemplate:                   this.transforms.nameTemplate,
             phpVersion:                     this.props.phpVersion,
             pluginDonateUrl:                this.props.donateUrl,
-            pluginKeywords:                 '["' + this.props.tags.split(', ').join('", "') + '"]',
-            pluginLicense:                  this.props.license,
-            pluginLicenseUrl:               this.props.licenseUrl,
+            pluginKeywords:                 this.transforms.pluginKeywords,
+            pluginLicense:                  this.config.get('license'),
+            pluginLicenseUrl:               this.config.get('licenseUrl'),
             pluginTags:                     this.props.tags,
-            pluginUrl:                      this.props.homepage,
-            pluginUrlAdminMenu:             this.props.urlAdminMenu,
-            repositoryType:                 this.props.repositoryType,
-            repositoryUrl:                  this.props.repositoryUrl,
+            pluginUrl:                      this.config.get('homepage'),
+            pluginUrlAdminMenu:             this.transforms.pluginUrlAdminMenu,
+            repositoryUrl:                  this.transforms.repositoryUrl,
             srcDir:                         process.cwd(),
             wpVersion:                      this.props.wpVersion
         };
@@ -478,7 +386,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('languages/wpdtrt-plugin-boilerplate.pot'),
-            this.destinationPath('languages/' + this.props.name + '.pot'),
+            this.destinationPath('languages/' + userSettings.name + '.pot'),
             userSettings
         );
 
@@ -517,13 +425,13 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('src/class-wpdtrt-plugin-boilerplate-plugin.php'),
-            this.destinationPath('src/class-' + this.props.name + '-plugin.php'),
+            this.destinationPath('src/class-' + userSettings.name + '-plugin.php'),
             userSettings
         );
 
         this.fs.copyTpl(
             this.templatePath('src/class-wpdtrt-plugin-boilerplate-widgets.php'),
-            this.destinationPath('src/class-' + this.props.name + '-widgets.php'),
+            this.destinationPath('src/class-' + userSettings.name + '-widgets.php'),
             userSettings
         );
 
@@ -531,7 +439,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('template-parts/wpdtrt-plugin-boilerplate/content.php'),
-            this.destinationPath('template-parts/' + this.props.name + '/content-' + this.props.nameTemplate + '.php'),
+            this.destinationPath('template-parts/' + userSettings.name + '/content-' + userSettings.nameTemplate + '.php'),
             userSettings
         );
 
@@ -545,7 +453,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('tests/test-wpdtrt-plugin-boilerplate.php'),
-            this.destinationPath('tests/test-' + this.props.name + '.php'),
+            this.destinationPath('tests/test-' + userSettings.name + '.php'),
             userSettings
         );
 
@@ -634,11 +542,11 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('wpdtrt-plugin-boilerplate.php'),
-            this.destinationPath(this.props.name + '.php'),
+            this.destinationPath(userSettings.name + '.php'),
             userSettings
         );
 
-    }
+    };
 
     /**
      * 6. conflicts()
@@ -649,7 +557,7 @@ module.exports = class extends Generator {
      */
     conflicts() {
         //
-    }
+    };
 
     /**
      * 7. install()
@@ -665,33 +573,21 @@ module.exports = class extends Generator {
      * @todo https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/30
      */
     install() {
-        this.installDependencies({
-            npm: false,
-            bower: false,
-            yarn: true
-        });
 
         // composer is installed by travis
-        // loads parent plugin class, which in turn runs a composer install via gulpfile.js
+        // composer reads the generated composer.json 
+        // this installs the parent plugin class, which in turn runs a composer install via gulpfile.js
         this.spawnCommandSync('composer', [
             'install',
             '--prefer-dist',
             '--no-interaction'
         ]);
 
-        // node is installed by travis
-        this.spawnCommandSync('yarn', [
-            'install',
-            './vendor/dotherightthing/wpdtrt-plugin/',
-            '--prefix',
-            './vendor/dotherightthing/wpdtrt-plugin/'
-        ]);
-
         // setup of test database
         // - immediately after generating a plugin on local dev = below
         // - immediately after generating a plugin on GitHub/Travis = generators/app/templates/.travis.yml:before_script
         // - each time generated plugin is updated on GitHub = generators/app/templates/.travis.yml:before_script
-        if ( this.props.name !== 'wpdtrt-travistest') {
+        if ( this.config.get('name') !== 'wpdtrt-travistest') {
             this.spawnCommandSync('bash', [
                 'bin/install-wp-tests.sh',
                 this.props.localTestDatabaseName,
@@ -702,8 +598,36 @@ module.exports = class extends Generator {
             ]);
         }
 
+        // enable support for yarn workspaces (experimental)
+        // this allows us to install the dependencies of wpdtrt-plugin (gulp)
+        // as well as those of the generated plugin (gulp-autoprefixer etc)
+        // see ./package.json
+        this.spawnCommandSync('yarn', [
+            'config',
+            'set',
+            'workspaces-experimental',
+            'true'
+        ]);
+
+        // install node dependencies
+        // yarn reads the generated package.json & yarn.lock
+        // this installs the dev dependency of Gulp
+        // which is used to run the wpdtrt-plugin gulpfile, below
+        //
+        // note: installDependencies runs too late, causing gulp install to fail 
+        // this.installDependencies({
+        //     npm: false,
+        //     bower: false,
+        //     yarn: true
+        // });
+        this.spawnCommandSync('yarn', [
+            'install',
+            '--non-interactive'
+        ]);
+
         // gulp-cli is installed by travis
         // gulp is installed with the generator
+        // gulp reads ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js
         this.spawnCommandSync('gulp', [
             'install',
             '--gulpfile',
@@ -711,7 +635,7 @@ module.exports = class extends Generator {
             '--cwd',
             './'
         ]);
-    }
+    };
 
     /**
      * 8. end()
@@ -722,12 +646,8 @@ module.exports = class extends Generator {
     end() {
 
         this.log(yosay(
-          'Thanks for installing the ' + chalk.red('DTRT WordPress Plugin boilerplate')
+            chalk.yellow('Install complete. ') + 'Please read readme.txt and https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin'
         ));
-
-        this.log(yosay(
-            'Please read readme.txt and https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin'
-        ));
-    }
+    };
 
 };

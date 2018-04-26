@@ -6,7 +6,10 @@
 // @since       <%= generatorVersion %>
 //
 
-@import "vendor/dotherightthing/wpdtrt-plugin/node_modules/include-media/dist/_include-media";
+// front-end dependencies are specified in
+// ./vendor/dotherightthing/wpdtrt-plugin/package.json
+// but installed to ./node_modules, via Yarn workspaces
+@import "node_modules/include-media/dist/_include-media";
 
 // -------------------------------------------------------------------
 // Breakpoints
