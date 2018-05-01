@@ -344,7 +344,7 @@ module.exports = class extends Generator {
             nameAdminMenu:                  this.transforms.nameAdminMenu,
             nameFriendly:                   this.props.nameFriendly,
             nameFriendlySafe:               this.transforms.nameFriendlySafe,
-            nameSafe:                       this.config.get('folderNameSafe'),
+            nameSafe:                       this.config.get('nameSafe'),
             nameTemplate:                   this.transforms.nameTemplate,
             phpVersion:                     this.props.phpVersion,
             pluginDonateUrl:                this.props.donateUrl,
