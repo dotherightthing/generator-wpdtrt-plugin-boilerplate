@@ -171,6 +171,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
         'prefix' => '<%= nameSafe %>',
         'slug' => '<%= name %>',
         'menu_title' => __('<%= nameAdminMenu %>', '<%= name %>'),
+        'settings_title' => __('Settings', '<%= name %>'),
         'developer_prefix' => '<%= authorAbbreviation %>',
         'path' => <%= constantStub %>_PATH,
         'messages' => array(
