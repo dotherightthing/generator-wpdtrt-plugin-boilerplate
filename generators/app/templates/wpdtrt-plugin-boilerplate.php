@@ -256,7 +256,7 @@ if( ! defined( '<%= constantStub %>_URL' ) ) {
 
     global $<%= nameSafe %>_plugin;
 
-    $<%= nameSafe %>_shortcode_1 = new DoTheRightThing\WPPlugin\Shortcode(
+    $<%= nameSafe %>_shortcode_1 = new DoTheRightThing\WPPlugin\r_0_0_0\Shortcode(
       array(
         'name' => '<%= nameSafe %>_shortcode_1',
         'plugin' => $<%= nameSafe %>_plugin,

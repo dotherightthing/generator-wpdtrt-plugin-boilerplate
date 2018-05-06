@@ -16,7 +16,7 @@
  * @version 	0.0.1
  * @since       <%= generatorVersion %>
  */
-class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPPlugin\Plugin {
+class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPPlugin\r_0_0_0\Plugin {
 
     /**
      * Hook the plugin in to WordPress

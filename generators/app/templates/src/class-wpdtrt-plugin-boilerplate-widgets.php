@@ -16,6 +16,6 @@
  *
  * @param array $options Plugin options required by Widget
  */
-class <%= nameFriendlySafe %>_Widget_1 extends DoTheRightThing\WPPlugin\Widget{};
+class <%= nameFriendlySafe %>_Widget_1 extends DoTheRightThing\WPPlugin\r_0_0_0\Widget{};
 
 ?>
