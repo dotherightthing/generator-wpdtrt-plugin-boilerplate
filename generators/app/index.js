@@ -136,6 +136,12 @@ module.exports = class extends Generator {
             this.dtrt ? '5.6.30' : ''
         );
 
+        // minimum semver version
+        this.config.set(
+            'defaultVersion',
+            '0.1.0'
+        );
+
         this.config.set(
             'tags',
             'foo, bar, baz'
@@ -354,6 +360,7 @@ module.exports = class extends Generator {
             pluginTags:                     this.props.tags,
             pluginUrl:                      this.config.get('homepage'),
             pluginUrlAdminMenu:             this.transforms.pluginUrlAdminMenu,
+            defaultVersion:                 this.config.get('defaultVersion'),
             repositoryUrl:                  this.transforms.repositoryUrl,
             srcDir:                         process.cwd(),
             wpVersion:                      this.props.wpVersion

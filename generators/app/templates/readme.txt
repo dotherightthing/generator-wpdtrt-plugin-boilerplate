@@ -6,7 +6,7 @@ Tags: <%= pluginTags %>
 Requires at least: <%= wpVersion %>
 Tested up to: <%= wpVersion %>
 Requires PHP: <%= phpVersion %>
-Stable tag: 0.0.1
+Stable tag: <%= defaultVersion %>
 License: <%= pluginLicense %>
 License URI: <%= pluginLicenseUrl %>
 

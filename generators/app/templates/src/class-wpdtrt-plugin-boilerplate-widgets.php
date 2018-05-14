@@ -3,7 +3,7 @@
  * Widget classes.
  *
  * @package     <%= nameSafe %>
- * @version 	0.0.1
+ * @version 	<%= defaultVersion %>
  * @since       <%= generatorVersion %>
  */
 

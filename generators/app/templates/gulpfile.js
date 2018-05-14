@@ -8,7 +8,7 @@
  *    gulp dist --gulpfile ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js --cwd ./
  *
  * @package     <%= nameFriendlySafe %>
- * @version 	0.0.1
+ * @version 	<%= defaultVersion %>
  * @since       <%= generatorVersion %>
  */
  

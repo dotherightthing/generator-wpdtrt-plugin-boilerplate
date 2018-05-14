@@ -22,7 +22,7 @@
  * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
  *
  * @package     <%= nameFriendlySafe %>
- * @version     0.0.1
+ * @version     <%= defaultVersion %>
  * @since       <%= generatorVersion %>
  */
 

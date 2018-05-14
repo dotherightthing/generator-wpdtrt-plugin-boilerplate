@@ -3,7 +3,7 @@
  * Template to display plugin output in shortcodes and widgets
  *
  * @package   <%= nameFriendly %>
- * @version   0.0.1
+ * @version   <%= defaultVersion %>
  * @since     <%= generatorVersion %>
  */
 

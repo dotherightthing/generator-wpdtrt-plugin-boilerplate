@@ -11,7 +11,7 @@
  * A failed assertion may obscure other failed assertions in the same test.
  *
  * @package     <%= nameFriendlySafe %>
- * @version     0.0.1
+ * @version     <%= defaultVersion %>
  * @since       <%= generatorVersion %>
  *
  * @see http://kb.dotherightthing.dan/php/wordpress/php-unit-testing-revisited/ - Links

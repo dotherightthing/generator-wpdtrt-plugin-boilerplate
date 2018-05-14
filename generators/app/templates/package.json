@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "<%= name %>",
-  "version": "0.0.1",
+  "version": "<%= defaultVersion %>",
   "description": "<%= description %>",
   "main": "<%= name %>.php",
   "person": {

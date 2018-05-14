@@ -3,7 +3,7 @@
  * Plugin Name:  <%= nameFriendly %>
  * Plugin URI:   <%= pluginUrl %>
  * Description:  <%= description %>
- * Version:      0.0.1
+ * Version:      <%= defaultVersion %>
  * Author:       <%= authorName %>
  * Author URI:   <%= authorUrl %>
  * License:      <%= pluginLicense %>
