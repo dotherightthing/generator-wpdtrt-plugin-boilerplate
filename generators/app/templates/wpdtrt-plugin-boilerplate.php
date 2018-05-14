@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:  <%= nameFriendly %>
- * Plugin URI:   <%= pluginUrl %>
+ * Plugin URI:   <%= homepage %>
  * Description:  <%= description %>
  * Version:      <%= defaultVersion %>
  * Author:       <%= authorName %>

@@ -358,7 +358,6 @@ module.exports = class extends Generator {
             pluginLicense:                  this.config.get('license'),
             pluginLicenseUrl:               this.config.get('licenseUrl'),
             pluginTags:                     this.props.tags,
-            pluginUrl:                      this.config.get('homepage'),
             pluginUrlAdminMenu:             this.transforms.pluginUrlAdminMenu,
             defaultVersion:                 this.config.get('defaultVersion'),
             repositoryUrl:                  this.transforms.repositoryUrl,
