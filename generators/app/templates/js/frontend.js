@@ -3,12 +3,15 @@
  *
  * PHP variables are provided in <%= nameSafe %>_config.
  *
- * @version 	<%= defaultVersion %>
- * @since       <%= generatorVersion %>
+ * @since   <%= generatorVersion %>
+ * @version <%= defaultVersion %>
  */
 
-jQuery(document).ready(function($){
+/*global document, $, jQuery, <%= nameSafe %>_config*/
+
+jQuery(document).ready(function ($) {
+
+    "use strict";
 
 	var config = <%= nameSafe %>_config;
-
 });

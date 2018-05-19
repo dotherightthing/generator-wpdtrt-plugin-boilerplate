@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin sub class.
+ * Shortcode sub class.
  *
  * @package <%= nameSafe %>
  * @since   <%= generatorVersion %>
@@ -14,12 +14,12 @@
  * @since   1.0.0
  * @version 1.0.0
  */
-class <%= nameSafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Plugin {
+class <%= nameSafe %>_Shortcode extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Shortcode {
 
 	/**
-	 * Supplement plugin initialisation.
+	 * Supplement shortcode initialisation.
 	 *
-	 * @param     array $options Plugin options.
+	 * @param     array $options Shortcode options.
 	 * @since     1.0.0
 	 * @version   1.1.0
 	 */
@@ -35,7 +35,7 @@ class <%= nameSafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Plugi
 	 */
 
 	/**
-	 * Supplement plugin's WordPress setup.
+	 * Supplement shortcode's WordPress setup.
 	 * Note: Default priority is 10. A higher priority runs later.
 	 *
 	 * @see https://codex.wordpress.org/Plugin_API/Action_Reference Action order

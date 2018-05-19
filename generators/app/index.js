@@ -6,8 +6,6 @@
  * @version     0.7.11
  */
 
-/*jshint node: true, esversion:6 */
-
 'use strict';
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
@@ -215,7 +213,7 @@ module.exports = class extends Generator {
                 name: 'githubUserName',
                 message: 'Author name (GitHub.com)',
                 default: this.config.get('githubUserName')
-            },  
+            },
             {
                 type: 'input',
                 name: 'authorWordPressName',
@@ -239,7 +237,7 @@ module.exports = class extends Generator {
                 name: 'authorSupportEmail',
                 message: 'Author email (plugin support)',
                 default: this.config.get('authorSupportEmail')
-            },  
+            },
             {
                 type: 'input',
                 name: 'donateUrl',
@@ -443,8 +441,26 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-widgets.php'),
-            this.destinationPath('src/class-' + userSettings.name + '-widgets.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-rewrite.php'),
+            this.destinationPath('src/class-' + userSettings.name + '-rewrite.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-shortcode.php'),
+            this.destinationPath('src/class-' + userSettings.name + '-shortcode.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-taxonomy.php'),
+            this.destinationPath('src/class-' + userSettings.name + '-taxonomy.php'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-widget.php'),
+            this.destinationPath('src/class-' + userSettings.name + '-widget.php'),
             userSettings
         );
 
@@ -502,7 +518,7 @@ module.exports = class extends Generator {
             this.destinationPath('gulpfile.js'),
             userSettings
         );
-        
+
         // Yarn / NPM
 
         this.fs.copyTpl(
@@ -588,7 +604,7 @@ module.exports = class extends Generator {
     install() {
 
         // composer is installed by travis
-        // composer reads the generated composer.json 
+        // composer reads the generated composer.json
         // this installs the parent plugin class, which in turn runs a composer install via gulpfile.js
         this.spawnCommandSync('composer', [
             'install',
@@ -638,7 +654,7 @@ module.exports = class extends Generator {
         // this installs the dev dependency of Gulp
         // which is used to run the wpdtrt-plugin gulpfile, below
         //
-        // note: installDependencies runs too late, causing gulp install to fail 
+        // note: installDependencies runs too late, causing gulp install to fail
         // this.installDependencies({
         //     npm: false,
         //     bower: false,

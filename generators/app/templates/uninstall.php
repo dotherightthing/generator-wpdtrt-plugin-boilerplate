@@ -18,22 +18,21 @@
  * Remove Options from {$wpdb->prefix}_options: Yes
  * Remove Tables from wpdb: Yes
  *
- * @link https://developer.wordpress.org/plugins/the-basics/best-practices/#file-organization
- * @link https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
- *
  * @package     <%= nameFriendlySafe %>
  * @version     <%= defaultVersion %>
  * @since       <%= generatorVersion %>
+ * @see https://developer.wordpress.org/plugins/the-basics/best-practices/#file-organization
+ * @see https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
  */
 
-// if uninstall.php is not called by WordPress, die
+// if uninstall.php is not called by WordPress, die.
 if ( ! defined('WP_UNINSTALL_PLUGIN') ) {
 	die;
 }
 
 delete_option('<%= nameSafe %>');
 
-// for site options in Multisite
+// for site options in Multisite.
 delete_site_option('<%= nameSafe %>');
 
 ?>

@@ -50,10 +50,10 @@ One or more widgets can be displayed within one or more sidebars:
 
 == Changelog ==
 
-= 0.0.1 =
+= <%= defaultVersion %> =
 * Initial version
 
 == Upgrade Notice ==
 
-= 0.0.1 =
+= <%= defaultVersion %> =
 * Initial release
