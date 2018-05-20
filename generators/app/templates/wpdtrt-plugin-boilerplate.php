@@ -125,14 +125,14 @@ $debug = new DoTheRightThing\WPDebug\Debug;
  * @see https://developer.wordpress.org/plugins/hooks/actions/#priority
  * @see https://codex.wordpress.org/Function_Reference/register_activation_hook.
  */
-register_activation_hook( dirname( __FILE__ ), '<%= nameSafe %>_helper_activate' );
+register_activation_hook( dirname( __FILE__ ), '<%= nameSafe %>_activate' );
 
 add_action( 'init', '<%= nameSafe %>_plugin_init', 0 );
 add_action( 'init', '<%= nameSafe %>_shortcode_init', 100 );
 add_action( 'init', '<%= nameSafe %>_taxonomy_init', 100 );
 add_action( 'widgets_init', '<%= nameSafe %>_widget_init', 10 );
 
-register_deactivation_hook( dirname( __FILE__ ), '<%= nameSafe %>_helper_deactivate' );
+register_deactivation_hook( dirname( __FILE__ ), '<%= nameSafe %>_deactivate' );
 
 /**
  * ===== Plugin config =====
@@ -147,7 +147,7 @@ register_deactivation_hook( dirname( __FILE__ ), '<%= nameSafe %>_helper_deactiv
  * @todo https://github.com/dotherightthing/wpdtrt-plugin/issues/128
  * @see See also Plugin::helper_flush_rewrite_rules()
  */
-function <%= nameSafe %>_helper_activate() {
+function <%= nameSafe %>_activate() {
 	flush_rewrite_rules();
 }
 
@@ -161,7 +161,7 @@ function <%= nameSafe %>_helper_activate() {
  * @todo https://github.com/dotherightthing/wpdtrt-plugin/issues/128
  * @see See also Plugin::helper_flush_rewrite_rules()
  */
-function <%= nameSafe %>_helper_deactivate() {
+function <%= nameSafe %>_deactivate() {
 	flush_rewrite_rules();
 }
 
