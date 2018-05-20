@@ -132,6 +132,8 @@ Tip: [CCMenu](http://ccmenu.org/) displays the build status of projects on a con
 
 ### Testing
 
+Generated plugins contain boilerplating for unit testing, but there are currently no tests for the generator itself.
+
 PHPUnit is currently at version 6.1, but this project uses the Old Stable Release of 5.7 to work with PHP 5.6. This version is supported until February 2018, see https://phpunit.de/.
 
 ### Publishing
