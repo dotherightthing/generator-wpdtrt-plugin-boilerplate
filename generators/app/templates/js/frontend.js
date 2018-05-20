@@ -9,9 +9,11 @@
 
 /*global document, $, jQuery, <%= nameSafe %>_config*/
 
+/*
 jQuery(document).ready(function ($) {
 
     "use strict";
 
-	// var config = <%= nameSafe %>_config;
+    var config = <%= nameSafe %>_config;
 });
+*/
