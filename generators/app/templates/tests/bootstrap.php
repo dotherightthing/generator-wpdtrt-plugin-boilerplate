@@ -2,7 +2,7 @@
 /**
  * PHPUnit bootstrap file
  *
- * @package WPDTRT_Gallery
+ * @package <%= nameFriendlySafe %>
  */
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
