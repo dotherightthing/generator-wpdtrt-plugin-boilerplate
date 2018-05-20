@@ -26,13 +26,11 @@
  */
 
 // if uninstall.php is not called by WordPress, die.
-if ( ! defined('WP_UNINSTALL_PLUGIN') ) {
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	die;
 }
 
-delete_option('<%= nameSafe %>');
+delete_option( '<%= nameSafe %>' );
 
 // for site options in Multisite.
-delete_site_option('<%= nameSafe %>');
-
-?>
+delete_site_option( '<%= nameSafe %>' );
