@@ -112,6 +112,8 @@ $debug = new DoTheRightThing\WPDebug\Debug;
 /**
  * ===== WordPress Integration =====
  *
+ * Comment out the actions you don't need.
+ *
  * Notes:
  *  Default priority is 10. A higher priority runs later.
  *  register_activation_hook() is run before any of the provided hooks
@@ -269,7 +271,9 @@ function <%= nameSafe %>_shortcode_init() {
 			'name'                      => '<%= nameSafe %>_shortcode',
 			'plugin'                    => $<%= nameSafe %>_plugin,
 			'template'                  => '<%= nameTemplate %>',
-			'selected_instance_options' => array(),
+			'selected_instance_options' => array(
+				'instanceoption1'
+			),
 		)
 	);
 }
@@ -291,7 +295,9 @@ function <%= nameSafe %>_taxonomy_init() {
 		array(
 			'name'                      => '<%= nameSafe %>_things',
 			'plugin'                    => $<%= nameSafe %>_plugin,
-			'selected_instance_options' => array(),
+			'selected_instance_options' => array(
+				'instanceoption1'
+			),
 			'taxonomy_options'          => array(
 				'option1' => array(
 					'type'              => 'text',
@@ -360,7 +366,9 @@ function <%= nameSafe %>_widget_init() {
 			'description'               => __( 'Widget description.', '<%= name %>' ),
 			'plugin'                    => $<%= nameSafe %>_plugin,
 			'template'                  => '<%= nameTemplate %>',
-			'selected_instance_options' => array(),
+			'selected_instance_options' => array(
+				'instanceoption1'
+			),
 		)
 	);
 
