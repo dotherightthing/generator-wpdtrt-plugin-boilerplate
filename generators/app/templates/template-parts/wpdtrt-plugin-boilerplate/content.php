@@ -4,7 +4,7 @@
  *
  * @package   <%= nameFriendly %>
  * @version   <%= defaultVersion %>
- * @since     <%= generatorVersion %>
+ * @since     <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  */
 
 // Predeclare variables

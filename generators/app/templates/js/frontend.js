@@ -3,8 +3,8 @@
  *
  * PHP variables are provided in <%= nameSafe %>_config.
  *
- * @since   <%= generatorVersion %>
  * @version <%= defaultVersion %>
+ * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  */
 
 /*global document, $, jQuery, <%= nameSafe %>_config*/

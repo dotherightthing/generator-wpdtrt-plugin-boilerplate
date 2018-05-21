@@ -20,7 +20,7 @@
  *
  * @package     <%= nameFriendlySafe %>
  * @version     <%= defaultVersion %>
- * @since       <%= generatorVersion %>
+ * @since       <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  * @see https://developer.wordpress.org/plugins/the-basics/best-practices/#file-organization
  * @see https://developer.wordpress.org/plugins/the-basics/uninstall-methods/#method-2-uninstall-php
  */

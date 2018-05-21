@@ -12,7 +12,7 @@
  *
  * @package <%= nameFriendlySafe %>
  * @version <%= defaultVersion %>
- * @since   <%= generatorVersion %>
+ * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#testing
  */
 

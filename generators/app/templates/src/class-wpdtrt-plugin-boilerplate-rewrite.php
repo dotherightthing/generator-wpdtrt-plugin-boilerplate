@@ -3,8 +3,8 @@
  * Rewrite sub class.
  *
  * @package <%= nameSafe %>
- * @since   <%= generatorVersion %>
  * @version <%= defaultVersion %>
+ * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**

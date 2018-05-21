@@ -9,5 +9,5 @@
  *
  * @package <%= nameFriendlySafe %>
  * @version <%= defaultVersion %>
- * @since   <%= generatorVersion %>
+ * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  */
