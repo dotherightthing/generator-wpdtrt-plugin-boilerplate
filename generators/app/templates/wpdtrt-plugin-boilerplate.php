@@ -272,7 +272,7 @@ function <%= nameSafe %>_shortcode_init() {
 			'plugin'                    => $<%= nameSafe %>_plugin,
 			'template'                  => '<%= nameTemplate %>',
 			'selected_instance_options' => array(
-				'instanceoption1'
+				'instanceoption1',
 			),
 		)
 	);
@@ -296,7 +296,7 @@ function <%= nameSafe %>_taxonomy_init() {
 			'name'                      => '<%= nameSafe %>_things',
 			'plugin'                    => $<%= nameSafe %>_plugin,
 			'selected_instance_options' => array(
-				'instanceoption1'
+				'instanceoption1',
 			),
 			'taxonomy_options'          => array(
 				'option1' => array(
@@ -367,7 +367,7 @@ function <%= nameSafe %>_widget_init() {
 			'plugin'                    => $<%= nameSafe %>_plugin,
 			'template'                  => '<%= nameTemplate %>',
 			'selected_instance_options' => array(
-				'instanceoption1'
+				'instanceoption1',
 			),
 		)
 	);
