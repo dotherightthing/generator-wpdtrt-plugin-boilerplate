@@ -13,7 +13,7 @@
     "gulp": "^3.9.1"
   },
   "workspaces": [
-    "vendor/dotherightthing/wpdtrt-plugin/"
+    "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

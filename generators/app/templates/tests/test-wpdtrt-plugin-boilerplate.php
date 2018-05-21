@@ -13,7 +13,7 @@
  * @package <%= nameFriendlySafe %>
  * @version <%= defaultVersion %>
  * @since   <%= generatorVersion %>
- * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Testing-&-Debugging#testing
+ * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#testing
  */
 
 /**

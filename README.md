@@ -8,7 +8,7 @@ Generates a best-practice boilerplate for [WordPress](https://wordpress.org/) pl
 
 ### A. Create a Git repo to store the code
 
-1. Create a remote Git repo `wpdtrt-mypluginname` - note that the names `wpdtrt-plugin` and `wpdtrt-travistest` are reserved. [Github instructions](https://help.github.com/articles/create-a-repo/)
+1. Create a remote Git repo `wpdtrt-mypluginname` - note that the names `wpdtrt-plugin-boilerplate` and `wpdtrt-travistest` are reserved. [Github instructions](https://help.github.com/articles/create-a-repo/)
 1. Clone `wpdtrt-mypluginname` to your local computer
 
 ### B. Install the generator dependencies
@@ -41,7 +41,7 @@ This process is also automated:
 
 ### D. Use the generator to scaffold a custom plugin
 
-1. `source ~/.bash_profile` (workaround for [issue 68](https://github.com/dotherightthing/wpdtrt-plugin/issues/68))
+1. `source ~/.bash_profile` (workaround for [issue 68](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/68))
 1. `$ cd wpdtrt-mypluginname`
 1. `$ yo wp-plugin-boilerplate`
 
@@ -54,11 +54,11 @@ This process is also automated:
 ### E. Yeoman runs
 
 1. The config options are used to customise a set of base files
-1. The latest tagged version of [wpdtrt-plugin](https://github.com/dotherightthing/wpdtrt-plugin) is installed via Composer
-1. `wpdtrt-plugin`'s Gulp/Yarn/Node dependencies are installed
+1. The latest tagged version of [wpdtrt-plugin-boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate) is installed via Composer
+1. `wpdtrt-plugin-boilerplate`'s Gulp/Yarn/Node dependencies are installed
 1. The WordPress Unit Testing framework is installed
-1. `wpdtrt-plugin`'s PHPUnit tests are run
-1. `wpdtrt-plugin`'s Gulp build task (`gulp dist`) is run
+1. `wpdtrt-plugin-boilerplate`'s PHPUnit tests are run
+1. `wpdtrt-plugin-boilerplate`'s Gulp build task (`gulp dist`) is run
 
 This process is automated:
 
@@ -69,7 +69,7 @@ This process is automated:
 ### F. Gulp runs
 
 1. `wpdtrt-mypluginname`'s Yarn (front-end) dependencies are installed
-1. `wpdtrt-mypluginname`'s Composer (PHP) dependencies are installed, including development libraries specified by `wpdtrt-plugin`
+1. `wpdtrt-mypluginname`'s Composer (PHP) dependencies are installed, including development libraries specified by `wpdtrt-plugin-boilerplate`
 1. `wpdtrt-mypluginname`'s SCSS files are compiled into SCSS
 1. `wpdtrt-mypluginname`'s JS files are linted and documented
 1. `wpdtrt-mypluginname`'s PHP files are linted and documented
@@ -78,11 +78,11 @@ This process is automated:
 This process is automated:
 
 * by Gulp
-* from `wpdtrt-mypluginname/vendor/dotherightthing/wpdtrt-plugin/gulpfile.js`
+* from `wpdtrt-mypluginname/vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js`
 * in task `dist`
 * on `wpdtrt-mypluginname/*`
 
-This task can also be run on `wpdtrt-mypluginname` after it has been cloned from its own Git repo, see [Develop child plugins](https://github.com/dotherightthing/wpdtrt-plugin#develop-child-plugins-or-maintain-this-one).
+This task can also be run on `wpdtrt-mypluginname` after it has been cloned from its own Git repo, see [Develop child plugins](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate#develop-child-plugins-or-maintain-this-one).
 
 ### G. Set up Travis CI
 

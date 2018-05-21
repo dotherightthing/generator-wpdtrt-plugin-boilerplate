@@ -1,7 +1,7 @@
 /**
  * Plugin generator
  *
- * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin
+ * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin-boilerplate
  *
  * @version     0.7.16
  */
@@ -159,13 +159,13 @@ module.exports = class extends Generator {
      */
     prompting() {
 
-        // https://github.com/dotherightthing/wpdtrt-plugin/issues/68
+        // https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/68
         this.log(yosay(
           chalk.yellow('DTRT WordPress Plugin generator (' + this.config.get('generatorVersion') + ')' )
         ));
 
         if ( this.dtrt ) {
-            // https://github.com/dotherightthing/wpdtrt-plugin/issues/68
+            // https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/68
             this.log(yosay(
               'Before we begin, please run ' + chalk.yellow('source ~/.bash_profile')
             ));
@@ -396,7 +396,7 @@ module.exports = class extends Generator {
         // i18n
 
         this.fs.copyTpl(
-            this.templatePath('languages/wpdtrt-plugin-boilerplate.pot'),
+            this.templatePath('languages/wpdtrt-plugin-boilerplate-boilerplate.pot'),
             this.destinationPath('languages/' + userSettings.name + '.pot'),
             userSettings
         );
@@ -435,31 +435,31 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-plugin.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-plugin.php'),
             this.destinationPath('src/class-' + userSettings.name + '-plugin.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-rewrite.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-rewrite.php'),
             this.destinationPath('src/class-' + userSettings.name + '-rewrite.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-shortcode.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-shortcode.php'),
             this.destinationPath('src/class-' + userSettings.name + '-shortcode.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-taxonomy.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-taxonomy.php'),
             this.destinationPath('src/class-' + userSettings.name + '-taxonomy.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-widget.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-widget.php'),
             this.destinationPath('src/class-' + userSettings.name + '-widget.php'),
             userSettings
         );
@@ -467,7 +467,7 @@ module.exports = class extends Generator {
         // template-parts
 
         this.fs.copyTpl(
-            this.templatePath('template-parts/wpdtrt-plugin-boilerplate/content.php'),
+            this.templatePath('template-parts/wpdtrt-plugin-boilerplate-boilerplate/content.php'),
             this.destinationPath('template-parts/' + userSettings.name + '/content-' + userSettings.nameTemplate + '.php'),
             userSettings
         );
@@ -481,7 +481,7 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('tests/test-wpdtrt-plugin-boilerplate.php'),
+            this.templatePath('tests/test-wpdtrt-plugin-boilerplate-boilerplate.php'),
             this.destinationPath('tests/test-' + userSettings.name + '.php'),
             userSettings
         );
@@ -570,7 +570,7 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('wpdtrt-plugin-boilerplate.php'),
+            this.templatePath('wpdtrt-plugin-boilerplate-boilerplate.php'),
             this.destinationPath(userSettings.name + '.php'),
             userSettings
         );
@@ -639,7 +639,7 @@ module.exports = class extends Generator {
         }
 
         // enable support for yarn workspaces (experimental)
-        // this allows us to install the dependencies of wpdtrt-plugin (autoprefixer etc)
+        // this allows us to install the dependencies of wpdtrt-plugin-boilerplate (autoprefixer etc)
         // as well as those of the generated plugin (gulp)
         // see ./package.json
         this.spawnCommandSync('yarn', [
@@ -652,7 +652,7 @@ module.exports = class extends Generator {
         // install node dependencies
         // yarn reads the generated package.json & yarn.lock
         // this installs the dev dependency of Gulp
-        // which is used to run the wpdtrt-plugin gulpfile, below
+        // which is used to run the wpdtrt-plugin-boilerplate gulpfile, below
         //
         // note: installDependencies runs too late, causing gulp install to fail
         // this.installDependencies({
@@ -667,12 +667,12 @@ module.exports = class extends Generator {
 
         // gulp-cli is installed by travis
         // gulp is installed with the generator
-        // gulp reads ./vendor/dotherightthing/wpdtrt-plugin/gulpfile.js
+        // gulp reads ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js
         if ( this.config.get('name') === 'wpdtrt-travistest') {
             this.spawnCommandSync('gulp', [
                 'dist',
                 '--gulpfile',
-                './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
+                './vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js',
                 '--cwd',
                 './'
             ]);
@@ -681,7 +681,7 @@ module.exports = class extends Generator {
             this.spawnCommandSync('gulp', [
                 'install',
                 '--gulpfile',
-                './vendor/dotherightthing/wpdtrt-plugin/gulpfile.js',
+                './vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js',
                 '--cwd',
                 './'
             ]);
@@ -697,7 +697,7 @@ module.exports = class extends Generator {
     end() {
 
         this.log(yosay(
-            'Install complete. Please read ' + chalk.yellow('readme.txt') + ' and ' + chalk.yellow('https://github.com/dotherightthing/wpdtrt-plugin#set-up-a-new-plugin')
+            'Install complete. Please read ' + chalk.yellow('readme.txt') + ' and ' + chalk.yellow('https://github.com/dotherightthing/wpdtrt-plugin-boilerplate#set-up-a-new-plugin')
         ));
     };
 
