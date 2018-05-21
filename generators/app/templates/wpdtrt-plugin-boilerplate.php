@@ -172,7 +172,7 @@ function <%= nameSafe %>_deactivate() {
   function <%= nameSafe %>_plugin_init() {
 	// pass object reference between classes via global
 	// because the object does not exist until the WordPress init action has fired
-	global $wpdtrt_test_plugin;
+	global $<%= nameSafe %>_plugin;
 
 	/**
 	 * Global options
