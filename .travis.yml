@@ -99,7 +99,7 @@ deploy:
   provider: releases
   api_key:
     secure: $GITHUB_AUTH
-  file: 'release.zip'
+  file: 'wpdtrt-travistest/release.zip'
   # prevent Travis CI from resetting the working directory
   # which deletes all changes made during the build 
   skip_cleanup: true
