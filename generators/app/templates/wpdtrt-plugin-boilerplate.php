@@ -177,7 +177,7 @@ function <%= nameSafe %>_deactivate() {
 	/**
 	 * Global options
 	 *
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Options:-Adding-global-options
+	 * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Options:-Adding-global-options Options: Adding global options
 	 */
 	$plugin_options = array(
 		'pluginoption1' => array(
@@ -191,8 +191,7 @@ function <%= nameSafe %>_deactivate() {
 	/**
 	 * Shortcode or Widget options
 	 *
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Options:-Adding-shortcode-or-widget-options
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Options:-Adding-WordPress-plugin-dependencies
+	 * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Options:-Adding-shortcode-or-widget-options Options: Adding shortcode or widget options
 	 */
 	$instance_options = array(
 		'instanceoption1' => array(
@@ -204,39 +203,58 @@ function <%= nameSafe %>_deactivate() {
 	);
 
 	/**
-	 * Plugin configuration
+	 * Plugin dependencies
 	 *
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Options:-Adding-WordPress-plugin-dependencies
+	 * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Options:-Adding-WordPress-plugin-dependencies Options: Adding WordPress plugin dependencies
+	 */
+	$plugin_dependencies = array();
+
+	/**
+	 *  UI Messages
+	 */
+	$ui_messages = array(
+		'demo_data_description'       => __( 'This demo was generated from the following data', '<%= name %>' ),
+		'demo_data_displayed_length'  => __( 'results displayed', '<%= name %>' ),
+		'demo_data_length'            => __( 'results', '<%= name %>' ),
+		'demo_data_title'             => __( 'Demo data', '<%= name %>' ),
+		'demo_date_last_updated'      => __( 'Data last updated', '<%= name %>' ),
+		'demo_sample_title'           => __( 'Demo sample', '<%= name %>' ),
+		'demo_shortcode_title'        => __( 'Demo shortcode', '<%= name %>' ),
+		'insufficient_permissions'    => __( 'Sorry, you do not have sufficient permissions to access this page.', '<%= name %>' ),
+		'no_options_form_description' => __( 'There aren\'t currently any options.', '<%= name %>' ),
+		'noscript_warning'            => __( 'Please enable JavaScript', '<%= name %>' ),
+		'options_form_description'    => __( 'Please enter your preferences.', '<%= name %>' ),
+		'options_form_submit'         => __( 'Save Changes', '<%= name %>' ),
+		'options_form_title'          => __( 'General Settings', '<%= name %>' ),
+		'loading'                     => __( 'Loading latest data...', '<%= name %>' ),
+		'success'                     => __( 'settings successfully updated', '<%= name %>' ),
+	);
+
+	/**
+	 * Demo shortcode
+	 *
+	 * @see https://github.com/dotherightthing/wpdtrt-plugin/wiki/Settings-page:-Adding-a-demo-shortcode Settings page: Adding a demo shortcode
+	 */
+	$demo_shortcode_params = array();
+
+	/**
+	 * Plugin configuration
 	 */
 	$<%= nameSafe %>_plugin = new <%= nameFriendlySafe %>_Plugin(
 		array(
-			'url'              => <%= constantStub %>_URL,
-			'prefix'           => '<%= nameSafe %>',
-			'slug'             => '<%= name %>',
-			'menu_title'       => __( '<%= nameAdminMenu %>', '<%= name %>' ),
-			'settings_title'   => __( 'Settings', '<%= name %>' ),
-			'developer_prefix' => '<%= authorAbbreviation %>',
-			'path'             => <%= constantStub %>_PATH,
-			'messages'         => array(
-				'loading'                     => __( 'Loading latest data...', '<%= name %>' ),
-				'success'                     => __( 'settings successfully updated', '<%= name %>' ),
-				'insufficient_permissions'    => __( 'Sorry, you do not have sufficient permissions to access this page.', '<%= name %>' ),
-				'options_form_title'          => __( 'General Settings', '<%= name %>' ),
-				'options_form_description'    => __( 'Please enter your preferences.', '<%= name %>' ),
-				'no_options_form_description' => __( 'There aren\'t currently any options.', '<%= name %>' ),
-				'options_form_submit'         => __( 'Save Changes', '<%= name %>' ),
-				'noscript_warning'            => __( 'Please enable JavaScript', '<%= name %>' ),
-				'demo_sample_title'           => __( 'Demo sample', '<%= name %>' ),
-				'demo_data_title'             => __( 'Demo data', '<%= name %>' ),
-				'demo_shortcode_title'        => __( 'Demo shortcode', '<%= name %>' ),
-				'demo_data_description'       => __( 'This demo was generated from the following data', '<%= name %>' ),
-				'demo_date_last_updated'      => __( 'Data last updated', '<%= name %>' ),
-				'demo_data_length'            => __( 'results', '<%= name %>' ),
-				'demo_data_displayed_length'  => __( 'results displayed', '<%= name %>' ),
-			),
-			'plugin_options'   => $plugin_options,
-			'instance_options' => $instance_options,
-			'version'          => <%= constantStub %>_VERSION,
+			'path'                  => <%= constantStub %>_PATH,
+			'url'                   => <%= constantStub %>_URL,
+			'version'               => <%= constantStub %>_VERSION,
+			'prefix'                => '<%= nameSafe %>',
+			'slug'                  => '<%= name %>',
+			'menu_title'            => __( '<%= nameAdminMenu %>', '<%= name %>' ),
+			'settings_title'        => __( 'Settings', '<%= name %>' ),
+			'developer_prefix'      => '<%= authorAbbreviation %>',
+			'messages'              => $ui_messages,
+			'plugin_options'        => $plugin_options,
+			'instance_options'      => $instance_options,
+			'plugin_dependencies'   => $plugin_dependencies,
+			'demo_shortcode_params' => $demo_shortcode_params,
 		)
 	);
 }
@@ -252,7 +270,9 @@ function <%= nameSafe %>_rewrite_init() {
 
 	global $<%= nameSafe %>_plugin;
 
-	$<%= nameSafe %>_rewrite = new <%= nameFriendlySafe %>_Rewrite();
+	$<%= nameSafe %>_rewrite = new <%= nameFriendlySafe %>_Rewrite(
+		array()
+	);
 }
 
 /**
