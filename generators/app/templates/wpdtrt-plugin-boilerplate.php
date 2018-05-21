@@ -182,9 +182,9 @@ function <%= nameSafe %>_deactivate() {
 	$plugin_options = array(
 		'pluginoption1' => array(
 			'type'  => 'text',
-			'label' => __('Field label', '<%= name %>'),
+			'label' => __( 'Field label', '<%= name %>' ),
 			'size'  => 10,
-			'tip'   => __('Helper text', '<%= name %>')
+			'tip'   => __( 'Helper text', '<%= name %>' )
 		)
 	);
 
@@ -197,9 +197,9 @@ function <%= nameSafe %>_deactivate() {
 	$instance_options = array(
 		'instanceoption1' => array(
 			'type'  => 'text',
-			'label' => __('Field label', '<%= name %>'),
+			'label' => __( 'Field label', '<%= name %>' ),
 			'size'  => 10,
-			'tip'   => __('Helper text', '<%= name %>')
+			'tip'   => __( 'Helper text', '<%= name %>' )
 		)
 	);
 
@@ -213,8 +213,8 @@ function <%= nameSafe %>_deactivate() {
 			'url'              => <%= constantStub %>_URL,
 			'prefix'           => '<%= nameSafe %>',
 			'slug'             => '<%= name %>',
-			'menu_title'       => __('<%= nameAdminMenu %>', '<%= name %>'),
-			'settings_title'   => __('Settings', '<%= name %>'),
+			'menu_title'       => __( '<%= nameAdminMenu %>', '<%= name %>' ),
+			'settings_title'   => __( 'Settings', '<%= name %>' ),
 			'developer_prefix' => '<%= authorAbbreviation %>',
 			'path'             => <%= constantStub %>_PATH,
 			'messages'         => array(
@@ -303,7 +303,7 @@ function <%= nameSafe %>_taxonomy_init() {
 					'type'              => 'text',
 					'label'             => esc_html__( 'Option 1', '<%= name %>' ),
 					'admin_table'       => true,
-					'admin_table_label' => esc_html__( 'Opt 1', '<%= name %> ' ),
+					'admin_table_label' => esc_html__( '1', '<%= name %> ' ),
 					'admin_table_sort'  => true,
 					'tip'               => 'Enter something',
 					'todo_condition'    => 'foo !== "bar"',
