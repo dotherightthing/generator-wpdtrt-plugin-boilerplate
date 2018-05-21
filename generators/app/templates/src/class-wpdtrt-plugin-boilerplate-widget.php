@@ -14,7 +14,7 @@
  * @since   1.0.0
  * @version 1.0.0
  */
-class <%= nameSafe %>_Widget extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Widget {
+class <%= nameFriendlySafe %>_Widget extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Widget {
 
 	/**
 	 * Supplement widget initialisation.

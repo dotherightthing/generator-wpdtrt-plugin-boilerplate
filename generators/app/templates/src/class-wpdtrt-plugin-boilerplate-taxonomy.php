@@ -14,7 +14,7 @@
  * @since   1.0.0
  * @version 1.0.0
  */
-class <%= nameSafe %>_Taxonomy extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Taxonomy {
+class <%= nameFriendlySafe %>_Taxonomy extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Taxonomy {
 
 	/**
 	 * Supplement taxonomy initialisation.

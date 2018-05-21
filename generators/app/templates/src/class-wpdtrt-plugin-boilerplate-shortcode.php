@@ -14,7 +14,7 @@
  * @since   1.0.0
  * @version 1.0.0
  */
-class <%= nameSafe %>_Shortcode extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Shortcode {
+class <%= nameFriendlySafe %>_Shortcode extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Shortcode {
 
 	/**
 	 * Supplement shortcode initialisation.
