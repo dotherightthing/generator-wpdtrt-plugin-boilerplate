@@ -596,10 +596,10 @@ module.exports = class extends Generator {
      * into previously-written files as well
      * note: installDependencies needs at least one of `npm`, `bower` or `yarn` to run.
      * {@link https://webcake.co/building-a-yeoman-generator/}
-     * @see https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/5
+     * @see https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues/5
      * @see https://stackoverflow.com/a/29834006/6850747
      * @see https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
-     * @todo https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues/30
+     * @todo https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues/30
      */
     install() {
 

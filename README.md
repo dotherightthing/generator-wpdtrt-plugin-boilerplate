@@ -1,6 +1,6 @@
-# WordPress Plugin Boilerplate Generator
+# DTRT WordPress Plugin Boilerplate Generator
 
-[![GitHub tags](https://img.shields.io/github/tag/dotherightthing/generator-wp-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wp-plugin-boilerplate/tags) [![Build Status](https://travis-ci.org/dotherightthing/generator-wp-plugin-boilerplate.svg?branch=master)](https://travis-ci.org/dotherightthing/generator-wp-plugin-boilerplate) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/generator-wp-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wp-plugin-boilerplate/issues)
+[![GitHub tags](https://img.shields.io/github/tag/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/tags) [![Build Status](https://travis-ci.org/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg?branch=master)](https://travis-ci.org/dotherightthing/generator-wpdtrt-plugin-boilerplate) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues)
 
 Generates a best-practice boilerplate for [WordPress](https://wordpress.org/) plugin development.
 
@@ -23,20 +23,20 @@ Generates a best-practice boilerplate for [WordPress](https://wordpress.org/) pl
 This process is also automated:
 
 * by Travis CI
-* from `generator-wp-plugin-boilerplate/.travis.yml`
+* from `generator-wpdtrt-plugin-boilerplate/.travis.yml`
 * in tasks `before_install` and `install`
 
 ### C. Install the generator
 
-1. `$ git clone https://github.com/dotherightthing/generator-wp-plugin-boilerplate.git`
-1. `$ cd generator-wp-plugin-boilerplate`
+1. `$ git clone https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate.git`
+1. `$ cd generator-wpdtrt-plugin-boilerplate`
 1. `$ yarn install`
 1. `$ sudo yarn link`
 
 This process is also automated:
 
 * by Travis CI
-* from `generator-wp-plugin-boilerplate/.travis.yml`
+* from `generator-wpdtrt-plugin-boilerplate/.travis.yml`
 * in task `install`
 
 ### D. Use the generator to scaffold a custom plugin
@@ -48,7 +48,7 @@ This process is also automated:
 This process is also automated:
 
 * by Travis CI
-* from `generator-wp-plugin-boilerplate/.travis.yml`
+* from `generator-wpdtrt-plugin-boilerplate/.travis.yml`
 * in task `script`
 
 ### E. Yeoman runs
@@ -63,7 +63,7 @@ This process is also automated:
 This process is automated:
 
 * by Yeoman
-* from `generator-wp-plugin-boilerplate/generators/app/index.js`
+* from `generator-wpdtrt-plugin-boilerplate/generators/app/index.js`
 * in task `install`
 
 ### F. Gulp runs
