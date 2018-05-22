@@ -14,7 +14,7 @@
  * @since   1.0.0
  * @version 1.0.0
  */
-class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Plugin {
+class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Plugin {
 
 	/**
 	 * Supplement plugin initialisation.

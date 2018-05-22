@@ -14,7 +14,7 @@
  * @since   1.0.0
  * @version 1.0.0
  */
-class <%= nameFriendlySafe %>_Rewrite extends DoTheRightThing\WPDTRT_Plugin\r_0_0_0\Rewrite {
+class <%= nameFriendlySafe %>_Rewrite extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Rewrite {
 
 	/**
 	 * Supplement plugin initialisation.
