@@ -1,6 +1,6 @@
 {
   "name": "generator-wpdtrt-plugin-boilerplate",
-  "version": "0.7.17",
+  "version": "0.7.18",
   "description": "Generate a best-practice boilerplate for WordPress plugin development.",
   "keywords": [
     "yeoman-generator"
