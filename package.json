@@ -1,6 +1,6 @@
 {
   "name": "generator-wpdtrt-plugin-boilerplate",
-  "version": "0.7.16",
+  "version": "0.7.17",
   "description": "Scaffold a WordPress plugin",
   "keywords": [
     "yeoman-generator"
