@@ -7,7 +7,7 @@
 
 set timeout 1
 
-spawn yo wp-plugin-boilerplate 
+spawn yo wpdtrt-plugin-boilerplate 
 
 expect {
     timeout {send "\r"; exp_continue}
