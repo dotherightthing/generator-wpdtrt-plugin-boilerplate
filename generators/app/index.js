@@ -396,7 +396,7 @@ module.exports = class extends Generator {
         // i18n
 
         this.fs.copyTpl(
-            this.templatePath('languages/wpdtrt-plugin-boilerplate-boilerplate.pot'),
+            this.templatePath('languages/wpdtrt-plugin-boilerplate.pot'),
             this.destinationPath('languages/' + userSettings.name + '.pot'),
             userSettings
         );
@@ -435,31 +435,31 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-plugin.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-plugin.php'),
             this.destinationPath('src/class-' + userSettings.name + '-plugin.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-rewrite.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-rewrite.php'),
             this.destinationPath('src/class-' + userSettings.name + '-rewrite.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-shortcode.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-shortcode.php'),
             this.destinationPath('src/class-' + userSettings.name + '-shortcode.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-taxonomy.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-taxonomy.php'),
             this.destinationPath('src/class-' + userSettings.name + '-taxonomy.php'),
             userSettings
         );
 
         this.fs.copyTpl(
-            this.templatePath('src/class-wpdtrt-plugin-boilerplate-boilerplate-widget.php'),
+            this.templatePath('src/class-wpdtrt-plugin-boilerplate-widget.php'),
             this.destinationPath('src/class-' + userSettings.name + '-widget.php'),
             userSettings
         );
@@ -467,7 +467,7 @@ module.exports = class extends Generator {
         // template-parts
 
         this.fs.copyTpl(
-            this.templatePath('template-parts/wpdtrt-plugin-boilerplate-boilerplate/content.php'),
+            this.templatePath('template-parts/wpdtrt-plugin-boilerplate/content.php'),
             this.destinationPath('template-parts/' + userSettings.name + '/content-' + userSettings.nameTemplate + '.php'),
             userSettings
         );
@@ -481,7 +481,7 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('tests/test-wpdtrt-plugin-boilerplate-boilerplate.php'),
+            this.templatePath('tests/test-wpdtrt-plugin-boilerplate.php'),
             this.destinationPath('tests/test-' + userSettings.name + '.php'),
             userSettings
         );
@@ -570,7 +570,7 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('wpdtrt-plugin-boilerplate-boilerplate.php'),
+            this.templatePath('wpdtrt-plugin-boilerplate.php'),
             this.destinationPath(userSettings.name + '.php'),
             userSettings
         );
