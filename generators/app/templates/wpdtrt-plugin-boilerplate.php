@@ -98,7 +98,7 @@ if ( defined( '<%= constantStub %>_TEST_DEPENDENCY' ) ) {
 require_once $project_root_path . 'vendor/autoload.php';
 
 // sub classes, not loaded via PSR-4.
-// comment out the ones you don't need, edit the ones you do.
+// remove the includes you don't need, edit the files you do need.
 require_once <%= constantStub %>_PATH . 'src/class-<%= name %>-plugin.php';
 require_once <%= constantStub %>_PATH . 'src/class-<%= name %>-rewrite.php';
 require_once <%= constantStub %>_PATH . 'src/class-<%= name %>-shortcode.php';
