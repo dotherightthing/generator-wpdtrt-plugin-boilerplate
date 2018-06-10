@@ -97,21 +97,6 @@ module.exports = class extends Generator {
             'http://www.gnu.org/licenses/gpl-2.0.html'
         );
 
-        this.config.set(
-            'localTestDatabaseName',
-            folderNameFunctionSafe + 'Test'
-        );
-
-        this.config.set(
-            'localTestDatabasePassword',
-            ''
-        );
-
-        this.config.set(
-            'localTestDatabaseUserName',
-            ''
-        );
-
         // name must match the folder name, for WordPress to recognise the plugin
         this.config.set(
             'name',
@@ -143,11 +128,6 @@ module.exports = class extends Generator {
         this.config.set(
             'tags',
             'foo, bar, baz'
-        );
-
-        this.config.set(
-            'wpVersion',
-            '4.9.5'
         );
     };
 
@@ -198,12 +178,6 @@ module.exports = class extends Generator {
             },
             {
                 type: 'input',
-                name: 'wpVersion',
-                message: 'Software version (WordPress)',
-                default: this.config.get('wpVersion')
-            },
-            {
-                type: 'input',
                 name: 'authorName',
                 message: 'Author names (first and last)',
                 default: this.config.get('authorName')
@@ -243,24 +217,6 @@ module.exports = class extends Generator {
                 name: 'donateUrl',
                 message: 'Author donation URL',
                 default: this.config.get('donateUrl')
-            },
-            {
-                type: 'input',
-                name: 'localTestDatabaseName',
-                message: 'Database name for WordPress Unit tests (local dev)',
-                default: this.config.get('localTestDatabaseName')
-            },
-            {
-                type: 'input',
-                name: 'localTestDatabaseUserName',
-                message: 'Database user for WordPress Unit tests (local dev)',
-                default: this.config.get('localTestDatabaseUserName')
-            },
-            {
-                type: 'password',
-                name: 'localTestDatabasePassword',
-                message: 'Database password for WordPress Unit tests (local dev)',
-                default: this.config.get('localTestDatabasePassword')
             }
         ];
 
@@ -341,9 +297,6 @@ module.exports = class extends Generator {
             generatorVersion:               this.config.get('generatorVersion'),
             githubUserName:                 this.props.githubUserName,
             homepage:                       this.transforms.homepage,
-            localTestDatabaseName:          this.props.localTestDatabaseName,
-            localTestDatabaseUserName:      this.props.localTestDatabaseUserName,
-            localTestDatabasePassword:      this.props.localTestDatabasePassword,
             name:                           this.config.get('name'),
             nameAdminMenu:                  this.transforms.nameAdminMenu,
             nameFriendly:                   this.props.nameFriendly,
@@ -359,8 +312,7 @@ module.exports = class extends Generator {
             pluginUrlAdminMenu:             this.transforms.pluginUrlAdminMenu,
             defaultVersion:                 this.config.get('defaultVersion'),
             repositoryUrl:                  this.transforms.repositoryUrl,
-            srcDir:                         process.cwd(),
-            wpVersion:                      this.props.wpVersion
+            srcDir:                         process.cwd()
         };
 
         // APP
@@ -612,31 +564,14 @@ module.exports = class extends Generator {
             '--no-interaction'
         ]);
 
-        // setup of test database
-        // - immediately after generating a plugin on GitHub/Travis = below
-        // - each time generated plugin is updated on GitHub = generators/app/templates/.travis.yml:before_script
-        if ( this.config.get('name') === 'wpdtrt-travistest') {
-            this.spawnCommandSync('bash', [
-                'bin/install-wp-tests.sh',
-                'wordpress_test',
-                'root',
-                '',
-                'localhost',
-                this.props.wpVersion
-            ]);
-        }
-        // setup of test database
-        // - immediately after generating a plugin on local dev = below
-        else {
-            this.spawnCommandSync('bash', [
-                'bin/install-wp-tests.sh',
-                this.props.localTestDatabaseName,
-                this.props.localTestDatabaseUserName,
-                this.props.localTestDatabasePassword,
-                '127.0.0.1',
-                this.props.wpVersion
-            ]);
-        }
+        // Install WPUnit test harness & create test DB
+        this.spawnCommandSync('gulp', [
+            'wpunit_install',
+            '--gulpfile',
+            './vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js',
+            '--cwd',
+            './'
+        ]);
 
         // enable support for yarn workspaces (experimental)
         // this allows us to install the dependencies of wpdtrt-plugin-boilerplate (autoprefixer etc)
