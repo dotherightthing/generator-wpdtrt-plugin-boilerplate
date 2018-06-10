@@ -129,6 +129,11 @@ module.exports = class extends Generator {
             'tags',
             'foo, bar, baz'
         );
+
+        this.config.set(
+            'wpVersion',
+            '4.9.5'
+        );
     };
 
     /**
@@ -312,7 +317,8 @@ module.exports = class extends Generator {
             pluginUrlAdminMenu:             this.transforms.pluginUrlAdminMenu,
             defaultVersion:                 this.config.get('defaultVersion'),
             repositoryUrl:                  this.transforms.repositoryUrl,
-            srcDir:                         process.cwd()
+            srcDir:                         process.cwd(),
+            wpVersion:                      this.config.get('wpVersion')
         };
 
         // APP
