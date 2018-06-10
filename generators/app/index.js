@@ -603,24 +603,12 @@ module.exports = class extends Generator {
         // gulp-cli is installed by travis
         // gulp is installed with the generator
         // gulp reads ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js
-        if ( this.config.get('name') === 'wpdtrt-travistest') {
-            this.spawnCommandSync('gulp', [
-                'dist',
-                '--gulpfile',
-                './vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js',
-                '--cwd',
-                './'
-            ]);
-        }
-        else {
-            this.spawnCommandSync('gulp', [
-                'install',
-                '--gulpfile',
-                './vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js',
-                '--cwd',
-                './'
-            ]);
-        }
+        this.spawnCommandSync('gulp', [
+            '--gulpfile',
+            './vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js',
+            '--cwd',
+            './'
+        ]);
     };
 
     /**
