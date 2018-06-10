@@ -564,15 +564,6 @@ module.exports = class extends Generator {
             '--no-interaction'
         ]);
 
-        // Install WPUnit test harness & create test DB
-        this.spawnCommandSync('gulp', [
-            'wpunit_install',
-            '--gulpfile',
-            './vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js',
-            '--cwd',
-            './'
-        ]);
-
         // enable support for yarn workspaces (experimental)
         // this allows us to install the dependencies of wpdtrt-plugin-boilerplate (autoprefixer etc)
         // as well as those of the generated plugin (gulp)
