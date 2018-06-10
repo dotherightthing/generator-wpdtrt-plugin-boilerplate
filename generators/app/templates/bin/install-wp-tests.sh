@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $# -lt 3 ]; then
+if [ $# -lt 1 ]; then
 	echo "usage: $0 <db-name> [wp-version] [skip-database-creation]"
 	exit 1
 fi
@@ -13,17 +13,17 @@ SKIP_DB_CREATE=${3-false}
 # See https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#environmental-variables 
 
 if [[ -z "$WPUNIT_DB_USER" ]]; then
-	echo "WPUNIT_DB_USER not found. Please add export statement to your ~/.bash_profile"
+	echo "WPUNIT_DB_USER not found. Please add export statement to your ~/.bash_profile, or run source ~/.bash_profile"
 	exit 1
 fi
 
 if [[ -z "$WPUNIT_DB_PASS" ]]; then
-	echo "WPUNIT_DB_PASS not found. Please add export statement to your ~/.bash_profile"
+	echo "WPUNIT_DB_PASS not found. Please add export statement to your ~/.bash_profile, or run source ~/.bash_profile"
 	exit 1
 fi
 
 if [[ -z "$WPUNIT_DB_HOST" ]]; then
-	echo "WPUNIT_DB_HOST not found. Please add export statement to your ~/.bash_profile"
+	echo "WPUNIT_DB_HOST not found. Please add export statement to your ~/.bash_profile, or run source ~/.bash_profile"
 	exit 1
 fi
 
@@ -163,6 +163,7 @@ install_db() {
 	fi
 
 	# create database
+	# Warning: Using a password on the command line interface can be insecure.
 	mysqladmin create $DB_NAME --user="$DB_USER" --password="$DB_PASS"$EXTRA
 }
 
