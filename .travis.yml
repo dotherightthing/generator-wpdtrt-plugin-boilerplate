@@ -72,7 +72,7 @@ install:
   - yarn link
   # Install Ruby Gems specified in the Gemfile
   - gem install bundler
-  - bundle install
+  - bundle install --gemfile ./generators/app/templates/Gemfile
 
 # Make shell script executable
 # https://github.com/travis-ci/travis-ci/issues/5804
