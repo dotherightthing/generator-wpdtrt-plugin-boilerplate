@@ -636,7 +636,7 @@ module.exports = class extends Generator {
     end() {
 
         this.log(yosay(
-            'Install complete. Please read ' + chalk.yellow('readme.txt') + ' and ' + chalk.yellow('https://github.com/dotherightthing/wpdtrt-plugin-boilerplate#set-up-a-new-plugin')
+            'Install complete. Please read ' + chalk.yellow('readme.txt') + ' and ' + chalk.yellow('https://github.com/dotherightthing/wpdtrt-plugin-boilerplate#usage')
         ));
     };
 
