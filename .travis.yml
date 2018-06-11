@@ -70,12 +70,18 @@ install:
   - yarn global add yo
   # Symlink the package to make the generator available via the commandline:
   - yarn link
+  # Install Ruby Gems specified in the Gemfile
+  - gem install bundler
+  - bundle install
 
 # Make shell script executable
 # https://github.com/travis-ci/travis-ci/issues/5804
 before_script:
   - chmod a+x travis-yo.sh
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - export WPUNIT_DB_USER="root"
+  - export WPUNIT_DB_PASS=""
+  - export WPUNIT_DB_HOST="localhost"
 
 # Run the build script
 script:
