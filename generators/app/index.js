@@ -481,14 +481,6 @@ module.exports = class extends Generator {
             this.destinationPath('Gemfile.lock')
         );
 
-        // Gulp
-
-        this.fs.copyTpl(
-            this.templatePath('gulpfile.js'),
-            this.destinationPath('gulpfile.js'),
-            userSettings
-        );
-
         // Yarn / NPM
 
         this.fs.copyTpl(
@@ -612,11 +604,10 @@ module.exports = class extends Generator {
         // gulp-cli is installed by travis
         // gulp is installed with the generator
         // gulp reads ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js
-        this.spawnCommandSync('gulp', [
-            '--gulpfile',
-            './vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js',
-            '--cwd',
-            './'
+        // yarn run is equivalent to npm run
+        this.spawnCommandSync('yarn', [
+            'run',
+            'build'
         ]);
     };
 
