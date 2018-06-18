@@ -41,7 +41,6 @@ This process is also automated:
 
 ### D. Use the generator to scaffold a custom plugin
 
-1. `source ~/.bash_profile` (workaround for [issue 68](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/68))
 1. `$ cd wpdtrt-mypluginname`
 1. `$ yo wpdtrt-plugin-boilerplate`
 

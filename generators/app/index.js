@@ -149,13 +149,6 @@ module.exports = class extends Generator {
           chalk.yellow('DTRT WordPress Plugin generator (' + this.config.get('generatorVersion') + ')' )
         ));
 
-        if ( this.dtrt ) {
-            // https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/68
-            this.log(yosay(
-              'Before we begin, please run ' + chalk.yellow('source ~/.bash_profile')
-            ));
-        }
-
         const prompts = [
             {
                 type: 'input',
