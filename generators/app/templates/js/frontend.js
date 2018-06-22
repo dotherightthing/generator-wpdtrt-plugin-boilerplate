@@ -7,7 +7,8 @@
  * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  */
 
-/*global document, $, jQuery, <%= nameSafe %>_config*/
+/* eslint-env browser */
+/* global document, $, jQuery, <%= nameSafe %>_config */
 
 /*
 jQuery(document).ready(function ($) {
