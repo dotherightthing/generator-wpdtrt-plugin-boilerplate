@@ -19,7 +19,7 @@
   "bugs": {
     "url" : "https://github.com/<%= githubUserName %>/<%= name %>/issues"
   },
-  "keywords": <%= pluginKeywords %>,
+  "keywords": <%- pluginKeywords %>,
   "devDependencies": {
     "gulp": "^3.9.1"
   },
