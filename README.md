@@ -113,11 +113,6 @@ This setting is optional and Composer will fall back to the original sources if 
 1. Name: `COMPOSER_AUTH`
 1. Value: Copy from https://packagist.com/orgs/yourpackagistusername/tokens
 
-#### Slack Notifications
-
-1. Name: `SLACK_AUTH`
-1. Value: Follow the instructions at https://docs.travis-ci.com/user/notifications/#Configuring-Slack-notifications to generate an encrypted key in the format `<account>:<token>`
-
 ### I. Add the package to CC Menu (optional)
 
 1. https://travis-ci.org/yourtravisusername/wpdtrt-mypluginname > Trigger Build
