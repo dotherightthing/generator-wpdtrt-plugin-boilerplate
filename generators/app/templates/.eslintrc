@@ -1,0 +1,3 @@
+{
+  "extends": "./node_modules/dotherightthing/wpdtrt-plugin-boilerplate/.eslintrc",
+}

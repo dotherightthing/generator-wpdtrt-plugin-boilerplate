@@ -439,6 +439,13 @@ module.exports = class extends Generator {
 
         // root configuration files
 
+        // ESLint
+
+        this.fs.copy(
+            this.templatePath('.eslintrc'),
+            this.destinationPath('.eslintrc')
+        );
+
         // Git
 
         this.fs.copy(
@@ -449,8 +456,8 @@ module.exports = class extends Generator {
         // SCSS Lint config
 
         this.fs.copy(
-            this.templatePath('.scss-lint.yml'),
-            this.destinationPath('.scss-lint.yml')
+            this.templatePath('.sass-lint.yml'),
+            this.destinationPath('.sass-lint.yml')
         );
 
         // Travis CI (Github build)
@@ -467,18 +474,6 @@ module.exports = class extends Generator {
             this.templatePath('composer.json'),
             this.destinationPath('composer.json'),
             userSettings
-        );
-
-        // Gemfile (Bundler)
-
-        this.fs.copy(
-            this.templatePath('Gemfile'),
-            this.destinationPath('Gemfile')
-        );
-
-        this.fs.copy(
-            this.templatePath('Gemfile.lock'),
-            this.destinationPath('Gemfile.lock')
         );
 
         // Yarn / NPM
@@ -504,12 +499,6 @@ module.exports = class extends Generator {
         );
 
         // documentation
-
-        this.fs.copyTpl(
-            this.templatePath('phpdoc.dist.xml'),
-            this.destinationPath('phpdoc.dist.xml'),
-            userSettings
-        );
 
         this.fs.copyTpl(
             this.templatePath('README.md'),
