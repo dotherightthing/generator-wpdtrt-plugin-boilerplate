@@ -2,6 +2,21 @@
   "name": "generator-wpdtrt-plugin-boilerplate",
   "version": "0.7.20",
   "description": "Generate a best-practice boilerplate for WordPress plugin development.",
+  "person": {
+    "name": "Dan Smith",
+    "email": "dev@dotherightthing.co.nz",
+    "url": "https://profiles.wordpress.org/dotherightthingnz"
+  },
+  "contributors": [
+    {
+      "name": "Dan Smith",
+      "email": "dev@dotherightthing.co.nz",
+      "url": "https://profiles.wordpress.org/dotherightthingnz"
+    }
+  ],
+  "bugs": {
+    "url" : "https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues"
+  },
   "keywords": [
     "yeoman-generator"
   ],
@@ -18,7 +33,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:dotherightthing/wpdtrt-plugin-boilerplate.git"
+    "url": "https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "homepage": "https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate",
+  "srcDir": "/Volumes/DanBackup/Websites/generator-wpdtrt-plugin-boilerplate",
+  "author": "Dan Smith <dev@dotherightthing.co.nz>"
 }
