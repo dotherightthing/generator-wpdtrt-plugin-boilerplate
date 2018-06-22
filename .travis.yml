@@ -70,9 +70,6 @@ install:
   - yarn global add yo
   # Symlink the package to make the generator available via the commandline:
   - yarn link
-  # Install Ruby Gems specified in the Gemfile
-  - gem install bundler
-  - bundle install --gemfile ./generators/app/templates/Gemfile
 
 # Make shell script executable
 # https://github.com/travis-ci/travis-ci/issues/5804
