@@ -491,13 +491,6 @@ module.exports = class extends Generator {
             this.destinationPath('index.php')
         );
 
-        // PHPUnit testing
-
-        this.fs.copy(
-            this.templatePath('phpunit.xml.dist'),
-            this.destinationPath('phpunit.xml.dist')
-        );
-
         // documentation
 
         this.fs.copyTpl(
