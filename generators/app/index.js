@@ -321,14 +321,6 @@ module.exports = class extends Generator {
         // [dest] is defined as either the current working directory
         // or the closest parent folder containing a .yo-rc.json
 
-
-        // bin - unit testing
-
-        this.fs.copy(
-            this.templatePath('bin/install-wp-tests.sh'),
-            this.destinationPath('bin/install-wp-tests.sh')
-        );
-
         // images
 
         this.fs.copy(
