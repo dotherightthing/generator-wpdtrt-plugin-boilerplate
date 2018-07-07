@@ -75,7 +75,7 @@ if ( ! defined( '<%= constantStub %>_URL' ) ) {
  */
 
 /**
- * Determine the correct path, from wpdtrt-plugin-boilerplate to the PSR-4 autoloader.
+ * Determine the correct path to the PSR-4 autoloader.
  *
  * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/51
  */
@@ -84,7 +84,7 @@ if ( ! defined( 'WPDTRT_PLUGIN_CHILD' ) ) {
 }
 
 /**
- * Determine the correct path, from wpdtrt-foobar to the PSR-4 autoloader.
+ * Determine the correct path to the PSR-4 autoloader.
  *
  * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/104
  * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-WordPress-plugin-dependencies
