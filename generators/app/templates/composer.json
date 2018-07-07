@@ -19,15 +19,30 @@
     "require": {
         "dotherightthing/wpdtrt-plugin-boilerplate": "^1.0.0"
     },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "2.9.0",
+        "phpunit/phpunit": "^5.7",
+        "psy/psysh" : "~0.6",
+        "wp-cli/wp-cli" : "~0.22"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": [
+    "repositories":[
         {
-            "type": "composer",
-            "url": "https://repo.packagist.com/dotherightthing/"
+            "type": "vcs",
+            "url": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate"
         },
         {
-            "packagist.org": false
+            "type": "vcs",
+            "url": "https://github.com/dotherightthing/wpdtrt-debug"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/dotherightthing/tgm-plugin-activation"
+        },
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
         }
     ],
     "config": {
