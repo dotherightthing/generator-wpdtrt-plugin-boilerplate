@@ -46,9 +46,6 @@
         }
     ],
     "config": {
-        "vendor-dir": "vendor",
-        "github-oauth": {
-            "github.com": "ffaa5d9ee5b8431444a8573297cafcf304b81a6d"
-        }
+        "vendor-dir": "vendor"
     }
 }
