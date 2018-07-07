@@ -545,7 +545,8 @@ module.exports = class extends Generator {
         this.spawnCommandSync('composer', [
             'install',
             '--prefer-dist',
-            '--no-interaction'
+            '--no-interaction',
+            '--no-suggest'
         ]);
 
         // enable support for yarn workspaces (experimental)
