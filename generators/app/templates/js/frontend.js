@@ -8,26 +8,29 @@
  */
 
 /* eslint-env browser */
-/* global document, $, jQuery, <%= nameSafe %>_config */
+/* global document, jQuery, <%= nameSafe %>_config */
+/* eslint-disable no-unused-vars */
 
 /**
  * @namespace <%= nameSafe %>_ui
  */
-var <%= nameSafe %>_ui = {
+const <%= nameSafe %>_ui = {
 
     /**
      * Initialise front-end scripting
      * @since <%= defaultVersion %>
      */
-    init: function() {
+    init: () => {
+        "use strict";
+
         console.log("<%= nameSafe %>_ui.init");
     }
 }
 
-jQuery(document).ready(function ($) {
+jQuery(document).ready( ($) => {
 
     "use strict";
 
-    var config = <%= nameSafe %>_config;
+    const config = <%= nameSafe %>_config;
     <%= nameSafe %>_ui.init();
 });
