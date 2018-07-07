@@ -541,7 +541,7 @@ module.exports = class extends Generator {
 
         // composer is installed by travis
         // composer reads the generated composer.json
-        // this installs the parent plugin class, which in turn runs a composer install via gulpfile.js
+        // this installs the boilerplate class
         this.spawnCommandSync('composer', [
             'install',
             '--prefer-dist',
