@@ -546,7 +546,8 @@ module.exports = class extends Generator {
             'install',
             '--prefer-dist',
             '--no-interaction',
-            '--no-suggest'
+            '--no-suggest',
+            '--verbose'
         ]);
 
         // enable support for yarn workspaces (experimental)
