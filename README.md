@@ -104,15 +104,6 @@ This task can also be run on `wpdtrt-yourpluginname` after it has been cloned fr
 
 Tip: This key should not be encrypted, nor wrapped in single quote marks.
 
-#### Private Packagist (optional)
-
-Travis sometimes fails to download all of the Composer dependencies from Github, causing builds to fail. The premium Private Packagist service makes this process much more robust, by mirorring dependencies onto its own servers.
-
-This setting is optional and Composer will fall back to the original sources if a Private Packagist `COMPOSER_AUTH` key is not configured.
-
-1. Name: `COMPOSER_AUTH`
-1. Value: Copy from https://packagist.com/orgs/yourpackagistusername/tokens
-
 ### I. Add the package to CC Menu (optional)
 
 1. https://travis-ci.org/yourtravisusername/wpdtrt-yourpluginname > Trigger Build
