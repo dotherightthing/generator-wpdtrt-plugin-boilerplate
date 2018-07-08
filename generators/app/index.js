@@ -539,6 +539,14 @@ module.exports = class extends Generator {
      */
     install() {
 
+        // Expose the existing Travis OAuth token to Composer
+        this.spawnCommandSync('composer', [
+            'config',
+            '--global',
+            'github-oauth.github.com',
+            process.env.GH_TOKEN
+        ]);
+
         // composer is installed by travis
         // composer reads the generated composer.json
         // this installs the boilerplate class
