@@ -102,7 +102,7 @@ This task can also be run on `wpdtrt-yourpluginname` after it has been cloned fr
 1. Token description: `automatic releases for yourtravisname/wpdtrt-yourpluginname`
 1. Select scopes > repo > `public_repo`
 
-Tip: This key should not be encrypted. Wrap the value in single quotes (`'...'`) for maximum compatibility with Bash.
+Tip: This key should not be encrypted, nor wrapped in single quote marks.
 
 #### Private Packagist (optional)
 
