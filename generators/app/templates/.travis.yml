@@ -105,7 +105,7 @@ notifications:
 deploy:
   provider: releases
   api_key:
-    secure: $GITHUB_AUTH
+    secure: $GH_TOKEN
   file: 'release.zip'
   # prevent Travis CI from resetting the working directory
   # which deletes all changes made during the build 
