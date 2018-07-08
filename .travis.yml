@@ -59,7 +59,7 @@ before_install:
   # Expect is required to automate user config of the Yeoman plugin generator
   - sudo apt-get install expect
   # See #88
-  - composer config -g github-oauth.github.com "$GH_TOKEN"
+  - composer config -g github-oauth.github.com $GH_TOKEN
 
 # Install dependencies
 # https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step
