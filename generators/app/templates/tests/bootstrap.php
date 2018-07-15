@@ -20,10 +20,11 @@ require_once $_tests_dir . '/includes/functions.php';
 
 /**
  * Manually load the plugin being tested, and any dependencies.
- * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-WordPress-plugin-dependencies
  */
 function _manually_load_plugin() {
 	require dirname( dirname( __FILE__ ) ) . '/<%= name %>.php';
+
+	<%= nameFriendlySafe %>_Plugin::set_wp_composer_dependencies( '../composer.json', 'wpunit' );
 }
 
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );

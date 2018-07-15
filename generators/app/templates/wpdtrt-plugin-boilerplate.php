@@ -253,7 +253,6 @@ function <%= nameSafe %>_deactivate() {
 			'messages'              => $ui_messages,
 			'plugin_options'        => $plugin_options,
 			'instance_options'      => $instance_options,
-			'plugin_dependencies'   => $plugin_dependencies,
 			'demo_shortcode_params' => $demo_shortcode_params,
 		)
 	);
