@@ -210,13 +210,6 @@ function <%= nameSafe %>_deactivate() {
 	);
 
 	/**
-	 * Plugin dependencies
-	 *
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-WordPress-plugin-dependencies Options: Adding WordPress plugin dependencies
-	 */
-	$plugin_dependencies = array();
-
-	/**
 	 *  UI Messages
 	 */
 	$ui_messages = array(
