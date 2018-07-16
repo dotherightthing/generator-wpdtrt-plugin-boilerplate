@@ -91,16 +91,19 @@ This task can also be run on `wpdtrt-yourpluginname` after it has been cloned fr
 1. Flick the `wpdtrt-yourpluginname` repository switch to 'on'
 1. This adds a commit hook to https://github.com/~/wpdtrt-yourpluginname/settings/installations
 
-### H. Set up tokens for Travis CI
+### H. Set up Github API token for Travis CI
 
-1. https://travis-ci.org/yourtravisusername/wpdtrt-yourpluginname/settings > Environmental Variables
+An API token provides the necessary permissions to deploy the release zip.
 
-#### Github Releases
+It also importantly provides access to a higher rate limit for API requests, of 5000 requests per hour (usually 60 per hour).
+
+This prevents failures when running Composer installs with a lot of nested dependencies.
 
 1. Name: `GH_TOKEN`
 1. Value: <https://github.com/settings/tokens> > Generate new token
 1. Token description: `automatic releases for yourtravisname/wpdtrt-yourpluginname`
 1. Select scopes > repo > `public_repo`
+1. Add the generated key to https://travis-ci.org/yourtravisusername/wpdtrt-yourpluginname/settings > Environmental Variables
 
 Tip: This key should not be encrypted, nor wrapped in single quote marks.
 
