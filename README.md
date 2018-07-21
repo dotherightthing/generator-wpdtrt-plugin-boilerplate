@@ -4,6 +4,8 @@
 
 Generate a best-practice boilerplate for [WordPress](https://wordpress.org/) plugin development.
 
+The generated plugin utilises the functionality packaged in the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate) dependency.
+
 ***
 
 ## Installation
@@ -13,6 +15,7 @@ Generate a best-practice boilerplate for [WordPress](https://wordpress.org/) plu
 3. [Install the generator](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Install-the-generator)
 4. [Use the generator to scaffold a custom plugin](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Use-the-generator-to-scaffold-a-custom-plugin)
 5. [Set up Travis CI](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Travis-CI)
+6. Use the features of the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate)
 
 ## Appendix
 
