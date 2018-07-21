@@ -14,11 +14,11 @@ Generate a best-practice boilerplate for [WordPress](https://wordpress.org/) plu
 4. [Use the generator to scaffold a custom plugin](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Use-the-generator-to-scaffold-a-custom-plugin)
 5. [Set up Travis CI](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Travis-CI)
 
-## Notes
+## Appendix
 
-* [Unit testing](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Unit-testing)
-* [Publishing notes](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Publishing-notes)
-* [i18n](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/i18n)
+* [Unit testing](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Appendix:-Unit-testing)
+* [Publishing notes](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Appendix:-Publishing-notes)
+* [i18n](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Appendix:-i18n)
 
 ---
 
