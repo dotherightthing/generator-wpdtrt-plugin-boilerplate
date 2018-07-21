@@ -372,11 +372,6 @@ module.exports = class extends Generator {
 
         // src
 
-        this.fs.copy(
-            this.templatePath('src/index.php'),
-            this.destinationPath('src/index.php')
-        );
-
         this.fs.copyTpl(
             this.templatePath('src/class-wpdtrt-plugin-boilerplate-plugin.php'),
             this.destinationPath('src/class-' + userSettings.name + '-plugin.php'),
@@ -445,6 +440,15 @@ module.exports = class extends Generator {
             this.destinationPath('.gitignore')
         );
 
+
+        // PHP Code Sniffer exclusions
+
+        this.fs.copy(
+            this.templatePath('phpcs.xml'),
+            this.destinationPath('phpcs.xml')
+        );
+
+
         // SCSS Lint config
 
         this.fs.copy(
@@ -476,13 +480,6 @@ module.exports = class extends Generator {
             userSettings
         );
 
-        // root security
-
-        this.fs.copy(
-            this.templatePath('index.php'),
-            this.destinationPath('index.php')
-        );
-
         // documentation
 
         this.fs.copyTpl(
@@ -508,6 +505,14 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('wpdtrt-plugin-boilerplate.php'),
             this.destinationPath(userSettings.name + '.php'),
+            userSettings
+        );
+
+        // Sublime Text
+        
+        this.fs.copyTpl(
+            this.templatePath('wpdtrt-plugin-boilerplate.sublime-project'),
+            this.destinationPath(userSettings.name + '.sublime-project'),
             userSettings
         );
 

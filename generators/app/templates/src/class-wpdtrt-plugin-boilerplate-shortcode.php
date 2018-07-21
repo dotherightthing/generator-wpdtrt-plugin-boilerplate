@@ -23,10 +23,9 @@ class <%= nameFriendlySafe %>_Shortcode extends DoTheRightThing\WPDTRT_Plugin_Bo
 	 * @since     1.0.0
 	 * @version   1.1.0
 	 */
-	function __construct( $options ) {
+	public function __construct( $options ) {
 
 		// edit here.
-
 		parent::__construct( $options );
 	}
 
@@ -43,7 +42,6 @@ class <%= nameFriendlySafe %>_Shortcode extends DoTheRightThing\WPDTRT_Plugin_Bo
 	protected function wp_setup() {
 
 		// edit here.
-
 		parent::wp_setup();
 	}
 

@@ -1,5 +1,13 @@
 <?php
 /**
+ * <%= nameFriendly %>
+ *
+ * @package     <%= nameSafe %>
+ * @author      <%= authorName %>
+ * @copyright   2018 Do The Right Thing
+ * @license     GPL-2.0+
+ *
+ * @wordpress-plugin
  * Plugin Name:  <%= nameFriendly %>
  * Plugin URI:   <%= homepage %>
  * Description:  <%= description %>

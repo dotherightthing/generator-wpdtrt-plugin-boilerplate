@@ -24,9 +24,9 @@ class <%= nameSafe %>Test extends WP_UnitTestCase {
 	/**
 	 * Compare two HTML fragments.
 	 *
-	 * @param string $expected Expected value
-	 * @param string $actual Actual value
-	 * @param string $error_message Message to show when strings don't match
+	 * @param string $expected Expected value.
+	 * @param string $actual Actual value.
+	 * @param string $error_message Message to show when strings don't match.
 	 * @uses https://stackoverflow.com/a/26727310/6850747
 	 */
 	protected function assertEqualHtml( $expected, $actual, $error_message ) {
@@ -69,7 +69,7 @@ class <%= nameSafe %>Test extends WP_UnitTestCase {
 	/**
 	 * Create post
 	 *
-	 * @param array $options Post options (post_title, post_date, post_content)
+	 * @param array $options Post options (post_title, post_date, post_content).
 	 * @return number $post_id
 	 * @see https://developer.wordpress.org/reference/functions/wp_insert_post/
 	 * @see https://wordpress.stackexchange.com/questions/37163/proper-formatting-of-post-date-for-wp-insert-post
