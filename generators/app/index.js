@@ -448,6 +448,13 @@ module.exports = class extends Generator {
             this.destinationPath('phpcs.xml')
         );
 
+        // PHPDoc config
+
+        this.fs.copyTpl(
+            this.templatePath('phpdoc-plugin.xml'),
+            this.destinationPath('phpdoc-plugin.xml'),
+            userSettings
+        );
 
         // SCSS Lint config
 
