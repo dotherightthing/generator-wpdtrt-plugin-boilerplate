@@ -41,7 +41,7 @@ echo $before_title . $title . $after_title;
 
 <div class="<%= name %>">
 	<?php
-    	/* ====== Add plugin output here ====== */
+		/* ====== Add plugin output here ====== */
 	?>
 </div>
 
