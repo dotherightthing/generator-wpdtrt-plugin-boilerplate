@@ -19,7 +19,7 @@
 /**
  * WP_UnitTestCase unit tests for <%= nameSafe %>
  */
-class <%= nameSafe %>Test extends WP_UnitTestCase {
+class <%= nameFriendlySafe %>Test extends WP_UnitTestCase {
 
 	/**
 	 * Compare two HTML fragments.
@@ -30,11 +30,11 @@ class <%= nameSafe %>Test extends WP_UnitTestCase {
 	 * @uses https://stackoverflow.com/a/26727310/6850747
 	 */
 	protected function assertEqualHtml( $expected, $actual, $error_message ) {
-		$from = ['/\>[^\S ]+/s', '/[^\S ]+\</s', '/(\s)+/s', '/> </s'];
-		$to   = ['>',            '<',            '\\1',      '><'];
+		$from = [ '/\>[^\S ]+/s', '/[^\S ]+\</s', '/(\s)+/s', '/> </s' ];
+		$to   = [ '>', '<', '\\1', '><' ];
 		$this->assertEquals(
-			preg_replace($from, $to, $expected),
-			preg_replace($from, $to, $actual),
+			preg_replace( $from, $to, $expected ),
+			preg_replace( $from, $to, $actual ),
 			$error_message
 		);
 	}
@@ -49,7 +49,7 @@ class <%= nameSafe %>Test extends WP_UnitTestCase {
 
 		$this->post_id_1 = $this->create_post( array(
 			'post_title'   => '<%= nameFriendly %> test',
-			'post_content' => 'This is a simple test'
+			'post_content' => 'This is a simple test',
 		));
 	}
 
@@ -88,7 +88,7 @@ class <%= nameSafe %>Test extends WP_UnitTestCase {
 			'post_date' => $post_date,
 			'post_content' => $post_content,
 			'post_type' => 'post',
-			'post_status' => 'publish'
+			'post_status' => 'publish',
 		]);
 
 		return $post_id;

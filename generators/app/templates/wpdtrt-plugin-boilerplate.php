@@ -184,9 +184,9 @@ function <%= nameSafe %>_deactivate() {
  * @see https://codex.wordpress.org/Plugin_API/Action_Reference
  * @todo Add a constructor function to WPDTRT_Blocks_Plugin, to explain the options array
  */
-  function <%= nameSafe %>_plugin_init() {
+function <%= nameSafe %>_plugin_init() {
 	// pass object reference between classes via global
-	// because the object does not exist until the WordPress init action has fired
+	// because the object does not exist until the WordPress init action has fired.
 	global $<%= nameSafe %>_plugin;
 
 	/**
@@ -199,8 +199,8 @@ function <%= nameSafe %>_deactivate() {
 			'type'  => 'text',
 			'label' => __( 'Field label', '<%= name %>' ),
 			'size'  => 10,
-			'tip'   => __( 'Helper text', '<%= name %>' )
-		)
+			'tip'   => __( 'Helper text', '<%= name %>' ),
+		),
 	);
 
 	/**
@@ -213,8 +213,8 @@ function <%= nameSafe %>_deactivate() {
 			'type'  => 'text',
 			'label' => __( 'Field label', '<%= name %>' ),
 			'size'  => 10,
-			'tip'   => __( 'Helper text', '<%= name %>' )
-		)
+			'tip'   => __( 'Helper text', '<%= name %>' ),
+		),
 	);
 
 	/**
