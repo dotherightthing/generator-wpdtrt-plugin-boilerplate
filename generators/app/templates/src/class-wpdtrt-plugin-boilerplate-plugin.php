@@ -42,7 +42,6 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boile
 	protected function wp_setup() {
 
 		// edit here.
-
 		parent::wp_setup();
 	}
 
