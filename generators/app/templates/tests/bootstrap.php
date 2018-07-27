@@ -22,9 +22,10 @@ require_once $_tests_dir . '/includes/functions.php';
  * Manually load the plugin being tested, and any dependencies.
  */
 function _manually_load_plugin() {
-	require dirname( dirname( __FILE__ ) ) . '/<%= name %>.php';
-
-	<%= nameFriendlySafe %>_Plugin::set_wp_composer_dependencies( '../composer.json', 'wpunit' );
+	require dirname( dirname( __FILE__ ) ) . '/<%= name %>.php'; // Access static methods of plugin class.
+	$composer_json = dirname( dirname( __FILE__ ) ) . '/composer.json';
+	$composer_dependencies = <%= nameFriendlySafe %>_Plugin::get_wp_composer_dependencies( $composer_json );
+	$composer_dependencies_to_require = <%= nameFriendlySafe %>_Plugin::get_wp_composer_dependencies_wpunit( $composer_dependencies );
 }
 
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
