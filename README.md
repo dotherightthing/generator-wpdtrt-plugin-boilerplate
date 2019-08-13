@@ -17,6 +17,23 @@ The generated plugin utilises the functionality packaged in the [DTRT WordPress 
 5. [Set up Travis CI](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Travis-CI)
 6. Use the features of the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate)
 
+## Maintenance
+
+This generator will need to be periodically updated as technologies change:
+
+1. Update a previously generated plugin as necessary, see [Sample plugins](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Appendix:-Sample-plugins)
+2. Copy relevant changes over to the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate)
+3. Build, test, version & release the updated [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate), see [Release an update](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Workflows#release-an-update)
+4. Copy relevant changes over to the *DTRT WordPress Plugin Boilerplate Generator*
+5. Update the version of the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate) required by the *DTRT WordPress Plugin Boilerplate Generator* in `./generators/app/templates/composer.json`:
+  ```
+  "require": {
+    "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.6"
+  },  
+  ```
+6. Build, test, version & release the updated *DTRT WordPress Plugin Boilerplate Generator*
+7. Update previously generated plugins to reference the updated [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate) and *DTRT WordPress Plugin Boilerplate Generator*
+
 ## Appendix
 
 * [Unit testing](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Appendix:-Unit-testing)
