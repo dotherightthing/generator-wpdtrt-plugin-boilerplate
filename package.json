@@ -15,7 +15,7 @@
     }
   ],
   "bugs": {
-    "url" : "https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues"
+    "url": "https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues"
   },
   "keywords": [
     "yeoman-generator"
