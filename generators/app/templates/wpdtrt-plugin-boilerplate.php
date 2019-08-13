@@ -390,7 +390,7 @@ function <%= nameSafe %>_widget_init() {
 		array(
 			'name'                      => '<%= nameSafe %>_widget',
 			'title'                     => __( '<%= nameFriendly %> Widget', '<%= name %>' ),
-			'description'               => __( 'Widget description.', '<%= name %>' ),
+			'description'               => __( '<%= description %>', '<%= name %>' ),
 			'plugin'                    => $<%= nameSafe %>_plugin,
 			'template'                  => '<%= nameTemplate %>',
 			'selected_instance_options' => array(
