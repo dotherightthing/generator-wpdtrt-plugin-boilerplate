@@ -106,7 +106,7 @@ module.exports = class extends Generator {
         // human readable name
         this.config.set(
             'nameFriendly',
-            S( folderName ).humanize().titleCase().replaceAll('Wpdtrt', 'DTRT').s
+            S( folderName ).humanize().titleCase().replaceAll('Wpdtrt', 'DTRT WP').s
         );
 
         this.config.set(
