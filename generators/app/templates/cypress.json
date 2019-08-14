@@ -1,0 +1,11 @@
+{
+  "baseUrl": "<%= cypressBaseURL %>",
+  "env": {
+    "TENON_API_KEY": "<%= tenonApiKey %>"
+  },
+  "pageLoadTimeout": 20000,
+  "responseTimeout": 5000,
+  "viewportWidth": 1366,
+  "viewportHeight": 768,
+  "watchForFileChanges": false
+}

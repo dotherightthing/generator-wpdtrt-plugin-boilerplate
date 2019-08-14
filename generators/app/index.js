@@ -134,6 +134,16 @@ module.exports = class extends Generator {
             'wpVersion',
             '4.9.5'
         );
+
+        this.config.set(
+            'cypressBaseURL',
+            ''
+        );
+
+        this.config.set(
+            'tenonApiKey',
+            ''
+        );
     };
 
     /**
@@ -215,6 +225,18 @@ module.exports = class extends Generator {
                 name: 'donateUrl',
                 message: 'Author donation URL',
                 default: this.config.get('donateUrl')
+            },
+            {
+                type: 'input',
+                name: 'cypressBaseURL',
+                message: 'Base URL for testing web pages in Cypress.io',
+                default: this.config.get('cypressBaseURL')
+            },
+            {
+                type: 'input',
+                name: 'tenonApiKey',
+                message: 'Tenon API Key (https://tenon.io/register.php, https://tenon.io/apikey.php)',
+                default: this.config.get('tenonApiKey')
             }
         ];
 
@@ -291,6 +313,7 @@ module.exports = class extends Generator {
             authorAbbreviation:             this.props.authorAbbreviation,
             authorWordPressName:            this.props.authorWordPressName,
             constantStub:                   this.transforms.nameFriendlySafe.toUpperCase(),
+            cypressBaseURL:                 this.props.cypressBaseURL,
             description:                    this.props.description,
             generatorVersion:               this.config.get('generatorVersion'),
             githubUserName:                 this.props.githubUserName,
@@ -311,6 +334,7 @@ module.exports = class extends Generator {
             defaultVersion:                 this.config.get('defaultVersion'),
             repositoryUrl:                  this.transforms.repositoryUrl,
             srcDir:                         process.cwd(),
+            tenonApiKey:                    this.props.tenonApiKey,
             wpVersion:                      this.config.get('wpVersion')
         };
 
@@ -523,6 +547,30 @@ module.exports = class extends Generator {
             userSettings
         );
 
+        // Cypress.io
+        
+        this.fs.copyTpl(
+            this.templatePath('cypress.json'),
+            this.destinationPath('cypress.json'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('cypress/plugins/index.js'),
+            this.destinationPath('cypress/plugins/index.js'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('cypress/tsconfig.json'),
+            this.destinationPath('cypress/tsconfig.json'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('cypress/integration/flows/wpdtrt-plugin-boilerplate.js'),
+            this.destinationPath('cypress/integration/flows/' + userSettings.name + '.js'),
+            userSettings
     };
 
     /**
