@@ -83,7 +83,7 @@ describe("Test Name", function () {
         .should("have.attr", "aria-controls", `${componentId}-child`)
         .contains("Sweet child of mine");
 
-      // test the accessibility of the viewer using Tenon.io
+      // test the accessibility of the component state using Tenon.io
       // Note: add a wrapper around the component so that the HTML can be submitted independently
       // and in its entirety
       cy.get("@componentName").then((componentName) => {

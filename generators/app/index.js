@@ -571,6 +571,7 @@ module.exports = class extends Generator {
             this.templatePath('cypress/integration/flows/wpdtrt-plugin-boilerplate.js'),
             this.destinationPath('cypress/integration/flows/' + userSettings.name + '.js'),
             userSettings
+        );
     };
 
     /**
