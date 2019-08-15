@@ -23,8 +23,8 @@ require_once $_tests_dir . '/includes/functions.php';
  */
 function _manually_load_plugin() {
 	require dirname( dirname( __FILE__ ) ) . '/<%= name %>.php'; // Access static methods of plugin class.
-	$composer_json = dirname( dirname( __FILE__ ) ) . '/composer.json';
-	$composer_dependencies = <%= nameFriendlySafe %>_Plugin::get_wp_composer_dependencies( $composer_json );
+	$composer_json                    = dirname( dirname( __FILE__ ) ) . '/composer.json';
+	$composer_dependencies            = <%= nameFriendlySafe %>_Plugin::get_wp_composer_dependencies( $composer_json );
 	$composer_dependencies_to_require = <%= nameFriendlySafe %>_Plugin::get_wp_composer_dependencies_wpunit( $composer_dependencies );
 }
 
