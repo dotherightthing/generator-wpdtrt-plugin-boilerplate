@@ -21,16 +21,11 @@ const <%= nameSafe %>_ui = {
      * @since <%= defaultVersion %>
      */
     init: () => {
-        "use strict";
-
         console.log("<%= nameSafe %>_ui.init");
     }
 }
 
 jQuery(document).ready( ($) => {
-
-    "use strict";
-
     const config = <%= nameSafe %>_config;
     <%= nameSafe %>_ui.init();
 });
