@@ -25,6 +25,11 @@ const <%= nameSafe %>_ui = {
     }
 }
 
+// http://stackoverflow.com/a/28771425
+document.addEventListener("touchstart", () => {
+  // nada, this is just a hack to make :focus state render on touch
+}, false);
+
 jQuery(document).ready( ($) => {
     const config = <%= nameSafe %>_config;
     <%= nameSafe %>_ui.init();
