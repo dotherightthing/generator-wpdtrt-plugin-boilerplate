@@ -13,7 +13,7 @@ const normalizeWhitespace = require("normalize-html-whitespace");
 const TenonNode = require("tenon-node");
 
 // export a function
-module.exports = (on, config) => {
+module.exports = (on) => {
   // configure plugins here
   on("task", {
     /**
