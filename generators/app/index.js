@@ -319,7 +319,7 @@ module.exports = class extends Generator {
             .replaceAll("wpdtrt-", "").s;
         this.transforms.pluginKeywords = `["${this.props.tags.split(", ").join("", "")}"]`;
         this.transforms.pluginUrlAdminMenu = `${S(this.props.authorAbbreviation).toLowerCase().s}-${S( this.config.get("nameAdminMenu") ).toLowerCase().replaceAll(" ","-").s}`;
-        this.transforms.repositoryUrl = `git@github.com:${this.config.get("gitUserName")}/${this.config.get("name")}.git`;
+        this.transforms.repositoryUrl = `git@github.com:${this.config.get("githubUserName")}/${this.config.get("name")}.git`;
 
         const userSettings = {
             authorEmail:         this.props.authorEmail,
