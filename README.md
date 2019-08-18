@@ -1,6 +1,6 @@
 # DTRT WordPress Plugin Boilerplate Generator
 
-[![GitHub tags](https://img.shields.io/github/tag/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/tags) [![Build Status](https://travis-ci.org/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg?branch=master)](https://travis-ci.org/dotherightthing/generator-wpdtrt-plugin-boilerplate) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues)
+[![GitHub tags](https://img.shields.io/github/tag/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/tags) [![Build Status](https://travis-ci.org/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg?branch=master)](https://travis-ci.org/dotherightthing/generator-wpdtrt-plugin-boilerplate) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues) [![GitHub wiki](https://img.shields.io/badge/documentation-wiki-lightgrey.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki)
 
 Generate a best-practice boilerplate for [WordPress](https://wordpress.org/) plugin development.
 
@@ -21,7 +21,7 @@ The generated plugin utilises the functionality packaged in the [DTRT WordPress 
 
 This generator will need to be periodically updated as technologies change:
 
-1. Update a previously generated plugin as necessary, see [Sample plugins](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Appendix:-Sample-plugins)
+1. Update a previously generated plugin as necessary, see [Appendix: Generated plugins](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Appendix:-Generated-plugins)
 2. Copy relevant changes over to the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate)
 3. Build, test, version & release the updated [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate), see [Release an update](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Workflows#release-an-update)
 4. Copy relevant changes over to the *DTRT WordPress Plugin Boilerplate Generator*
