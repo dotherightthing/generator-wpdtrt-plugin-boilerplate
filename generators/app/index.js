@@ -163,7 +163,7 @@ module.exports = class extends Generator {
         // https://github.com/dotherightthing/
         // wpdtrt-plugin-boilerplate/issues/68
         this.log(yosay(
-          chalk.yellow(`DTRT WordPress Plugin Boilerplate Generator (${this.config.get("generatorVersion")}`)
+          chalk.yellow(`DTRT WordPress Plugin Boilerplate Generator (${this.config.get("generatorVersion")})`)
         ));
 
         const prompts = [
