@@ -111,7 +111,7 @@ module.exports = class extends Generator {
         this.config.set(
             "nameFriendly",
             S( folderName ).humanize().titleCase()
-                .replaceAll("Wpdtrt", "DTRT WP").s
+                .replaceAll("Wpdtrt", "DTRT").s
         );
 
         this.config.set(
