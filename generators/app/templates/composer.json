@@ -17,7 +17,7 @@
         "issues": "https://github.com/<%= githubUserName %>/<%= name %>/issues"
     },
     "require": {
-        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.9"
+        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.10"
     },
     "require-dev": {
         "phpdocumentor/phpdocumentor": "2.9.0",
