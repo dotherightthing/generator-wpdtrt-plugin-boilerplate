@@ -14,9 +14,10 @@ The generated plugin utilises the functionality packaged in the [DTRT WordPress 
 2. [Install the generator dependencies](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Install-the-generator-dependencies)
 3. [Install the generator](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Install-the-generator)
 4. [Set up the required environmental variables](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-environmental-variables)
-5. [Use the generator to scaffold a custom plugin](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Use-the-generator-to-scaffold-a-custom-plugin)
-6. [Set up Travis CI](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Travis-CI)
-7. Use the features of the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate)
+5. [Start your MySQL Server](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Start-MySQL-Server)
+6. [Use the generator to scaffold a custom plugin](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Use-the-generator-to-scaffold-a-custom-plugin)
+7. [Set up Travis CI](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Travis-CI)
+8. Use the features of the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate)
 
 ## Maintenance
 
