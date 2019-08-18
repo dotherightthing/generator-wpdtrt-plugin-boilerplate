@@ -626,7 +626,10 @@ module.exports = class extends Generator {
      */
     install() {
 
-        // Expose the existing Travis OAuth token to Composer
+        // Expose the existing OAuth token to Composer
+        // See https://github.com/dotherightthing/
+        // generator-wpdtrt-plugin-boilerplate/wiki/
+        // Set-up-environmental-variables
         this.spawnCommandSync("composer", [
             "config",
             "--global",
@@ -637,6 +640,7 @@ module.exports = class extends Generator {
         // composer is installed by travis
         // composer reads the generated composer.json
         // this installs the boilerplate class
+        // and makes its gulpfile available for the build 
         this.spawnCommandSync("composer", [
             "install",
             "--prefer-dist",
