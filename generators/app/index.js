@@ -3,7 +3,7 @@
  *
  * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin-boilerplate
  *
- * @version     0.8.6
+ * @version     0.8.7
  */
 
 /* eslint max-len: ["error", { "ignoreTemplateLiterals": true }] */
@@ -30,7 +30,7 @@ module.exports = class extends Generator {
         // Some defaults are also generated from these values
         // - see writing()
 
-        const version = "0.8.6";
+        const version = "0.8.7";
         const folderName = process.cwd().split(path.sep).pop();
         const folderNameFunctionSafe = S( folderName ).replaceAll("-","_").s;
         this.dtrt = false;
@@ -111,7 +111,7 @@ module.exports = class extends Generator {
         this.config.set(
             "nameFriendly",
             S( folderName ).humanize().titleCase()
-                .replaceAll("Wpdtrt", "DTRT WP").s
+                .replaceAll("Wpdtrt", "DTRT").s
         );
 
         this.config.set(
@@ -144,11 +144,6 @@ module.exports = class extends Generator {
             "cypressBaseURL",
             ""
         );
-
-        this.config.set(
-            "tenonApiKey",
-            ""
-        );
     };
 
     /**
@@ -163,7 +158,7 @@ module.exports = class extends Generator {
         // https://github.com/dotherightthing/
         // wpdtrt-plugin-boilerplate/issues/68
         this.log(yosay(
-          chalk.yellow(`DTRT WordPress Plugin Boilerplate Generator (${this.config.get("generatorVersion")}`)
+          chalk.yellow(`DTRT WordPress Plugin Boilerplate Generator (${this.config.get("generatorVersion")})`)
         ));
 
         const prompts = [
@@ -238,13 +233,6 @@ module.exports = class extends Generator {
                 name: "cypressBaseURL",
                 message: "Base URL for testing web pages in Cypress.io",
                 default: this.config.get("cypressBaseURL")
-            },
-            {
-                type: "input",
-                name: "tenonApiKey",
-                message: "Tenon API Key (https://tenon.io/register.php, " +
-                    "https://tenon.io/user/apikey.php)",
-                default: this.config.get("tenonApiKey")
             }
         ];
 
@@ -319,7 +307,7 @@ module.exports = class extends Generator {
             .replaceAll("wpdtrt-", "").s;
         this.transforms.pluginKeywords = `["${this.props.tags.split(", ").join("", "")}"]`;
         this.transforms.pluginUrlAdminMenu = `${S(this.props.authorAbbreviation).toLowerCase().s}-${S( this.config.get("nameAdminMenu") ).toLowerCase().replaceAll(" ","-").s}`;
-        this.transforms.repositoryUrl = `git@github.com:${this.config.get("gitUserName")}/${this.config.get("name")}.git`;
+        this.transforms.repositoryUrl = `git@github.com:${this.config.get("githubUserName")}/${this.config.get("name")}.git`;
 
         const userSettings = {
             authorEmail:         this.props.authorEmail,
@@ -350,7 +338,6 @@ module.exports = class extends Generator {
             defaultVersion:      this.config.get("defaultVersion"),
             repositoryUrl:       this.transforms.repositoryUrl,
             srcDir:              process.cwd(),
-            tenonApiKey:         this.props.tenonApiKey,
             wpVersion:           this.config.get("wpVersion")
         };
 
@@ -590,7 +577,7 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath("cypress/integration/flows/"
                 + "wpdtrt-plugin-boilerplate.js"),
-            this.destinationPath(`cypress/integration/flows/"${userSettings.name}.js`),
+            this.destinationPath(`cypress/integration/flows/${userSettings.name}.js`),
             userSettings
         );
     };
@@ -626,7 +613,10 @@ module.exports = class extends Generator {
      */
     install() {
 
-        // Expose the existing Travis OAuth token to Composer
+        // Expose the existing OAuth token to Composer
+        // See https://github.com/dotherightthing/
+        // generator-wpdtrt-plugin-boilerplate/wiki/
+        // Set-up-environmental-variables
         this.spawnCommandSync("composer", [
             "config",
             "--global",
@@ -637,6 +627,7 @@ module.exports = class extends Generator {
         // composer is installed by travis
         // composer reads the generated composer.json
         // this installs the boilerplate class
+        // and makes its gulpfile available for the build 
         this.spawnCommandSync("composer", [
             "install",
             "--prefer-dist",

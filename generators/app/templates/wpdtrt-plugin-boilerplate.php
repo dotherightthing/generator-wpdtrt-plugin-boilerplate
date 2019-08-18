@@ -218,7 +218,7 @@ function <%= nameSafe %>_plugin_init() {
 	);
 
 	/**
-	 *  UI Messages
+	 * UI Messages
 	 */
 	$ui_messages = array(
 		'demo_data_description'       => __( 'This demo was generated from the following data', '<%= name %>' ),

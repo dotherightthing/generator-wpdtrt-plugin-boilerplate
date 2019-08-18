@@ -14,7 +14,9 @@
     ],
     "support": {
         "email": "<%= authorSupportEmail %>",
-        "issues": "https://github.com/<%= githubUserName %>/<%= name %>/issues"
+        "issues": "https://github.com/<%= githubUserName %>/<%= name %>/issues",
+        "source": "https://github.com/<%= githubUserName %>/<%= name %>",
+        "wiki": "https://github.com/<%= githubUserName %>/<%= name %>/wiki"
     },
     "require": {
         "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.10"

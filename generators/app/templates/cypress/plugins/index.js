@@ -13,7 +13,7 @@ const normalizeWhitespace = require("normalize-html-whitespace");
 const TenonNode = require("tenon-node");
 
 // export a function
-module.exports = (on, config) => {
+module.exports = (on) => {
   // configure plugins here
   on("task", {
     /**
@@ -28,7 +28,7 @@ module.exports = (on, config) => {
      */
     tenonAnalyzeUrl(url) {
       const tenonApi = new TenonNode({
-        key: config.env.TENON_API_KEY
+        key: process.env.TENON_API_KEY
       });
 
       return new Promise((resolve, reject) => {
@@ -59,7 +59,7 @@ module.exports = (on, config) => {
     tenonAnalyzeHtml(selectorHtml) {
       const html = normalizeWhitespace(selectorHtml); // strip whitespace between html tags
       const tenonApi = new TenonNode({
-        key: config.env.TENON_API_KEY
+        key: process.env.TENON_API_KEY
       });
 
       return new Promise((resolve, reject) => {
