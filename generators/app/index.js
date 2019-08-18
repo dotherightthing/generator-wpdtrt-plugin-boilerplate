@@ -144,11 +144,6 @@ module.exports = class extends Generator {
             "cypressBaseURL",
             ""
         );
-
-        this.config.set(
-            "tenonApiKey",
-            ""
-        );
     };
 
     /**
@@ -238,13 +233,6 @@ module.exports = class extends Generator {
                 name: "cypressBaseURL",
                 message: "Base URL for testing web pages in Cypress.io",
                 default: this.config.get("cypressBaseURL")
-            },
-            {
-                type: "input",
-                name: "tenonApiKey",
-                message: "Tenon API Key (https://tenon.io/register.php, " +
-                    "https://tenon.io/user/apikey.php)",
-                default: this.config.get("tenonApiKey")
             }
         ];
 
@@ -350,7 +338,6 @@ module.exports = class extends Generator {
             defaultVersion:      this.config.get("defaultVersion"),
             repositoryUrl:       this.transforms.repositoryUrl,
             srcDir:              process.cwd(),
-            tenonApiKey:         this.props.tenonApiKey,
             wpVersion:           this.config.get("wpVersion")
         };
 
