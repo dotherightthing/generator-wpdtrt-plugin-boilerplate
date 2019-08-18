@@ -243,7 +243,7 @@ module.exports = class extends Generator {
                 type: "input",
                 name: "tenonApiKey",
                 message: "Tenon API Key (https://tenon.io/register.php, " +
-                    "https://tenon.io/apikey.php)",
+                    "https://tenon.io/user/apikey.php)",
                 default: this.config.get("tenonApiKey")
             }
         ];
