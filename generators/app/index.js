@@ -121,7 +121,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             "phpVersion",
-            this.dtrt ? "5.6.30" : ""
+            this.dtrt ? "7.3.7" : ""
         );
 
         // minimum semver version
