@@ -19,7 +19,7 @@
         "wiki": "https://github.com/<%= githubUserName %>/<%= name %>/wiki"
     },
     "require": {
-        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.12"
+        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.13"
     },
     "require-dev": {
         "phpdocumentor/phpdocumentor": "2.9.0",
