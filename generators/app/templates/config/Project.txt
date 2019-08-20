@@ -1,0 +1,13 @@
+Source Folder: ./
+Source Folder: ./vendor/dotherightthing/wpdtrt-plugin-boilerplate
+Ignore Source Folder: ./bin
+Ignore Source Folder: ./docs
+Ignore Source Folder: ./node_modules
+Ignore Source Folder: ./tests
+Ignore Source Folder: ./vendor
+Ignore Source Folder: ./wp-content/plugins
+HTML Output Folder: ./docs/php
+Title: <%= nameFriendly %>
+Subtitle: Version <%= defaultVersion %>
+
+Copyright: Copyright (C) 2019 <%= authorName %>
