@@ -1,8 +1,10 @@
 .DS_Store
 .yo-rc.json
 composer.phar
+config/Working Data
 css
-docs
+docs/jsdoc
+docs/php/*
 generators
 js/*-es5.js
 logs

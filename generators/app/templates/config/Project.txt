@@ -4,21 +4,17 @@ Format: 2.0.2
 # also be used to specify input and output settings so you don't have to
 # include them on the command line.
 
+
 # Project Information
 # ------------------------------------------------------------------------
 
+Title: <%= nameFriendly %>
+Subtitle: Version <%= defaultVersion %>
+
+Copyright: Copyright (C) 2019 <%= authorName %>
+
+
 # This is where you specify general information about your project.
-#
-# Title: [text]
-#    The name of your project.  (R) and (TM) will be converted to their
-#    respective symbols.
-#
-# Subtitle: [text]
-#    A subtitle for your project.
-#
-# Copyright: [text]
-#    The copyright notice for your project.  (C) will be converted to the
-#    copyright symbol.
 #
 # Timestamp: [text]
 #    Text explaining when the documentation was generated.  The following
@@ -39,12 +35,14 @@ Format: 2.0.2
 #    a CSS file in the project configuration folder or a subfolder that
 #    contains Style.txt.  Do not include ".css" if using a CSS file.
 
-Title: <%= nameFriendly %>
-Subtitle: Version <%= defaultVersion %>
-Copyright: Copyright (C) 2019 <%= authorName %>
 
 # Source Code
 # ------------------------------------------------------------------------
+
+Source Folder: ..
+Source Folder: ../vendor/dotherightthing/wpdtrt-plugin-boilerplate
+
+
 
 # This is where you specify what files and folders Natural Docs should be
 # scanning.  If you use any of these options on the command line, this entire
@@ -62,11 +60,20 @@ Copyright: Copyright (C) 2019 <%= authorName %>
 #    more than one, add the Name property to set how it will show up in the
 #    menu.
 
-Source Folder: ../
-Source Folder: ./vendor/dotherightthing/wpdtrt-plugin-boilerplate
 
 # Source Filtering
 # ------------------------------------------------------------------------
+
+Ignore Source Folder: ../bin
+
+Ignore Source Folder: ../docs
+
+Ignore Source Folder: ../node_modules
+
+Ignore Source Folder: ../tests
+
+Ignore Source Folder: ../vendor
+
 
 # If there are any subfolders in the source code that you would like Natural
 # Docs to ignore, they can be specified here.  If you use any of these options
@@ -84,15 +91,12 @@ Source Folder: ./vendor/dotherightthing/wpdtrt-plugin-boilerplate
 #    The data folders of common version control systems (.git, .svn, .cvs, .hg)
 #    are ignored automatically.  You do not have to specify them here.
 
-Ignore Source Folder: ../bin
-Ignore Source Folder: ../docs
-Ignore Source Folder: ../node_modules
-Ignore Source Folder: ../tests
-Ignore Source Folder: ../vendor
-Ignore Source Folder: ../wp-content/plugins
 
 # Generated Documentation
 # ------------------------------------------------------------------------
+
+HTML Output Folder: ../docs/php
+
 
 # This is where you specify what kind of documentation you want Natural Docs
 # to build and where it should be put.  If you use any of these options on the
@@ -112,7 +116,6 @@ Ignore Source Folder: ../wp-content/plugins
 #
 #    Generates HTML documentation in the specified folder.
 
-HTML Output Folder: ../docs/php
 
 # Global Settings
 # ------------------------------------------------------------------------
@@ -129,3 +132,5 @@ HTML Output Folder: ../docs/php
 #
 # Auto Group: [yes|no]
 #    Whether groups should automatically apply to you code.  Defaults to yes.
+
+
