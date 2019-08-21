@@ -8,17 +8,12 @@ Format: 2.0.2
 # Project Information
 # ------------------------------------------------------------------------
 
-Title: <%= nameFriendly %>
-Subtitle: Version <%= defaultVersion %>
+Title: Documentation
+Subtitle: <%= nameFriendly %> (<%= defaultVersion %>)
 
 Copyright: Copyright (C) 2019 <%= authorName %>
 
-
-# This is where you specify general information about your project.
-#
-# Timestamp: [text]
-#    Text explaining when the documentation was generated.  The following
-#    substitutions are performed:
+Timestamp: Last updated day month, year
 #    m     - Single digit month, when possible.  January is "1".
 #    mm    - Always double digit month.  January is "01".
 #    mon   - Short month word.  January is "Jan".
@@ -29,6 +24,9 @@ Copyright: Copyright (C) 2019 <%= authorName %>
 #    yy    - Double digit year.  2017 is "17".
 #    yyyy  - Four digit year.  2017 is "2017".
 #    year  - Four digit year.  2017 is "2017".
+
+
+# This is where you specify general information about your project.
 #
 # Style: [style]
 #    The style to apply to the generated documentation.  It can be the name of
@@ -39,8 +37,8 @@ Copyright: Copyright (C) 2019 <%= authorName %>
 # Source Code
 # ------------------------------------------------------------------------
 
-Source Folder: ..
-Source Folder: ../vendor/dotherightthing/wpdtrt-plugin-boilerplate
+Source Folder: ../..
+Source Folder: ../../vendor/dotherightthing/wpdtrt-plugin-boilerplate
 
 
 
@@ -64,15 +62,15 @@ Source Folder: ../vendor/dotherightthing/wpdtrt-plugin-boilerplate
 # Source Filtering
 # ------------------------------------------------------------------------
 
-Ignore Source Folder: ../bin
+Ignore Source Folder: ../../bin
 
-Ignore Source Folder: ../docs
+Ignore Source Folder: ../../docs
 
-Ignore Source Folder: ../node_modules
+Ignore Source Folder: ../../node_modules
 
-Ignore Source Folder: ../tests
+Ignore Source Folder: ../../tests
 
-Ignore Source Folder: ../vendor
+Ignore Source Folder: ../../vendor
 
 
 # If there are any subfolders in the source code that you would like Natural
@@ -95,7 +93,7 @@ Ignore Source Folder: ../vendor
 # Generated Documentation
 # ------------------------------------------------------------------------
 
-HTML Output Folder: ../docs/php
+HTML Output Folder: ../../docs
 
 
 # This is where you specify what kind of documentation you want Natural Docs

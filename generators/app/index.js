@@ -584,14 +584,14 @@ module.exports = class extends Generator {
         // Natural Docs
 
         this.fs.copyTpl(
-            this.templatePath("config/Project.txt"),
-            this.destinationPath("config/Project.txt"),
+            this.templatePath("config/naturaldocs/Project.txt"),
+            this.destinationPath("config/naturaldocs/Project.txt"),
             userSettings
         );
 
         this.fs.copy(
-            this.templatePath("docs/php"),
-            this.destinationPath("docs/php")
+            this.templatePath("docs/README.md"),
+            this.destinationPath("docs/README.md")
         );
     };
 
