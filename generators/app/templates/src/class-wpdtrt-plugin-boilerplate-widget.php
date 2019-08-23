@@ -2,26 +2,27 @@
 /**
  * Widget sub class.
  *
- * @package <%= nameSafe %>
+ * @package <%= nameFriendlySafe %>
  * @version <%= defaultVersion %>
  * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
- * Extend the base class to inherit boilerplate functionality.
- * Adds application-specific methods.
+ * Class: <%= nameFriendlySafe %>_Widget
  *
- * @since   1.0.0
- * @version 1.0.0
+ * Extend the base class to inherit boilerplate functionality.
+ *
+ * Adds application-specific methods.
  */
 class <%= nameFriendlySafe %>_Widget extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Widget {
 
 	/**
+	 * Function: __construct
+	 *
 	 * Supplement widget initialisation.
 	 *
-	 * @param     array $options Widget options.
-	 * @since     1.0.0
-	 * @version   1.1.0
+	 * Parameters:
+	 *   (array) $options - Widget options.
 	 */
 	public function __construct( $options ) {
 

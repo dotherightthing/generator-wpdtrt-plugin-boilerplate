@@ -1,27 +1,29 @@
 <?php
 /**
+ * File: src/class-<%= name %>-rewrite.php
+ *
  * Rewrite sub class.
  *
- * @package <%= nameSafe %>
- * @version <%= defaultVersion %>
+ * @package <%= nameFriendlySafe %>
  * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
- * Extend the base class to inherit boilerplate functionality.
- * Adds application-specific methods.
+ * Class: <%= nameFriendlySafe %>_Rewrite
  *
- * @since   1.0.0
- * @version 1.0.0
+ * Extend the base class to inherit boilerplate functionality.
+ *
+ * Adds application-specific methods.
  */
 class <%= nameFriendlySafe %>_Rewrite extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Rewrite {
 
 	/**
-	 * Supplement plugin initialisation.
+	 * Function: __construct
 	 *
-	 * @param     array $options Rewrite options.
-	 * @since     1.0.0
-	 * @version   1.1.0
+	 * Supplement rewrite initialisation.
+	 *
+	 * Parameters:
+	 *   (array) $options - Rewrite options.
 	 */
 	public function __construct( $options ) {
 

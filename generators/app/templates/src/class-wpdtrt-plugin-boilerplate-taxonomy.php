@@ -2,26 +2,27 @@
 /**
  * Taxonomy sub class.
  *
- * @package <%= nameSafe %>
+ * @package <%= nameFriendlySafe %>
  * @version <%= defaultVersion %>
  * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
- * Extend the base class to inherit boilerplate functionality.
- * Adds application-specific methods.
+ * Class: <%= nameFriendlySafe %>_Taxonomy
  *
- * @since   1.0.0
- * @version 1.0.0
+ * Extend the base class to inherit boilerplate functionality.
+ *
+ * Adds application-specific methods.
  */
 class <%= nameFriendlySafe %>_Taxonomy extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Taxonomy {
 
 	/**
+	 * Function: __construct
+	 *
 	 * Supplement taxonomy initialisation.
 	 *
-	 * @param     array $options Taxonomy options.
-	 * @since     1.0.0
-	 * @version   1.1.0
+	 * Parameters:
+	 *   (array) $options - Taxonomy options.
 	 */
 	public function __construct( $options ) {
 
