@@ -2,6 +2,7 @@
 .yo-rc.json
 composer.phar
 config/naturaldocs/Working Data
+Natural Docs
 css
 docs/*
 !docs/README.md
