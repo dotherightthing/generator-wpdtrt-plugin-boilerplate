@@ -11,6 +11,7 @@ js/*-es5.js
 logs
 node_modules
 release.zip
+*.code-workspace
 *sublime-*
 vendor
 wp-content
