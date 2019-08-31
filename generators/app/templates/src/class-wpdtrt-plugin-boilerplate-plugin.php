@@ -4,26 +4,30 @@
  *
  * Plugin sub class.
  *
- * @package <%= nameFriendlySafe %>
- * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
  * Class: <%= nameFriendlySafe %>_Plugin
  *
- * Extend the base class to inherit boilerplate functionality.
- *
- * Adds application-specific methods.
+ * Extends the base class to inherit boilerplate functionality, adds application-specific methods.
+ * 
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Plugin {
 
 	/**
-	 * Function: __construct
+	 * Constructor: __construct
 	 *
 	 * Supplement plugin initialisation.
 	 *
 	 * Parameters:
-	 *   (array) $options - Plugin options.
+	 *   $options - Plugin options
+	 * 
+	 * Since:
+	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
 	public function __construct( $options ) {
 
@@ -41,9 +45,14 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boile
 	 *
 	 * Supplement plugin's WordPress setup.
 	 *
-	 * Note: Default priority is 10. A higher priority runs later.
+	 * Note:
+	 * - Default priority is 10. A higher priority runs later.
 	 *
-	 * See: https://codex.wordpress.org/Plugin_API/Action_Reference Action order
+	 * See:
+	 * - <Action order: https://codex.wordpress.org/Plugin_API/Action_Reference>
+	 * 
+	 * Since:
+	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
 	protected function wp_setup() {
 

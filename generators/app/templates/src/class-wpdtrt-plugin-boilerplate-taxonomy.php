@@ -1,18 +1,20 @@
 <?php
 /**
+ * File: src/class-<%= name %>-taxonomy.php
+ *
  * Taxonomy sub class.
  *
- * @package <%= nameFriendlySafe %>
- * @version <%= defaultVersion %>
- * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
  * Class: <%= nameFriendlySafe %>_Taxonomy
  *
- * Extend the base class to inherit boilerplate functionality.
+ * Extends the base class to inherit boilerplate functionality, adds application-specific methods.
  *
- * Adds application-specific methods.
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 class <%= nameFriendlySafe %>_Taxonomy extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Taxonomy {
 
@@ -23,6 +25,9 @@ class <%= nameFriendlySafe %>_Taxonomy extends DoTheRightThing\WPDTRT_Plugin_Boi
 	 *
 	 * Parameters:
 	 *   (array) $options - Taxonomy options.
+	 *
+	 * Since:
+	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
 	public function __construct( $options ) {
 
@@ -31,34 +36,45 @@ class <%= nameFriendlySafe %>_Taxonomy extends DoTheRightThing\WPDTRT_Plugin_Boi
 	}
 
 	/**
-	 * ====== WordPress Integration ======
+	 * Group: WordPress Integration
+	 * _____________________________________
 	 */
 
 	/**
+	 * Method: wp_setup
+	 * 
 	 * Supplement taxonomy's WordPress setup.
-	 * Note: Default priority is 10. A higher priority runs later.
+	 * 
+	 * Note:
+	 * - Default priority is 10. A higher priority runs later.
 	 *
-	 * @see https://codex.wordpress.org/Plugin_API/Action_Reference Action order
+	 * See:
+	 * - <Action order: https://codex.wordpress.org/Plugin_API/Action_Reference>
 	 */
 	protected function wp_setup() {
 
-		// edit here.
 		parent::wp_setup();
+
+		// About: add actions and filters here.
 	}
 
 	/**
-	 * ====== Getters and Setters ======
+	 * Group: Getters and Setters
+	 * _____________________________________
 	 */
 
 	/**
-	 * ===== Renderers =====
+	 * Group: Renderers
+	 * _____________________________________
 	 */
 
 	/**
-	 * ===== Filters =====
+	 * Group: Filters
+	 * _____________________________________
 	 */
 
 	/**
-	 * ===== Helpers =====
+	 * Group: Helpers
+	 * _____________________________________
 	 */
 }
