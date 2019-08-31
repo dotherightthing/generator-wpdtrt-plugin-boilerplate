@@ -580,6 +580,19 @@ module.exports = class extends Generator {
             this.destinationPath(`cypress/integration/flows/${userSettings.name}.js`),
             userSettings
         );
+
+        // Natural Docs
+
+        this.fs.copyTpl(
+            this.templatePath("config/naturaldocs/Project.txt"),
+            this.destinationPath("config/naturaldocs/Project.txt"),
+            userSettings
+        );
+
+        this.fs.copy(
+            this.templatePath("docs/README.md"),
+            this.destinationPath("docs/README.md")
+        );
     };
 
     /**

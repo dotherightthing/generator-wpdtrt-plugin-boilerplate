@@ -1,10 +1,14 @@
+<?php
 /**
- * @file <%= nameFriendly %> <%= name %>.js
- * @summary
- *     Dummy Cypress spec for UI testing. Edit to suit your needs.
- * @version   <%= defaultVersion %>
- * @since     <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
- * @see       https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging
+ * File: cypress/integration/flows/<%= name %>.js
+ *
+ * Dummy Cypress spec for UI testing. Edit to suit your needs.
+ *
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
+ *
+ * See:
+ * - [Testing & Debugging](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging)
  */
 
 /* eslint-disable prefer-arrow-callback */

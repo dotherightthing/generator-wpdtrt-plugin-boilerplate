@@ -1,10 +1,11 @@
 <?php
 /**
+ * File: template-parts/<%= name %>/class-<%= name %>/content.php
+ *
  * Template to display plugin output in shortcodes and widgets
  *
- * @package   <%= nameFriendly %>
- * @version   <%= defaultVersion %>
- * @since     <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 // Predeclare variables
@@ -27,7 +28,7 @@ $plugin = null;
 $options = get_query_var( 'options' );
 
 // Overwrite variables from array values
-// @link http://kb.network.dan/php/wordpress/extract/.
+// http://kb.network.dan/php/wordpress/extract/.
 extract( $options, EXTR_IF_EXISTS );
 
 // load the data
