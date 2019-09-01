@@ -30,8 +30,8 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-markdown": "^1.0.0",
-    "gulp": "^3.9.1",
-    "normalize-html-whitespace": "^0.2.0",
+    "gulp": "^4.0.2",
+    "normalize-html-whitespace": "^1.0.0",
     "tenon-node": "^0.4.1"
   },
   "workspaces": [
