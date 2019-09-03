@@ -517,10 +517,12 @@ module.exports = class extends Generator {
             userSettings
         );
 
+        /*
         this.fs.copy(
             this.templatePath("yarn.lock"),
             this.destinationPath("yarn.lock")
         );
+        */
 
         // documentation
 
