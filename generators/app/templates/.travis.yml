@@ -80,7 +80,6 @@ install:
   # Adding Yarn to Travis CI - https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
   - npm install -g yarn
   - yarn install --non-interactive # child plugin
-  - yarn global add gulp-cli
 
 # Exporting a variable causes it to be inherited
 # by subsequently started processes in the shell session
