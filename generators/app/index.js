@@ -486,6 +486,13 @@ module.exports = class extends Generator {
             this.destinationPath(".sass-lint.yml")
         );
 
+        // babel
+
+        this.fs.copy(
+            this.templatePath(".babelrc"),
+            this.destinationPath(".babelrc")
+        );
+
         // Travis CI (Github build)
 
         this.fs.copyTpl(
