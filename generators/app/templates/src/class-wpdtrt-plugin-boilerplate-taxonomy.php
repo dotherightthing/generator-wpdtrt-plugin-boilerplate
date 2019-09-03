@@ -42,9 +42,9 @@ class <%= nameFriendlySafe %>_Taxonomy extends DoTheRightThing\WPDTRT_Plugin_Boi
 
 	/**
 	 * Method: wp_setup
-	 * 
+	 *
 	 * Supplement taxonomy's WordPress setup.
-	 * 
+	 *
 	 * Note:
 	 * - Default priority is 10. A higher priority runs later.
 	 *

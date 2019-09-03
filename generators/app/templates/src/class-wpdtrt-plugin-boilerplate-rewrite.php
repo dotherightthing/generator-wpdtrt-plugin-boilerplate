@@ -41,7 +41,7 @@ class <%= nameFriendlySafe %>_Rewrite extends DoTheRightThing\WPDTRT_Plugin_Boil
 	 * Function: wp_setup
 	 *
 	 * Supplement rewrite's WordPress setup.
-	 * 
+	 *
 	 * Note:
 	 * - Default priority is 10. A higher priority runs later.
 	 *

@@ -12,7 +12,7 @@
  * Class: <%= nameFriendlySafe %>_Plugin
  *
  * Extends the base class to inherit boilerplate functionality, adds application-specific methods.
- * 
+ *
  * Since:
  *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
@@ -25,7 +25,7 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boile
 	 *
 	 * Parameters:
 	 *   $options - Plugin options
-	 * 
+	 *
 	 * Since:
 	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
@@ -50,7 +50,7 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boile
 	 *
 	 * See:
 	 * - <Action order: https://codex.wordpress.org/Plugin_API/Action_Reference>
-	 * 
+	 *
 	 * Since:
 	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */

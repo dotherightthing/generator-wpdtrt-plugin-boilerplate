@@ -42,9 +42,9 @@ class <%= nameFriendlySafe %>_Shortcode extends DoTheRightThing\WPDTRT_Plugin_Bo
 
 	/**
 	 * Method: wp_setup
-	 * 
+	 *
 	 * Supplement shortcode's WordPress setup.
-	 * 
+	 *
 	 * Note:
 	 * - Default priority is 10. A higher priority runs later.
 	 *

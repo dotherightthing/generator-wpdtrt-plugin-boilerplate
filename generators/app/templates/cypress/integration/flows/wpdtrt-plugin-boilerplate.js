@@ -1,4 +1,3 @@
-<?php
 /**
  * File: cypress/integration/flows/<%= name %>.js
  *
