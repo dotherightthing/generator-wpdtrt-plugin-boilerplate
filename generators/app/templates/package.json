@@ -45,14 +45,14 @@
     "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
   ],
   "scripts": {
-    "build": "./node_modules/.bin/gulp --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
-    "dependencies": "./node_modules/.bin/gulp dependencies --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
-    "docs": "./node_modules/.bin/gulp docs --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
-    "lint": "./node_modules/.bin/gulp lint --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
-    "release": "./node_modules/.bin/gulp release --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
-    "tests": "./node_modules/.bin/gulp tests --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./ && cypress open",
-    "version": "./node_modules/.bin/gulp version --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
-    "watch": "./node_modules/.bin/gulp compile --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./ && gulp watch --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./"
+    "build": "./node_modules/.bin/gulp --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./",
+    "dependencies": "./node_modules/.bin/gulp dependencies --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./",
+    "docs": "./node_modules/.bin/gulp docs --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./",
+    "lint": "./node_modules/.bin/gulp lint --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./",
+    "release": "./node_modules/.bin/gulp release --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./",
+    "tests": "./node_modules/.bin/gulp tests --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./ && cypress open",
+    "version": "./node_modules/.bin/gulp version --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./",
+    "watch": "./node_modules/.bin/gulp compile --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./ && gulp watch --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile-loader.js --cwd ./"
   },
   "repository": {
     "type": "git",
