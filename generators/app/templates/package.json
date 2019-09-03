@@ -21,6 +21,10 @@
   },
   "keywords": <%- pluginKeywords %>,
   "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.1",
+    "@babel/register": "^7.5.5",
+    "core-js": "^3.2.1",
     "cypress": "^3.4.1",
     "eslint": "^6.2.1",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -31,21 +35,23 @@
     "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-markdown": "^1.0.0",
     "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
     "normalize-html-whitespace": "^1.0.0",
+    "regenerator-runtime": "^0.13.3",
     "tenon-node": "^0.4.1"
   },
   "workspaces": [
     "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
   ],
   "scripts": {
-    "build": "gulp --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./",
-    "dependencies": "gulp dependencies --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./",
-    "docs": "gulp docs --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./",
-    "lint": "gulp lint --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./",
-    "release": "gulp release --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./",
-    "tests": "gulp tests --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./ && cypress open",
-    "version": "gulp version --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./",
-    "watch": "gulp compile --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./ && gulp watch --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.babel.js --cwd ./"
+    "build": "./node_modules/.bin/gulp --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
+    "dependencies": "./node_modules/.bin/gulp dependencies --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
+    "docs": "./node_modules/.bin/gulp docs --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
+    "lint": "./node_modules/.bin/gulp lint --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
+    "release": "./node_modules/.bin/gulp release --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
+    "tests": "./node_modules/.bin/gulp tests --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./ && cypress open",
+    "version": "./node_modules/.bin/gulp version --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./",
+    "watch": "./node_modules/.bin/gulp compile --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./ && gulp watch --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/pre-gulpfile.babel.js --cwd ./"
   },
   "repository": {
     "type": "git",
