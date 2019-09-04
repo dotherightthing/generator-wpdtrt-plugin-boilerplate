@@ -273,9 +273,7 @@ module.exports = class extends Generator {
    * they use the other available methods instead
    * {@link https://webcake.co/building-a-yeoman-generator/}
    */
-  default() {
-    //
-  }
+  // default() {}
 
   /**
    * 5. writing()
@@ -603,9 +601,7 @@ module.exports = class extends Generator {
    * and I have yet to see it used in any generator that I’ve researched
    * {@link https://webcake.co/building-a-yeoman-generator/}
    */
-  conflicts() {
-    //
-  }
+  // conflicts() {}
 
   /**
    * 7. install()
