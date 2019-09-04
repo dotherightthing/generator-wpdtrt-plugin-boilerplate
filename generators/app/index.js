@@ -1,12 +1,9 @@
 /**
- * Plugin generator
+ * File: generators/app/index.js
  *
- * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin-boilerplate
- *
- * @version     0.8.8
+ * Plugin generator.
+ * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin-boilerplate.
  */
-
-/* eslint max-len: ['error', { 'ignoreTemplateLiterals': true }] */
 
 const Generator = require( 'yeoman-generator' );
 const chalk = require( 'chalk' );
@@ -16,11 +13,14 @@ const S = require( 'string' );
 
 module.exports = class extends Generator {
   /**
-   * 1. initializing()
-   * a method for setting up basic initialization,
-   * such as setting some properties names on your generator
-   * based on information passed in by the user
-   * {@link https://webcake.co/building-a-yeoman-generator/}
+   * Method: initializing
+   *
+   * Sets up basic initialization,
+   * such as setting properties names
+   * based on information passed in by the user.
+   *
+   * See:
+   * - <https://webcake.co/building-a-yeoman-generator/>
    */
   initializing() {
     // Set config defaults
@@ -144,12 +144,17 @@ module.exports = class extends Generator {
   }
 
   /**
-  * 2. prompting()
-  * a method reserved for running questions by the user,
+  * Method: prompting
+  *
+  * Reserved for running questions by the user,
   * the answers to which can be used to
   * further define properties on the generator object
-  * Note: when changing these prompts, also update ./expect.sh
-  * {@link https://webcake.co/building-a-yeoman-generator/}
+  *
+  * Note:
+  * - when changing these prompts, also update ./expect.sh
+  *
+  * See:
+  * - <https://webcake.co/building-a-yeoman-generator/>
   */
   prompting() {
     this.log( yosay(
@@ -233,21 +238,24 @@ module.exports = class extends Generator {
 
     // return the promise from your task
     // in order to wait for its completion before running the next one
-    // @see http://yeoman.io/authoring/user-interactions.html
+    // - <http://yeoman.io/authoring/user-interactions.html
     return this.prompt( prompts ).then( props => {
       this.props = props;
     } );
   }
 
   /**
-   * 3. configuring()
-   * this method is generally used for the initial configuration steps,
+   * Method: configuring
+   *
+   * Generally used for the initial configuration steps,
    * as well as auto-generating files
    * that you might find necessary and kind of a given,
    * like .gitignore, and .editorconfig as the docs suggest
-   * {@link https://webcake.co/building-a-yeoman-generator/}
-   * {@link https://stackoverflow.com/a/45427521/6850747}
-   * {@link https://stackoverflow.com/a/49809192/6850747}
+   *
+   * See:
+   * - <https://webcake.co/building-a-yeoman-generator/>
+   * - <https://stackoverflow.com/a/45427521/6850747>
+   * - <https://stackoverflow.com/a/49809192/6850747>
    */
   configuring() {
     let defaultValues = this.config.getAll();
@@ -265,22 +273,24 @@ module.exports = class extends Generator {
   }
 
   /**
-   * 4. default()
-   * if no specific method of the base generator class is extended,
-   * any functionality added to the generator
-   * will fall into the default method.
-   * I have yet to find a use for it, since when I write generators
-   * they use the other available methods instead
-   * {@link https://webcake.co/building-a-yeoman-generator/}
+   * Method: default
+   *
+   * Not used.
+   *
+   * See:
+   * - <https://webcake.co/building-a-yeoman-generator/>
    */
   // default() {}
 
   /**
-   * 5. writing()
-   * actually writing the files based on data fields stored in the generator;
+   * Method: writing
+   *
+   * Actually writing the files based on data fields stored in the generator;
    * this can be done by either copying hard-coded files,
    * or passing data through EJS templates
-   * {@link https://webcake.co/building-a-yeoman-generator/}
+   *
+   * See:
+   * - <https://webcake.co/building-a-yeoman-generator/>
    */
   writing() {
     // transformations
@@ -594,31 +604,31 @@ module.exports = class extends Generator {
   }
 
   /**
-   * 6. conflicts()
-   * the docs say ‘Where conflicts are handled (used internally)’.
-   * If it’s an internal-method to the generator class
-   * I’m not sure why it’s exposed to developers,
-   * and I have yet to see it used in any generator that I’ve researched
-   * {@link https://webcake.co/building-a-yeoman-generator/}
+   * Method: conflicts
+   *
+   * Not used.
+   *
+   * See:
+   * - <https://webcake.co/building-a-yeoman-generator/>
    */
   // conflicts() {}
 
   /**
-   * 7. install()
-   * where you would either have Yeoman install dependencies – e.g. Bower -
+   * Method: install
+   *
+   * Where you would either have Yeoman install dependencies – e.g. Bower -
    * or spawn child processes to install them yourself;
    * and you could take this opportunity to inject dependencies
    * into previously-written files as well
    * note: installDependencies needs at least one of
-   * `npm`, `bower` or `yarn` to run.
-   * {@link https://webcake.co/building-a-yeoman-generator/}
-   * @see https://github.com/dotherightthing/
-   * generator-wpdtrt-theme-boilerplate/issues/5
-   * @see https://stackoverflow.com/a/29834006/6850747
-   * @see https://nodejs.org/api/child_process.html
-   * #child_process_child_process_spawn_command_args_options
-   * @todo https://github.com/dotherightthing/
-   * generator-wpdtrt-theme-boilerplate/issues/30
+   * 'npm', 'bower' or 'yarn' to run.
+   *
+   * See:
+   * - <https://webcake.co/building-a-yeoman-generator/>
+   * - <https://github.com/dotherightthing/generator-wpdtrt-theme-boilerplate/issues/5>
+   * - <https://stackoverflow.com/a/29834006/6850747>
+   * - <https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options>
+   * - <https://github.com/dotherightthing/generator-wpdtrt-theme-boilerplate/issues/30>
    */
   install() {
     // Expose the existing OAuth token to Composer
@@ -684,10 +694,13 @@ module.exports = class extends Generator {
   }
 
   /**
-   * 8. end()
-   * the cleanup process – removing any temp files that may have been written,
+   * Method: end
+   *
+   * The cleanup process – removing any temp files that may have been written,
    * running any build or minification tasks, etc.
-   * {@link https://webcake.co/building-a-yeoman-generator/}
+   *
+   * See:
+   * - <https://webcake.co/building-a-yeoman-generator/>
    */
   end() {
     this.log( yosay(
