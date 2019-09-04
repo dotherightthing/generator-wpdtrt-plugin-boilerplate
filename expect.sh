@@ -20,5 +20,5 @@ expect {
     "Author email (general)" {sleep 1; send "\r"; exp_continue}
     "Author email (plugin support)" {sleep 1; send "\r"; exp_continue}
     "Author donation URL" {sleep 1; send "\r"; exp_continue}
-    "Base URL for testing web pages in Cypress.io" {sleep 1; send "\r";}
+    "Base URL for testing web pages in Cypress.io" {sleep 1; send "\r"; exp_continue}
 }
