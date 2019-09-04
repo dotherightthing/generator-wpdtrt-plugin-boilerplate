@@ -38,7 +38,6 @@ Timestamp: Last updated day month, year
 # ------------------------------------------------------------------------
 
 Source Folder: ../..
-Source Folder: ../../vendor/dotherightthing/wpdtrt-plugin-boilerplate
 
 
 
