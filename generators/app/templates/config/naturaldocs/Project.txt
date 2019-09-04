@@ -62,8 +62,6 @@ Source Folder: ../../vendor/dotherightthing/wpdtrt-plugin-boilerplate
 # Source Filtering
 # ------------------------------------------------------------------------
 
-Ignore Source Folder: ../../bin
-
 Ignore Source Folder: ../../docs
 
 Ignore Source Folder: ../../node_modules
