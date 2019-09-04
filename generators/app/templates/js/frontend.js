@@ -14,8 +14,7 @@
 /* global jQuery, <%= nameSafe %>_config */
 /* eslint-disable no-unused-vars */
 
-// eslint-disable-next-line camelcase
-const <%= nameSafe %>_ui = {
+const <%= nameSafe %>_ui = { // eslint-disable-line camelcase
 
   /**
    * Method: init

@@ -22,7 +22,7 @@ module.exports = ( on ) => {
      *
      * Parameters:
      *   (string) url - Fully qualified URL
-     * 
+     *
      * Returns:
      *   (object) - Tenon response object
      *
@@ -56,10 +56,10 @@ module.exports = ( on ) => {
      *
      * Parameters:
      *   (string) selectorHtml - HTML fragment
-     * 
+     *
      * Returns:
      *   (object) - Tenon response object
-     * 
+     *
      * See:
      * - <tenonCommands: https://github.com/poorgeek/tenon-selenium-example/blob/master/test/helpers/tenonCommands.js>
      * - <tenon-node: https://www.npmjs.com/package/tenon-node>
@@ -67,9 +67,9 @@ module.exports = ( on ) => {
      */
     tenonAnalyzeHtml( selectorHtml ) {
       const html = normalizeWhitespace( selectorHtml ); // strip whitespace between html tags
-      const tenonApi = new TenonNode({
+      const tenonApi = new TenonNode( {
         key: process.env.TENON_API_KEY
-      });
+      } );
 
       return new Promise( ( resolve, reject ) => {
         tenonApi.analyze( html, ( err, tenonResult ) => {
