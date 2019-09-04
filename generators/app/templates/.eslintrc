@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": [
     "./vendor/dotherightthing/wpdtrt-plugin-boilerplate/.eslintrc"
   ],
