@@ -3,7 +3,7 @@
  *
  * Generates a plugin which utilizes dotherightthing/wpdtrt-plugin-boilerplate
  *
- * @version     0.8.7
+ * @version     0.8.9
  */
 
 /* eslint max-len: ["error", { "ignoreTemplateLiterals": true }] */
@@ -30,7 +30,7 @@ module.exports = class extends Generator {
         // Some defaults are also generated from these values
         // - see writing()
 
-        const version = "0.8.7";
+        const version = "0.8.9";
         const folderName = process.cwd().split(path.sep).pop();
         const folderNameFunctionSafe = S( folderName ).replaceAll("-","_").s;
         this.dtrt = false;

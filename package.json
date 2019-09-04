@@ -1,6 +1,6 @@
 {
   "name": "generator-wpdtrt-plugin-boilerplate",
-  "version": "0.8.7",
+  "version": "0.8.9",
   "description": "Generate a best-practice boilerplate for WordPress plugin development.",
   "person": {
     "name": "Dan Smith",
