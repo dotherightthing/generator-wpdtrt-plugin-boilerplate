@@ -30,8 +30,6 @@ document.addEventListener( 'touchstart', () => {
 }, false );
 
 jQuery( document ).ready( ( $ ) => {
-  // eslint-disable camelcase
-  const config = <%= nameSafe %>_config;
+  const config = <%= nameSafe %>_config; // eslint-disable-line camelcase
   <%= nameSafe %>_ui.init();
-  // eslint-enable camelcase
 } );
