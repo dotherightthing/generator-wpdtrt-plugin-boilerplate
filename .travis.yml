@@ -59,9 +59,6 @@ before_install:
   # Disable XDebug which is only required for Code Coverage reports
   # https://johnblackbourn.com/reducing-travis-ci-build-times-for-wordpress-projects/
   - phpenv config-rm xdebug.ini
-  # Fix PHPDoc error:
-  # "Unable to find the `dot` command of the GraphViz package. Is GraphViz correctly installed and present in your path?"
-  - sudo apt-get install graphviz
   # Expect is required to automate user config of the Yeoman plugin generator
   - sudo apt-get install expect
   # See #88
