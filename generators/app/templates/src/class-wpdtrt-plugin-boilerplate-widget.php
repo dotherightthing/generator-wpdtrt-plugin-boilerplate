@@ -1,27 +1,33 @@
 <?php
 /**
+ * File: src/class-<%= name %>-widget.php
+ *
  * Widget sub class.
  *
- * @package <%= nameSafe %>
- * @version <%= defaultVersion %>
- * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
- * Extend the base class to inherit boilerplate functionality.
- * Adds application-specific methods.
+ * Class: <%= nameFriendlySafe %>_Widget
  *
- * @since   1.0.0
- * @version 1.0.0
+ * Extends the base class to inherit boilerplate functionality, adds application-specific methods.
+ *
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 class <%= nameFriendlySafe %>_Widget extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Widget {
 
 	/**
+	 * Constructor: __construct
+	 *
 	 * Supplement widget initialisation.
 	 *
-	 * @param     array $options Widget options.
-	 * @since     1.0.0
-	 * @version   1.1.0
+	 * Parameters:
+	 *   $options - Widget options
+	 *
+	 * Since:
+	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
 	public function __construct( $options ) {
 

@@ -1,27 +1,33 @@
 <?php
 /**
+ * File: src/class-<%= name %>-plugin.php
+ *
  * Plugin sub class.
  *
- * @package <%= nameSafe %>
- * @version <%= defaultVersion %>
- * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
- * Extend the base class to inherit boilerplate functionality.
- * Adds application-specific methods.
+ * Class: <%= nameFriendlySafe %>_Plugin
  *
- * @since   1.0.0
- * @version 1.0.0
+ * Extends the base class to inherit boilerplate functionality, adds application-specific methods.
+ *
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_0_0_0\Plugin {
 
 	/**
+	 * Constructor: __construct
+	 *
 	 * Supplement plugin initialisation.
 	 *
-	 * @param     array $options Plugin options.
-	 * @since     1.0.0
-	 * @version   1.1.0
+	 * Parameters:
+	 *   $options - Plugin options
+	 *
+	 * Since:
+	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
 	public function __construct( $options ) {
 
@@ -30,34 +36,48 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boile
 	}
 
 	/**
-	 * ====== WordPress Integration ======
+	 * Group: WordPress Integration
+	 * _____________________________________
 	 */
 
 	/**
-	 * Supplement plugin's WordPress setup.
-	 * Note: Default priority is 10. A higher priority runs later.
+	 * Function: wp_setup
 	 *
-	 * @see https://codex.wordpress.org/Plugin_API/Action_Reference Action order
+	 * Supplement plugin's WordPress setup.
+	 *
+	 * Note:
+	 * - Default priority is 10. A higher priority runs later.
+	 *
+	 * See:
+	 * - <Action order: https://codex.wordpress.org/Plugin_API/Action_Reference>
+	 *
+	 * Since:
+	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
 	protected function wp_setup() {
 
 		parent::wp_setup();
-		// add actions and filters here.
+
+		// About: add actions and filters here.
 	}
 
 	/**
-	 * ====== Getters and Setters ======
+	 * Group: Getters and Setters
+	 * _____________________________________
 	 */
 
 	/**
-	 * ===== Renderers =====
+	 * Group: Renderers
+	 * _____________________________________
 	 */
 
 	/**
-	 * ===== Filters =====
+	 * Group: Filters
+	 * _____________________________________
 	 */
 
 	/**
-	 * ===== Helpers =====
+	 * Group: Helpers
+	 * _____________________________________
 	 */
 }

@@ -1,4 +1,5 @@
 node_modules
 .DS_Store
-wpdtrt-travistest
 *.code-workspace
+*sublime-*
+wpdtrt-travistest

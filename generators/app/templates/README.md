@@ -1,6 +1,6 @@
 # <%= nameFriendly %>
 
-[![GitHub release](https://img.shields.io/github/release/<%= githubUserName %>/<%= name %>.svg)](https://github.com/<%= githubUserName %>/<%= name %>/releases) [![Build Status](https://travis-ci.org/<%= githubUserName %>/<%= name %>.svg?branch=master)](https://travis-ci.org/<%= githubUserName %>/<%= name %>) [![GitHub issues](https://img.shields.io/github/issues/<%= githubUserName %>/<%= name %>.svg)](https://github.com/<%= githubUserName %>/<%= name %>/issues)
+[![GitHub release](https://img.shields.io/github/release/<%= githubUserName %>/<%= name %>.svg)](https://github.com/<%= githubUserName %>/<%= name %>/releases) [![Build Status](https://travis-ci.org/<%= githubUserName %>/<%= name %>.svg?branch=master)](https://travis-ci.org/<%= githubUserName %>/<%= name %>) [![GitHub issues](https://img.shields.io/github/issues/<%= githubUserName %>/<%= name %>.svg)](https://github.com/<%= githubUserName %>/<%= name %>/issues) [![GitHub wiki](https://img.shields.io/badge/documentation-wiki-lightgrey.svg)](https://github.com/<%= githubUserName %>/<%= name %>/wiki)
 
 <%= description %>
 

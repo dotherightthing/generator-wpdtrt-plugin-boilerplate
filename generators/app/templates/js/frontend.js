@@ -1,36 +1,35 @@
 /**
- * @file <%= nameFriendly %> frontend.js
- * @summary
- *     Front-end scripting for public pages
- *     PHP variables are provided in `<%= nameSafe %>_config`.
- * @version <%= defaultVersion %>
- * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
+ * File: frontend.js
+ *
+ * <%= nameFriendly %>
+ *
+ * Front-end scripting for public pages.
+ *
+ * PHP variables are provided in `<%= nameSafe %>_config`.
+ *
+ * @since DTRT WordPress Plugin Boilerplate Generator <%= generatorVersion %>
  */
 
 /* eslint-env browser */
-/* global document, jQuery, <%= nameSafe %>_config */
+/* global jQuery, <%= nameSafe %>_config */
 /* eslint-disable no-unused-vars */
 
-/**
- * @namespace <%= nameSafe %>_ui
- */
-const <%= nameSafe %>_ui = {
+const <%= nameSafe %>_ui = { // eslint-disable-line camelcase
 
-    /**
-     * Initialise front-end scripting
-     * @since <%= defaultVersion %>
-     */
-    init: () => {
-        console.log("<%= nameSafe %>_ui.init");
-    }
-}
+  /**
+   * Method: init
+   *
+   * Initialise front-end scripting.
+   */
+  // init: () => {}
+};
 
 // http://stackoverflow.com/a/28771425
-document.addEventListener("touchstart", () => {
+document.addEventListener( 'touchstart', () => {
   // nada, this is just a hack to make :focus state render on touch
-}, false);
+}, false );
 
-jQuery(document).ready( ($) => {
-    const config = <%= nameSafe %>_config;
-    <%= nameSafe %>_ui.init();
-});
+jQuery( document ).ready( ( $ ) => {
+  const config = <%= nameSafe %>_config; // eslint-disable-line camelcase
+  <%= nameSafe %>_ui.init();
+} );

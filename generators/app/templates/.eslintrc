@@ -1,3 +1,9 @@
 {
-  "extends": "./vendor/dotherightthing/wpdtrt-plugin-boilerplate/.eslintrc"
+  "root": true,
+  "extends": [
+    "./vendor/dotherightthing/wpdtrt-plugin-boilerplate/.eslintrc"
+  ],
+  "plugins": [
+    "ejs"
+  ]
 }
