@@ -139,7 +139,7 @@ module.exports = class extends Generator {
 
     this.config.set(
       'cypressBaseURL',
-      ''
+      this.dtrt ? 'https://dontbelievethehype.co.nz' : ''
     );
   }
 
@@ -148,11 +148,10 @@ module.exports = class extends Generator {
   * a method reserved for running questions by the user,
   * the answers to which can be used to
   * further define properties on the generator object
+  * Note: when changing these prompts, also update ./expect.sh
   * {@link https://webcake.co/building-a-yeoman-generator/}
   */
   prompting() {
-    // https://github.com/dotherightthing/
-    // wpdtrt-plugin-boilerplate/issues/68
     this.log( yosay(
       chalk.yellow( `DTRT WordPress Plugin Boilerplate Generator (${ this.config.get( 'generatorVersion' ) } )` )
     ) );

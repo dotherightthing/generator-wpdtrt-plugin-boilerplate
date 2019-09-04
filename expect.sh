@@ -1,7 +1,8 @@
 #!/usr/bin/expect
 
-# Test user interaction with Yeoman,
-# pressing ENTER at any Yeoman prompt, once a second,
+# Automate user interaction with Yeoman,
+# by pressing ENTER at every Yeoman prompt
+# after 1 second,
 # to accept the default answers.
 # http://www.tcl.tk/man/expect5.31/expect.1.html
 
