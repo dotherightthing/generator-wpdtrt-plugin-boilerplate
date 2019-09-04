@@ -27,7 +27,7 @@ module.exports = class extends Generator {
     // Some defaults are also generated from these values
     // - see writing()
 
-    const version = '0.8.8';
+    const version = '0.8.10';
     const folderName = process.cwd().split( path.sep ).pop();
     const folderNameFunctionSafe = S( folderName ).replaceAll( '-', '_' ).s;
     this.dtrt = false;
