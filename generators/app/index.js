@@ -299,7 +299,9 @@ module.exports = class extends Generator {
       .replaceAll( ' ', '_' ).s;
     this.transforms.nameTemplate = S( this.config.get( 'name' ) )
       .replaceAll( 'wpdtrt-', '' ).s;
-    this.transforms.pluginKeywords = `['${this.props.tags.split( ', ' ).join( '', '' )}']`;
+    /* eslint-disable */
+    this.transforms.pluginKeywords = `["${this.props.tags.split(", ").join("", "")}"]`;
+    /* eslint-enable */
     this.transforms.pluginUrlAdminMenu = `${S( this.props.authorAbbreviation ).toLowerCase().s}-${S( this.config.get( 'nameAdminMenu' ) ).toLowerCase().replaceAll( ' ', '-' ).s}`;
     this.transforms.repositoryUrl = `git@github.com:${this.config.get( 'githubUserName' )}/${this.config.get( 'name' )}.git`;
 
