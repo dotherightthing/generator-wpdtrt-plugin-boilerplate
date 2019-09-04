@@ -560,13 +560,6 @@ module.exports = class extends Generator {
             userSettings
         );
 
-        // Virtual Studio Code
-
-        this.fs.copy(
-            this.templatePath("wpdtrt-plugin-boilerplate.code-workspace"),
-            this.destinationPath(`${userSettings.name}.code-workspace`)
-        );
-
         // Cypress.io
         
         this.fs.copyTpl(
