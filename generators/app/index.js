@@ -631,9 +631,15 @@ module.exports = class extends Generator {
    */
   install() {
     // Change access permissions of install.sh, to 'e[x]ecutable' for '[a]ll users'
-    this.spawnCommandSync( 'chmod a+x install.sh' );
+    this.spawnCommandSync( 'chmod', [
+      'a+x',
+      'install.sh'
+    ] );
     // Run ./install.sh
-    this.spawnCommandSync( 'yarn run install' );
+    this.spawnCommandSync( 'yarn', [
+      'run',
+      'install'
+    ] );
   }
 
   /**
