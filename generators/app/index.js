@@ -352,6 +352,13 @@ module.exports = class extends Generator {
     // [dest] is defined as either the current working directory
     // or the closest parent folder containing a .yo-rc.json
 
+    // install script
+
+    this.fs.copy(
+      this.templatePath( 'install.sh' ),
+      this.destinationPath( 'install.sh' )
+    );
+
     // images
 
     this.fs.copy(
