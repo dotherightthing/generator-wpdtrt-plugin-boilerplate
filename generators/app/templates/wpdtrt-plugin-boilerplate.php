@@ -181,7 +181,7 @@ register_deactivation_hook( dirname( __FILE__ ), '<%= nameSafe %>_deactivate' );
  * See:
  * - <https://codex.wordpress.org/Function_Reference/register_activation_hook>
  *
- * TODO: 
+ * TODO:
  * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/128>
  */
 function <%= nameSafe %>_activate() {
@@ -199,7 +199,7 @@ function <%= nameSafe %>_activate() {
  * See:
  * - <https://codex.wordpress.org/Function_Reference/register_deactivation_hook>
  *
- * TODO: 
+ * TODO:
  * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/128>
  */
 function <%= nameSafe %>_deactivate() {
@@ -207,7 +207,7 @@ function <%= nameSafe %>_deactivate() {
 }
 
 /**
- * Function: <%= nameSafe %>_plugin_init 
+ * Function: <%= nameSafe %>_plugin_init
  *
  * Plugin initialisaton.
  *
@@ -431,7 +431,7 @@ function <%= nameSafe %>_taxonomy_init() {
  * Function: <%= nameSafe %>_widget_init
  *
  * Register a WordPress widget, passing in an instance of our custom widget class.
- * 
+ *
  * Note:
  * - The plugin does not require registration, but widgets and shortcodes do.
  * - widget_init fires before init, unless init has a priority of 0
