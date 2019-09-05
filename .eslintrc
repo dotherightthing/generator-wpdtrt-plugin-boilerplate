@@ -1,6 +1,3 @@
 {
-  "extends": "./generators/app/templates/vendor/dotherightthing/wpdtrt-plugin-boilerplate/.eslintrc",
-  "plugins": [
-    "ejs"
-  ]
+  "extends": "./generators/app/templates/vendor/dotherightthing/wpdtrt-plugin-boilerplate/.eslintrc"
 }
