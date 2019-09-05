@@ -1,8 +1,11 @@
 <?php
 /**
- * PHPUnit bootstrap file
+ * File: tests/bootstrap.php
  *
- * @package <%= nameFriendlySafe %>
+ * PHPUnit bootstrap file.
+ *
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );

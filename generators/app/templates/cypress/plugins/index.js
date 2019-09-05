@@ -4,7 +4,7 @@
  * Custom plugins for UI testing
  *
  * Since:
- *   DTRT WordPress Plugin Boilerplate Generator <%= generatorVersion %>
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 /* eslint-env node */

@@ -1,19 +1,22 @@
 <?php
 /**
- * Unit tests, using PHPUnit, wp-cli, WP_UnitTestCase
+ * File: tests/test-<%= name %>.php
  *
- * The plugin is 'active' within a WP test environment
- *  so the plugin class has already been instantiated
- *  with the options set in wpdtrt-gallery.php
+ * Unit tests, using PHPUnit, wp-cli, WP_UnitTestCase.
  *
- * Only function names prepended with test_ are run.
- * $debug logs are output with the test output in Terminal
- * A failed assertion may obscure other failed assertions in the same test.
+ * Note:
+ * - The plugin is 'active' within a WP test environment
+ *   so the plugin class has already been instantiated
+ *   with the options set in <%= name %>.php
+ * - Only function names prepended with test_ are run.
+ * - $debug logs are output with the test output in Terminal
+ * - A failed assertion may obscure other failed assertions in the same test.
  *
- * @package <%= nameFriendlySafe %>
- * @version <%= defaultVersion %>
- * @since   <%= generatorVersion %> DTRT WordPress Plugin Boilerplate Generator
- * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#testing
+ * See:
+ * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#testing>
+ *
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 /**
