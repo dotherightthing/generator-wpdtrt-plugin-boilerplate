@@ -12,7 +12,7 @@
 
 /* eslint-env browser */
 /* global jQuery, <%= nameSafe %>_config */
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, no-undef */
 
 const <%= nameSafe %>_ui = { // eslint-disable-line camelcase
 
