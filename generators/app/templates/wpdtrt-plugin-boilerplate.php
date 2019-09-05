@@ -21,71 +21,83 @@
  */
 
 /**
- * Constants
- * WordPress makes use of the following constants when determining the path to the content and plugin directories.
- * These should not be used directly by plugins or themes, but are listed here for completeness.
- * WP_CONTENT_DIR  // no trailing slash, full paths only
- * WP_CONTENT_URL  // full url
- * WP_PLUGIN_DIR  // full path, no trailing slash
- * WP_PLUGIN_URL  // full url, no trailing slash
+ * Group: Constants
  *
- * WordPress provides several functions for easily determining where a given file or directory lives.
- * Always use these functions in your plugins instead of hard-coding references to the wp-content directory
- * or using the WordPress internal constants.
- * plugins_url()
- * plugin_dir_url()
- * plugin_dir_path()
- * plugin_basename()
+ * Note:
+ * - WordPress makes use of the following constants when determining the path to the content and plugin directories.
+ *   These should not be used directly by plugins or themes, but are listed here for completeness.
+ * - WP_CONTENT_DIR  // no trailing slash, full paths only
+ * - WP_CONTENT_URL  // full url
+ * - WP_PLUGIN_DIR  // full path, no trailing slash
+ * - WP_PLUGIN_URL  // full url, no trailing slash
+ * - WordPress provides several functions for easily determining where a given file or directory lives.
+ *   Always use these functions in your plugins instead of hard-coding references to the wp-content directory
+ *   or using the WordPress internal constants.
+ * - plugins_url()
+ * - plugin_dir_url()
+ * - plugin_dir_path()
+ * - plugin_basename()
  *
- * @see https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Constants
- * @see https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Plugins
+ * See:
+ * - <https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Constants>
+ * - <https://codex.wordpress.org/Determining_Plugin_and_Content_Directories#Plugins>
+ * _____________________________________
  */
 
 if ( ! defined( '<%= constantStub %>_VERSION' ) ) {
 	/**
+	 * Constant: <%= constantStub %>_VERSION
+	 *
 	 * Plugin version.
 	 *
-	 * WP provides get_plugin_data(), but it only works within WP Admin,
-	 * so we define a constant instead.
+	 * Note:
+	 * - WP provides get_plugin_data(), but it only works within WP Admin,
+	 *   so we define a constant instead.
 	 *
-	 * @see $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
-	 * @see https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically
+	 * See:
+	 * - <https://wordpress.stackexchange.com/questions/18268/i-want-to-get-a-plugin-version-number-dynamically>
+	 *
+	 * Example:
+	 * ---php
+	 * $plugin_data = get_plugin_data( __FILE__ ); $plugin_version = $plugin_data['Version'];
+	 * ---
 	 */
 	define( '<%= constantStub %>_VERSION', '<%= defaultVersion %>' );
 }
 
 if ( ! defined( '<%= constantStub %>_PATH' ) ) {
 	/**
-	 * Plugin directory filesystem path.
+	 * Constant: <%= constantStub %>_PATH
 	 *
-	 * @param string $file
-	 * @return The filesystem directory path (with trailing slash)
-	 * @see https://developer.wordpress.org/reference/functions/plugin_dir_path/
-	 * @see https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
+	 * Plugin directory filesystem path (with trailing slash).
+	 *
+	 * See:
+	 * - <https://developer.wordpress.org/reference/functions/plugin_dir_path/>
+	 * - <https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything>
 	 */
 	define( '<%= constantStub %>_PATH', plugin_dir_path( __FILE__ ) );
 }
 
 if ( ! defined( '<%= constantStub %>_URL' ) ) {
 	/**
-	 * Plugin directory URL path.
+	 * Constant: <%= constantStub %>_URL
 	 *
-	 * @param string $file
-	 * @return The URL (with trailing slash)
-	 * @see https://codex.wordpress.org/Function_Reference/plugin_dir_url
-	 * @see https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything
+	 * Plugin directory URL path (with trailing slash).
+	 *
+	 * See:
+	 * - <https://codex.wordpress.org/Function_Reference/plugin_dir_url>
+	 * - <https://developer.wordpress.org/plugins/the-basics/best-practices/#prefix-everything>
 	 */
 	define( '<%= constantStub %>_URL', plugin_dir_url( __FILE__ ) );
 }
 
 /**
- * ===== Dependencies =====
- */
-
-/**
- * Determine the correct path to the PSR-4 autoloader.
+ * Constant: WPDTRT_PLUGIN_CHILD
  *
- * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/51
+ * Boolean, used to determine the correct path to the PSR-4 autoloader.
+ *
+ * See:
+ * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/51>
  */
 if ( ! defined( 'WPDTRT_PLUGIN_CHILD' ) ) {
 	define( 'WPDTRT_PLUGIN_CHILD', true );
@@ -94,8 +106,9 @@ if ( ! defined( 'WPDTRT_PLUGIN_CHILD' ) ) {
 /**
  * Determine the correct path to the PSR-4 autoloader.
  *
- * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/104
- * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-WordPress-plugin-dependencies
+ * See:
+ * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/104>
+ * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-WordPress-plugin-dependencies>
  */
 if ( defined( '<%= constantStub %>_TEST_DEPENDENCY' ) ) {
 	$project_root_path = realpath( __DIR__ . '/../../..' ) . '/';
@@ -105,10 +118,14 @@ if ( defined( '<%= constantStub %>_TEST_DEPENDENCY' ) ) {
 
 require_once $project_root_path . 'vendor/autoload.php';
 
+/**
+ * Replace the TGMPA autoloader
+ *
+ * See:
+ * - <https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate#77>
+ * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate#136>
+ */
 if ( is_admin() ) {
-	// This replaces the TGMPA autoloader
-	// @see dotherightthing/generator-wpdtrt-plugin-boilerplate#77
-	// @see dotherightthing/wpdtrt-plugin-boilerplate#136.
 	require_once $project_root_path . 'vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php';
 }
 
@@ -125,7 +142,7 @@ global $debug;
 $debug = new DoTheRightThing\WPDebug\Debug();
 
 /**
- * ===== WordPress Integration =====
+ * Group: WordPress Integration
  *
  * Comment out the actions you don't need.
  *
@@ -133,9 +150,12 @@ $debug = new DoTheRightThing\WPDebug\Debug();
  *  Default priority is 10. A higher priority runs later.
  *  register_activation_hook() is run before any of the provided hooks
  *
- * @see https://developer.wordpress.org/plugins/hooks/actions/#priority
- * @see https://codex.wordpress.org/Function_Reference/register_activation_hook.
+ * See:
+ * - <https://developer.wordpress.org/plugins/hooks/actions/#priority>
+ * - <https://codex.wordpress.org/Function_Reference/register_activation_hook>
+ * _____________________________________
  */
+
 register_activation_hook( dirname( __FILE__ ), '<%= nameSafe %>_activate' );
 
 add_action( 'init', '<%= nameSafe %>_plugin_init', 0 );
@@ -146,43 +166,63 @@ add_action( 'widgets_init', '<%= nameSafe %>_widget_init', 10 );
 register_deactivation_hook( dirname( __FILE__ ), '<%= nameSafe %>_deactivate' );
 
 /**
- * ===== Plugin config =====
+ * Group: Plugin config
+ * _____________________________________
  */
 
 /**
+ * Function: <%= nameSafe %>_activate
+ *
  * Register functions to be run when the plugin is activated.
  *
- * @see https://codex.wordpress.org/Function_Reference/register_activation_hook
- * @todo https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/128
- * @see See also Plugin::helper_flush_rewrite_rules()
+ * Note:
+ * - See also Plugin::helper_flush_rewrite_rules()
+ *
+ * See:
+ * - <https://codex.wordpress.org/Function_Reference/register_activation_hook>
+ *
+ * TODO:
+ * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/128>
  */
 function <%= nameSafe %>_activate() {
 	flush_rewrite_rules();
 }
 
 /**
- * Register functions to be run when the plugin is deactivated.
- * (WordPress 2.0+)
+ * Function: <%= nameSafe %>_deactivate
  *
- * @see https://codex.wordpress.org/Function_Reference/register_deactivation_hook
- * @todo https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/128
- * @see See also Plugin::helper_flush_rewrite_rules()
+ * Register functions to be run when the plugin is deactivated (WordPress 2.0+).
+ *
+ * Note:
+ * - See also Plugin::helper_flush_rewrite_rules()
+ *
+ * See:
+ * - <https://codex.wordpress.org/Function_Reference/register_deactivation_hook>
+ *
+ * TODO:
+ * - <https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/128>
  */
 function <%= nameSafe %>_deactivate() {
 	flush_rewrite_rules();
 }
 
 /**
- * Plugin initialisaton
+ * Function: <%= nameSafe %>_plugin_init
  *
- * We call init before widget_init so that the plugin object properties are available to it.
- * If widget_init is not working when called via init with priority 1, try changing the priority of init to 0.
- * init: Typically used by plugins to initialize. The current user is already authenticated by this time.
- * widgets_init: Used to register sidebars. Fired at 'init' priority 1 (and so before 'init' actions with priority ≥ 1!)
+ * Plugin initialisaton.
  *
- * @see https://wp-mix.com/wordpress-widget_init-not-working/
- * @see https://codex.wordpress.org/Plugin_API/Action_Reference
- * @todo Add a constructor function to WPDTRT_Blocks_Plugin, to explain the options array
+ * Note:
+ * - We call init before widget_init so that the plugin object properties are available to it.
+ * - If widget_init is not working when called via init with priority 1, try changing the priority of init to 0.
+ * - init: Typically used by plugins to initialize. The current user is already authenticated by this time.
+ * - widgets_init: Used to register sidebars. Fired at 'init' priority 1 (and so before 'init' actions with priority ≥ 1!)
+ *
+ * See:
+ * - <https://wp-mix.com/wordpress-widget_init-not-working/>
+ * - <https://codex.wordpress.org/Plugin_API/Action_Reference>
+ *
+ * TODO:
+ * - Add a constructor function to <%= nameFriendlySafe %>_Plugin, to explain the options array
  */
 function <%= nameSafe %>_plugin_init() {
 	// pass object reference between classes via global
@@ -190,9 +230,12 @@ function <%= nameSafe %>_plugin_init() {
 	global $<%= nameSafe %>_plugin;
 
 	/**
-	 * Global options
+	 * Array: plugin_options
 	 *
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-global-options Options: Adding global options
+	 * Global options.
+	 *
+	 * See:
+	 * - <Options - Adding global options: https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-global-options>
 	 */
 	$plugin_options = array(
 		'pluginoption1' => array(
@@ -204,9 +247,12 @@ function <%= nameSafe %>_plugin_init() {
 	);
 
 	/**
-	 * Shortcode or Widget options
+	 * Array: instance_options
 	 *
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-shortcode-or-widget-options Options: Adding shortcode or widget options
+	 * Shortcode or Widget options.
+	 *
+	 * See:
+	 * - <Options - Adding shortcode or widget options: https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-shortcode-or-widget-options>
 	 */
 	$instance_options = array(
 		'instanceoption1' => array(
@@ -218,7 +264,9 @@ function <%= nameSafe %>_plugin_init() {
 	);
 
 	/**
-	 * UI Messages
+	 * Array: ui_messages
+	 *
+	 * UI Messages.
 	 */
 	$ui_messages = array(
 		'demo_data_description'       => __( 'This demo was generated from the following data', '<%= name %>' ),
@@ -239,9 +287,12 @@ function <%= nameSafe %>_plugin_init() {
 	);
 
 	/**
-	 * Demo shortcode
+	 * Array: demo_shortcode_params
 	 *
-	 * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Settings-page:-Adding-a-demo-shortcode Settings page: Adding a demo shortcode
+	 * Demo shortcode.
+	 *
+	 * See:
+	 * - <Settings page - Adding a demo shortcode: https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Settings-page:-Adding-a-demo-shortcode>
 	 */
 	$demo_shortcode_params = array();
 
@@ -267,11 +318,13 @@ function <%= nameSafe %>_plugin_init() {
 }
 
 /**
- * ===== Rewrite config =====
+ * Group: Rewrite config
  */
 
 /**
- * Register Rewrite
+ * Function: <%= nameSafe %>_rewrite_init
+ *
+ * Register Rewrite.
  */
 function <%= nameSafe %>_rewrite_init() {
 
@@ -283,11 +336,13 @@ function <%= nameSafe %>_rewrite_init() {
 }
 
 /**
- * ===== Shortcode config =====
+ * Group: Shortcode config
  */
 
 /**
- * Register Shortcode
+ * Function: <%= nameSafe %>_shortcode_init
+ *
+ * Register Shortcode.
  */
 function <%= nameSafe %>_shortcode_init() {
 
@@ -306,13 +361,16 @@ function <%= nameSafe %>_shortcode_init() {
 }
 
 /**
- * ===== Taxonomy config =====
+ * Group: Taxonomy config
  */
 
 /**
- * Register Taxonomy
+ * Function: <%= nameSafe %>_taxonomy_init
  *
- * @return object Taxonomy/
+ * Register Taxonomy.
+ *
+ * Returns:
+ *   object - Taxonomy/
  */
 function <%= nameSafe %>_taxonomy_init() {
 
@@ -366,21 +424,30 @@ function <%= nameSafe %>_taxonomy_init() {
 }
 
 /**
- * ===== Widget config =====
+ * Group: Widget config
  */
 
 /**
- * Register a WordPress widget, passing in an instance of our custom widget class
- * The plugin does not require registration, but widgets and shortcodes do.
- * Note: widget_init fires before init, unless init has a priority of 0
+ * Function: <%= nameSafe %>_widget_init
  *
- * @uses        ../../../../wp-includes/widgets.php
- * @see         https://codex.wordpress.org/Function_Reference/register_widget#Example
- * @see         https://wp-mix.com/wordpress-widget_init-not-working/
- * @see         https://codex.wordpress.org/Plugin_API/Action_Reference
- * @uses        https://github.com/dotherightthing/wpdtrt/tree/master/library/sidebars.php
- * @todo        Add form field parameters to the options array
- * @todo        Investigate the 'classname' option
+ * Register a WordPress widget, passing in an instance of our custom widget class.
+ *
+ * Note:
+ * - The plugin does not require registration, but widgets and shortcodes do.
+ * - widget_init fires before init, unless init has a priority of 0
+ *
+ * Uses:
+ *   ../../../../wp-includes/widgets.php
+ *   https://github.com/dotherightthing/wpdtrt/tree/master/library/sidebars.php
+ *
+ * See:
+ * - <https://codex.wordpress.org/Function_Reference/register_widget#Example>
+ * - <https://wp-mix.com/wordpress-widget_init-not-working/>
+ * - <https://codex.wordpress.org/Plugin_API/Action_Reference>
+ *
+ * TODO:
+ * - Add form field parameters to the options array
+ * - Investigate the 'classname' option
  */
 function <%= nameSafe %>_widget_init() {
 

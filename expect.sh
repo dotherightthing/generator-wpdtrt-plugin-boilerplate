@@ -1,11 +1,14 @@
 #!/usr/bin/expect
 
+# File: ./expect.sh
+#
 # Automate user interaction with Yeoman,
 # by pressing ENTER at every Yeoman prompt
 # after 1 second,
 # to accept the default answers.
 # http://www.tcl.tk/man/expect5.31/expect.1.html
 
+# Run generators/app/index.js
 spawn yo wpdtrt-plugin-boilerplate 
 
 expect {

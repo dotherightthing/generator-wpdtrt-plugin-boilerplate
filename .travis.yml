@@ -59,7 +59,7 @@ before_install:
   # Disable XDebug which is only required for Code Coverage reports
   # https://johnblackbourn.com/reducing-travis-ci-build-times-for-wordpress-projects/
   - phpenv config-rm xdebug.ini
-  # Expect is required to automate user config of the Yeoman plugin generator
+  # Install Expect, to automate user interactions with the Yeoman plugin generator
   - sudo apt-get install expect
   # Install Mono (Natural Docs dependency)
   # https://www.mono-project.com/download/stable/#download-lin-ubuntu
@@ -68,23 +68,23 @@ before_install:
   - echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
   - sudo apt update
   - sudo apt install mono-complete
-  # See #88
-  - composer config -g github-oauth.github.com $GH_TOKEN
 
 # Install dependencies
 # https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step
 # Note: Remember to run composer update on local dev to get latest updates to dependencies
 install:
-  # Adding Yarn to Travis CI - https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
+  # Install Yarn, so that we can run Yeoman
+  # https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
   - npm install -g yarn
   - yarn install --non-interactive # child plugin
-  - yarn global add gulp-cli
+  # Install Yeoman
   - yarn global add yo
   # Symlink the package to make the generator available via the commandline:
   - yarn link
 
 # Make shell script executable
 # https://github.com/travis-ci/travis-ci/issues/5804
+# Change access permissions of travis-yo.sh, to 'e[x]ecutable' for '[a]ll users'
 before_script:
   - chmod a+x travis-yo.sh
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -92,7 +92,9 @@ before_script:
   - export WPUNIT_DB_PASS=""
   - export WPUNIT_DB_HOST="localhost"
 
-# Run the build script
+# Scaffold the plugin via Travis:
+# See:
+# - <Scaffold a plugin via Travis:https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#scaffold-a-plugin-via-travis>
 script:
   - ./travis-yo.sh
 

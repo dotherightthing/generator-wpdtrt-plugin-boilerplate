@@ -1,18 +1,18 @@
 /**
- * File: frontend.js
- *
- * <%= nameFriendly %>
+ * File: js/frontend.js
  *
  * Front-end scripting for public pages.
  *
- * PHP variables are provided in `<%= nameSafe %>_config`.
+ * Note:
+ * - PHP variables are provided in <%= nameSafe %>_config.
  *
- * @since DTRT WordPress Plugin Boilerplate Generator <%= generatorVersion %>
+ * Since:
+ *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
 /* eslint-env browser */
 /* global jQuery, <%= nameSafe %>_config */
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, no-undef */
 
 const <%= nameSafe %>_ui = { // eslint-disable-line camelcase
 
