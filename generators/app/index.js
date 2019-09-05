@@ -635,6 +635,7 @@ module.exports = class extends Generator {
       'a+x',
       'install.sh'
     ] );
+
     // Run ./install.sh
     this.spawnCommandSync( 'yarn', [
       'run',
