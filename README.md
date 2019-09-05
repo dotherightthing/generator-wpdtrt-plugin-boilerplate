@@ -36,7 +36,7 @@ This generator will need to be periodically updated as technologies change:
 6. Build, test, version & release the updated *DTRT WordPress Plugin Boilerplate Generator*
 7. Update previously generated plugins to reference the updated [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate) and *DTRT WordPress Plugin Boilerplate Generator*, see [Release an update](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Workflows#release-an-update)
 
-### Migrate am existing generated plugin to the latest boilerplate
+### Migrate an existing generated plugin to the latest boilerplate
 
 See [Migrate a legacy generated plugin to the latest boilerplate](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Migrate-a-legacy-generated-plugin-to-the-latest-boilerplate)
 
