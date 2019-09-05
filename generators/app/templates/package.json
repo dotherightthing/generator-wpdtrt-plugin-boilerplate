@@ -3,6 +3,7 @@
   "name": "<%= name %>",
   "version": "<%= defaultVersion %>",
   "description": "<%= description %>",
+  "keywords": <%- pluginKeywords %>,
   "main": "<%= name %>.php",
   "person": {
     "name": "<%= authorName %>",
