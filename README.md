@@ -27,7 +27,7 @@ This is useful if your `node_modules` or `vendor` folders have been deleted or b
 
 ### Migrate an existing generated plugin to the latest boilerplate
 
-See [Migrate a legacy generated plugin to the latest boilerplate](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#migrate-a-legacy-generated-plugin-to-the-latest-boilerplate)
+1. [Migrate a legacy generated plugin to the latest boilerplate](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#migrate-a-legacy-generated-plugin-to-the-latest-boilerplate)
 
 ## Maintenance
 
