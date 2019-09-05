@@ -620,77 +620,20 @@ module.exports = class extends Generator {
    * or spawn child processes to install them yourself;
    * and you could take this opportunity to inject dependencies
    * into previously-written files as well
-   * note: installDependencies needs at least one of
+   * note: installDependencies() needs at least one of
    * 'npm', 'bower' or 'yarn' to run.
    *
    * See:
    * - <https://webcake.co/building-a-yeoman-generator/>
-   * - <https://github.com/dotherightthing/generator-wpdtrt-theme-boilerplate/issues/5>
-   * - <https://stackoverflow.com/a/29834006/6850747>
-   * - <https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options>
-   * - <https://github.com/dotherightthing/generator-wpdtrt-theme-boilerplate/issues/30>
+   * - <Re child_process.spawn: https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options>
+   * - <Composer hangs on Generating autoload files: https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues/5>
+   * - <Re spawnCommandSync not working for CLI commands with arguments: https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues/30>
    */
   install() {
-    // Expose the existing OAuth token to Composer
-    // See https://github.com/dotherightthing/
-    // generator-wpdtrt-plugin-boilerplate/wiki/
-    // Set-up-environmental-variables
-    this.spawnCommandSync( 'composer', [
-      'config',
-      '--global',
-      'github-oauth.github.com',
-      process.env.GH_TOKEN
-    ] );
-
-    // composer is installed by travis
-    // composer reads the generated composer.json
-    // this installs the boilerplate class
-    // and makes its gulpfile available for the build
-    this.spawnCommandSync( 'composer', [
-      'install',
-      '--prefer-dist',
-      '--no-interaction',
-      '--no-suggest',
-      '--verbose'
-    ] );
-
-    // enable support for yarn workspaces (experimental)
-    // this allows us to install the dependencies of
-    // wpdtrt-plugin-boilerplate (autoprefixer etc)
-    // as well as those of the generated plugin (gulp)
-    // see ./package.json
-    this.spawnCommandSync( 'yarn', [
-      'config',
-      'set',
-      'workspaces-experimental',
-      'true'
-    ] );
-
-    // install node dependencies
-    // yarn reads the generated package.json & yarn.lock
-    // this installs the dev dependency of Gulp
-    // which is used to run the wpdtrt-plugin-boilerplate gulpfile, below
-    //
-    // note: installDependencies runs too late, causing gulp install to fail
-    // this.installDependencies({
-    //     npm: false,
-    //     bower: false,
-    //     yarn: true
-    // });
-    this.spawnCommandSync( 'yarn', [
-      'install',
-      '--non-interactive'
-    ] );
-
-    // gulp-cli is installed by travis
-    // gulp is installed with the generator
-    // gulp reads ./vendor/dotherightthing/
-    // wpdtrt-plugin-boilerplate/gulpfile.js
-    // yarn run is equivalent to npm run
-    this.spawnCommandSync( 'yarn', [
-      'run',
-      'build'
-    ] );
+    // Change access permissions of install.sh, to 'e[x]ecutable' for '[a]ll users'
+    this.spawnCommandSync( 'chmod a+x install.sh' );
+    // Run ./install.sh
+    this.spawnCommandSync( 'yarn run install' );
   }
 
   /**
