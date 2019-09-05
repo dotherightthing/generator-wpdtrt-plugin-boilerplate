@@ -11,13 +11,23 @@ The generated plugin utilises the functionality packaged in the [DTRT WordPress 
 ## Installation
 
 1. [Create a Git repo to store the code](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Create-a-Git-repo-to-store-the-code)
-2. [Install the generator dependencies](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Install-the-generator-dependencies)
-3. [Install the generator](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Install-the-generator)
+2. [Install the generator dependencies](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#install-the-generator-dependencies)
+3. [Install the generator](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#install-the-generator)
 4. [Set up the required environmental variables](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-environmental-variables)
 5. [Start your MySQL Server](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Start-MySQL-Server)
-6. [Use the generator to scaffold a custom plugin](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Use-the-generator-to-scaffold-a-custom-plugin)
+6. [Use the generator to scaffold a custom plugin](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#scaffold-a-plugin-manually)
 7. [Set up Travis CI](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Travis-CI)
 8. Use the features of the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate)
+
+## Re-installation
+
+This is useful if your `node_modules` or `vendor` folders have been deleted or become corrupted.
+
+1. [Reinstall plugin dependencies manually](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#reinstall-plugin-dependencies-manually)
+
+### Migrate an existing generated plugin to the latest boilerplate
+
+See [Migrate a legacy generated plugin to the latest boilerplate](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#migrate-a-legacy-generated-plugin-to-the-latest-boilerplate)
 
 ## Maintenance
 
@@ -35,10 +45,6 @@ This generator will need to be periodically updated as technologies change:
   ```
 6. Build, test, version & release the updated *DTRT WordPress Plugin Boilerplate Generator*
 7. Update previously generated plugins to reference the updated [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate) and *DTRT WordPress Plugin Boilerplate Generator*, see [Release an update](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Workflows#release-an-update)
-
-### Migrate an existing generated plugin to the latest boilerplate
-
-See [Migrate a legacy generated plugin to the latest boilerplate](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Migrate-a-legacy-generated-plugin-to-the-latest-boilerplate)
 
 ## Appendix
 
