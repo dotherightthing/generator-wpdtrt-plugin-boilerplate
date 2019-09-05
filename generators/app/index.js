@@ -646,7 +646,7 @@ module.exports = class extends Generator {
     // Run ./install.sh
     this.spawnCommandSync( 'yarn', [
       'run',
-      'install'
+      'installplugin'
     ] );
   }
 
