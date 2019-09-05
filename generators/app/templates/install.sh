@@ -37,21 +37,7 @@
 # composer install --prefer-dist --no-interaction --no-suggest --verbose
 # ---
 
-# 3. Legacy:
-# Enable support for yarn workspaces (experimental).
-# Available by default from Yarn 1.0.
-#
-# This allows us to install the dependencies of
-# wpdtrt-plugin-boilerplate (autoprefixer etc)
-# as well as those of the generated plugin (gulp)
-# see ./package.json
-#
-# Example:
-# ---sh
-# yarn config set workspaces-experimental: true
-# ---
-
-# 4. Install node dependencies
+# 3. Install node dependencies
 #
 # Note:
 # - yarn reads the generated package.json & yarn.lock
@@ -63,7 +49,7 @@
 # yarn install --non-interactive
 # ---
 
-# 5. Run the Gulp build task
+# 4. Run the Gulp build task
 #
 # Note:
 # - gulp-cli is installed by travis
@@ -83,7 +69,6 @@ set -e
 echo "Re/install project dependencies" \
 && composer config -g github-oauth.github.com $GH_TOKEN \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
-&& yarn config set workspaces-experimental: true \
 && yarn install --non-interactive \
 && yarn run build \
 && echo "Re/install complete"
