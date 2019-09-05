@@ -182,7 +182,7 @@ function <%= nameSafe %>_deactivate() {
  *
  * @see https://wp-mix.com/wordpress-widget_init-not-working/
  * @see https://codex.wordpress.org/Plugin_API/Action_Reference
- * @todo Add a constructor function to WPDTRT_Blocks_Plugin, to explain the options array
+ * @todo Add a constructor function to <%= nameFriendlySafe %>_Plugin, to explain the options array
  */
 function <%= nameSafe %>_plugin_init() {
 	// pass object reference between classes via global
