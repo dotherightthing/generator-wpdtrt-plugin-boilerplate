@@ -73,12 +73,11 @@ before_install:
 # https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step
 # Note: Remember to run composer update on local dev to get latest updates to dependencies
 install:
-  # Adding Yarn to Travis CI - https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
+  # Install Yarn, so that we can run Yeoman
+  # https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
   - npm install -g yarn
-  # Load the boilerplate, which specifies common Yarn dependencies
-  - composer install
-  # Install the genera
   - yarn install --non-interactive # child plugin
+  # Install Yeoman
   - yarn global add yo
   # Symlink the package to make the generator available via the commandline:
   - yarn link
