@@ -20,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/<%= githubUserName %>/<%= name %>/issues"
   },
-  "keywords": <%- pluginKeywords %>,
   "workspaces": [
     "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
   ],
