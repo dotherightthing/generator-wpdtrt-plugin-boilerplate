@@ -116,11 +116,11 @@ class <%= nameFriendlySafe %>Test extends WP_UnitTestCase {
 		extract( $options, EXTR_IF_EXISTS );
 
 		$post_id = $this->factory->post->create([
-			'post_title' => $post_title,
-			'post_date' => $post_date,
+			'post_title'   => $post_title,
+			'post_date'    => $post_date,
 			'post_content' => $post_content,
-			'post_type' => 'post',
-			'post_status' => 'publish',
+			'post_type'    => 'post',
+			'post_status'  => 'publish',
 		]);
 
 		return $post_id;
