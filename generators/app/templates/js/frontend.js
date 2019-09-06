@@ -10,14 +10,13 @@
  *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  */
 
-/* eslint-env browser */
 /* global jQuery, <%= nameSafe %>_config */
-/* eslint-disable no-unused-vars, no-undef */
+/* eslint-disable camelcase */
 
 /**
  * Object: <%= nameSafe %>_ui
  */
-const <%= nameSafe %>_ui = { // eslint-disable-line camelcase
+const <%= nameSafe %>_ui = {
 
   /**
    * Method: init
@@ -32,7 +31,7 @@ document.addEventListener( 'touchstart', () => {
   // nada, this is just a hack to make :focus state render on touch
 }, false );
 
-jQuery( document ).ready( ( $ ) => {
-  const config = <%= nameSafe %>_config; // eslint-disable-line camelcase
+jQuery( document ).ready( ( $ ) => { // eslint-disable-line no-unused-vars
+  const config = <%= nameSafe %>_config; // eslint-disable-line no-unused-vars
   <%= nameSafe %>_ui.init();
 } );
