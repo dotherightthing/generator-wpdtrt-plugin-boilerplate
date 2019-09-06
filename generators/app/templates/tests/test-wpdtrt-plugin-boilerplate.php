@@ -21,7 +21,7 @@
 
 /**
  * Class: <%= nameFriendlySafe %>Test
- * 
+ *
  * WP_UnitTestCase unit tests for <%= nameSafe %>.
  */
 class <%= nameFriendlySafe %>Test extends WP_UnitTestCase {
@@ -49,7 +49,7 @@ class <%= nameFriendlySafe %>Test extends WP_UnitTestCase {
 
 	/**
 	 * Method: tearDown
-	 * 
+	 *
 	 * TearDown,
 	 * automatically called by PHPUnit after each test method is run.
 	 *
