@@ -1,6 +1,6 @@
 <?php
 /**
- * File: template-parts/<%= name %>/class-<%= name %>/content.php
+ * File: template-parts/<%= name %>/content.php
  *
  * Template to display plugin output in shortcodes and widgets
  *
