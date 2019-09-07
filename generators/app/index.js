@@ -116,9 +116,10 @@ module.exports = class extends Generator {
       folderNameFunctionSafe
     );
 
+    // version matches sitehost container
     this.config.set(
       'phpVersion',
-      this.dtrt ? '7.3.7' : ''
+      this.dtrt ? '7.2.20' : ''
     );
 
     // minimum semver version
