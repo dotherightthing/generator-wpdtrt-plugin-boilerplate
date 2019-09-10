@@ -11,7 +11,7 @@
  */
 
 /* global jQuery, <%= nameSafe %>_config */
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, no-unused-vars */
 
 /**
  * Object: <%= nameSafe %>_ui
