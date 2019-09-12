@@ -64,6 +64,12 @@ module.exports = ( on ) => {
      * - <tenonCommands: https://github.com/poorgeek/tenon-selenium-example/blob/master/test/helpers/tenonCommands.js>
      * - <tenon-node: https://www.npmjs.com/package/tenon-node>
      * - <Cypress.io Front End Unit Tests: https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#d-cypressio-front-end-unit-tests>
+     *
+     * Example:
+     * --- js
+     * cy.task( 'tenonAnalyzeHtml', `${myElement.wrap( '<div/>' ).parent().html()}` )
+     *    .its( 'results' ).should( 'eq', [] );
+     * ---
      */
     tenonAnalyzeHtml( selectorHtml ) {
       const html = normalizeWhitespace( selectorHtml ); // strip whitespace between html tags
@@ -72,16 +78,23 @@ module.exports = ( on ) => {
       } );
 
       return new Promise( ( resolve, reject ) => {
-        tenonApi.analyze( html, { fragment: '1' }, ( err, tenonResult ) => {
+        tenonApi.analyze( html, { fragment: '1', level: 'AAA' }, ( err, tenonResponse ) => {
           if ( err ) {
-            reject( err ); // this error is really cryptic, so always check that the api key is correct!
+            reject( new Error( err ) );
           }
 
-          if ( tenonResult.status > 400 ) {
-            console.log( tenonResult.info );
-            reject( tenonResult.info );
+          if ( tenonResponse.status === 401 ) {
+            reject( new Error( `${tenonResponse.status} Authentication Error. Please check your API key.` ) );
+          } else if ( tenonResponse.status > 400 ) {
+            reject( new Error( `${tenonResponse.status} Error` ) );
           } else {
-            resolve( tenonResult );
+            const dtrtResponse = {};
+            // list the issues
+            dtrtResponse.results = tenonResponse.resultSet.map( result => {
+              return `${ result.errorTitle }`;
+            } );
+
+            resolve( dtrtResponse );
           }
         } );
       } );
