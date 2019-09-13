@@ -7,7 +7,7 @@
  *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
  *
  * See:
- * - [Testing & Debugging](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging)
+ * - [Testing & Debugging: Cypress.io](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging:-Cypress.io)
  */
 
 /* eslint-disable prefer-arrow-callback */
