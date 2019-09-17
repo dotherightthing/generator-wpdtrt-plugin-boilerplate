@@ -2,7 +2,7 @@
 /**
  * File: template-parts/<%= name %>/content.php
  *
- * Template to display plugin output in shortcodes and widgets
+ * Template to display plugin output in shortcodes and widgets.
  *
  * Since:
  *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
