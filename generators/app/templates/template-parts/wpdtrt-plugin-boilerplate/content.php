@@ -31,6 +31,13 @@ $options = get_query_var( 'options' );
 // http://kb.network.dan/php/wordpress/extract/.
 extract( $options, EXTR_IF_EXISTS );
 
+// content between shortcode tags.
+if ( isset( $context ) ) {
+	$content = $context->content;
+} else {
+	$content = '';
+}
+
 // load the data
 // $plugin->get_api_data();
 // $foo = $plugin->get_api_data_bar();
