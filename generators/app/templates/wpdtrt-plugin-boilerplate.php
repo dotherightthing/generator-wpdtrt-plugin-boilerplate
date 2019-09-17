@@ -263,6 +263,8 @@ function <%= nameSafe %>_plugin_init() {
 		),
 	);
 
+	$plugin_dependencies = array();
+
 	/**
 	 * Array: ui_messages
 	 *
@@ -312,6 +314,7 @@ function <%= nameSafe %>_plugin_init() {
 			'messages'              => $ui_messages,
 			'plugin_options'        => $plugin_options,
 			'instance_options'      => $instance_options,
+			'plugin_dependencies'   => $plugin_dependencies,
 			'demo_shortcode_params' => $demo_shortcode_params,
 		)
 	);
