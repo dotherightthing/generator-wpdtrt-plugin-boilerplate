@@ -491,6 +491,13 @@ module.exports = class extends Generator {
       this.destinationPath( 'phpcs.xml' )
     );
 
+    // PHP Unit
+
+    this.fs.copy(
+      this.templatePath( 'phpunit.dist.xml' ),
+      this.destinationPath( 'phpunit.dist.xml' )
+    );
+
     // SCSS Lint config
 
     this.fs.copy(
