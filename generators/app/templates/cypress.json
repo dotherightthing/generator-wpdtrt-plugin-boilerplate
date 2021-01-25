@@ -1,8 +1,0 @@
-{
-  "baseUrl": "<%= cypressBaseURL %>",
-  "pageLoadTimeout": 20000,
-  "responseTimeout": 15000,
-  "viewportWidth": 1366,
-  "viewportHeight": 768,
-  "watchForFileChanges": false
-}
