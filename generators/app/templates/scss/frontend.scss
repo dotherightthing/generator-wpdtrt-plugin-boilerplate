@@ -7,19 +7,33 @@
 //   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 //
 
-@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/variables';
-@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/extends';
-@import 'variables';
+// -------------------------------------------------------------------
+// Variables
+// -------------------------------------------------------------------
+
+@import '../../node_modules/wpdtrt-scss/scss/variables/scss';
+@import 'variables/scss';
+
+// -------------------------------------------------------------------
+// Mixins
+// -------------------------------------------------------------------
+
+@import '../../node_modules/wpdtrt-scss/scss/mixins';
+
+// -------------------------------------------------------------------
+// Extends
+// -------------------------------------------------------------------
+
+@import '../../node_modules/wpdtrt-scss/scss/extends';
 @import 'extends';
 
 // -------------------------------------------------------------------
 // Styles
 // -------------------------------------------------------------------
 
+@import '../icons/icomoon/style.scss';
+@import '../../node_modules/wpdtrt-scss/scss/_frontend';
+
 .<%= name %>--demo {
     background-color: $<%= name %>-bg-color--demo;
 }
-
-// -------------------------------------------------------------------
-// Media Queries
-// -------------------------------------------------------------------

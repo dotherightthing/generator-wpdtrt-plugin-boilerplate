@@ -1,0 +1,19 @@
+// CSS Variables
+// Compiled via NPM scripts, see package.json
+// This file has been separated for consumption by postcss-custom-properties
+//
+// @package     <%= nameFriendlySafe %>
+// @since       <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
+
+// -------------------------------------------------------------------
+// Mixins
+// -------------------------------------------------------------------
+
+@import '../node_modules/wpdtrt-scss/scss/mixins';
+
+// -------------------------------------------------------------------
+// Variables
+// -------------------------------------------------------------------
+
+@import '../node_modules/wpdtrt-scss/scss/variables/css';
+@import 'variables/css';
