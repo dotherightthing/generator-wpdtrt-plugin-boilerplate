@@ -29,7 +29,7 @@ class <%= nameFriendlySafe %>_Widget extends DoTheRightThing\WPDTRT_Plugin_Boile
 	 * Since:
 	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
-	public function __construct( $options ) {
+	public function __construct( $options ) { // phpcs:ignore
 
 		// edit here.
 		parent::__construct( $options );

@@ -26,7 +26,7 @@ class <%= nameFriendlySafe %>_Rewrite extends DoTheRightThing\WPDTRT_Plugin_Boil
 	 * Since:
 	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
-	public function __construct( $options ) {
+	public function __construct( $options ) { // phpcs:ignore
 
 		// edit here.
 		parent::__construct( $options );
@@ -51,7 +51,7 @@ class <%= nameFriendlySafe %>_Rewrite extends DoTheRightThing\WPDTRT_Plugin_Boil
 	 * Since:
 	 *   <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
 	 */
-	protected function wp_setup() {
+	protected function wp_setup() { // phpcs:ignore
 
 		parent::wp_setup();
 
