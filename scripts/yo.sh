@@ -4,4 +4,4 @@ mkdir 'wpdtrt-travistest'
 
 cd wpdtrt-travistest
 
-expect ../expect.sh
+expect ../scripts/expect.sh
