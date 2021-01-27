@@ -135,12 +135,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'wpVersion',
-            '4.9.5'
-        );
-
-        this.config.set(
-            'cypressBaseURL',
-            this.dtrt ? 'https://dontbelievethehype.co.nz' : ''
+            '5.6'
         );
     }
 
@@ -324,7 +319,6 @@ module.exports = class extends Generator {
             authorAbbreviation: this.props.authorAbbreviation,
             authorWordPressName: this.props.authorWordPressName,
             constantStub: this.transforms.nameFriendlySafe.toUpperCase(),
-            cypressBaseURL: this.props.cypressBaseURL,
             description: this.props.description,
             generatorVersion: this.config.get('generatorVersion'),
             githubUserName: this.props.githubUserName,
