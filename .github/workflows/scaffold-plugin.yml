@@ -72,12 +72,9 @@ jobs:
       run: |
         sudo npm link
 
-    - name: Scaffold the plugin
+    - name: Create a directory and scaffold the plugin
       run: |
         ./scripts/yo.sh
-
-    - name: Copy built files to release folder
-      run: npm run release --if-present
 
     # https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
     - name: Archive release folder
