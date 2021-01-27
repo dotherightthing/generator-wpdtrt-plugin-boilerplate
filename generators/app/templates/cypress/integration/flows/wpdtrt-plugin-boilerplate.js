@@ -92,7 +92,7 @@ describe('Test Name', function () {
                 // testing the contents rather than the length gives a more useful error object
                 cy.task('tenonAnalyzeHtml', `${componentName.html()}`)
                 // an empty resultSet indicates that there are no errors
-                .its('resultSet').should('be.empty');
+                    .its('resultSet').should('be.empty');
             });
         });
     });
