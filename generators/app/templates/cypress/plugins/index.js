@@ -1,5 +1,5 @@
 /**
- * File: cypress/plugins/index.js
+ * @file cypress/plugins/index.js
  *
  * Custom plugins for UI testing
  *
@@ -18,21 +18,15 @@ module.exports = (on) => {
     // configure plugins here
     on('task', {
         /**
-         * Lint a URL in Tenon
-         *
-         * Parameters:
-         *   (string) url - Fully qualified URL
-         *
-         * Returns:
-         *   (object) - Tenon response object
-         *
-         * See:
-         * - <tenonCommands: https://github.com/poorgeek/tenon-selenium-example/blob/master/test/helpers/tenonCommands.js>
-         * - <tenon-node: https://www.npmjs.com/package/tenon-node>
-         * - <Cypress.io Front End Unit Tests: https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#d-cypressio-front-end-unit-tests>
+         * @function
+         * @summary Lint a URL in Tenon
          *
          * @param {string} url - Fully qualified URL
-         * @returns {object} - Tenon response object
+         *
+         * @returns {object} Tenon response object
+         * {@link https://github.com/poorgeek/tenon-selenium-example/blob/master/test/helpers/tenonCommands.js|tenonCommands}
+         * {@link https://www.npmjs.com/package/tenon-node|tenon-node}
+         * {@link https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#d-cypressio-front-end-unit-tests|Cypress.io: Front End Unit Tests}
          */
         tenonAnalyzeUrl(url) {
             const tenonApi = new TenonNode({
@@ -55,27 +49,16 @@ module.exports = (on) => {
         },
 
         /**
-         * Lint an HTML fragment in Tenon
-         *
-         * Parameters:
-         *   (string) selectorHtml - HTML fragment
-         *
-         * Returns:
-         *   (object) - Tenon response object
-         *
-         * See:
-         * - <tenonCommands: https://github.com/poorgeek/tenon-selenium-example/blob/master/test/helpers/tenonCommands.js>
-         * - <tenon-node: https://www.npmjs.com/package/tenon-node>
-         * - <Cypress.io Front End Unit Tests: https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#d-cypressio-front-end-unit-tests>
-         *
-         * Example:
-         * --- js
+         * @function
+         * @summary Lint an HTML fragment in Tenon
+         * @param {string} selectorHtml - HTML fragment
+         * @returns {object} Tenon response object
+         * {@link https://github.com/poorgeek/tenon-selenium-example/blob/master/test/helpers/tenonCommands.js|tenonCommands}
+         * {@link https://www.npmjs.com/package/tenon-node|tenon-node}
+         * {@link https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#d-cypressio-front-end-unit-tests|Cypress.io Front End Unit Tests}
+         * @example
          * cy.task('tenonAnalyzeHtml', `${myElement.wrap('<div/>').parent().html()}`)
          *    .its('results').should('eq', []);
-         * ---
-         *
-         * @param {string} selectorHtml - HTML fragment
-         * @returns {object} - Tenon response object
          */
         tenonAnalyzeHtml(selectorHtml) {
             const html = normalizeWhitespace(selectorHtml); // strip whitespace between html tags
