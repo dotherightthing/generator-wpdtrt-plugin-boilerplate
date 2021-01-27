@@ -592,7 +592,23 @@ module.exports = class extends Generator {
      * - <Composer hangs on Generating autoload files: https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues/5>
      * - <Re spawnCommandSync not working for CLI commands with arguments: https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues/30>
      */
-    // install() {}
+    install() {
+        this.spawnCommandSync('npm', [
+            'ci'
+        ]);
+
+        this.spawnCommandSync('npm', [
+            'run',
+            'lint',
+            '--if-present'
+        ]);
+
+        this.spawnCommandSync('npm', [
+            'run',
+            'compile',
+            '--if-present'
+        ]);
+    }
 
     /**
      * Method: end
