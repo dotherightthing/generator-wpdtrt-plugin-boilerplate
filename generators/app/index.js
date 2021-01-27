@@ -507,6 +507,15 @@ module.exports = class extends Generator {
             this.destinationPath('.gitignore')
         );
 
+        // Changelog
+
+        this.fs.copyTpl(
+            this.templatePath('CHANGELOG.md'),
+            this.destinationPath('CHANGELOG.md'),
+            userSettings
+        );
+
+
         // Composer
 
         this.fs.copyTpl(
