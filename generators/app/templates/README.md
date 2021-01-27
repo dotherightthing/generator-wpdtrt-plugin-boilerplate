@@ -8,16 +8,22 @@
 
 Please read [DTRT WordPress Plugin Boilerplate: Workflows](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Workflows).
 
-## WordPress Installation and Usage
+## WordPress Installation
 
 Please read the [WordPress readme.txt](readme.txt).
 
 ## WordPress Usage
-
-TODO
 
 ### Styling
 
 Core CSS properties may be overwritten by changing the variable values in your theme stylesheet.
 
 See `scss/variables/_css.scss`.
+
+## Dependencies
+
+None.
+
+## Demo pages
+
+None.

@@ -24,29 +24,7 @@ License URI: <%= pluginLicenseUrl %>
 
 == Frequently Asked Questions ==
 
-= How do I use the widget? =
-
-One or more widgets can be displayed within one or more sidebars:
-
-1. Locate the widget: Appearance > Widgets > *<%= nameFriendly %> Widget*
-2. Drag and drop the widget into one of your sidebars
-3. Add a *Title*
-4. Specify options
-
-= How do I use the shortcode? =
-
-```
-<!-- within the editor -->
-[<%= nameSafe %> option="value"]
-
-// in a PHP template, as a template tag
-<?php echo do_shortcode( '[<%= nameSafe %> option="value"]' ); ?>
-```
-
-== Screenshots ==
-
-1. The caption for ./images/screenshot-1.(png|jpg|jpeg|gif)
-2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
+See [WordPress Usage](README.md#wordpress-usage).
 
 == Changelog ==
 
