@@ -9,9 +9,9 @@
 /* eslint-disable camelcase, no-unused-vars */
 
 /**
- * @namespace <%= nameSafe %>Ui
+ * @namespace <%= nameJsSafe %>Ui
  */
-const <%= nameSafe %>Ui = {
+const <%= nameJsSafe %>Ui = {
 
     /**
      * Method: init
@@ -91,5 +91,5 @@ jQuery(($) => {
 
     /* eslint-enable */
 
-    console.log('<%= nameSafe %>Ui.init'); // eslint-disable-line no-console
+    console.log('<%= nameJsSafe %>Ui.init'); // eslint-disable-line no-console
 });

@@ -297,6 +297,10 @@ module.exports = class extends Generator {
             .humanize().titleCase()
             .replaceAll('Wpdtrt', 'WPDTRT')
             .replaceAll(' ', '_').s;
+        this.transforms.nameJsSafe = S(this.config.get('name'))
+            .humanize().camelize()
+            .replaceAll('Wpdtrt', 'wpdtrt')
+            .replaceAll(' ', '').s;
         this.transforms.nameTemplate = S(this.config.get('name'))
             .replaceAll('wpdtrt-', '').s;
         /* eslint-disable */
@@ -321,6 +325,7 @@ module.exports = class extends Generator {
             nameAdminMenu: this.transforms.nameAdminMenu,
             nameFriendly: this.props.nameFriendly,
             nameFriendlySafe: this.transforms.nameFriendlySafe,
+            nameJsSafe: this.transforms.nameJsSafe,
             nameSafe: this.config.get('nameSafe'),
             nameTemplate: this.transforms.nameTemplate,
             phpVersion: this.props.phpVersion,
