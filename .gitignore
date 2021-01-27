@@ -22,3 +22,6 @@ docs
 node_modules
 vendor
 # End
+
+# Exceptions for generator files
+!generators/app/templates/*.code-workspace
