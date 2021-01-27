@@ -59,10 +59,14 @@ jobs:
       run: |
         composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Install plugin dependencies
+    - name: Install global packages
+      run: |
+        npm install -g yo
+        npm install -g n
+
+    - name: Install local packages
       run: |
         npm ci
-        npm install --global yo
         
     - name: Symlink the package to make the generator available via the commandline
       run: |
