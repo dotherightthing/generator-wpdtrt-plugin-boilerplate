@@ -70,7 +70,7 @@ jobs:
         
     - name: Symlink the package to make the generator available via the commandline
       run: |
-        npm link
+        sudo npm link
 
     - name: Scaffold the plugin
       run: |
