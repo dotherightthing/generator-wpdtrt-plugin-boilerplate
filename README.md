@@ -63,8 +63,3 @@ This plugin is the result of countless hours of research, including these great 
 * [Create A Custom Yeoman Generator in 4 Easy Steps](https://scotch.io/tutorials/create-a-custom-yeoman-generator-in-4-easy-steps)
 * [Building a Yeoman Generator](https://webcake.co/building-a-yeoman-generator/)
 * [JSONPlaceholder - Fake Online REST API for Testing and Prototyping](http://jsonplaceholder.typicode.com/)
-
-## New docs - TODO
-
-1. `cd generator-wpdtrt-plugin-boilerplate/generators/app`
-2. `sudo npm link`
