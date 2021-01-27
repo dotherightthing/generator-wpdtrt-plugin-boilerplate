@@ -225,12 +225,6 @@ module.exports = class extends Generator {
                 name: 'donateUrl',
                 message: 'Author donation URL',
                 default: this.config.get('donateUrl')
-            },
-            {
-                type: 'input',
-                name: 'cypressBaseURL',
-                message: 'Base URL for testing web pages in Cypress.io',
-                default: this.config.get('cypressBaseURL')
             }
         ];
 
@@ -526,6 +520,12 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('package.json'),
             this.destinationPath('package.json'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('package-lock.json'),
+            this.destinationPath('package-lock.json'),
             userSettings
         );
 
