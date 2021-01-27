@@ -3,7 +3,7 @@
 # https://help.github.com/en/actions/reference/events-that-trigger-workflows#release-event-release
 # https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts#passing-data-between-jobs-in-a-workflow
 
-name: Scaffold a plugin and generate a release
+name: Scaffold a plugin
 
 on: push
 
@@ -75,16 +75,3 @@ jobs:
     - name: Create a directory and scaffold the plugin
       run: |
         ./scripts/yo.sh
-
-    # https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
-    - name: Archive plugin folder
-      uses: actions/upload-artifact@v1
-      with:
-        name: wpdtrt-generated
-        path: wpdtrt-generated
-
-    - name: Archive changelog
-      uses: actions/upload-artifact@v1
-      with:
-        name: wpdtrt-generated/changelog
-        path: wpdtrt-generated/CHANGELOG.md
