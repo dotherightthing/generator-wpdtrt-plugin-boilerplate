@@ -657,11 +657,12 @@ module.exports = class extends Generator {
         ]);
 
         // Copy built files to release folder
-        this.spawnCommandSync('npm', [
-            'run',
-            'release',
-            '--if-present'
-        ]);
+        // Disabled as takes too long when running inside a Github Action
+        // this.spawnCommandSync('npm', [
+        //     'run',
+        //     'release',
+        //     '--if-present'
+        // ]);
     }
 
     /**
