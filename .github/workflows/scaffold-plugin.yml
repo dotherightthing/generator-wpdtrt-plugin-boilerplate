@@ -77,7 +77,7 @@ jobs:
         ./scripts/yo.sh
 
     # https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
-    - name: Archive plugin folder incl release
+    - name: Archive plugin folder
       uses: actions/upload-artifact@v1
       with:
         name: wpdtrt-generated
