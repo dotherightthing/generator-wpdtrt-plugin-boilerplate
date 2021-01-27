@@ -602,47 +602,56 @@ module.exports = class extends Generator {
      * - <Re spawnCommandSync not working for CLI commands with arguments: https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues/30>
      */
     install() {
+        // Install dependencies
         this.spawnCommandSync('npm', [
             'ci'
         ]);
 
+        // Run build
         this.spawnCommandSync('npm', [
             'run',
             'lint',
             '--if-present'
         ]);
 
+        // Run build
         this.spawnCommandSync('npm', [
             'run',
             'compile',
             '--if-present'
         ]);
 
+        // Run tests
         this.spawnCommandSync('npm', [
             'run',
             'test',
             '--if-present'
         ]);
 
+        // Downgrade Node
         this.spawnCommandSync('n', [
             '11.15.0'
         ]);
 
+        // Version generated plugin so it can communicate with wpdtrt-plugin-boilerplate
         this.spawnCommandSync('npm', [
             'run',
             'version',
             '--if-present'
         ]);
 
+        // Upgrade Node
         this.spawnCommandSync('n', [
             '14.3.0'
         ]);
 
+        // Fix node-sass error
         this.spawnCommandSync('npm', [
             'rebuild',
             'node-sass'
         ]);
 
+        // Copy built files to release folder
         this.spawnCommandSync('npm', [
             'run',
             'release',
