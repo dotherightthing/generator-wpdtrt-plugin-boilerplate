@@ -1,6 +1,6 @@
 # DTRT WordPress Plugin Boilerplate Generator
 
-[![GitHub tags](https://img.shields.io/github/tag/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/tags) [![Build Status](https://travis-ci.org/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg?branch=master)](https://travis-ci.org/dotherightthing/generator-wpdtrt-plugin-boilerplate) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues) [![GitHub wiki](https://img.shields.io/badge/documentation-wiki-lightgrey.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki)
+[![GitHub release](https://img.shields.io/github/v/tag/dotherightthing/generator-wpdtrt-plugin-boilerplate)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/releases) [![Build Status](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/workflows/Build%20and%20release%20if%20tagged/badge.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/actions?query=workflow%3A%22Build+and+release+if+tagged%22) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/generator-wpdtrt-plugin-boilerplate.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/issues) [![GitHub wiki](https://img.shields.io/badge/documentation-wiki-lightgrey.svg)](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki)
 
 Generate a best-practice boilerplate for [WordPress](https://wordpress.org/) plugin development.
 
@@ -16,7 +16,7 @@ The generated plugin utilises the functionality packaged in the [DTRT WordPress 
 4. [Set up the required environmental variables](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-environmental-variables)
 5. [Start your MySQL Server](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Start-MySQL-Server)
 6. [Use the generator to scaffold a custom plugin](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Workflows#scaffold-a-plugin-manually)
-7. [Set up Travis CI](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Travis-CI)
+7. [Set up Github Actions CI](https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Github-Actions-CI)
 8. Use the features of the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate)
 
 ## Re-installation
