@@ -3,7 +3,7 @@
 # https://help.github.com/en/actions/reference/events-that-trigger-workflows#release-event-release
 # https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts#passing-data-between-jobs-in-a-workflow
 
-name: Build and release if tagged
+name: Scaffold a plugin and generate a release
 
 on: push
 
@@ -36,6 +36,10 @@ jobs:
         sudo composer self-update --1
         sudo chown $USER $HOME/.composer
 
+
+    - name: Install Expect, to automate user interactions with the Yeoman plugin generator
+      run: sudo apt-get install expect
+
     # Fix Cypress cannot write to the cache directory due to file permissions
     # https://github.com/cypress-io/cypress/issues/1281
     - name: Grant Cypress permission to download to cache directory
@@ -55,25 +59,31 @@ jobs:
       run: |
         composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Install dependencies
+    - name: Install plugin dependencies
       run: |
         npm ci
-
-    - name: Run build
+        npm install --global yo
+        
+    - name: Symlink the package to make the generator available via the commandline
       run: |
-        npm run lint --if-present
-        npm run compile --if-present
+        npm link
 
-    # env: https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1604-README.md
-    # mysql start: https://github.com/actions/virtual-environments/issues/739
-    - name: Run tests
+    - name: Scaffold the plugin
       run: |
-        sudo /etc/init.d/mysql start
-        npm run test --if-present
-      env:
-        WPUNIT_DB_USER: root
-        WPUNIT_DB_PASS: root
-        WPUNIT_DB_HOST: 127.0.0.1
+        ./scripts/yo.sh
 
-script:
-  - ./ci-yo.sh
+    - name: Copy built files to release folder
+      run: npm run release --if-present
+
+    # https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
+    - name: Archive release folder
+      uses: actions/upload-artifact@v1
+      with:
+        name: release
+        path: release
+
+    - name: Archive changelog
+      uses: actions/upload-artifact@v1
+      with:
+        name: changelog
+        path: CHANGELOG.md
