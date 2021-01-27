@@ -239,10 +239,11 @@ function <%= nameSafe %>_plugin_init() {
 	 */
 	$plugin_options = array(
 		'pluginoption1' => array(
-			'type'  => 'text',
-			'label' => __( 'Field label', '<%= name %>' ),
-			'size'  => 10,
-			'tip'   => __( 'Helper text', '<%= name %>' ),
+			'type'    => 'text',
+			'label'   => __( 'Field label', '<%= name %>' ),
+			'size'    => 10,
+			'tip'     => __( 'Helper text', '<%= name %>' ),
+			'default' => 'Fallback value',
 		),
 	);
 
@@ -256,10 +257,11 @@ function <%= nameSafe %>_plugin_init() {
 	 */
 	$instance_options = array(
 		'instanceoption1' => array(
-			'type'  => 'text',
-			'label' => __( 'Field label', '<%= name %>' ),
-			'size'  => 10,
-			'tip'   => __( 'Helper text', '<%= name %>' ),
+			'type'    => 'text',
+			'label'   => __( 'Field label', '<%= name %>' ),
+			'size'    => 10,
+			'tip'     => __( 'Helper text', '<%= name %>' ),
+			'default' => '',
 		),
 	);
 
