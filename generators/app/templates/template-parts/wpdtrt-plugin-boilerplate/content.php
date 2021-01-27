@@ -49,11 +49,10 @@ echo $before_title . $title . $after_title;
 
 <div class="<%= name %>">
 	<?php
-		/* ====== Add plugin output here ====== */
+		echo $content;
 	?>
 </div>
 
 <?php
 // output widget customisations (not output with shortcode).
 echo $after_widget;
-?>
