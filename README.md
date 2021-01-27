@@ -40,7 +40,7 @@ This generator will need to be periodically updated as technologies change:
 5. Update the version of the [DTRT WordPress Plugin Boilerplate](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate) required by the *DTRT WordPress Plugin Boilerplate Generator* in `./generators/app/templates/composer.json`:
   ```
   "require": {
-    "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.6"
+    "dotherightthing/wpdtrt-plugin-boilerplate": "^1.7.12"
   },  
   ```
 6. Build, test, version & release the updated *DTRT WordPress Plugin Boilerplate Generator*
