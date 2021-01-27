@@ -5,7 +5,7 @@
  * @requires DTRT WordPress Plugin Boilerplate Generator <%= generatorVersion %>
  */
 
- /**
+/**
  * jQuery object
  *
  * @external jQuery

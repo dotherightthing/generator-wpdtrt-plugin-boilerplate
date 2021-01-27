@@ -386,6 +386,18 @@ module.exports = class extends Generator {
         // js
 
         this.fs.copyTpl(
+            this.templatePath('js/_backend.js'),
+            this.destinationPath('js/_backend.js'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('js/backend.txt'),
+            this.destinationPath('js/backend.txt'),
+            userSettings
+        );
+
+        this.fs.copyTpl(
             this.templatePath('js/_frontend.js'),
             this.destinationPath('js/_frontend.js'),
             userSettings
@@ -398,14 +410,8 @@ module.exports = class extends Generator {
         );
 
         this.fs.copyTpl(
-            this.templatePath('js/_backend.js'),
-            this.destinationPath('js/_backend.js'),
-            userSettings
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('js/backend.txt'),
-            this.destinationPath('js/backend.txt'),
+            this.templatePath('js/_polyfills.js'),
+            this.destinationPath('js/_polyfills.js'),
             userSettings
         );
 
