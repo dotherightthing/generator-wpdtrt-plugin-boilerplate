@@ -20,9 +20,6 @@
   "bugs": {
     "url": "https://github.com/<%= githubUserName %>/<%= name %>/issues"
   },
-  "dependencies": {
-    "wpdtrt-scss": "github:dotherightthing/wpdtrt-scss#semver:*"
-  },
   "config": {
     "wpdtrt_base_url_local": "http://localhostname.dan",
     "wpdtrt_npm_scripts": "./node_modules/wpdtrt-npm-scripts"
@@ -45,6 +42,9 @@
   "license": "ISC",
   "homepage": "https://github.com/<%= githubUserName %>/<%= name %>",
   "srcDir": "/Volumes/DanBackup/Websites/<%= name %>",
+  "dependencies": {
+    "wpdtrt-scss": "github:dotherightthing/wpdtrt-scss#semver:*"
+  },
   "devDependencies": {
     "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts#semver:*"
   }

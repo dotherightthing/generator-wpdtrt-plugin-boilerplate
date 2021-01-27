@@ -1,8 +1,11 @@
-// CSS Variables
-// Compiled via NPM scripts, see package.json
+//
+// File: scss/<%= nameFriendlySafe %>-variables.scss
+//
+// CSS Custom Properties (variables)
 // This file has been separated for consumption by postcss-custom-properties
 //
-// @package     <%= nameFriendlySafe %>
-// @since       <%= generatorVersion %> - DTRT WordPress Plugin Boilerplate Generator
+// Since:
+//   <%= generatorVersion %>  - DTRT WordPress Plugin Boilerplate Generator
+//
 
 @import 'variables/css';
