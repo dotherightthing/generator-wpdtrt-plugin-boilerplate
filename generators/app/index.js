@@ -617,6 +617,37 @@ module.exports = class extends Generator {
             'compile',
             '--if-present'
         ]);
+
+        this.spawnCommandSync('npm', [
+            'run',
+            'test',
+            '--if-present'
+        ]);
+
+        this.spawnCommandSync('n', [
+            '11.15.0'
+        ]);
+
+        this.spawnCommandSync('npm', [
+            'run',
+            'version',
+            '--if-present'
+        ]);
+
+        this.spawnCommandSync('n', [
+            '14.3.0'
+        ]);
+
+        this.spawnCommandSync('npm', [
+            'rebuild',
+            'node-sass'
+        ]);
+
+        this.spawnCommandSync('npm', [
+            'run',
+            'release',
+            '--if-present'
+        ]);
     }
 
     /**
