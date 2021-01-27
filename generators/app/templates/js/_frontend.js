@@ -24,6 +24,8 @@ const <%= nameSafe %>Ui = {
 jQuery(($) => {
     const config = <%= nameSafe %>_config; // eslint-disable-line
 
+    /* eslint-disable */
+
     // Polyfill for forEach
     if (window.NodeList && !NodeList.prototype.forEach) {
         NodeList.prototype.forEach = Array.prototype.forEach;
@@ -86,6 +88,8 @@ jQuery(($) => {
             }
         });
     }
+
+    /* eslint-enable */
 
     console.log('<%= nameSafe %>Ui.init'); // eslint-disable-line no-console
 });
