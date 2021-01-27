@@ -61,8 +61,8 @@ jobs:
 
     - name: Install global packages
       run: |
-        npm install -g yo
-        npm install -g n
+        sudo npm install -g yo
+        sudo npm install -g n
 
     - name: Install local packages
       run: |
