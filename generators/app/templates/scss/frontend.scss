@@ -33,6 +33,8 @@
 // @import '../icons/icomoon/style.scss';
 @import '../node_modules/wpdtrt-scss/scss/_frontend';
 
-.<%= name %>--demo {
-    background-color: var(--<%= name %>-demo-bgcolor);
+.<%= name %> {
+    &__demo {
+        background-color: var(--<%= name %>-demo-bgcolor);
+    }
 }
