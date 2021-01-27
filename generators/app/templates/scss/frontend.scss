@@ -34,5 +34,5 @@
 @import '../node_modules/wpdtrt-scss/scss/_frontend';
 
 .<%= name %>--demo {
-    background-color: $<%= name %>-bg-color--demo;
+    background-color: var(--<%= name %>-demo-bgcolor);
 }
