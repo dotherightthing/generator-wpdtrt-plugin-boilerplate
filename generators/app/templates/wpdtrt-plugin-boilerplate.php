@@ -4,7 +4,7 @@
  *
  * @package     <%= nameFriendlySafe %>
  * @author      <%= authorName %>
- * @copyright   2018 Do The Right Thing
+ * @copyright   2021 Do The Right Thing
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
