@@ -19,7 +19,7 @@
         "wiki": "https://github.com/<%= githubUserName %>/<%= name %>/wiki"
     },
     "require": {
-        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.7.14"
+        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.7.15"
     },
     "require-dev": {
         "composer-plugin-api": "^1.0",
