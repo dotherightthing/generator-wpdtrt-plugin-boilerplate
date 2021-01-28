@@ -72,6 +72,23 @@ class <%= nameFriendlySafe %>_Plugin extends DoTheRightThing\WPDTRT_Plugin_Boile
 	 */
 
 	/**
+	 * Add project-specific frontend scripts
+	 *
+	 * Use this function to:
+	 * - load scripts in addition to js/frontend-es5.js (via wp_enqueue_script)
+	 * - add keys to <%= nameSafe %>_config (via wp_localize_script)
+	 *
+	 * Don't use function this to:
+	 * - add ES6 scripts requiring transpiling (load them using frontend.txt instead)
+	 *
+	 * @see wpdtrt-plugin-boilerplate/src/Plugin.php
+	 */
+	public function render_js_frontend() { // phpcs:ignore
+		// If editing this function, remove this line to replace the parent function.
+		parent::render_js_frontend();
+	}
+
+	/**
 	 * Group: Filters
 	 * _____________________________________
 	 */
