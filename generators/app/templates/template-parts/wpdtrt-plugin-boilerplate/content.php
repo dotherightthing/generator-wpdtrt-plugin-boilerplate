@@ -18,7 +18,7 @@ $title         = null;
 $after_title   = null; // register_sidebar.
 $after_widget  = null; // register_sidebar.
 
-// shortcode options
+// shortcode options.
 // $foo = null;
 //
 // access to plugin.
@@ -28,7 +28,7 @@ $plugin = null;
 $options = get_query_var( 'options', array() );
 
 // Overwrite variables from array values
-// https://gist.github.com/dotherightthing/a1bde197a6ff5a9fddb886b0eb17ac79
+// https://gist.github.com/dotherightthing/a1bde197a6ff5a9fddb886b0eb17ac79.
 extract( $options, EXTR_IF_EXISTS );
 
 // content between shortcode tags.
