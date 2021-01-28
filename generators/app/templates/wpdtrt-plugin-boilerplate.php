@@ -274,8 +274,8 @@ function <%= nameSafe %>_plugin_init() {
 	 */
 	$ui_messages = array(
 		'demo_data_description'       => __( 'This demo was generated from the following data', '<%= name %>' ),
-		'demo_data_displayed_length'  => __( 'results displayed', '<%= name %>' ),
-		'demo_data_length'            => __( 'results', '<%= name %>' ),
+		'demo_data_displayed_length'  => __( '# results displayed', '<%= name %>' ),
+		'demo_data_length'            => __( '# results', '<%= name %>' ),
 		'demo_data_title'             => __( 'Demo data', '<%= name %>' ),
 		'demo_date_last_updated'      => __( 'Data last updated', '<%= name %>' ),
 		'demo_sample_title'           => __( 'Demo sample', '<%= name %>' ),
