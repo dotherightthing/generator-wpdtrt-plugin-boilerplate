@@ -72,7 +72,7 @@ module.exports = class extends Generator {
 
         this.config.set(
             'donateUrl',
-            this.dtrt ? 'http://dotherightthing.co.nz' : ''
+            this.dtrt ? 'https://dotherightthing.co.nz' : ''
         );
 
         // generatorVersion aids backfilling of functionality
