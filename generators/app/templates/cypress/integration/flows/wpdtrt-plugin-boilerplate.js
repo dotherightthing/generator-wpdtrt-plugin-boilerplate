@@ -31,11 +31,11 @@ describe('Default test', function () {
         cy.reload();
 
         // @aliases
-        cy.get(`.${componentClass}`).as('<%= nameFriendlySafe %>');
+        cy.get(`.${componentClass}`).as('<%= nameJsSafe %>');
 
         // scroll component into view,
         // as Cypress can't always 'see' elements below the fold
-        cy.get('@<%= nameFriendlySafe %>')
+        cy.get('@<%= nameJsSafe %>')
             .scrollIntoView({
                 offset: {
                     top: 100,
@@ -48,11 +48,11 @@ describe('Default test', function () {
     describe('Setup', function () {
         it('Has prerequisites', function () {
             // check that the plugin object is available
-            cy.window().should('have.property', '<%= nameFriendlySafe %>Ui');
+            cy.window().should('have.property', '<%= nameJsSafe %>Ui');
 
             // check that it's an object
             cy.window().then((win) => {
-                expect(win.<%= nameFriendlySafe %>Ui).to.be.a('object');
+                expect(win.<%= nameJsSafe %>Ui).to.be.a('object');
             });
         });
     });
@@ -60,13 +60,13 @@ describe('Default test', function () {
     describe('Load', function () {
         it('Loads', function () {
             // check that the component has been assigned the correct class (redundant check)
-            cy.get('@<%= nameFriendlySafe %>')
+            cy.get('@<%= nameJsSafe %>')
                 .should('have.class', '<%= name %>');
 
             // test the accessibility of the component state using Tenon.io
             // Note: add a wrapper around the component so that the HTML can be submitted independently
             // and in its entirety
-            cy.get('@<%= nameFriendlySafe %>').then((componentName) => {
+            cy.get('@<%= nameJsSafe %>').then((componentName) => {
                 // testing the contents rather than the length gives a more useful error object
                 cy.task('tenonAnalyzeHtml', `${componentName.html()}`)
                 // an empty resultSet indicates that there are no errors
