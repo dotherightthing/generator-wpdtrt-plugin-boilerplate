@@ -1,1 +1,3 @@
-* [46ea18e] Update wpdtrt-plugin-boilerplate from 1.7.15 to 1.7.17
+* [366b6eb] Lint JS
+* [5655c4b] Make default cypress test case more usable
+* [a91f458] Fix support URL
